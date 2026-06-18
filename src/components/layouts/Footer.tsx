@@ -28,7 +28,7 @@ export const Footer = () => {
                 <Sparkles className="w-4.5 h-4.5 text-white" />
               </div>
               <span className="text-lg font-bold tracking-tight font-display text-app-text">
-                Career Mantra
+                Aruna-Nand EdTech Services
               </span>
             </Link>
             <p className="text-sm text-app-muted max-w-xs">
@@ -103,7 +103,7 @@ export const Footer = () => {
 
         <div className="border-t border-app-border mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-app-muted">
-            &copy; {new Date().getFullYear()} Career Mantra Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Aruna-Nand EdTech Services Inc. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-app-muted">
             <a href="#" className="hover:text-app-text">Privacy Policy</a>

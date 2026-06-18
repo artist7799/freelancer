@@ -1287,9 +1287,9 @@ export const CareerRoadmapsSection = () => {
 // ==========================================
 export const TestimonialsCarousel = () => {
   const reviews = [
-    { name: 'Sameer Sen', college: 'IIT Bombay (B.Tech CSE)', review: 'Career Mantra helped me locate specific merit-based financial aids. Their detailed exam timeline kept me on track for registrations.', rating: 5, photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80' },
+    { name: 'Sameer Sen', college: 'IIT Bombay (B.Tech CSE)', review: 'Aruna-Nand EdTech Services helped me locate specific merit-based financial aids. Their detailed exam timeline kept me on track for registrations.', rating: 5, photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80' },
     { name: 'Ankita Murthy', college: 'IIM Bangalore (MBA)', review: 'The side-by-side college comparison dashboard was crucial in analyzing ROI across executive programs. Highly helpful tool!', rating: 5, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80' },
-    { name: 'Dr. Nikhil K', college: 'AIIMS New Delhi (MBBS)', review: 'Finding medical college cutoffs, syllabus structures, and registration portals is notoriously tedious. Career Mantra combines everything.', rating: 4.8, photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80' },
+    { name: 'Dr. Nikhil K', college: 'AIIMS New Delhi (MBBS)', review: 'Finding medical college cutoffs, syllabus structures, and registration portals is notoriously tedious. Aruna-Nand EdTech Services combines everything.', rating: 4.8, photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80' },
     { name: 'Pranav Rao', college: 'NLSIU Bangalore (B.A. LL.B)', review: 'I used the Career Roadmap to analyze paths in corporate law versus legal aid clinic positions. The skill breakdown is spot on.', rating: 5, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&h=120&q=80' }
   ];
 
@@ -1385,7 +1385,7 @@ export const FAQSection = () => {
   const faqs = [
     { q: 'How does the College Predictor compute results?', a: 'Our calculator matches input test scores (JEE, CAT, etc.) against previous year cutoff ranks and counselling databases, factoring in category weightings.' },
     { q: 'Can I shortlist and compare multiple colleges at once?', a: 'Yes! You can click the "Compare" button on any college card. You can add up to 3 colleges and click the Compare icon in the floating header for a detailed spec sheet.' },
-    { q: 'Are all scholarships listed on the platform free to apply?', a: 'Yes. Career Mantra gathers public datasets and coordinates application routes completely free. Specific scholarship providers may require application essays or records.' },
+    { q: 'Are all scholarships listed on the platform free to apply?', a: 'Yes. Aruna-Nand EdTech Services gathers public datasets and coordinates application routes completely free. Specific scholarship providers may require application essays or records.' },
     { q: 'How do I schedule a direct session with a career mentor?', a: 'Go to our "Student Services" section on the home page or contact our support team. We schedule 30-minute introductory calls with certified counsellors and alumni.' }
   ];
 
@@ -1479,7 +1479,7 @@ export const CTA = () => {
             </h2>
             
             <p className="text-sm md:text-base text-app-muted max-w-lg leading-relaxed">
-              Join thousands of students selecting elite universities, funding paths, and skill milestones with Career Mantra today.
+              Join thousands of students selecting elite universities, funding paths, and skill milestones with Aruna-Nand EdTech Services today.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 w-full mt-4">

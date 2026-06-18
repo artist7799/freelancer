@@ -63,7 +63,7 @@ export const Contact = () => {
                   <div>
                     <h4 className="font-bold text-app-text">Office Address</h4>
                     <p className="mt-1 leading-normal">
-                      Career Mantra Towers, Sector 4, Outer Ring Road, Bangalore, Karnataka - 560103
+                      Aruna-Nand EdTech Services Towers, Sector 4, Outer Ring Road, Bangalore, Karnataka - 560103
                     </p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-app-text">Email Admissions desk</h4>
-                    <p className="mt-1 font-semibold text-app-text">admissions@careermantra.com</p>
+                    <p className="mt-1 font-semibold text-app-text">admissions@arunanandedtech.com</p>
                   </div>
                 </div>
               </div>

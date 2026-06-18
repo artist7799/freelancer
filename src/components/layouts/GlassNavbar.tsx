@@ -104,7 +104,7 @@ export const GlassNavbar = () => {
 
   return (
     <>
-      {/* 1. TOP NAV RIBBON (Hidden on mobile for viewport space, styled like Career Mantra) */}
+      {/* 1. TOP NAV RIBBON (Hidden on mobile for viewport space, styled like Aruna-Nand EdTech Services) */}
       <div className="hidden lg:flex fixed top-0 left-0 right-0 h-9 bg-slate-950 text-white z-55 items-center justify-between px-6 lg:px-12 border-b border-white/5 select-none">
         {/* Left: Ribbon Links */}
         <div className="flex items-center gap-6 overflow-x-auto no-scrollbar py-1 text-[11px] font-bold tracking-wider">
@@ -182,25 +182,25 @@ export const GlassNavbar = () => {
       >
         <div className="w-full h-full flex items-center justify-between lg:justify-center gap-6 lg:gap-8 xl:gap-14 px-6 lg:px-12">
           
-          {/* Left: Brand Logo styled like Career Mantra */}
+          {/* Left: Brand Logo styled like Aruna-Nand EdTech Services */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="relative w-15 h-8.5 rounded-full bg-[#1B254B] dark:bg-white flex items-center justify-center border border-slate-700/10 shadow-sm select-none">
-              {/* Circle on the left enclosing C */}
+              {/* Circle on the left enclosing A */}
               <div className="absolute left-[3px] w-6.5 h-6.5 rounded-full border border-white dark:border-[#1B254B] flex items-center justify-center">
                 <span className="font-display font-black text-[11px] text-white dark:text-[#1B254B] tracking-tight">
-                  C
+                  A
                 </span>
               </div>
               {/* Slanted Slash Divider */}
               <div className="w-[1.5px] h-5 bg-white dark:bg-[#1B254B] transform rotate-[25deg] absolute left-[30px] opacity-80" />
-              {/* Letter M on the right */}
+              {/* Letter N on the right */}
               <span className="font-display font-black text-[11px] text-white dark:text-[#1B254B] tracking-tight absolute right-[8px]">
-                M
+                N
               </span>
             </div>
             <div className="flex flex-col text-left">
               <span className="text-lg font-black tracking-tight font-display text-[#1B254B] dark:text-white leading-none">
-                CAREER MANTRA
+                ARUNA-NAND EDTECH SERVICES
               </span>
               <span className="text-[8px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-0.5 leading-none">
                 Unlock Hidden Potential

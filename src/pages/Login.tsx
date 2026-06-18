@@ -53,7 +53,7 @@ export const Login = () => {
           {/* Header */}
           <div className="flex flex-col gap-1.5">
             <h2 className="font-display font-extrabold text-2xl text-app-text tracking-tight">
-              Sign In to Career Mantra
+              Sign In to Aruna-Nand EdTech Services
             </h2>
             <p className="text-xs text-app-muted">
               Access college shortlists, checklists, and advisor callback queues.
