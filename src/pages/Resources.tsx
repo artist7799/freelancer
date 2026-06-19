@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { Download, Search, FileText, X, BookOpen, Clock, Calendar, User } from 'lucide-react';
-import { blogs } from '../data/blogs';
+import { useBlogs } from '../hooks/useBlogs';
 import { BlogCard } from '../components/cards/BlogCard';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
 import { useGlobalStore } from '../store/useGlobalStore';
 
 export const Resources = () => {
   const addToast = useGlobalStore().addToast;
+  const { useBlogsQuery } = useBlogs();
+  const { data: blogs = [] } = useBlogsQuery({ limit: 1000 });
 
   // States
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedBlog, setSelectedBlog] = useState<typeof blogs[0] | null>(null);
+  const [selectedBlog, setSelectedBlog] = useState<any | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
   const guides = [
@@ -31,7 +33,7 @@ export const Resources = () => {
     }, 1500);
   };
 
-  const filteredBlogs = blogs.filter((b) =>
+  const filteredBlogs = blogs.filter((b: any) =>
     b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     b.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -73,7 +75,7 @@ export const Resources = () => {
                   <button
                     disabled={downloadingId === guide.id}
                     onClick={() => handleDownload(guide.id, guide.title)}
-                    className="p-3 rounded-xl bg-white/5 border border-app-border text-app-muted hover:text-white hover:bg-primary hover:border-transparent transition-all flex items-center justify-center flex-shrink-0 disabled:opacity-50"
+                    className="p-3 rounded-xl bg-app-card border border-app-border text-app-muted hover:text-white hover:bg-primary hover:border-transparent transition-all flex items-center justify-center flex-shrink-0 disabled:opacity-50"
                   >
                     {downloadingId === guide.id ? (
                       <span className="w-5 h-5 rounded-full border-2 border-current border-t-transparent animate-spin" />
@@ -113,9 +115,9 @@ export const Resources = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredBlogs.map((blog) => (
+              {filteredBlogs.map((blog: any) => (
                 <ScrollReveal key={blog.id} delay={0} duration={0.4}>
-                  <BlogCard blog={blog} onReadMore={(blg) => setSelectedBlog(blg)} />
+                  <BlogCard blog={blog} onReadMore={(blg: any) => setSelectedBlog(blg)} />
                 </ScrollReveal>
               ))}
             </div>
@@ -129,7 +131,7 @@ export const Resources = () => {
         <div className="fixed inset-0 z-55 flex items-center justify-center p-4">
           <div
             onClick={() => setSelectedBlog(null)}
-            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-app-bg/60 backdrop-blur-sm"
           />
           <div className="relative w-full max-w-2xl rounded-2xl border border-app-border bg-app-bg p-6 md:p-8 overflow-hidden shadow-2xl z-10 max-h-[85vh] overflow-y-auto">
             <div className="flex justify-between items-start gap-4 mb-4 border-b border-app-border pb-4">
@@ -143,7 +145,7 @@ export const Resources = () => {
               </div>
               <button
                 onClick={() => setSelectedBlog(null)}
-                className="p-1 rounded-lg text-app-muted hover:text-app-text hover:bg-white/5 border border-transparent hover:border-app-border"
+                className="p-1 rounded-lg text-app-muted hover:text-app-text hover:bg-app-card border border-transparent hover:border-app-border"
               >
                 <X className="w-5 h-5" />
               </button>

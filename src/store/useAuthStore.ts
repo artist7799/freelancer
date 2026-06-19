@@ -1,78 +1,246 @@
 import { create } from 'zustand';
 import { useGlobalStore } from './useGlobalStore';
+import { authService } from '../services/auth.service';
 
-interface User {
-  name: string;
+export interface User {
+  id: string;
+  fullName: string;
   email: string;
   phone: string;
+  role: 'student' | 'admin';
+  profileImage: string;
+  city: string;
+  state: string;
+  country: string;
+  isVerified: boolean;
 }
 
 interface AuthState {
   user: User | null;
+  accessToken: string | null;
   isAuthenticated: boolean;
   isVerifyingOtp: boolean;
-  tempRegData: { name: string; email: string; phone: string } | null;
+  tempRegData: { name: string; email: string; phone: string; password?: string } | null;
+  setAccessToken: (token: string | null) => void;
   login: (email: string, password: string) => Promise<boolean>;
-  register: (name: string, email: string, phone: string) => void;
-  verifyOtp: (otp: string) => boolean;
-  logout: () => void;
+  register: (name: string, email: string, phone: string, password: string) => Promise<boolean>;
+  verifyOtp: (otp: string) => Promise<boolean>;
+  resendOtp: () => Promise<boolean>;
+  logout: () => Promise<void>;
+  updateUserProfile: (formData: FormData) => Promise<boolean>;
+  fetchUserProfile: () => Promise<void>;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
-  isAuthenticated: false,
+// Helper to safely fetch initial storage state
+const getStoredAuth = () => {
+  try {
+    const userStr = localStorage.getItem('cm_user');
+    const tokenStr = localStorage.getItem('cm_token');
+    return {
+      user: userStr ? JSON.parse(userStr) : null,
+      accessToken: tokenStr || null,
+      isAuthenticated: !!tokenStr,
+    };
+  } catch {
+    return { user: null, accessToken: null, isAuthenticated: false };
+  }
+};
+
+const initialAuth = getStoredAuth();
+
+export const useAuthStore = create<AuthState>((set, get) => ({
+  user: initialAuth.user,
+  accessToken: initialAuth.accessToken,
+  isAuthenticated: initialAuth.isAuthenticated,
   isVerifyingOtp: false,
   tempRegData: null,
+
+  setAccessToken: (token) => {
+    if (token) {
+      localStorage.setItem('cm_token', token);
+      set({ accessToken: token, isAuthenticated: true });
+    } else {
+      localStorage.removeItem('cm_token');
+      set({ accessToken: null, isAuthenticated: false });
+    }
+  },
+
   login: async (email, password) => {
     const addToast = useGlobalStore.getState().addToast;
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    try {
+      const response = await authService.login({ email, password });
+      const user = response.data.user;
+      const token = response.accessToken;
 
-    // Simple mock check
-    if (email && password.length >= 6) {
-      const mockUser = {
-        name: 'Demo Student',
-        email: email,
-        phone: '+91 98765 43210',
-      };
-      set({ user: mockUser, isAuthenticated: true });
-      addToast(`Welcome back, ${mockUser.name}!`, 'success');
+      localStorage.setItem('cm_user', JSON.stringify(user));
+      localStorage.setItem('cm_token', token);
+
+      set({
+        user,
+        accessToken: token,
+        isAuthenticated: true,
+        isVerifyingOtp: false,
+        tempRegData: null,
+      });
+
+      addToast(`Welcome back, ${user.fullName}!`, 'success');
       return true;
-    } else {
-      addToast('Invalid email or password (min 6 characters)', 'error');
+    } catch (error: any) {
+      const msg = error.response?.data?.message || 'Invalid email or password';
+      
+      // If user is unverified, trigger OTP verify state
+      if (error.response && error.response.status === 403) {
+        set({
+          isVerifyingOtp: true,
+          tempRegData: { name: '', email, phone: '' },
+        });
+        // Trigger resend OTP so user gets a fresh code
+        try {
+          await authService.resendOtp(email);
+          addToast('Your account is not verified. Enter the OTP sent to your email.', 'info');
+        } catch (resendErr: any) {
+          const resendMsg = resendErr.response?.data?.message || '';
+          if (resendMsg.toLowerCase().includes('already verified')) {
+            // Account IS verified — wrong password
+            set({ isVerifyingOtp: false, tempRegData: null });
+            addToast('Incorrect password. Please try again.', 'error');
+          } else {
+            addToast('Your account is not verified. Please request a new OTP.', 'info');
+          }
+        }
+      } else {
+        addToast(msg, 'error');
+      }
       return false;
     }
   },
-  register: (name, email, phone) => {
+
+  register: async (name, email, phone, password) => {
     const addToast = useGlobalStore.getState().addToast;
-    set({
-      isVerifyingOtp: true,
-      tempRegData: { name, email, phone },
-    });
-    addToast('OTP sent to your registered mobile and email!', 'info');
+    try {
+      await authService.register({
+        fullName: name,
+        email,
+        phone,
+        password,
+      });
+
+      set({
+        isVerifyingOtp: true,
+        tempRegData: { name, email, phone, password },
+      });
+
+      addToast('OTP sent to your registered email address!', 'success');
+      return true;
+    } catch (error: any) {
+      const msg = error.response?.data?.message || 'Registration failed';
+      addToast(msg, 'error');
+      return false;
+    }
   },
-  verifyOtp: (otp) => {
-    const { tempRegData } = useAuthStore.getState();
+
+  verifyOtp: async (otp) => {
+    const { tempRegData } = get();
     const addToast = useGlobalStore.getState().addToast;
 
-    if (otp === '123456' || otp === '1234') { // Mock OTP check
-      if (tempRegData) {
-        set({
-          user: tempRegData,
-          isAuthenticated: true,
-          isVerifyingOtp: false,
-          tempRegData: null,
-        });
-        addToast('Verification successful! Welcome to the platform.', 'success');
-        return true;
-      }
+    if (!tempRegData?.email) {
+      addToast('Email context missing. Please register again.', 'error');
+      return false;
     }
-    addToast('Incorrect OTP. Try entering 123456.', 'error');
-    return false;
+
+    try {
+      const response = await authService.verifyOtp(tempRegData.email, otp);
+      const user = response.data.user;
+      const token = response.accessToken;
+
+      localStorage.setItem('cm_user', JSON.stringify(user));
+      localStorage.setItem('cm_token', token);
+
+      set({
+        user,
+        accessToken: token,
+        isAuthenticated: true,
+        isVerifyingOtp: false,
+        tempRegData: null,
+      });
+
+      addToast('Email verified successfully! Welcome to Aruna-Nand EdTech Services.', 'success');
+      return true;
+    } catch (error: any) {
+      const msg = error.response?.data?.message || 'Invalid or expired OTP. Please request a new one.';
+      addToast(msg, 'error');
+      console.error('[verifyOtp error]', error.response?.data);
+      return false;
+    }
   },
-  logout: () => {
+
+  resendOtp: async () => {
+    const { tempRegData } = get();
     const addToast = useGlobalStore.getState().addToast;
-    set({ user: null, isAuthenticated: false });
+
+    if (!tempRegData?.email) {
+      addToast('Email context missing.', 'error');
+      return false;
+    }
+
+    try {
+      await authService.resendOtp(tempRegData.email);
+      addToast('A new OTP verification code has been sent.', 'info');
+      return true;
+    } catch (error: any) {
+      const msg = error.response?.data?.message || 'Failed to resend OTP';
+      addToast(msg, 'error');
+      return false;
+    }
+  },
+
+  logout: async () => {
+    const addToast = useGlobalStore.getState().addToast;
+    try {
+      await authService.logout();
+    } catch (e) {
+      // Ignore errors on logout
+    }
+
+    localStorage.removeItem('cm_user');
+    localStorage.removeItem('cm_token');
+
+    set({
+      user: null,
+      accessToken: null,
+      isAuthenticated: false,
+      isVerifyingOtp: false,
+      tempRegData: null,
+    });
+
     addToast('Logged out successfully.', 'info');
+  },
+
+  updateUserProfile: async (formData) => {
+    const addToast = useGlobalStore.getState().addToast;
+    try {
+      const response = await authService.updateProfile(formData);
+      const user = response.data.user;
+      
+      localStorage.setItem('cm_user', JSON.stringify(user));
+      set({ user });
+      addToast('Profile updated successfully!', 'success');
+      return true;
+    } catch (error: any) {
+      const msg = error.response?.data?.message || 'Failed to update profile';
+      addToast(msg, 'error');
+      return false;
+    }
+  },
+
+  fetchUserProfile: async () => {
+    try {
+      const response = await authService.getProfile();
+      const user = response.data.user;
+      localStorage.setItem('cm_user', JSON.stringify(user));
+      set({ user });
+    } catch (error) {
+      console.error('Failed to sync profile from server:', error);
+    }
   },
 }));

@@ -97,7 +97,7 @@ export const SearchEverywhereModal: React.FC = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSearchModalOpen(false)}
-          className="fixed inset-0 bg-slate-950/65 backdrop-blur-md"
+          className="fixed inset-0 bg-app-bg/65 backdrop-blur-md"
         />
 
         {/* Modal Container */}
@@ -119,12 +119,12 @@ export const SearchEverywhereModal: React.FC = () => {
               onChange={(e) => setQuery(e.target.value)}
               className="flex-1 bg-transparent border-0 outline-0 text-app-text placeholder-app-muted text-base"
             />
-            <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-xs font-semibold rounded bg-white/5 border border-white/10 text-app-muted">
+            <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-xs font-semibold rounded bg-app-card border border-app-border text-app-muted">
               ESC
             </kbd>
             <button
               onClick={() => setSearchModalOpen(false)}
-              className="p-1 rounded-lg text-app-muted hover:text-app-text hover:bg-white/5"
+              className="p-1 rounded-lg text-app-muted hover:text-app-text hover:bg-app-card"
             >
               <X className="w-4 h-4" />
             </button>
@@ -139,13 +139,13 @@ export const SearchEverywhereModal: React.FC = () => {
                   Type to start searching across the system
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-app-border text-app-muted">
+                  <span className="text-xs px-2.5 py-1 rounded-full bg-app-card border border-app-border text-app-muted">
                     "IIT Bombay"
                   </span>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-app-border text-app-muted">
+                  <span className="text-xs px-2.5 py-1 rounded-full bg-app-card border border-app-border text-app-muted">
                     "JEE Advanced"
                   </span>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-app-border text-app-muted">
+                  <span className="text-xs px-2.5 py-1 rounded-full bg-app-card border border-app-border text-app-muted">
                     "Aditya Birla"
                   </span>
                 </div>
@@ -170,7 +170,7 @@ export const SearchEverywhereModal: React.FC = () => {
                         <button
                           key={c.id}
                           onClick={() => handleSelect(`/colleges/${c.id}`)}
-                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 light:hover:bg-slate-100 transition-all text-left w-full group"
+                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-app-card light:hover:bg-slate-100 transition-all text-left w-full group"
                         >
                           <div>
                             <p className="text-sm font-semibold text-app-text group-hover:text-primary transition-all">
@@ -197,7 +197,7 @@ export const SearchEverywhereModal: React.FC = () => {
                         <button
                           key={e.id}
                           onClick={() => handleSelect('/exams')}
-                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 light:hover:bg-slate-100 transition-all text-left w-full group"
+                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-app-card light:hover:bg-slate-100 transition-all text-left w-full group"
                         >
                           <div>
                             <p className="text-sm font-semibold text-app-text group-hover:text-secondary transition-all">
@@ -224,7 +224,7 @@ export const SearchEverywhereModal: React.FC = () => {
                         <button
                           key={s.id}
                           onClick={() => handleSelect('/scholarships')}
-                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 light:hover:bg-slate-100 transition-all text-left w-full group"
+                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-app-card light:hover:bg-slate-100 transition-all text-left w-full group"
                         >
                           <div>
                             <p className="text-sm font-semibold text-app-text group-hover:text-accent transition-all">
@@ -251,7 +251,7 @@ export const SearchEverywhereModal: React.FC = () => {
                         <button
                           key={b.id}
                           onClick={() => handleSelect('/resources')}
-                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 light:hover:bg-slate-100 transition-all text-left w-full group"
+                          className="flex items-center justify-between p-2.5 rounded-xl hover:bg-app-card light:hover:bg-slate-100 transition-all text-left w-full group"
                         >
                           <div>
                             <p className="text-sm font-semibold text-app-text group-hover:text-success transition-all">
@@ -270,7 +270,7 @@ export const SearchEverywhereModal: React.FC = () => {
           </div>
 
           {/* Footer Guide */}
-          <div className="p-3 bg-white/[0.02] border-t border-app-border flex items-center justify-between text-xs text-app-muted">
+          <div className="p-3 bg-app-card border-t border-app-border flex items-center justify-between text-xs text-app-muted">
             <div className="flex gap-4">
               <span>↑↓ to navigate</span>
               <span>↵ to select</span>

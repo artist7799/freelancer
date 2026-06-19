@@ -52,7 +52,7 @@ export const RoadmapCard = ({ roadmap }: RoadmapCardProps) => {
           {roadmap.skills.slice(0, 4).map((skill, idx) => (
             <span
               key={idx}
-              className="text-[11px] px-2 py-0.5 rounded bg-white/5 border border-app-border text-app-muted font-medium"
+              className="text-[11px] px-2 py-0.5 rounded bg-app-card border border-app-border text-app-muted font-medium"
             >
               {skill}
             </span>

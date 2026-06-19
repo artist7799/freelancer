@@ -3,12 +3,16 @@ import {
   Hero,
   PopularDestinations,
   StudentHelpDesk,
-  FeaturedColleges,
   TopCourses,
+  DisciplinesSection,
   PlacementUniversities,
   AdmissionBanners,
+  FeaturedCollegesMockup,
+  StudentChoiceColleges,
+  TopCollegesList,
+  PlacementVerifiedColleges,
+  UpcomingExamsCarousel,
   ScholarshipsList,
-  ExamsTimeline,
   StudentServices,
   CareerRoadmapsSection,
   TestimonialsCarousel,
@@ -22,13 +26,17 @@ export const Home: React.FC = () => {
     <div className="relative w-full">
       <Hero />
       <PopularDestinations />
+      <DisciplinesSection />
       <StudentHelpDesk />
       <TopCourses />
       <PlacementUniversities />
       <AdmissionBanners />
-      <FeaturedColleges />
+      <FeaturedCollegesMockup />
+      <StudentChoiceColleges />
+      <TopCollegesList />
+      <PlacementVerifiedColleges />
+      <UpcomingExamsCarousel />
       <ScholarshipsList />
-      <ExamsTimeline />
       <StudentServices />
       <CareerRoadmapsSection />
       <TestimonialsCarousel />

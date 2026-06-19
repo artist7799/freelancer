@@ -67,6 +67,9 @@ export interface Exam {
   pattern: string;
   difficulty: string;
   description: string;
+  mode?: 'online' | 'offline' | 'both';
+  resultDate?: string;
+  courses?: string[];
 }
 
 export interface Scholarship {
@@ -106,4 +109,17 @@ export interface Blog {
   excerpt: string;
   content: string;
   readTime: string;
+}
+
+export interface CollegeReview {
+  id: string;
+  collegeName: string;
+  studentName: string;
+  course: string;
+  state: string;
+  city: string;
+  rating: number;
+  campusLife: string;
+  internships: string;
+  placements: string;
 }

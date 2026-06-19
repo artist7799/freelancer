@@ -18,42 +18,21 @@ interface GlobalState {
 }
 
 export const useGlobalStore = create<GlobalState>((set) => {
-  // Read initial theme from HTML class or localStorage
-  const initialTheme = 
-    localStorage.getItem('theme') === 'light' || 
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)
-      ? 'light'
-      : 'dark';
+  // Read initial theme - locked to light mode
+  const initialTheme = 'light';
 
-  // Apply theme class to document
-  if (initialTheme === 'light') {
-    document.documentElement.classList.add('light');
-  } else {
-    document.documentElement.classList.remove('light');
-  }
+  // Apply light theme class to document
+  document.documentElement.classList.add('light');
 
   return {
     theme: initialTheme,
-    setTheme: (theme) => {
-      localStorage.setItem('theme', theme);
-      if (theme === 'light') {
-        document.documentElement.classList.add('light');
-      } else {
-        document.documentElement.classList.remove('light');
-      }
-      set({ theme });
+    setTheme: () => {
+      document.documentElement.classList.add('light');
+      set({ theme: 'light' });
     },
     toggleTheme: () => {
-      set((state) => {
-        const nextTheme = state.theme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', nextTheme);
-        if (nextTheme === 'light') {
-          document.documentElement.classList.add('light');
-        } else {
-          document.documentElement.classList.remove('light');
-        }
-        return { theme: nextTheme };
-      });
+      document.documentElement.classList.add('light');
+      set({ theme: 'light' });
     },
     searchModalOpen: false,
     setSearchModalOpen: (searchModalOpen) => set({ searchModalOpen }),

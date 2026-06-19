@@ -1,118 +1,302 @@
-import { useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Sparkles, MapPin, Mail, Phone, Clock } from 'lucide-react';
 import { useGlobalStore } from '../../store/useGlobalStore';
 
-export const Footer = () => {
-  const [email, setEmail] = useState('');
+const popularSearchesData = [
+  "Top MBA/PGDM Colleges in Pune",
+  "Top MBA/PGDM Colleges in Bangalore",
+  "Top MBA/PGDM Colleges in Indore",
+  "Top MBA Colleges in Delhi-NCR",
+  "Top MBA Colleges in Mumbai",
+  "Top MBA Colleges in Bhopal",
+  "Top MBA Colleges in Bhubaneswar",
+  "Top MBA Colleges in Jaipur",
+  "Top MBA Colleges in Coimbatore",
+  "Top MBA Colleges in Lucknow",
+  "Top MBA Colleges in Hyderabad",
+  "Top MBA Colleges in Rajkot",
+  "Top MBA Colleges in Guntur",
+  "Top MBA Colleges in Chandigarh",
+  "Top MBA Colleges in Surat",
+  "Top MBA Colleges in Jabalpur",
+  "Top MBA Colleges in Chennai",
+  "Top MBA Colleges in Kolkata",
+  "Top B-Tech Colleges in Pune",
+  "Top B-Tech Colleges in Mumbai",
+  "Top B-Tech Colleges in Bhopal",
+  "Top B-Tech Colleges in Rajkot",
+  "Top B-Tech Colleges in Indore",
+  "Top B-Tech Colleges in Bhubaneswar",
+  "Top B-Tech Colleges in Nagpur",
+  "Top B-Tech Colleges in Bengaluru",
+  "Top B-Tech Colleges in Delhi",
+  "Top B-Tech Colleges in Hyderabad",
+  "Top B-Tech Colleges in Thane",
+  "Top B-Tech Colleges in Surat",
+  "Top B-Tech Colleges in Chennai",
+  "Top B-Tech Colleges in Kolkata",
+  "Top B-Tech Colleges in Lucknow",
+  "Top B-Tech Colleges in Chandigarh",
+  "Top Law Colleges in Pune",
+  "Top Law Colleges in Mumbai",
+  "Top Law Colleges in Indore",
+  "Top Law Colleges in Chennai",
+  "Top Law Colleges in Hyderabad",
+  "Top Law Colleges in Rajkot",
+  "Top Law Colleges in Kolkata",
+  "Top Law Colleges in Surat",
+  "Top Law Colleges in Chandigarh",
+  "Top Law Colleges in Lucknow",
+  "Top Law Colleges in Bengaluru",
+  "Top Design Colleges in Pune",
+  "Top Design Colleges in Mumbai",
+  "Top Design Colleges in Indore",
+  "Top Design Colleges in Chennai",
+  "Top Design Colleges in Rajkot",
+  "Top Design Colleges in Kolkata",
+  "Top Design Colleges in Surat",
+  "Top Design Colleges in Chandigarh",
+  "Top Design Colleges in Lucknow",
+  "Top Design Colleges in Bengaluru"
+];
+
+const PopularSearches = () => {
+  const navigate = useNavigate();
   const addToast = useGlobalStore().addToast;
 
-  const handleSubscribe = (e: FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    addToast('Thank you for subscribing! Stay tuned for updates.', 'success');
-    setEmail('');
+  const handleSearchClick = (searchQuery: string) => {
+    addToast(`Searching for "${searchQuery}"...`, 'info');
+    navigate(`/colleges?search=${encodeURIComponent(searchQuery)}`);
   };
 
   return (
-    <footer className="border-t border-app-border bg-app-bg relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[150px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="bg-slate-50/50 dark:bg-app-card border-t border-app-border py-16 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-display font-bold text-app-text tracking-tight mb-8 text-slate-850 dark:text-white">
+          Popular <span className="text-[#FF5E14]">Searches</span>
+        </h2>
+        <div className="flex flex-wrap justify-center gap-2.5 max-w-6xl mx-auto">
+          {popularSearchesData.map((search, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleSearchClick(search)}
+              className="text-xs text-slate-600 dark:text-slate-300 hover:text-white bg-white dark:bg-transparent hover:bg-[#FF5E14] dark:hover:bg-[#FF5E14] border border-slate-200 dark:border-app-border hover:border-transparent dark:hover:border-transparent px-4 py-2 rounded-full cursor-pointer transition-all duration-300 hover:-translate-y-0.5 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-md hover:shadow-orange-500/10 active:scale-95"
+            >
+              {search}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-      <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
-          {/* Logo Section */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-secondary">
-                <Sparkles className="w-4.5 h-4.5 text-white" />
+export const Footer = () => {
+
+  const footerSections = [
+    {
+      title: "TOP COLLEGES",
+      links: [
+        { label: "Engineering", path: "/colleges?course=Engineering" },
+        { label: "Law", path: "/colleges?course=Law" },
+        { label: "Commerce", path: "/colleges?course=Commerce" },
+        { label: "Management", path: "/colleges?course=Management" },
+        { label: "Arts", path: "/colleges?course=Arts" },
+        { label: "Computer", path: "/colleges?course=Computer" },
+        { label: "Abroad Education", path: "/colleges" }
+      ]
+    },
+    {
+      title: "TOP EXAM",
+      links: [
+        { label: "Management Exams", path: "/exams" },
+        { label: "Medical Exams", path: "/exams" },
+        { label: "Pharmacy Exams", path: "/exams" },
+        { label: "Engineering Exams", path: "/exams" },
+        { label: "Law Exams", path: "/exams" },
+        { label: "Commerce Exam", path: "/exams" },
+        { label: "Online Exam", path: "/exams" }
+      ]
+    },
+    {
+      title: "STUDENT HELPDESK",
+      links: [
+        { label: "Common Application Process", path: "/register" },
+        { label: "Education Loan", path: "/contact" },
+        { label: "Expert Guidance", path: "/contact" },
+        { label: "Cashback Offers Program", path: "/scholarships" },
+        { label: "Exam Rank Predictor", path: "/exams" },
+        { label: "Re-Admission", path: "/register" },
+        { label: "Apply For Scholarship Test", path: "/scholarships" }
+      ]
+    },
+    {
+      title: "STUDENT HELPDESK",
+      links: [
+        { label: "Career Profiling Test", path: "/careers" },
+        { label: "Compare College", path: "/compare" },
+        { label: "College Predictor", path: "/colleges" }
+      ]
+    },
+    {
+      title: "LATEST COLLEGE UPDATES",
+      links: [
+        { label: "Top MBA admissions", path: "/colleges?course=Management" },
+        { label: "Blog", path: "/resources" },
+        { label: "Terms & Conditions", path: "/resources" },
+        { label: "Events", path: "/resources" },
+        { label: "Privacy Policy", path: "/resources" },
+        { label: "Refund & Cancellation Policy", path: "/resources" }
+      ]
+    }
+  ];
+
+  return (
+    <div className="flex flex-col w-full">
+      {/* Popular Searches tag cloud */}
+      <PopularSearches />
+
+      {/* Redesigned Footer Section */}
+      <footer className="bg-[#001D3D] text-white border-t border-blue-900/40 relative overflow-hidden py-16 px-6">
+        {/* Background Glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start text-left pb-12 border-b border-white/10">
+            {/* Left Column: Brand & Contact Info */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-secondary">
+                  <Sparkles className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-lg font-black tracking-tight font-display text-white uppercase">
+                  ARUNA-NAND EDTECH
+                </span>
               </div>
-              <span className="text-lg font-bold tracking-tight font-display text-app-text">
-                Aruna-Nand EdTech Services
-              </span>
-            </Link>
-            <p className="text-sm text-app-muted max-w-xs">
-              Empowering students globally to discover, evaluate, and secure their dream education and career roadmaps.
-            </p>
-            <div className="flex items-center gap-3 mt-2">
-              <a href="#" className="p-2 rounded-lg bg-app-card hover:bg-app-card-hover border border-app-border text-app-muted hover:text-app-text transition-all" aria-label="Twitter">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-              <a href="#" className="p-2 rounded-lg bg-app-card hover:bg-app-card-hover border border-app-border text-app-muted hover:text-app-text transition-all" aria-label="GitHub">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.193 22 16.44 22 12.017 22 6.484 17.522 2 12 2z"/></svg>
-              </a>
-              <a href="#" className="p-2 rounded-lg bg-app-card hover:bg-app-card-hover border border-app-border text-app-muted hover:text-app-text transition-all" aria-label="LinkedIn">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              </a>
+              <p className="text-xs text-slate-350 leading-relaxed font-semibold">
+                Empowering Students Through Education, Guidance & Career Success
+              </p>
+
+              {/* Glassmorphic Contact Card */}
+              <div className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex flex-col gap-4 text-xs text-slate-300">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-[#FF7A00] shrink-0 mt-0.5" />
+                  <div>
+                    <h5 className="font-bold text-white mb-0.5">Address</h5>
+                    <p className="leading-relaxed text-slate-400">
+                      Jahanveer Complex,<br />
+                      Infront of Anand Plaza,<br />
+                      Singpur Road, Morar,<br />
+                      Gwalior, Madhya Pradesh - 474011
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 border-t border-white/5 pt-3">
+                  <Mail className="w-4 h-4 text-[#FF7A00] shrink-0" />
+                  <div>
+                    <h5 className="font-bold text-white mb-0.5">Official Email</h5>
+                    <a href="mailto:aryangwl19@gmail.com" className="text-slate-400 hover:text-white transition-colors">
+                      aryangwl19@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 border-t border-white/5 pt-3">
+                  <Phone className="w-4 h-4 text-[#FF7A00] shrink-0" />
+                  <div>
+                    <h5 className="font-bold text-white mb-0.5">Contact Number</h5>
+                    <a href="tel:+919399086225" className="text-slate-400 hover:text-white transition-colors font-semibold">
+                      +91 9399086225
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 border-t border-white/5 pt-3">
+                  <Clock className="w-4 h-4 text-[#FF7A00] shrink-0" />
+                  <div>
+                    <h5 className="font-bold text-white mb-0.5">Business Hours</h5>
+                    <p className="text-slate-400 leading-relaxed">
+                      Monday - Saturday<br />
+                      9:00 AM - 6:00 PM
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-3 mt-1">
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 hover:border-[#FF5E14] hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 shadow-md"
+                  aria-label="Facebook"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                </a>
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 hover:border-[#FF5E14] hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 shadow-md"
+                  aria-label="Twitter"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                </a>
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 hover:border-[#FF5E14] hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 shadow-md"
+                  aria-label="LinkedIn"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a
+                  href="#"
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 hover:border-[#FF5E14] hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 shadow-md"
+                  aria-label="Instagram"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583 0.07-4.849 0.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259 0.014 3.668 0.072 4.948 0.2 4.358 2.618 6.78 6.98 6.98 1.281 0.058 1.689 0.072 4.948 0.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98 0.059-1.28 0.073-1.689 0.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Links lists */}
+            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 w-full">
+              {footerSections.map((section, idx) => (
+                <div key={idx} className="flex flex-col gap-4">
+                  <h3 className="text-xs font-black tracking-wider text-white uppercase font-display border-b border-white/10 pb-2">
+                    {section.title}
+                  </h3>
+                  <ul className="flex flex-col gap-2.5 text-xs text-slate-350">
+                    {section.links.map((link, linkIdx) => (
+                      <li key={linkIdx}>
+                        <Link 
+                          to={link.path} 
+                          className="hover:text-[#FF5E14] transition-colors duration-200"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links Categories */}
-          <div>
-            <h3 className="text-sm font-semibold text-app-text mb-4">Colleges</h3>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              <li><Link to="/colleges" className="text-app-muted hover:text-primary transition-all">Engineering</Link></li>
-              <li><Link to="/colleges" className="text-app-muted hover:text-primary transition-all">Management</Link></li>
-              <li><Link to="/colleges" className="text-app-muted hover:text-primary transition-all">Medicine</Link></li>
-              <li><Link to="/colleges" className="text-app-muted hover:text-primary transition-all">Law Institutes</Link></li>
-            </ul>
-          </div>
+          {/* Bottom copyright row */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-xs text-slate-400 text-center sm:text-left font-medium">
+              &copy; {new Date().getFullYear()} Aruna-Nand EdTech Services. All rights reserved.
+            </p>
 
-          <div>
-            <h3 className="text-sm font-semibold text-app-text mb-4">Exams & Aid</h3>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              <li><Link to="/exams" className="text-app-muted hover:text-primary transition-all">JEE Advanced</Link></li>
-              <li><Link to="/exams" className="text-app-muted hover:text-primary transition-all">CAT Exam</Link></li>
-              <li><Link to="/scholarships" className="text-app-muted hover:text-primary transition-all">Private Grants</Link></li>
-              <li><Link to="/scholarships" className="text-app-muted hover:text-primary transition-all">STEM Scholarships</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-app-text mb-4">Resources</h3>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              <li><Link to="/resources" className="text-app-muted hover:text-primary transition-all">Updates Blog</Link></li>
-              <li><Link to="/careers" className="text-app-muted hover:text-primary transition-all">Career roadmaps</Link></li>
-              <li><Link to="/resources" className="text-app-muted hover:text-primary transition-all">Guides & Ebooks</Link></li>
-              <li><Link to="/contact" className="text-app-muted hover:text-primary transition-all">Support Desk</Link></li>
-            </ul>
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="lg:col-span-1 min-w-[200px]">
-            <h3 className="text-sm font-semibold text-app-text mb-4">Newsletter</h3>
-            <p className="text-xs text-app-muted mb-3">Subscribe to get alert updates on registrations & cutoffs.</p>
-            <form onSubmit={handleSubscribe} className="relative flex items-center">
-              <input
-                type="email"
-                required
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full text-xs px-3 py-2.5 rounded-xl bg-app-card border border-app-border text-app-text placeholder-app-muted focus:outline-none focus:border-primary transition-all"
-              />
-              <button
-                type="submit"
-                className="absolute right-1.5 p-1.5 rounded-lg bg-primary text-white hover:bg-primary-hover transition-all"
-              >
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </form>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-[#FF5E14] hover:bg-white/10 text-[#FF5E14] transition-all duration-300 cursor-pointer shadow-md">
+                <Sparkles className="w-4 h-4" />
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="border-t border-app-border mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-app-muted">
-            &copy; {new Date().getFullYear()} Aruna-Nand EdTech Services Inc. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-xs text-app-muted">
-            <a href="#" className="hover:text-app-text">Privacy Policy</a>
-            <a href="#" className="hover:text-app-text">Terms of Service</a>
-            <a href="#" className="hover:text-app-text">Cookie Policy</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 };
+
 export default Footer;

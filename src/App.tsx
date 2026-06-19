@@ -16,9 +16,19 @@ import Exams from './pages/Exams';
 import Scholarships from './pages/Scholarships';
 import CareerPaths from './pages/CareerPaths';
 import Resources from './pages/Resources';
+import Reviews from './pages/Reviews';
+import News from './pages/News';
 import Contact from './pages/Contact';
+import Events from './pages/Events';
+import Blog from './pages/Blog';
+import CommonApplication from './pages/CommonApplication';
+import OnlineCourses from './pages/OnlineCourses';
+import CollegePredictor from './pages/CollegePredictor';
+import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Initialize React Query Client
 const queryClient = new QueryClient({
@@ -51,6 +61,28 @@ function App() {
               <Route path="/scholarships" element={<Scholarships />} />
               <Route path="/careers" element={<CareerPaths />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/reviews" element={<Reviews />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/online-courses" element={<OnlineCourses />} />
+              <Route
+                path="/common-application"
+                element={
+                  <ProtectedRoute>
+                    <CommonApplication />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/college-predictor" element={<CollegePredictor />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
