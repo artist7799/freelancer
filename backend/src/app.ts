@@ -26,7 +26,12 @@ import comparedCollegeRoutes from './routes/comparedCollegeRoutes';
 import predictorRoutes from './routes/predictorRoutes';
 import dashboardRoutes from './routes/dashboardRoutes';
 
+import { connectDB } from './config/database';
+
 const app = express();
+
+// Connect to MongoDB Atlas (essential for serverless environments)
+connectDB();
 
 // 1. Enable Security Headers via Helmet
 app.use(helmet());

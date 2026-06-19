@@ -12,11 +12,26 @@ dotenv.config();
 
 import app from './app';
 import { connectDB } from './config/database';
+import { College } from './models/College';
+import { seedDB } from './scripts/seed';
 
 const PORT = Number(process.env.PORT) || 5000;
 
 // Connect to MongoDB Atlas
-connectDB().then(() => {
+connectDB().then(async () => {
+  try {
+    const collegeCount = await College.countDocuments();
+    if (collegeCount === 0) {
+      console.log('No colleges found in the database. Running automatic seeding...');
+      await seedDB(false);
+      console.log('Automatic seeding completed.');
+    } else {
+      console.log(`Database already has ${collegeCount} colleges. Skipping seeding.`);
+    }
+  } catch (seedErr) {
+    console.error('Error during auto-seeding:', seedErr);
+  }
+
   const server = app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
   });

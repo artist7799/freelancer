@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import dns from 'dns';
+
+if (typeof dns.setDefaultResultOrder === 'function') {
+  dns.setDefaultResultOrder('ipv4first');
+}
 import { User } from '../models/User';
 import { College } from '../models/College';
 import { Course } from '../models/Course';
@@ -485,11 +490,15 @@ const defaultColleges = [
   },
 ];
 
-const seedDB = async () => {
+export const seedDB = async (shouldExit: boolean = true) => {
   try {
-    console.log('Connecting to database...');
-    await mongoose.connect(MONGODB_URI);
-    console.log('Connected to MongoDB.');
+    if (mongoose.connection.readyState === 0) {
+      console.log('Connecting to database...');
+      await mongoose.connect(MONGODB_URI);
+      console.log('Connected to MongoDB.');
+    } else {
+      console.log('Using existing MongoDB connection.');
+    }
 
     // Clear existing collections
     console.log('Clearing old collections...');
@@ -572,11 +581,19 @@ const seedDB = async () => {
     console.log('Mock application created.');
 
     console.log('Database seeding process completed successfully!');
-    process.exit(0);
+    if (shouldExit) {
+      process.exit(0);
+    }
   } catch (error) {
     console.error('Seeding engine encountered an error:', error);
-    process.exit(1);
+    if (shouldExit) {
+      process.exit(1);
+    } else {
+      throw error;
+    }
   }
 };
 
-seedDB();
+if (require.main === module) {
+  seedDB(true);
+}
