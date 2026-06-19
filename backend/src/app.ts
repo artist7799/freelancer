@@ -49,7 +49,13 @@ if (process.env.CLIENT_URL) allowedOrigins.push(process.env.CLIENT_URL);
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:') || allowedOrigins.includes(origin)) {
+      if (
+        !origin || 
+        origin.startsWith('http://localhost:') || 
+        origin.startsWith('http://127.0.0.1:') || 
+        origin.endsWith('.vercel.app') ||
+        allowedOrigins.includes(origin)
+      ) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
