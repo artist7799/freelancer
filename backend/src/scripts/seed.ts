@@ -1133,712 +1133,1801 @@ const defaultBlogs = [
 
 const defaultColleges = [
   {
-    collegeName: 'Indian Institute of Management, Bangalore',
-    name: 'Indian Institute of Management, Bangalore',
-    slug: 'iim-bangalore',
-    logo: 'iim-bangalore',
-    banner: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'IIM Bangalore is a highly prestigious management school. Famed for its beautiful stone campus and exceptional academic rigour, it consistently produces elite leaders.',
-    about: 'IIM Bangalore is a highly prestigious management school. Famed for its beautiful stone campus and exceptional academic rigour, it consistently produces elite leaders.',
-    city: 'Bangalore',
-    state: 'Karnataka',
-    location: 'Karnataka, Bangalore',
-    country: 'India',
-    ranking: '#2 in India (NIRF MBA)',
-    nirfRanking: 2,
-    accreditation: 'EQUIS Accredited',
-    establishedYear: 1973,
-    fees: '₹23.0 Lakhs / Year',
-    placementPercentage: 100,
-    averagePackage: '34 LPA',
-    highestPackage: '62 LPA',
-    placements: '34 LPA Average',
-    rating: 9.2,
-    category: 'Management',
-    website: 'https://www.iimb.ac.in',
-    images: ['https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['Case Rooms', 'Auditorium Complex', 'Executive Hostel'],
-    infrastructure: ['Management Hub', 'Case Rooms', 'Auditorium Complex', 'Sports Center', 'Executive Hostel'],
-    gallery: [
-      'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80',
+    "collegeName": "IILM University, Greater Noida",
+    "name": "IILM University, Greater Noida",
+    "slug": "iilm-university-greater-noida",
+    "logo": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+    "description": "IILM University Greater Noida is a premier educational institution known for its high-quality management and engineering programs, state-of-the-art campus, and outstanding industry connections.",
+    "about": "IILM University Greater Noida is a premier educational institution known for its high-quality management and engineering programs, state-of-the-art campus, and outstanding industry connections.",
+    "city": "Greater Noida",
+    "state": "Uttar Pradesh",
+    "location": "Uttar Pradesh, Greater Noida",
+    "country": "India",
+    "ranking": "#45 in India (Private Universities)",
+    "nirfRanking": 45,
+    "accreditation": "UGC & AICTE Approved",
+    "establishedYear": 2001,
+    "fees": "₹1.8 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "7.5 LPA",
+    "highestPackage": "36 LPA",
+    "placements": "7.5 LPA Average",
+    "rating": 8.2,
+    "category": "Management",
+    "website": "https://iilm.edu",
+    "images": [
+      "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'MBA (PGP in Management)', fees: '₹11.5 Lakhs', seats: 480 },
-      { name: 'Executive MBA (EPGP)', fees: '₹14.0 Lakhs', seats: 75 },
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'McKinsey & Co', package: '₹38.5 LPA' },
-      { company: 'Boston Consulting Group', package: '₹38.0 LPA' },
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'Financial Aid', criteria: 'Income < ₹8 Lakhs', amount: 'Up to 100% waiver' },
+    "gallery": [
+      "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Standard Room', sharing: 'Single', fees: '₹40,000 / Semester' },
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.8 Lakhs",
+        "seats": 180
+      },
+      {
+        "name": "MBA (General Management)",
+        "fees": "₹2.4 Lakhs",
+        "seats": 120
+      }
     ],
-    reviews: [
-      { name: 'Deepak Rao', rating: 5, text: 'Case-study based learning is top-tier here.', date: '2026-03-24' },
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹36.0 LPA"
+      },
+      {
+        "company": "Wipro",
+        "package": "₹6.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is CAT required?', a: 'Yes, CAT is mandatory for admission.' },
+    "scholarships": [
+      {
+        "name": "Merit Scholarship",
+        "criteria": "Marks > 90%",
+        "amount": "50% Tuition Waiver"
+      }
     ],
-    totalOffers: 600,
-    companyVisiting: 150,
-    highestInternationalPackage: '82 LPA',
-    phone: '+91 80 2699 3000',
-    address: 'Bannerghatta Road, Bengaluru, Karnataka 560076',
-    email: 'admissions@iimb.ac.in',
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹1.1 Lakhs / Year"
+      }
+    ],
+    "reviews": [
+      {
+        "name": "Rohan Sharma",
+        "rating": 4,
+        "text": "Great environment, helpful faculty, and nice placements.",
+        "date": "2026-05-10"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is transport available?",
+        "a": "Yes, buses connect all parts of Delhi-NCR."
+      }
+    ],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "36 LPA",
+    "phone": "+91 120 232 1000",
+    "address": "Knowledge Park II, Greater Noida, Uttar Pradesh 201306",
+    "email": "admissions.gn@iilm.edu"
   },
   {
-    collegeName: 'Symbiosis Institute of Business Management (SIBM), Pune',
-    name: 'Symbiosis Institute of Business Management (SIBM), Pune',
-    slug: 'symbiosis-pune',
-    logo: 'symbiosis-pune',
-    banner: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'SIBM Pune is a premier B-School of India, renowned for its academic excellence, stellar placements, and vibrant student community.',
-    about: 'Symbiosis Institute of Business Management, Pune is a premier constituent of SYMBIOSIS INTERNATIONAL (DEEMED UNIVERSITY) - SIU. Established in 1978, SIBM Pune is consistently ranked among the top B-Schools in the country.',
-    city: 'Pune',
-    state: 'Maharashtra',
-    location: 'Maharashtra, Pune',
-    country: 'India',
-    ranking: '#7 in India (NIRF)',
-    nirfRanking: 7,
-    accreditation: 'NAAC A++',
-    establishedYear: 1978,
-    fees: '₹23.5 Lakhs / Year',
-    placementPercentage: 98,
-    averagePackage: '27 LPA',
-    highestPackage: '36 LPA',
-    placements: '27 LPA Average',
-    rating: 8.8,
-    category: 'Management',
-    website: 'https://www.sibmpune.edu.in',
-    images: ['https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['Modern Library', 'Seminar Halls', 'Student Hostels'],
-    infrastructure: ['AC Classrooms', 'Auditorium', 'IT Infrastructure', 'Sports Arenas'],
-    gallery: [
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'
+    "collegeName": "Sushant University, Gurugram",
+    "name": "Sushant University, Gurugram",
+    "slug": "sushant-university-gurugram",
+    "logo": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+    "description": "Sushant University, formerly Ansal University, offers various undergraduate and postgraduate courses in fields like architecture, design, law, management, and engineering, focusing on holistic learning.",
+    "about": "Sushant University, formerly Ansal University, offers various undergraduate and postgraduate courses in fields like architecture, design, law, management, and engineering, focusing on holistic learning.",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "location": "Haryana, Gurugram",
+    "country": "India",
+    "ranking": "#52 in India (Private Universities)",
+    "nirfRanking": 52,
+    "accreditation": "UGC Approved",
+    "establishedYear": 2012,
+    "fees": "₹2.2 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "6.8 LPA",
+    "highestPackage": "32 LPA",
+    "placements": "6.8 LPA Average",
+    "rating": 8,
+    "category": "Management",
+    "website": "https://sushantuniversity.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'MBA (General Management)', fees: '₹12.0 Lakhs', seats: 180 },
-      { name: 'MBA in Innovation and Entrepreneurship', fees: '₹10.5 Lakhs', seats: 60 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Accenture', package: '₹28 LPA' },
-      { company: 'PwC', package: '₹26 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'SIU Sports Scholarship', criteria: 'State/National level players', amount: '50% Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Standard Room', sharing: 'Twin', fees: '₹1.1 Lakhs / Year' }
+    "courses": [
+      {
+        "name": "MBA in Marketing",
+        "fees": "₹2.2 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹1.5 Lakhs",
+        "seats": 120
+      }
     ],
-    reviews: [
-      { name: 'Rohan Deshmukh', rating: 5, text: 'Amazing campus lifecycle and top-tier placements.', date: '2026-04-11' }
+    "placementDetails": [
+      {
+        "company": "KPMG",
+        "package": "₹8.0 LPA"
+      },
+      {
+        "company": "Deloitte",
+        "package": "₹7.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'What is the entry exam?', a: 'SNAP is required for admission.' }
+    "scholarships": [
+      {
+        "name": "Sports Scholarship",
+        "criteria": "State level participation",
+        "amount": "25% Tuition Waiver"
+      }
     ],
-    totalOffers: 250,
-    companyVisiting: 100,
-    highestInternationalPackage: '39 LPA',
-    phone: '+91 20 2811 6000',
-    address: 'Senapati Bapat Rd, Pune, Maharashtra 411004',
-    email: 'admissions@sibmpune.edu.in',
+    "hostels": [
+      {
+        "type": "Premium Girls Hostel",
+        "sharing": "Twin",
+        "fees": "₹1.2 Lakhs / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "32 LPA",
+    "phone": "+91 124 4750400",
+    "address": "Sector 55, Golf Course Road, Gurugram, Haryana 122003",
+    "email": "admissions@sushantuniversity.edu.in"
   },
   {
-    collegeName: 'Graphic Era University, Dehradun',
-    name: 'Graphic Era University, Dehradun',
-    slug: 'graphic-era',
-    logo: 'graphic-era',
-    banner: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'Graphic Era (Deemed to be University) is a premier higher education institution in Dehradun, Uttarakhand, promoting top education and research.',
-    about: 'Graphic Era University is a deemed university located in Dehradun, Uttarakhand. Established in 1993, it has grown to become a world-class academic hub for engineering and management programs.',
-    city: 'Dehradun',
-    state: 'Uttarakhand',
-    location: 'Uttarakhand, Dehradun',
-    country: 'India',
-    ranking: '#8 in NIRF',
-    nirfRanking: 55,
-    accreditation: 'NAAC A+',
-    establishedYear: 1993,
-    fees: '₹8.0 Lakhs / Year',
-    placementPercentage: 92,
-    averagePackage: '6 LPA',
-    highestPackage: '40 LPA',
-    placements: '6 LPA Average',
-    rating: 8.4,
-    category: 'Engineering',
-    website: 'https://www.geu.ac.in',
-    images: ['https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['Advanced Computer Labs', 'Tech Incubation Cell', 'Central Gym'],
-    infrastructure: ['AC Classrooms', 'Libraries', 'Hostels', 'Sports Fields'],
-    gallery: [
-      'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80'
+    "collegeName": "Haridwar University, Roorkee",
+    "name": "Haridwar University, Roorkee",
+    "slug": "haridwar-university-roorkee",
+    "logo": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    "description": "Haridwar University Roorkee is committed to quality technical education, offering industry-aligned engineering courses in Uttarakhand.",
+    "about": "Haridwar University Roorkee is committed to quality technical education, offering industry-aligned engineering courses in Uttarakhand.",
+    "city": "Roorkee",
+    "state": "Uttarakhand",
+    "location": "Uttarakhand, Roorkee",
+    "country": "India",
+    "ranking": "#68 in India (Engineering)",
+    "nirfRanking": 68,
+    "accreditation": "UGC & AICTE Approved",
+    "establishedYear": 2010,
+    "fees": "₹1.2 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.5 LPA",
+    "highestPackage": "18 LPA",
+    "placements": "5.5 LPA Average",
+    "rating": 7.8,
+    "category": "Engineering",
+    "website": "https://huroorkee.ac.in",
+    "images": [
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Computer Science', fees: '₹1.8 Lakhs', seats: 360 },
-      { name: 'MBA', fees: '₹2.1 Lakhs', seats: 120 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Infosys', package: '₹8 LPA' },
-      { company: 'Wipro', package: '₹6 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'Academic Merit Scholarship', criteria: 'Class 12 Marks > 90%', amount: '30% Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Standard Room', sharing: 'Twin', fees: '₹85,000 / Year' }
+    "courses": [
+      {
+        "name": "B.Tech in Mechanical Engineering",
+        "fees": "₹1.2 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.4 Lakhs",
+        "seats": 120
+      }
     ],
-    reviews: [
-      { name: 'Amit Negi', rating: 4, text: 'Great infrastructure, highly experienced faculty, and strong placements.', date: '2026-05-18' }
+    "placementDetails": [
+      {
+        "company": "TCS",
+        "package": "₹4.5 LPA"
+      },
+      {
+        "company": "Infosys",
+        "package": "₹4.0 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is there a transport facility?', a: 'Yes, buses ply across major parts of Dehradun.' }
+    "scholarships": [
+      {
+        "name": "Uttarakhand State Merit",
+        "criteria": "State Board Top 100",
+        "amount": "Full Tuition Waiver"
+      }
     ],
-    totalOffers: 1800,
-    companyVisiting: 200,
-    highestInternationalPackage: '45 LPA',
-    phone: '+91 135 264 3421',
-    address: 'Bell Road, Clement Town, Dehradun, Uttarakhand 248002',
-    email: 'admissions@geu.ac.in',
+    "hostels": [
+      {
+        "type": "Standard Room",
+        "sharing": "Triple",
+        "fees": "₹75,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "18 LPA",
+    "phone": "+91 74550 25000",
+    "address": "Roorkee-Haridwar Highway, Roorkee, Uttarakhand 247667",
+    "email": "admissions@huroorkee.ac.in"
   },
   {
-    collegeName: 'K R Mangalam University, (KRMU), Gurgaon',
-    name: 'K R Mangalam University, (KRMU), Gurgaon',
-    slug: 'kr-mangalam',
-    logo: 'kr-mangalam',
-    banner: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'K R Mangalam University is a premier university located in Gurgaon, offering dynamic undergraduate and postgraduate programs with advanced corporate training setups.',
-    about: 'K R Mangalam University is a premier university located in Gurgaon, offering dynamic undergraduate and postgraduate programs with advanced corporate training setups.',
-    city: 'Gurgaon',
-    state: 'Haryana',
-    location: 'Haryana, Gurgaon',
-    country: 'India',
-    ranking: '#8 in India (NIRF)',
-    nirfRanking: 75,
-    accreditation: 'UGC Recognized',
-    establishedYear: 2013,
-    fees: '₹2.10 Lakhs / Year',
-    placementPercentage: 85,
-    averagePackage: '12 LPA',
-    highestPackage: '57 LPA',
-    placements: '12 LPA Average',
-    rating: 8.0,
-    category: 'Management',
-    website: 'https://www.krmangalam.edu.in',
-    images: ['https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['AC Classrooms', 'Moot Court', 'Innovation Cell'],
-    infrastructure: ['AC Classrooms', 'Moot Court', 'Central Library', 'Innovation Cell'],
-    gallery: [
-      'https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&w=600&h=400&q=80',
+    "collegeName": "Future University, Bareilly",
+    "name": "Future University, Bareilly",
+    "slug": "future-university-bareilly",
+    "logo": "https://images.unsplash.com/photo-1498243691581-b145c3f54a91?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1498243691581-b145c3f54a91?auto=format&fit=crop&w=1200&q=80",
+    "description": "Future University bareilly provides a wide variety of courses in engineering, business management, and computer science, prioritizing career readiness and practical exposure.",
+    "about": "Future University bareilly provides a wide variety of courses in engineering, business management, and computer science, prioritizing career readiness and practical exposure.",
+    "city": "Bareilly",
+    "state": "Uttar Pradesh",
+    "location": "Uttar Pradesh, Bareilly",
+    "country": "India",
+    "ranking": "#75 in India",
+    "nirfRanking": 75,
+    "accreditation": "AICTE & UGC Approved",
+    "establishedYear": 2009,
+    "fees": "₹1.1 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.2 LPA",
+    "highestPackage": "15 LPA",
+    "placements": "5.2 LPA Average",
+    "rating": 7.7,
+    "category": "Engineering",
+    "website": "https://futureuniversity.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1498243691581-b145c3f54a91?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Computer Science', fees: '₹2.10 Lakhs', seats: 150 },
-      { name: 'MBA (PGP in Management)', fees: '₹3.20 Lakhs', seats: 120 },
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Amazon', package: '₹36.0 LPA' },
-      { company: 'HCL', package: '₹6.0 LPA' },
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'KRMU Scholarship', criteria: 'Class 12 Marks > 90%', amount: '50% Waiver' },
+    "gallery": [
+      "https://images.unsplash.com/photo-1498243691581-b145c3f54a91?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'AC Double Sharing', sharing: 'Twin', fees: '₹1.2 Lakhs / Year' },
+    "courses": [
+      {
+        "name": "B.Tech in Civil Engineering",
+        "fees": "₹1.1 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "B.Tech in Information Technology",
+        "fees": "₹1.2 Lakhs",
+        "seats": 90
+      }
     ],
-    reviews: [
-      { name: 'Amit Roy', rating: 4, text: 'Great infrastructure and good corporate linkages.', date: '2026-04-10' },
+    "placementDetails": [
+      {
+        "company": "Tech Mahindra",
+        "package": "₹4.5 LPA"
+      },
+      {
+        "company": "HCL Tech",
+        "package": "₹4.0 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is there a transport service?', a: 'Yes, buses connect all parts of NCR.' },
+    "scholarships": [
+      {
+        "name": "Academic Concession",
+        "criteria": "Marks > 80%",
+        "amount": "₹15,000 / Year"
+      }
     ],
-    totalOffers: 1200,
-    companyVisiting: 180,
-    highestInternationalPackage: '57 LPA',
-    phone: '+91 11 4888 8888',
-    address: 'Sohna Road, Gurugram, Haryana 122103',
-    email: 'admissions@krmangalam.edu.in',
+    "hostels": [
+      {
+        "type": "Boys Shared Room",
+        "sharing": "Twin",
+        "fees": "₹80,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "15 LPA",
+    "phone": "+91 99174 80040",
+    "address": "Bareilly-Lucknow Road, Near Faridpur, Bareilly, Uttar Pradesh 243503",
+    "email": "info@futureuniversity.edu.in"
   },
   {
-    collegeName: 'Indian Institute of Space Science and Technology (IIST)',
-    name: 'Indian Institute of Space Science and Technology',
-    slug: 'iist-thiruvananthapuram',
-    logo: 'great-lakes',
-    banner: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'IIST is Asias first Space University, established by ISRO in Thiruvananthapuram, Kerala, to offer high-quality space science education.',
-    about: 'Indian Institute of Space Science and Technology (IIST), located at Thiruvananthapuram, Kerala, is a government-aided institute and deemed university for space science research and applications.',
-    city: 'Thiruvananthapuram',
-    state: 'Kerala',
-    location: 'Kerala, Thiruvananthapuram',
-    country: 'India',
-    ranking: '#9 in NIRF',
-    nirfRanking: 28,
-    accreditation: 'ISRO Sponsored',
-    establishedYear: 2007,
-    fees: '₹1.44 Lakhs / Year',
-    placementPercentage: 90,
-    averagePackage: '8 LPA',
-    highestPackage: '12 LPA',
-    placements: '8 LPA Average',
-    rating: 9.2,
-    category: 'Engineering',
-    website: 'https://www.iist.ac.in',
-    images: ['https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['Aerodynamics Lab', 'Astronomical Observatory', 'Satellite Ground Station'],
-    infrastructure: ['Advanced Labs', 'Observatory', 'Computational Facilities', 'Library', 'Hostels'],
-    gallery: [
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'
+    "collegeName": "Sanskriti University, Mathura",
+    "name": "Sanskriti University, Mathura",
+    "slug": "sanskriti-university-mathura",
+    "logo": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
+    "description": "Sanskriti University Mathura focuses on providing value-based education in diverse disciplines, including technology, management, agriculture, and healthcare.",
+    "about": "Sanskriti University Mathura focuses on providing value-based education in diverse disciplines, including technology, management, agriculture, and healthcare.",
+    "city": "Mathura",
+    "state": "Uttar Pradesh",
+    "location": "Uttar Pradesh, Mathura",
+    "country": "India",
+    "ranking": "#35 in India (Private Universities)",
+    "nirfRanking": 35,
+    "accreditation": "UGC Approved",
+    "establishedYear": 2016,
+    "fees": "₹1.5 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "6.0 LPA",
+    "highestPackage": "22 LPA",
+    "placements": "6.0 LPA Average",
+    "rating": 8.1,
+    "category": "Management",
+    "website": "https://sanskriti.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Aerospace Engineering', fees: '₹1.2 Lakhs', seats: 60 },
-      { name: 'M.Tech in Space Science', fees: '₹1.44 Lakhs', seats: 20 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'ISRO', package: '₹10 LPA' },
-      { company: 'Microsoft', package: '₹12 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'ISRO Assistantship', criteria: 'CGPA > 7.5', amount: 'Full Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Standard Room', sharing: 'Twin', fees: '₹35,000 / Year' }
+    "courses": [
+      {
+        "name": "MBA in Finance",
+        "fees": "₹1.5 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹1.0 Lakhs",
+        "seats": 120
+      }
     ],
-    reviews: [
-      { name: 'Arjun Nair', rating: 5, text: 'Unmatched research opportunities and direct ISRO recruitment route.', date: '2026-03-12' }
+    "placementDetails": [
+      {
+        "company": "HDFC Bank",
+        "package": "₹6.5 LPA"
+      },
+      {
+        "company": "Genpact",
+        "package": "₹5.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is admission direct to ISRO possible?', a: 'Yes, students meeting the required CGPA threshold are directly absorbed by ISRO.' }
+    "scholarships": [
+      {
+        "name": "Sanskriti Merit Scholarship",
+        "criteria": "Class 12 Marks > 95%",
+        "amount": "100% Tuition Waiver"
+      }
     ],
-    totalOffers: 150,
-    companyVisiting: 40,
-    highestInternationalPackage: '16 LPA',
-    phone: '+91 471 256 8400',
-    address: 'Valiamala Road, Thiruvananthapuram, Kerala 695547',
-    email: 'admissions@iist.ac.in',
+    "hostels": [
+      {
+        "type": "Standard Shared",
+        "sharing": "Twin",
+        "fees": "₹90,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "22 LPA",
+    "phone": "+91 75007 22200",
+    "address": "Chhata, Mathura, Uttar Pradesh 281401",
+    "email": "admissions@sanskriti.edu.in"
   },
   {
-    collegeName: 'FMS Delhi: Faculty of Management Studies, Delhi',
-    name: 'FMS Delhi: Faculty of Management Studies, Delhi',
-    slug: 'fms-delhi',
-    logo: 'iit-bombay',
-    banner: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'Faculty of Management Studies, Delhi is one of the oldest and most prestigious business schools in India, famous for its ROI.',
-    about: 'Faculty of Management Studies (FMS), Delhi, established in 1954 under the aegis of the University of Delhi, is renowned for its academic excellence and high return on investment (ROI).',
-    city: 'Delhi',
-    state: 'Delhi',
-    location: 'Delhi, Delhi',
-    country: 'India',
-    ranking: '#10 in NIRF',
-    nirfRanking: 10,
-    accreditation: 'Delhi University Affiliated',
-    establishedYear: 1954,
-    fees: '₹2.0 Lakhs / Year',
-    placementPercentage: 100,
-    averagePackage: '35 LPA',
-    highestPackage: '1.23 CR',
-    placements: '35 LPA Average',
-    rating: 8.9,
-    category: 'Management',
-    website: 'http://fms.edu',
-    images: ['https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['DU Central Library', 'Seminar Rooms', 'Corporate Relations Cell'],
-    infrastructure: ['Management Classrooms', 'Library', 'IT Labs'],
-    gallery: [
-      'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80'
+    "collegeName": "Sanskriti University, Bareilly",
+    "name": "Sanskriti University, Bareilly",
+    "slug": "sanskriti-university-bareilly",
+    "logo": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80",
+    "description": "Sanskriti University Bareilly is a modern extension campus offering specialized undergraduate and diploma engineering programs.",
+    "about": "Sanskriti University Bareilly is a modern extension campus offering specialized undergraduate and diploma engineering programs.",
+    "city": "Bareilly",
+    "state": "Uttar Pradesh",
+    "location": "Uttar Pradesh, Bareilly",
+    "country": "India",
+    "ranking": "#72 in India",
+    "nirfRanking": 72,
+    "accreditation": "UGC & AICTE Approved",
+    "establishedYear": 2018,
+    "fees": "₹1.3 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.8 LPA",
+    "highestPackage": "20 LPA",
+    "placements": "5.8 LPA Average",
+    "rating": 7.9,
+    "category": "Engineering",
+    "website": "https://sanskritibareilly.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'MBA Full Time', fees: '₹2.0 Lakhs', seats: 290 },
-      { name: 'MBA Executive', fees: '₹1.5 Lakhs', seats: 150 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'McKinsey', package: '₹38 LPA' },
-      { company: 'Google', package: '₹42 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'OPJEMS Scholarship', criteria: 'Merit List Top Performers', amount: '₹1.5 Lakhs' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'DU Hostels', sharing: 'Twin', fees: '₹12,000 / Year' }
+    "courses": [
+      {
+        "name": "B.Tech in CSE",
+        "fees": "₹1.3 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "Diploma in Electrical Engineering",
+        "fees": "₹60,000",
+        "seats": 60
+      }
     ],
-    reviews: [
-      { name: 'Vikram Singh', rating: 5, text: 'Stellar placements with practically zero fees. Best ROI in the country.', date: '2026-05-10' }
+    "placementDetails": [
+      {
+        "company": "Wipro",
+        "package": "₹4.8 LPA"
+      },
+      {
+        "company": "Cognizant",
+        "package": "₹4.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is CAT required?', a: 'Yes, CAT is the primary entrance exam.' }
+    "scholarships": [
+      {
+        "name": "State Aid",
+        "criteria": "Financial constraints",
+        "amount": "₹20,000 / Year"
+      }
     ],
-    totalOffers: 300,
-    companyVisiting: 120,
-    highestInternationalPackage: '1.23 CR',
-    phone: '+91 11 2766 6382',
-    address: 'Malka Ganj, Delhi 110007',
-    email: 'admissions@fms.edu',
+    "hostels": [
+      {
+        "type": "Boys Hostel Room",
+        "sharing": "Twin",
+        "fees": "₹85,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "20 LPA",
+    "phone": "+91 75007 22201",
+    "address": "Bareilly, Uttar Pradesh 243001",
+    "email": "info@sanskritibareilly.edu.in"
   },
   {
-    collegeName: 'MIT World Peace University, Pune',
-    name: 'MIT World Peace University, Pune',
-    slug: 'mit-wpu',
-    logo: 'mit-wpu',
-    banner: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-    description: 'MIT World Peace University (MIT-WPU), prevalently known as MIT-WPU Pune, is one of the main confidential designing and board establishments in India, boasting global standards of learning.',
-    about: 'MIT World Peace University (MIT-WPU) is a state-private university located in Kothrud, Pune. Established in 1983 as Maharashtra Institute of Technology (MIT), it has evolved into a premier tech and research hub with an accentuation on academic rigor and values-based holistic education.',
-    city: 'Pune',
-    state: 'Maharashtra',
-    location: 'Pune, Maharashtra',
-    country: 'India',
-    ranking: 'AICTE, UGC, BCI Accredited',
-    nirfRanking: 80,
-    accreditation: 'AICTE, UGC, BCI',
-    establishedYear: 1983,
-    fees: '₹3.5 - 5 Lakhs / Year',
-    placementPercentage: 75,
-    averagePackage: '7 LPA',
-    highestPackage: '51.36 LPA',
-    placements: '7 LPA Average',
-    rating: 7.8,
-    category: 'Engineering',
-    website: 'https://mitwpu.edu.in',
-    images: ['https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'],
-    facilities: ['World Peace Dome', 'Robotics Innovation Lab', 'Olympics-size Track'],
-    infrastructure: ['AC Classrooms', 'World Peace Dome', 'Robotics Hub', 'Sports Arenas', 'Hostel Mess'],
-    gallery: [
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80',
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'
+    "collegeName": "Amity University, Mohali",
+    "name": "Amity University, Mohali",
+    "slug": "amity-university-mohali",
+    "logo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    "description": "Amity University Mohali offers world-class facilities, advanced digital classrooms, and top placements in business management, engineering, and science fields.",
+    "about": "Amity University Mohali offers world-class facilities, advanced digital classrooms, and top placements in business management, engineering, and science fields.",
+    "city": "Mohali",
+    "state": "Punjab",
+    "location": "Punjab, Mohali",
+    "country": "India",
+    "ranking": "#18 in India (Private B-Schools)",
+    "nirfRanking": 18,
+    "accreditation": "UGC & AICTE Approved",
+    "establishedYear": 2021,
+    "fees": "₹2.8 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "7.8 LPA",
+    "highestPackage": "38 LPA",
+    "placements": "7.8 LPA Average",
+    "rating": 8.3,
+    "category": "Management",
+    "website": "https://amity.edu/mohali",
+    "images": [
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Computer Science & Engineering', fees: '₹3.5 Lakhs / Year', seats: 240 },
-      { name: 'MBA (General Management)', fees: '₹4.8 Lakhs / Year', seats: 180 },
-      { name: 'BBA in International Business', fees: '₹2.8 Lakhs / Year', seats: 120 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Flipkart', package: '₹22.5 LPA' },
-      { company: 'Infosys', package: '₹7.5 LPA' },
-      { company: 'Cybage Software', package: '₹6.2 LPA' },
-      { company: 'Credit Suisse', package: '₹14.8 LPA' },
-      { company: 'Cognizant', package: '₹8.0 LPA' },
-      { company: 'Amazon', package: '₹32.0 LPA' },
-      { company: 'Kotak Mahindra Bank', package: '₹11.0 LPA' },
-      { company: 'TATA Motors', package: '₹9.5 LPA' },
-      { company: 'KPMG', package: '₹12.0 LPA' },
-      { company: 'IBM', package: '₹10.5 LPA' },
-      { company: 'Aditya Birla Group', package: '₹18.0 LPA' },
-      { company: 'Deloitte', package: '₹15.0 LPA' },
-      { company: 'Tech Mahindra', package: '₹6.5 LPA' },
-      { company: 'Capgemini', package: '₹8.2 LPA' },
-      { company: 'Microsoft', package: '₹44.0 LPA' },
-      { company: 'Whirlpool', package: '₹8.8 LPA' },
-      { company: 'Accenture', package: '₹9.0 LPA' },
-      { company: 'Wipro', package: '₹7.0 LPA' },
-      { company: 'HDFC Bank', package: '₹12.5 LPA' },
-      { company: 'TCS', package: '₹6.8 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'Dr. Vishwanath Karad Merit Scholarship', criteria: 'JEE > 97 percentile or Boards > 95%', amount: '100% Tuition Waiver' },
-      { name: 'MIT-WPU Sports Achievement Award', criteria: 'National level medalists', amount: '50% Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Premium Hostel Wing', sharing: 'Twin', fees: '₹1.5 Lakhs / Year' },
-      { type: 'Standard Wing', sharing: 'Triple', fees: '₹1.2 Lakhs / Year' }
+    "courses": [
+      {
+        "name": "MBA in Business Analytics",
+        "fees": "₹2.8 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "BBA (International Business)",
+        "fees": "₹2.0 Lakhs",
+        "seats": 180
+      }
     ],
-    reviews: [
-      { name: 'Rahul Joshi', rating: 5, text: 'Awesome campus infrastructure and very cooperative faculty.', date: '2026-05-12' },
-      { name: 'Sneha Patil', rating: 4, text: 'Placements are very good. Companies like Amazon, Microsoft, and Infosys visit regularly.', date: '2026-04-20' }
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹38.0 LPA"
+      },
+      {
+        "company": "Flipkart",
+        "package": "₹12.0 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is there direct admission in MIT WPU?', a: 'Admissions are strictly merit-based, considering exam scores like JEE, SNAP, MHT-CET, or MIT-WPU CET.' },
-      { q: 'Is hostel mandatory for all students?', a: 'No, hostel accommodation is optional.' }
+    "scholarships": [
+      {
+        "name": "Amity Direct Entry",
+        "criteria": "Marks > 93%",
+        "amount": "100% Tuition Support"
+      }
     ],
-    totalOffers: 2214,
-    companyVisiting: 235,
-    highestInternationalPackage: '37.26 LPA',
-    phone: '+91 7773045555',
-    address: 'S.No.124, Paud Road, Kothrud Pune - 411038 Maharashtra, India',
-    email: 'admissions@mitwpu.edu.in',
+    "hostels": [
+      {
+        "type": "Premium AC Single Room",
+        "sharing": "Single",
+        "fees": "₹1.5 Lakhs / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "38 LPA",
+    "phone": "+91 172 4090000",
+    "address": "Sector 82A, IT City, Mohali, Punjab 140306",
+    "email": "admissions@pb.amity.edu"
   },
   {
-    collegeName: 'Indian Institute of Technology Bombay',
-    name: 'Indian Institute of Technology Bombay',
-    slug: 'iit-bombay',
-    logo: 'iit-bombay',
-    banner: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
-    description: 'IIT Bombay is a top-ranked engineering institution globally. It offers advanced engineering research, innovation cells, and high-impact technology placements.',
-    about: 'The Indian Institute of Technology Bombay is a premier public research university and engineering institution located in Powai, Mumbai. Established in 1958, it is globally recognized for its science and engineering leadership.',
-    city: 'Mumbai',
-    state: 'Maharashtra',
-    location: 'Mumbai, Maharashtra',
-    country: 'India',
-    ranking: '#3 in India (NIRF Overall)',
-    nirfRanking: 3,
-    accreditation: 'Institute of Eminence',
-    establishedYear: 1958,
-    fees: '₹2.2 Lakhs / Year',
-    placementPercentage: 99,
-    averagePackage: '21.8 LPA',
-    highestPackage: '1.68 CR',
-    placements: '21.8 LPA Average',
-    rating: 9.6,
-    category: 'Engineering',
-    website: 'https://www.iitb.ac.in',
-    images: ['https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80'],
-    facilities: ['Nanotechnology Center', 'Aerospace Testing Tunnel', 'Convocation Hall'],
-    infrastructure: ['Supercomputing Lab', 'High-tech Classrooms', 'Sports Complex', 'Lakeside Hostels'],
-    gallery: [
-      'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80'
+    "collegeName": "SAGE University, Indore",
+    "name": "SAGE University, Indore",
+    "slug": "sage-university-indore",
+    "logo": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80",
+    "description": "SAGE University Indore is an award-winning academic institution in central India, offering progressive engineering, technology, and applied sciences curricula.",
+    "about": "SAGE University Indore is an award-winning academic institution in central India, offering progressive engineering, technology, and applied sciences curricula.",
+    "city": "Indore",
+    "state": "Madhya Pradesh",
+    "location": "Madhya Pradesh, Indore",
+    "country": "India",
+    "ranking": "#48 in India",
+    "nirfRanking": 48,
+    "accreditation": "AICTE & UGC Approved",
+    "establishedYear": 2016,
+    "fees": "₹1.5 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.1 LPA",
+    "highestPackage": "30 LPA",
+    "placements": "5.1 LPA Average",
+    "rating": 8,
+    "category": "Engineering",
+    "website": "https://sageuniversity.in",
+    "images": [
+      "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Computer Science and Engineering', fees: '₹2.2 Lakhs / Year', seats: 120 },
-      { name: 'B.Tech in Electrical Engineering', fees: '₹2.2 Lakhs / Year', seats: 100 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Google Inc', package: '₹1.68 CPA' },
-      { company: 'Microsoft', package: '₹48 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'IITB Merit-cum-Means', criteria: 'Parental Income < ₹4.5 Lakhs', amount: 'Full Tuition Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Hostel 1 to 18 (Powai)', sharing: 'Single', fees: '₹25,000 / Year' }
+    "courses": [
+      {
+        "name": "B.Tech in Artificial Intelligence",
+        "fees": "₹1.5 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "B.Tech in Mechanical Engineering",
+        "fees": "₹1.2 Lakhs",
+        "seats": 60
+      }
     ],
-    reviews: [
-      { name: 'Karan Malhotra', rating: 5, text: 'Incredible faculty, campus events like Mood Indigo are amazing, and placement stats speak for themselves.', date: '2026-05-02' }
+    "placementDetails": [
+      {
+        "company": "TCS",
+        "package": "₹6.5 LPA"
+      },
+      {
+        "company": "Capgemini",
+        "package": "₹5.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'What is the entry exam?', a: 'JEE Advanced is mandatory for B.Tech admission.' }
+    "scholarships": [
+      {
+        "name": "SAGE Scholarship",
+        "criteria": "JEE Rank < 15000",
+        "amount": "50% Waiver"
+      }
     ],
-    totalOffers: 1650,
-    companyVisiting: 350,
-    highestInternationalPackage: '1.68 CR',
-    phone: '+91 22 2572 2545',
-    address: 'Main Gate Rd, IIT Area, Powai, Mumbai, Maharashtra 400076',
-    email: 'admissions@iitb.ac.in',
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹95,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "30 LPA",
+    "phone": "+91 95222 37600",
+    "address": "Kailod Kartal, Indore-Dewas Bypass Road, Indore, Madhya Pradesh 452020",
+    "email": "admission@sageuniversity.in"
   },
   {
-    collegeName: 'Sharda University Noida',
-    name: 'Sharda University Noida',
-    slug: 'sharda-university',
-    logo: 'sharda-university',
-    banner: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
-    description: 'Sharda University Noida is a premier global private university in Greater Noida, NCR, offering premium campus placements and diverse programs.',
-    about: 'Sharda University is a private university in Greater Noida, Uttar Pradesh, established in 2009. The university has students from 85+ countries and offers multi-disciplinary programs.',
-    city: 'Noida',
-    state: 'Uttar Pradesh',
-    location: 'Noida, Uttar Pradesh',
-    country: 'India',
-    ranking: 'NAAC A+ Accredited',
-    nirfRanking: 87,
-    accreditation: 'NAAC A+',
-    establishedYear: 2009,
-    fees: '₹2.1 Lakhs / Year',
-    placementPercentage: 91,
-    averagePackage: '6.5 LPA',
-    highestPackage: '52.0 LPA',
-    placements: '6.5 LPA Average',
-    rating: 7.9,
-    category: 'Engineering',
-    website: 'https://www.sharda.ac.in',
-    images: ['https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80'],
-    facilities: ['Sharda Hospital', 'Advanced Labs', 'Moot Court'],
-    infrastructure: ['AC Classrooms', 'Central Library', 'Cafeterias', 'Multi-sport Complex'],
-    gallery: [
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80'
+    "collegeName": "SAGE University, Bhopal",
+    "name": "SAGE University, Bhopal",
+    "slug": "sage-university-bhopal",
+    "logo": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80",
+    "description": "SAGE University Bhopal provides state-of-the-art infrastructure and highly focused management/entrepreneurship programs for dynamic career paths.",
+    "about": "SAGE University Bhopal provides state-of-the-art infrastructure and highly focused management/entrepreneurship programs for dynamic career paths.",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "location": "Madhya Pradesh, Bhopal",
+    "country": "India",
+    "ranking": "#55 in India",
+    "nirfRanking": 55,
+    "accreditation": "UGC Approved",
+    "establishedYear": 2020,
+    "fees": "₹1.4 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "4.8 LPA",
+    "highestPackage": "25 LPA",
+    "placements": "4.8 LPA Average",
+    "rating": 7.9,
+    "category": "Management",
+    "website": "https://sageuniversitybhopal.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Computer Science', fees: '₹2.1 Lakhs', seats: 300 },
-      { name: 'MBA in Marketing', fees: '₹3.5 Lakhs', seats: 120 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Amazon', package: '₹18 LPA' },
-      { company: 'TCS', package: '₹6.5 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'Sharda Scholarship Plan', criteria: 'JEE Rank < 25000', amount: '80% Tuition Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'AC Room - Twin Sharing', sharing: 'Twin', fees: '₹1.15 Lakhs / Year' }
+    "courses": [
+      {
+        "name": "MBA in HR & Finance",
+        "fees": "₹1.4 Lakhs",
+        "seats": 90
+      },
+      {
+        "name": "BBA in Business Analytics",
+        "fees": "₹1.1 Lakhs",
+        "seats": 120
+      }
     ],
-    reviews: [
-      { name: 'Rohan Sharma', rating: 4, text: 'Great multicultural exposure and very decent placements.', date: '2026-04-18' }
+    "placementDetails": [
+      {
+        "company": "ICICI Bank",
+        "package": "₹6.0 LPA"
+      },
+      {
+        "company": "Airtel",
+        "package": "₹5.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is there any registration fee?', a: 'Yes, a standard university application fee applies.' }
+    "scholarships": [
+      {
+        "name": "Merit-Based Scholarship",
+        "criteria": "Marks > 88%",
+        "amount": "25% Waiver"
+      }
     ],
-    totalOffers: 4500,
-    companyVisiting: 150,
-    highestInternationalPackage: '35 LPA',
-    phone: '+91 120 457 0000',
-    address: 'Plot No. 32-34, Knowledge Park III, Greater Noida, Uttar Pradesh 201306',
-    email: 'admissions@sharda.ac.in',
+    "hostels": [
+      {
+        "type": "Bhopal Campus Room",
+        "sharing": "Twin",
+        "fees": "₹85,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "25 LPA",
+    "phone": "+91 95222 37601",
+    "address": "Sahara Bypass Road, Katara Hills, Bhopal, Madhya Pradesh 462022",
+    "email": "admissions@subhopal.edu.in"
   },
   {
-    collegeName: 'Birla Institute of Technology & Science Pilani',
-    name: 'Birla Institute of Technology & Science Pilani',
-    slug: 'bits-pilani',
-    logo: 'bits-pilani',
-    banner: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80',
-    description: 'BITS Pilani is a highly premier science and engineering university. Famous for its flexible "no attendance" policy and strong startup culture.',
-    about: 'Birla Institute of Technology & Science, Pilani (BITS Pilani) is a deemed university in Pilani, Rajasthan. Established in 1964, it is widely recognized as one of the best engineering colleges in India with additional campuses in Goa, Hyderabad, and Dubai.',
-    city: 'Pilani',
-    state: 'Rajasthan',
-    location: 'Pilani, Rajasthan',
-    country: 'India',
-    ranking: '#20 in India (NIRF Overall)',
-    nirfRanking: 20,
-    accreditation: 'NAAC A Grade',
-    establishedYear: 1964,
-    fees: '₹4.5 Lakhs / Year',
-    placementPercentage: 100,
-    averagePackage: '30.37 LPA',
-    highestPackage: '60.75 LPA',
-    placements: '30.37 LPA Average',
-    rating: 9.4,
-    category: 'Engineering',
-    website: 'https://www.bits-pilani.ac.in',
-    images: ['https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80'],
-    facilities: ['BITS Clock Tower', 'Practice School System', 'Student Activity Center'],
-    infrastructure: ['AC Laboratories', 'Libraries', 'Playgrounds', 'Hostels'],
-    gallery: [
-      'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80'
+    "collegeName": "Avantika University, Ujjain",
+    "name": "Avantika University, Ujjain",
+    "slug": "avantika-university-ujjain",
+    "logo": "https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=1200&q=80",
+    "description": "Avantika University Ujjain is Indias first design-centered university. Promoted by MIT Group Pune, it offers highly experiential learning in design and technology.",
+    "about": "Avantika University Ujjain is Indias first design-centered university. Promoted by MIT Group Pune, it offers highly experiential learning in design and technology.",
+    "city": "Ujjain",
+    "state": "Madhya Pradesh",
+    "location": "Madhya Pradesh, Ujjain",
+    "country": "India",
+    "ranking": "#12 in Design (Private Universities)",
+    "nirfRanking": 12,
+    "accreditation": "UGC & COA Approved",
+    "establishedYear": 2017,
+    "fees": "₹3.1 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "7.2 LPA",
+    "highestPackage": "28 LPA",
+    "placements": "7.2 LPA Average",
+    "rating": 8.4,
+    "category": "Design",
+    "website": "https://avantikauniversity.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.E. in Computer Science', fees: '₹4.5 Lakhs / Year', seats: 120 },
-      { name: 'B.E. in Mechanical Engineering', fees: '₹4.5 Lakhs / Year', seats: 100 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Uber Technologies', package: '₹60.75 LPA' },
-      { company: 'Apple Inc', package: '₹48.0 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'BITS Merit-cum-Need', criteria: 'CGPA > 8.0', amount: '80% Fee Waiver' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Standard Single Room', sharing: 'Single', fees: '₹55,000 / Year' }
+    "courses": [
+      {
+        "name": "B.Des in Product Design",
+        "fees": "₹3.1 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "B.Des in User Experience (UX)",
+        "fees": "₹3.5 Lakhs",
+        "seats": 60
+      }
     ],
-    reviews: [
-      { name: 'Ananya Goel', rating: 5, text: 'No attendance policy and the Practice School internship systems are absolute game-changers.', date: '2026-05-15' }
+    "placementDetails": [
+      {
+        "company": "Microsoft India",
+        "package": "₹28.0 LPA"
+      },
+      {
+        "company": "Tata Motors",
+        "package": "₹8.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is BITSAT mandatory?', a: 'Yes, BITSAT scores are strictly used for engineering admissions.' }
+    "scholarships": [
+      {
+        "name": "MIT Design Scholarship",
+        "criteria": "DAT Rank < 200",
+        "amount": "50% Tuition Waiver"
+      }
     ],
-    totalOffers: 1200,
-    companyVisiting: 400,
-    highestInternationalPackage: '1.2 CPA',
-    phone: '+91 1596 245 073',
-    address: 'Vidya Vihar, Pilani, Rajasthan 333031',
-    email: 'admissions@pilani.bits-pilani.ac.in',
+    "hostels": [
+      {
+        "type": "Design Studios Hostel",
+        "sharing": "Twin",
+        "fees": "₹1.3 Lakhs / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "28 LPA",
+    "phone": "+91 77219 65333",
+    "address": "Vishwanathpuram, Lekoda, Ujjain, Madhya Pradesh 456006",
+    "email": "info@avantika.edu.in"
   },
   {
-    collegeName: 'NMIMS Deemed-to-be-University Mumbai',
-    name: 'NMIMS Deemed-to-be-University Mumbai',
-    slug: 'nmims-mumbai',
-    logo: 'nmims-mumbai',
-    banner: 'https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80',
-    description: 'NMIMS Mumbai is a top-tier business university. Renowned for its Core MBA programs, premium infrastructure, and corporate integrations.',
-    about: 'SVKMs NMIMS (Narsee Monjee Institute of Management Studies) is a premier deemed-to-be university established in 1981 in Mumbai. It has expanded into a multi-campus institution offering high-quality management training.',
-    city: 'Mumbai',
-    state: 'Maharashtra',
-    location: 'Mumbai, Maharashtra',
-    country: 'India',
-    ranking: '#21 in India (NIRF Management)',
-    nirfRanking: 21,
-    accreditation: 'AACSB Accredited',
-    establishedYear: 1981,
-    fees: '₹10.5 Lakhs / Year',
-    placementPercentage: 98,
-    averagePackage: '23.07 LPA',
-    highestPackage: '67.80 LPA',
-    placements: '23.07 LPA Average',
-    rating: 8.7,
-    category: 'Management',
-    website: 'https://www.nmims.edu',
-    images: ['https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80'],
-    facilities: ['Bloomberg Terminal Labs', 'Conference Halls', 'Digital Classrooms'],
-    infrastructure: ['Digital Classrooms', 'Bloomberg Terminals', 'Central Library', 'Premium Cafeterias'],
-    gallery: [
-      'https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80'
+    "collegeName": "K.K. Modi University, Durg",
+    "name": "K.K. Modi University, Durg",
+    "slug": "kk-modi-university-durg",
+    "logo": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80",
+    "description": "K.K. Modi University Durg focuses on industry-ready corporate and digital management courses backed by the industrial legacy of Modi Group.",
+    "about": "K.K. Modi University Durg focuses on industry-ready corporate and digital management courses backed by the industrial legacy of Modi Group.",
+    "city": "Durg",
+    "state": "Chhattisgarh",
+    "location": "Chhattisgarh, Durg",
+    "country": "India",
+    "ranking": "#82 in India",
+    "nirfRanking": 82,
+    "accreditation": "UGC Approved",
+    "establishedYear": 2018,
+    "fees": "₹1.3 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.0 LPA",
+    "highestPackage": "15 LPA",
+    "placements": "5.0 LPA Average",
+    "rating": 7.6,
+    "category": "Management",
+    "website": "https://kkmu.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'MBA Core', fees: '₹10.5 Lakhs / Year', seats: 600 },
-      { name: 'BBA in Management', fees: '₹3.2 Lakhs / Year', seats: 360 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Goldman Sachs', package: '₹28 LPA' },
-      { company: 'JPMorgan Chase', package: '₹26 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'SVKM Scholarship scheme', criteria: 'Family Income < ₹6 Lakhs', amount: '30% Fee Support' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'Off-campus Premium AC Housing', sharing: 'Twin', fees: '₹2.8 Lakhs / Year' }
+    "courses": [
+      {
+        "name": "MBA in Digital Marketing",
+        "fees": "₹1.3 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General Business)",
+        "fees": "₹90,000",
+        "seats": 90
+      }
     ],
-    reviews: [
-      { name: 'Siddharth Jain', rating: 5, text: 'Awesome corporate connections. Virtually every top consulting firm visits here.', date: '2026-05-19' }
+    "placementDetails": [
+      {
+        "company": "HDFC Bank",
+        "package": "₹5.5 LPA"
+      },
+      {
+        "company": "Tech Mahindra",
+        "package": "₹4.5 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is NMAT required?', a: 'Yes, NMAT by GMAC is the mandatory exam for MBA admission.' }
+    "scholarships": [
+      {
+        "name": "Modi Corporate Scholarship",
+        "criteria": "Class 12 Marks > 85%",
+        "amount": "30% Concession"
+      }
     ],
-    totalOffers: 800,
-    companyVisiting: 220,
-    highestInternationalPackage: '67.8 LPA',
-    phone: '+91 22 4235 5555',
-    address: 'V. L. Mehta Road, Vile Parle West, Mumbai, Maharashtra 400056',
-    email: 'admissions@nmims.edu',
+    "hostels": [
+      {
+        "type": "Standard Shared Hostel",
+        "sharing": "Twin",
+        "fees": "₹70,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "15 LPA",
+    "phone": "+91 70241 33413",
+    "address": "Maharajpur, Durg, Chhattisgarh 491001",
+    "email": "admissions@kkmu.edu.in"
   },
   {
-    collegeName: 'Lovely Professional University Punjab',
-    name: 'Lovely Professional University Punjab',
-    slug: 'lpu-punjab',
-    logo: 'lpu-punjab',
-    banner: 'https://images.unsplash.com/photo-1607237138185-eedd996c5c0c?auto=format&fit=crop&w=1200&q=80',
-    description: 'Lovely Professional University (LPU) is a massive private university in Punjab, offering a giant campus and a record number of placements.',
-    about: 'Lovely Professional University is a private university located in Chaheru, Phagwara, Punjab. Established in 2005, it features a huge 600+ acre campus and has thousands of domestic and international students.',
-    city: 'Phagwara',
-    state: 'Punjab',
-    location: 'Phagwara, Punjab',
-    country: 'India',
-    ranking: '#38 in India (NIRF Overall)',
-    nirfRanking: 38,
-    accreditation: 'UGC & COA Approved',
-    establishedYear: 2005,
-    fees: '₹2.4 Lakhs / Year',
-    placementPercentage: 95,
-    averagePackage: '7.8 LPA',
-    highestPackage: '64.0 LPA',
-    placements: '7.8 LPA Average',
-    rating: 8.1,
-    category: 'Engineering',
-    website: 'https://www.lpu.in',
-    images: ['https://images.unsplash.com/photo-1607237138185-eedd996c5c0c?auto=format&fit=crop&w=1200&q=80'],
-    facilities: ['LPU Shopping Mall', 'Indoor Stadium', 'Uni-Hospital'],
-    infrastructure: ['AC Classrooms', 'Massive Central Library', 'Uni-Mall', 'Auditoriums', 'Sports Complex'],
-    gallery: [
-      'https://images.unsplash.com/photo-1607237138185-eedd996c5c0c?auto=format&fit=crop&w=1200&q=80'
+    "collegeName": "Medhavi Skills University, Sikkim",
+    "name": "Medhavi Skills University, Sikkim",
+    "slug": "medhavi-skills-university-sikkim",
+    "logo": "https://images.unsplash.com/photo-1492538368578-83b320261140?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1492538368578-83b320261140?auto=format&fit=crop&w=1200&q=80",
+    "description": "Medhavi Skills University is co-designed with industry partners to offer vocational and skill-integrated management and technology training in North-East India.",
+    "about": "Medhavi Skills University is co-designed with industry partners to offer vocational and skill-integrated management and technology training in North-East India.",
+    "city": "Namchi",
+    "state": "Sikkim",
+    "location": "Sikkim, Namchi",
+    "country": "India",
+    "ranking": "#88 in India (Skill Development)",
+    "nirfRanking": 88,
+    "accreditation": "UGC & NSDC Approved",
+    "establishedYear": 2021,
+    "fees": "₹1.2 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "4.2 LPA",
+    "highestPackage": "10 LPA",
+    "placements": "4.2 LPA Average",
+    "rating": 8,
+    "category": "Management",
+    "website": "https://medhaviskillsuniversity.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1492538368578-83b320261140?auto=format&fit=crop&w=1200&q=80"
     ],
-    courses: [
-      { name: 'B.Tech in Computer Science', fees: '₹2.4 Lakhs', seats: 1200 },
-      { name: 'MBA (Executive)', fees: '₹3.6 Lakhs', seats: 240 }
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    placementDetails: [
-      { company: 'Cognizant', package: '₹8.5 LPA' },
-      { company: 'Capgemini', package: '₹7.2 LPA' }
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
     ],
-    scholarships: [
-      { name: 'LPU NEST Scholarship', criteria: 'LPUNEST top ranks', amount: 'Up to 50% tuition support' }
+    "gallery": [
+      "https://images.unsplash.com/photo-1492538368578-83b320261140?auto=format&fit=crop&w=1200&q=80"
     ],
-    hostels: [
-      { type: 'AC Single Room', sharing: 'Single', fees: '₹95,000 / Year' }
+    "courses": [
+      {
+        "name": "BBA in Retail Management",
+        "fees": "₹1.2 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "B.Sc. in Hospitality & Tourism",
+        "fees": "₹1.4 Lakhs",
+        "seats": 90
+      }
     ],
-    reviews: [
-      { name: 'Ritesh Kumar', rating: 4, text: 'Massive infrastructure, endless events, and very high placement rates for CSE graduates.', date: '2026-05-14' }
+    "placementDetails": [
+      {
+        "company": "Taj Group",
+        "package": "₹5.0 LPA"
+      },
+      {
+        "company": "Reliance Retail",
+        "package": "₹3.6 LPA"
+      }
     ],
-    faq: [
-      { q: 'Is LPUNEST mandatory?', a: 'Yes, it is the primary route for engineering admissions and scholarships.' }
+    "scholarships": [
+      {
+        "name": "North-East Merit Scheme",
+        "criteria": "Sikkim Domicile",
+        "amount": "50% Fee Waiver"
+      }
     ],
-    totalOffers: 6000,
-    companyVisiting: 2225,
-    highestInternationalPackage: '64 LPA',
-    phone: '+91 1824 517000',
-    address: 'Jalandhar - Delhi, G.T. Road, Phagwara, Punjab 144411',
-    email: 'admissions@lpu.co.in',
+    "hostels": [
+      {
+        "type": "Standard Shared Room",
+        "sharing": "Twin",
+        "fees": "₹60,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "10 LPA",
+    "phone": "+91 99999 88888",
+    "address": "Namchi, Sikkim 737126",
+    "email": "info@msu.edu.in"
+  },
+  {
+    "collegeName": "Mohan Babu University, Tirupati",
+    "name": "Mohan Babu University, Tirupati",
+    "slug": "mohan-babu-university-tirupati",
+    "logo": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80",
+    "description": "Mohan Babu University Tirupati, formerly Sree Vidyanikethan, is a premier multi-disciplinary campus famous for top placements and robust technical education.",
+    "about": "Mohan Babu University Tirupati, formerly Sree Vidyanikethan, is a premier multi-disciplinary campus famous for top placements and robust technical education.",
+    "city": "Tirupati",
+    "state": "Andhra Pradesh",
+    "location": "Andhra Pradesh, Tirupati",
+    "country": "India",
+    "ranking": "#38 in India (Private Universities)",
+    "nirfRanking": 38,
+    "accreditation": "AICTE & UGC Approved",
+    "establishedYear": 1992,
+    "fees": "₹1.6 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "6.2 LPA",
+    "highestPackage": "44 LPA",
+    "placements": "6.2 LPA Average",
+    "rating": 8.2,
+    "category": "Engineering",
+    "website": "https://mbu.asia",
+    "images": [
+      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.6 Lakhs",
+        "seats": 360
+      },
+      {
+        "name": "B.Tech in Data Science",
+        "fees": "₹1.6 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Google",
+        "package": "₹44.0 LPA"
+      },
+      {
+        "company": "Cognizant",
+        "package": "₹6.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Sree Sainath Merit Scheme",
+        "criteria": "EAPCET Rank < 5000",
+        "amount": "50% Fee Concession"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared Hostel",
+        "sharing": "Twin",
+        "fees": "₹95,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "44 LPA",
+    "phone": "+91 877 2236555",
+    "address": "Sree Sainath Nagar, Tirupati, Andhra Pradesh 517102",
+    "email": "admissions@mbu.asia"
+  },
+  {
+    "collegeName": "Amity University, Hyderabad",
+    "name": "Amity University, Hyderabad",
+    "slug": "amity-university-hyderabad",
+    "logo": "https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80",
+    "description": "Amity University Hyderabad offers corporate-aligned BBA and MBA programs with specialized training in financial technology and global logistics.",
+    "about": "Amity University Hyderabad offers corporate-aligned BBA and MBA programs with specialized training in financial technology and global logistics.",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "location": "Telangana, Hyderabad",
+    "country": "India",
+    "ranking": "#30 in India (Private B-Schools)",
+    "nirfRanking": 30,
+    "accreditation": "UGC Approved",
+    "establishedYear": 2015,
+    "fees": "₹3.0 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "7.2 LPA",
+    "highestPackage": "26 LPA",
+    "placements": "7.2 LPA Average",
+    "rating": 8.1,
+    "category": "Management",
+    "website": "https://amity.edu/hyderabad",
+    "images": [
+      "https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Finance",
+        "fees": "₹3.0 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹2.0 Lakhs",
+        "seats": 180
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Deloitte",
+        "package": "₹8.5 LPA"
+      },
+      {
+        "company": "HSBC",
+        "package": "₹7.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Amity Merit Award",
+        "criteria": "Marks > 92%",
+        "amount": "50% Tuition Support"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹1.2 Lakhs / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "26 LPA",
+    "phone": "+91 40 23000000",
+    "address": "Maharajpet, Shankarpally, Hyderabad, Telangana 501203",
+    "email": "admissions@hyd.amity.edu"
+  },
+  {
+    "collegeName": "Rayat Bahra University, Shimla",
+    "name": "Rayat Bahra University, Shimla",
+    "slug": "rayat-bahra-university-shimla",
+    "logo": "https://images.unsplash.com/photo-1607013398845-2517de280c41?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1607013398845-2517de280c41?auto=format&fit=crop&w=1200&q=80",
+    "description": "Rayat Bahra University Shimla offers scenic learning spaces and highly structured management studies customized for administrative and tourist service sectors.",
+    "about": "Rayat Bahra University Shimla offers scenic learning spaces and highly structured management studies customized for administrative and tourist service sectors.",
+    "city": "Shimla",
+    "state": "Himachal Pradesh",
+    "location": "Himachal Pradesh, Shimla",
+    "country": "India",
+    "ranking": "#85 in India",
+    "nirfRanking": 85,
+    "accreditation": "UGC & HP State Council Approved",
+    "establishedYear": 2008,
+    "fees": "₹1.1 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "4.5 LPA",
+    "highestPackage": "12 LPA",
+    "placements": "4.5 LPA Average",
+    "rating": 7.7,
+    "category": "Management",
+    "website": "https://rbu.edu/shimla",
+    "images": [
+      "https://images.unsplash.com/photo-1607013398845-2517de280c41?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1607013398845-2517de280c41?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Tourism",
+        "fees": "₹1.1 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹80,000",
+        "seats": 90
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "MakeMyTrip",
+        "package": "₹5.5 LPA"
+      },
+      {
+        "company": "HDFC Bank",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Hill State Concession",
+        "criteria": "HP Domicile",
+        "amount": "₹15,000 / Year"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Room",
+        "sharing": "Twin",
+        "fees": "₹65,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "12 LPA",
+    "phone": "+91 177 2830000",
+    "address": "Shimla Hills, Shimla, Himachal Pradesh 171001",
+    "email": "info@rbushimla.edu.in"
+  },
+  {
+    "collegeName": "Rayat Bahra University, Mohali",
+    "name": "Rayat Bahra University, Mohali",
+    "slug": "rayat-bahra-university-mohali",
+    "logo": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80",
+    "description": "Rayat Bahra University Mohali features a massive campus in Tricity, offering industry-tied engineering curricula and strong placements.",
+    "about": "Rayat Bahra University Mohali features a massive campus in Tricity, offering industry-tied engineering curricula and strong placements.",
+    "city": "Mohali",
+    "state": "Punjab",
+    "location": "Punjab, Mohali",
+    "country": "India",
+    "ranking": "#60 in India",
+    "nirfRanking": 60,
+    "accreditation": "AICTE & UGC Approved",
+    "establishedYear": 2005,
+    "fees": "₹1.4 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.2 LPA",
+    "highestPackage": "20 LPA",
+    "placements": "5.2 LPA Average",
+    "rating": 7.9,
+    "category": "Engineering",
+    "website": "https://rbu.edu/mohali",
+    "images": [
+      "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.4 Lakhs",
+        "seats": 180
+      },
+      {
+        "name": "B.Tech in Civil Engineering",
+        "fees": "₹1.1 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Cognizant",
+        "package": "₹6.0 LPA"
+      },
+      {
+        "company": "Wipro",
+        "package": "₹5.2 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Tricity Merit Scheme",
+        "criteria": "Marks > 85%",
+        "amount": "₹25,000 / Year"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Hostel Room",
+        "sharing": "Twin",
+        "fees": "₹80,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "20 LPA",
+    "phone": "+91 172 5025001",
+    "address": "Mohali-Kharar G.T. Road, Mohali, Punjab 140103",
+    "email": "admissions@rbumohali.edu.in"
+  },
+  {
+    "collegeName": "Rajasthan University, Jaipur",
+    "name": "Rajasthan University, Jaipur",
+    "slug": "rajasthan-university",
+    "logo": "https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=1200&q=80",
+    "description": "University of Rajasthan is the oldest institution of higher learning in Rajasthan, offering high-quality traditional and professional management studies.",
+    "about": "University of Rajasthan is the oldest institution of higher learning in Rajasthan, offering high-quality traditional and professional management studies.",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "location": "Rajasthan, Jaipur",
+    "country": "India",
+    "ranking": "#42 in India (UGC Universities)",
+    "nirfRanking": 42,
+    "accreditation": "UGC Approved, NAAC A Grade",
+    "establishedYear": 1947,
+    "fees": "₹30,000 / Year",
+    "placementPercentage": 90,
+    "averagePackage": "4.8 LPA",
+    "highestPackage": "14 LPA",
+    "placements": "4.8 LPA Average",
+    "rating": 8,
+    "category": "Management",
+    "website": "https://uniraj.ac.in",
+    "images": [
+      "https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "MBA (General Business)",
+        "fees": "₹30,000",
+        "seats": 120
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹18,000",
+        "seats": 240
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "ICICI Bank",
+        "package": "₹5.0 LPA"
+      },
+      {
+        "company": "TCS",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "State Government Scholarship",
+        "criteria": "SC/ST/OBC category support",
+        "amount": "Full Fee Reimbursement"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Government Room",
+        "sharing": "Twin",
+        "fees": "₹15,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "14 LPA",
+    "phone": "+91 141 2711070",
+    "address": "Jawahar Lal Nehru Marg, Jaipur, Rajasthan 302004",
+    "email": "admissions@uniraj.ac.in"
+  },
+  {
+    "collegeName": "Don Bosco University, Guwahati",
+    "name": "Don Bosco University, Guwahati",
+    "slug": "don-bosco-university",
+    "logo": "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1200&q=80",
+    "description": "Assam Don Bosco University is a premier Catholic research university, offering advanced engineering and technology courses in North-East India.",
+    "about": "Assam Don Bosco University is a premier Catholic research university, offering advanced engineering and technology courses in North-East India.",
+    "city": "Guwahati",
+    "state": "Assam",
+    "location": "Assam, Guwahati",
+    "country": "India",
+    "ranking": "#58 in India (UGC)",
+    "nirfRanking": 58,
+    "accreditation": "UGC Approved, NAAC A Grade",
+    "establishedYear": 2008,
+    "fees": "₹1.5 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.0 LPA",
+    "highestPackage": "18 LPA",
+    "placements": "5.0 LPA Average",
+    "rating": 7.9,
+    "category": "Engineering",
+    "website": "https://dbuniversity.ac.in",
+    "images": [
+      "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in CSE",
+        "fees": "₹1.5 Lakhs",
+        "seats": 90
+      },
+      {
+        "name": "B.Tech in Electronics",
+        "fees": "₹1.2 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Tech Mahindra",
+        "package": "₹6.0 LPA"
+      },
+      {
+        "company": "Wipro",
+        "package": "₹5.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Don Bosco Foundation Support",
+        "criteria": "Economic background",
+        "amount": "50% Fee Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Boys Shared Room",
+        "sharing": "Twin",
+        "fees": "₹75,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "18 LPA",
+    "phone": "+91 94355 44994",
+    "address": "Airport Road, Azara, Guwahati, Assam 781017",
+    "email": "admissions@dbuniversity.ac.in"
+  },
+  {
+    "collegeName": "DIT University, Dehradun",
+    "name": "DIT University, Dehradun",
+    "slug": "dit-university-dehradun",
+    "logo": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
+    "description": "DIT University Dehradun, formerly Dehradun Institute of Technology, is a prominent private university in Uttarakhand known for B.Tech CSE placements.",
+    "about": "DIT University Dehradun, formerly Dehradun Institute of Technology, is a prominent private university in Uttarakhand known for B.Tech CSE placements.",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "location": "Uttarakhand, Dehradun",
+    "country": "India",
+    "ranking": "#45 in India (Engineering)",
+    "nirfRanking": 45,
+    "accreditation": "UGC & AICTE Approved",
+    "establishedYear": 1998,
+    "fees": "₹1.8 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "6.5 LPA",
+    "highestPackage": "38 LPA",
+    "placements": "6.5 LPA Average",
+    "rating": 8.1,
+    "category": "Engineering",
+    "website": "https://dituniversity.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.8 Lakhs",
+        "seats": 240
+      },
+      {
+        "name": "B.Tech in Cyber Security",
+        "fees": "₹2.0 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹38.0 LPA"
+      },
+      {
+        "company": "Infosys",
+        "package": "₹5.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Uttarakhand Domicile Discount",
+        "criteria": "State Residents",
+        "amount": "26% Tuition Discount"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹1.1 Lakhs / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "38 LPA",
+    "phone": "+91 135 3000300",
+    "address": "Mussoorie Diversion Road, Dehradun, Uttarakhand 248009",
+    "email": "admissions@dituniversity.edu.in"
+  },
+  {
+    "collegeName": "K.R. Mangalam University, Gurugram",
+    "name": "K.R. Mangalam University, Gurugram",
+    "slug": "kr-mangalam-university",
+    "logo": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=80",
+    "description": "K.R. Mangalam University is a premier university located in Gurugram, offering dynamic undergraduate and postgraduate programs with advanced corporate training setups.",
+    "about": "K.R. Mangalam University is a premier university located in Gurugram, offering dynamic undergraduate and postgraduate programs with advanced corporate training setups.",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "location": "Haryana, Gurugram",
+    "country": "India",
+    "ranking": "#15 in India (Private B-Schools)",
+    "nirfRanking": 15,
+    "accreditation": "AICTE & UGC Approved",
+    "establishedYear": 2013,
+    "fees": "₹2.8 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "7.5 LPA",
+    "highestPackage": "56.6 LPA",
+    "placements": "7.5 LPA Average",
+    "rating": 8,
+    "category": "Management",
+    "website": "https://krmangalam.edu.in",
+    "images": [
+      "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Business Analytics",
+        "fees": "₹2.8 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.8 Lakhs",
+        "seats": 150
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹36.0 LPA"
+      },
+      {
+        "company": "HCL",
+        "package": "₹6.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "KRMU Scholarship",
+        "criteria": "Class 12 Marks > 90%",
+        "amount": "50% Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "AC Double Sharing",
+        "sharing": "Twin",
+        "fees": "₹1.2 Lakhs / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "56.6 LPA",
+    "phone": "+91 11 4888 8888",
+    "address": "Sohna Road, Gurugram, Haryana 122103",
+    "email": "admissions@krmangalam.edu.in"
+  },
+  {
+    "collegeName": "Dev Bhoomi Uttarakhand University, Dehradun",
+    "name": "Dev Bhoomi Uttarakhand University, Dehradun",
+    "slug": "dev-bhoomi-university",
+    "logo": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80",
+    "banner": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80",
+    "description": "Dev Bhoomi Uttarakhand University offers practical-based engineering and medical sciences programs in a expansive foothills campus in Dehradun.",
+    "about": "Dev Bhoomi Uttarakhand University offers practical-based engineering and medical sciences programs in a expansive foothills campus in Dehradun.",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "location": "Uttarakhand, Dehradun",
+    "country": "India",
+    "ranking": "#68 in India (UGC)",
+    "nirfRanking": 68,
+    "accreditation": "UGC & AICTE Approved",
+    "establishedYear": 2005,
+    "fees": "₹1.3 Lakhs / Year",
+    "placementPercentage": 90,
+    "averagePackage": "5.5 LPA",
+    "highestPackage": "20 LPA",
+    "placements": "5.5 LPA Average",
+    "rating": 7.8,
+    "category": "Engineering",
+    "website": "https://dbuu.ac.in",
+    "images": [
+      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "facilities": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in CSE",
+        "fees": "₹1.3 Lakhs",
+        "seats": 180
+      },
+      {
+        "name": "B.Tech in Civil Engineering",
+        "fees": "₹1.0 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Cognizant",
+        "package": "₹5.5 LPA"
+      },
+      {
+        "company": "HCL Tech",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Merit Discount Scheme",
+        "criteria": "Marks > 85%",
+        "amount": "25% Tuition Support"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared Hostel",
+        "sharing": "Twin",
+        "fees": "₹80,000 / Year"
+      }
+    ],
+    "reviews": [],
+    "faq": [],
+    "totalOffers": 500,
+    "companyVisiting": 120,
+    "highestInternationalPackage": "20 LPA",
+    "phone": "+91 135 2694241",
+    "address": "Manduwala, Dehradun, Uttarakhand 248007",
+    "email": "admissions@dbuu.ac.in"
   }
 ];
 

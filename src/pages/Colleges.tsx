@@ -4,122 +4,1287 @@ import { Filter, SlidersHorizontal, RefreshCw, ChevronDown, Award, DollarSign, B
 import { CollegeCard } from '../components/cards/CollegeCard';
 import { useColleges } from '../hooks/useColleges';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
+import { getStaticCollege } from '../data/mockUniversities';
+
+const PLACEMENT_UNIV_IDS = [
+  'vidyashilp-university',
+  'graphic-era',
+  'iibs-bangalore',
+  'bennett-university',
+  'sanjay-ghodawat-university',
+  'xlri-jamshedpur',
+  'alliance-university',
+  'lpu-punjab',
+  'cgc-landran',
+  'its-management',
+  'poddar-college',
+  'its-professional-studies',
+  'amity-university-noida',
+  'amity-university-mumbai',
+  'medhavi-university',
+  'kiet-university',
+  'sage-university',
+  'accman-business-school',
+  'kr-mangalam',
+  'pimpri-chinchwad-university'
+];
+
+export const STATIC_COLLEGES: any[] = PLACEMENT_UNIV_IDS.map(id => getStaticCollege(id)).filter(Boolean);
 
 // ── Comprehensive Static Fallback Colleges ────────────────────────────────────
 // Used when the API / backend returns no data, ensuring Popular Searches always show results.
-export const STATIC_COLLEGES: any[] = [
-  // ── MANAGEMENT / MBA ──────────────────────────────────────────────────────
-  { id: 'symbiosis-pune', name: 'Symbiosis Institute of Business Management (SIBM), Pune', location: 'Pune, Maharashtra', rating: 8.8, fees: '₹23.5 Lakhs / Year', placements: '26.77 LPA Average', ranking: '#8 in India (NIRF MBA)', logo: 'symbiosis-pune', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'SIBM Pune is a premier B-school of India.', courses: [{ name: 'MBA', fees: '₹11.75 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iim-bangalore', name: 'Indian Institute of Management, Bangalore', location: 'Bangalore, Karnataka', rating: 9.2, fees: '₹23.0 Lakhs / Year', placements: '34 LPA Average', ranking: '#2 in India (NIRF MBA)', logo: 'iim-bangalore', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'IIM Bangalore is a top management school.', courses: [{ name: 'MBA (PGP)', fees: '₹11.5 Lakhs', seats: 480 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'mdi-gurgaon', name: 'Management Development Institute (MDI), Gurgaon', location: 'Gurgaon, Haryana', rating: 8.7, fees: '₹24.9 Lakhs / Year', placements: '26.6 LPA Average', ranking: '#10 in India (NIRF MBA)', logo: 'mdi-gurgaon', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'MDI is a leading B-School in Delhi NCR.', courses: [{ name: 'PGPM', fees: '₹12.45 Lakhs', seats: 240 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'xlri-jamshedpur', name: 'Xavier School of Management (XLRI), Jamshedpur', location: 'Jamshedpur, Jharkhand', rating: 8.9, fees: '₹25.0 Lakhs / Year', placements: '32.7 LPA Average', ranking: '#5 in India (NIRF MBA)', logo: 'xlri-jamshedpur', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'XLRI is among the oldest B-Schools in India.', courses: [{ name: 'PGDM (BM)', fees: '₹12.5 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'fms-delhi', name: 'Faculty of Management Studies (FMS), Delhi University', location: 'Delhi, Delhi', rating: 8.9, fees: '₹2.0 Lakhs / Year', placements: '32.4 LPA Average', ranking: '#6 in India (NIRF MBA)', logo: 'fms-delhi', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'FMS Delhi offers one of the most affordable MBA programs.', courses: [{ name: 'MBA', fees: '₹1.0 Lakhs', seats: 220 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iim-ahmedabad', name: 'Indian Institute of Management (IIM), Ahmedabad', location: 'Ahmedabad, Gujarat', rating: 9.1, fees: '₹25.0 Lakhs / Year', placements: '34.8 LPA Average', ranking: '#1 in India (NIRF MBA)', logo: 'iim-ahmedabad', image: 'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'IIM Ahmedabad is the top management school in India.', courses: [{ name: 'PGP', fees: '₹12.5 Lakhs', seats: 400 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'dms-iit-delhi', name: 'Department of Management Studies (DMS), IIT Delhi', location: 'Delhi, Delhi', rating: 8.7, fees: '₹10.4 Lakhs / Year', placements: '25.8 LPA Average', ranking: '#4 in India (NIRF MBA)', logo: 'dms-iit-delhi', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'DMS IIT Delhi blends technology with management.', courses: [{ name: 'MBA', fees: '₹5.2 Lakhs', seats: 150 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'jlu-bhopal', name: 'Jagran Lakecity University (JLU), Bhopal', location: 'Bhopal, Madhya Pradesh', rating: 8.0, fees: '₹1.6 Lakhs / Year', placements: '4.5 LPA Average', ranking: '#45 in India (NIRF MBA)', logo: 'jlu-bhopal', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'JLU Bhopal is a progressive university in Madhya Pradesh.', courses: [{ name: 'MBA', fees: '₹1.6 Lakhs', seats: 120 }, { name: 'BBA', fees: '₹1.2 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'amity-university-noida', name: 'Amity University, Noida', location: 'Noida, Uttar Pradesh', rating: 8.5, fees: '₹4.8 Lakhs / Year', placements: '8.5 LPA Average', ranking: '#18 in India', logo: 'amity-university', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Amity University is a leading private university in India.', courses: [{ name: 'MBA', fees: '₹4.8 Lakhs', seats: 240 }, { name: 'BBA', fees: '₹3.2 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'chandigarh-university', name: 'Chandigarh University (CU), Mohali', location: 'Mohali, Punjab', rating: 8.1, fees: '₹1.8 Lakhs / Year', placements: '8.0 LPA Average', ranking: '#25 in India', logo: 'chandigarh-university', image: 'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Chandigarh University is a NAAC A+ accredited institution.', courses: [{ name: 'MBA', fees: '₹1.8 Lakhs', seats: 300 }, { name: 'BBA', fees: '₹1.2 Lakhs', seats: 240 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'sharda-university', name: 'Sharda University, Greater Noida', location: 'Noida, Uttar Pradesh', rating: 8.7, fees: '₹2.2 Lakhs / Year', placements: '7.0 LPA Average', ranking: '#30 in India', logo: 'sharda-university', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Sharda University is a prominent university in NCR.', courses: [{ name: 'MBA', fees: '₹2.2 Lakhs', seats: 200 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'lpu-punjab', name: 'Lovely Professional University', location: 'Jalandhar, Punjab', rating: 8.2, fees: '₹2.4 Lakhs / Year', placements: '8.2 LPA Average', ranking: '#35 in India', logo: 'lpu-punjab', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'LPU is one of the largest private universities in India.', courses: [{ name: 'MBA', fees: '₹2.4 Lakhs', seats: 400 }, { name: 'BBA', fees: '₹1.5 Lakhs', seats: 300 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'vidyashilp-university', name: 'Vidyashilp University (VU), Bangalore', location: 'Bangalore, Karnataka', rating: 8.8, fees: '₹5.13 Lakhs / Year', placements: '8.5 LPA Average', ranking: '#22 in India', logo: 'vidyashilp-university', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Vidyashilp University is a new-age university in Bangalore.', courses: [{ name: 'MBA', fees: '₹5.13 Lakhs', seats: 120 }, { name: 'BBA', fees: '₹3.5 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'alliance-university', name: 'Alliance University Bangalore', location: 'Bangalore, Karnataka', rating: 8.0, fees: '₹15.0 Lakhs / Year', placements: '8.5 LPA Average', ranking: '#28 in India', logo: 'alliance-university', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Alliance University offers world-class management education.', courses: [{ name: 'MBA', fees: '₹7.5 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'bennett-university', name: 'Bennett University, Greater Noida', location: 'Greater Noida, Uttar Pradesh', rating: 8.7, fees: '₹3.8 Lakhs / Year', placements: '9.5 LPA Average', ranking: '#20 in India', logo: 'bennett-university', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Bennett University backed by The Times of India Group.', courses: [{ name: 'MBA', fees: '₹3.8 Lakhs', seats: 150 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'sage-university', name: 'SAGE University Indore', location: 'Indore, Madhya Pradesh', rating: 9.0, fees: '₹1.5 Lakhs / Year', placements: '5.1 LPA Average', ranking: '#48 in India', logo: 'sage-university', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'SAGE University is a top private university in Indore.', courses: [{ name: 'MBA', fees: '₹1.5 Lakhs', seats: 120 }, { name: 'BBA', fees: '₹1.0 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'pimpri-chinchwad-university', name: 'Pimpri Chinchwad University (PCU)', location: 'Pune, Maharashtra', rating: 9.1, fees: '₹2.6 Lakhs / Year', placements: '8.0 LPA Average', ranking: '#40 in India', logo: 'pimpri-chinchwad-university', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'PCU offers industry-integrated management programs.', courses: [{ name: 'MBA', fees: '₹2.6 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Mumbai
-  { id: 'amity-university-mumbai', name: 'Amity University Mumbai', location: 'Mumbai, Maharashtra', rating: 8.9, fees: '₹3.5 Lakhs / Year', placements: '7.8 LPA Average', ranking: '#19 in India', logo: 'amity-university', image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Amity University Mumbai provides quality management education.', courses: [{ name: 'MBA', fees: '₹3.5 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Bhopal
-  { id: 'rkdf-university', name: 'RKDF University, Bhopal', location: 'Bhopal, Madhya Pradesh', rating: 7.8, fees: '₹1.2 Lakhs / Year', placements: '4.0 LPA Average', ranking: '#65 in India', logo: 'rkdf-university', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'RKDF University is a leading institution in Bhopal.', courses: [{ name: 'MBA', fees: '₹1.2 Lakhs', seats: 90 }, { name: 'BBA', fees: '₹0.8 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'mandsaur-university', name: 'Mandsaur University, Mandsaur', location: 'Bhopal, Madhya Pradesh', rating: 7.6, fees: '₹0.9 Lakhs / Year', placements: '3.5 LPA Average', ranking: '#80 in India', logo: 'mandsaur-university', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Mandsaur University offers affordable management programs.', courses: [{ name: 'MBA', fees: '₹0.9 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Jaipur
-  { id: 'poddar-college', name: 'Poddar International College, Jaipur', location: 'Jaipur, Rajasthan', rating: 9.2, fees: '₹1.2 Lakhs / Year', placements: '5.8 LPA Average', ranking: '#42 in India', logo: 'poddar-college', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Poddar College is a top management institution in Jaipur.', courses: [{ name: 'BBA', fees: '₹1.2 Lakhs', seats: 120 }, { name: 'MBA', fees: '₹1.5 Lakhs', seats: 80 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Hyderabad
-  { id: 'icfai-hyderabad', name: 'ICFAI Business School (IBS), Hyderabad', location: 'Hyderabad, Telangana', rating: 8.5, fees: '₹5.5 Lakhs / Year', placements: '8.0 LPA Average', ranking: '#15 in India', logo: 'icfai-hyderabad', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'IBS Hyderabad is a top private business school.', courses: [{ name: 'MBA', fees: '₹5.5 Lakhs', seats: 200 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Chennai
-  { id: 'great-lakes-chennai', name: 'Great Lakes Institute of Management, Chennai', location: 'Chennai, Tamil Nadu', rating: 8.6, fees: '₹12.5 Lakhs / Year', placements: '14.2 LPA Average', ranking: '#16 in India', logo: 'great-lakes', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Great Lakes Chennai offers PGPM for working professionals.', courses: [{ name: 'PGPM', fees: '₹12.5 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Lucknow
-  { id: 'iim-lucknow', name: 'Indian Institute of Management (IIM), Lucknow', location: 'Lucknow, Uttar Pradesh', rating: 9.0, fees: '₹19.25 Lakhs / Year', placements: '30.8 LPA Average', ranking: '#3 in India (NIRF MBA)', logo: 'iim-lucknow', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'IIM Lucknow is among the top IIMs in India.', courses: [{ name: 'PGP', fees: '₹9.625 Lakhs', seats: 370 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Kolkata
-  { id: 'iim-calcutta', name: 'Indian Institute of Management (IIM), Calcutta', location: 'Kolkata, West Bengal', rating: 9.0, fees: '₹27.0 Lakhs / Year', placements: '35.1 LPA Average', ranking: '#2 in India (NIRF MBA)', logo: 'iim-calcutta', image: 'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'IIM Calcutta is one of the oldest IIMs in India.', courses: [{ name: 'PGDM', fees: '₹13.5 Lakhs', seats: 460 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-
-  // ── ENGINEERING / B.TECH ──────────────────────────────────────────────────
-  { id: 'gl-bajaj', name: 'GL Bajaj Institute of Technology and Management', location: 'Greater Noida, Uttar Pradesh', rating: 7.8, fees: '₹6.6 Lakhs / Year', placements: '28.83 LPA Average', ranking: '#55 in India (NIRF Engineering)', logo: 'gl-bajaj', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'GL Bajaj is a top private engineering college in NCR.', courses: [{ name: 'B.Tech in Computer Science', fees: '₹6.6 Lakhs', seats: 240 }, { name: 'B.Tech in Electronics', fees: '₹6.6 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'graphic-era', name: 'Graphic Era (Deemed To Be University)', location: 'Dehradun, Uttarakhand', rating: 8.4, fees: '₹2.5 Lakhs / Year', placements: '7.2 LPA Average', ranking: '#38 in India', logo: 'graphic-era', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'Graphic Era University is NAAC A+ accredited.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.5 Lakhs', seats: 300 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'mit-pune', name: 'MIT World Peace University (MIT-WPU), Pune', location: 'Pune, Maharashtra', rating: 8.5, fees: '₹2.2 Lakhs / Year', placements: '6.5 LPA Average', ranking: '#42 in India (Engineering)', logo: 'mit-wpu', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'MIT-WPU Pune is a leading tech university in Maharashtra.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.2 Lakhs', seats: 360 }, { name: 'B.Tech in AI & ML', fees: '₹2.4 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'vit-vellore', name: 'VIT University, Vellore', location: 'Vellore, Tamil Nadu', rating: 8.8, fees: '₹2.0 Lakhs / Year', placements: '9.5 LPA Average', ranking: '#12 in India (Engineering)', logo: 'vit-vellore', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'VIT Vellore is consistently ranked among the top engineering universities.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.0 Lakhs', seats: 800 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'manipal-university', name: 'Manipal Institute of Technology (MIT), Manipal', location: 'Manipal, Karnataka', rating: 8.5, fees: '₹2.7 Lakhs / Year', placements: '8.5 LPA Average', ranking: '#20 in India (Engineering)', logo: 'manipal-university', image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'MIT Manipal is a top private engineering institution.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.7 Lakhs', seats: 600 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'srm-chennai', name: 'SRM Institute of Science and Technology, Chennai', location: 'Chennai, Tamil Nadu', rating: 8.3, fees: '₹2.5 Lakhs / Year', placements: '7.2 LPA Average', ranking: '#28 in India (Engineering)', logo: 'srm-chennai', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'SRM Chennai is a top private engineering university.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.5 Lakhs', seats: 600 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'thapar-patiala', name: 'Thapar Institute of Engineering & Technology, Patiala', location: 'Patiala, Punjab', rating: 8.6, fees: '₹2.2 Lakhs / Year', placements: '9.0 LPA Average', ranking: '#18 in India (Engineering)', logo: 'thapar-patiala', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'Thapar University is a top private engineering institute.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.2 Lakhs', seats: 300 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'dtu-delhi', name: 'Delhi Technological University (DTU)', location: 'Delhi, Delhi', rating: 8.7, fees: '₹1.6 Lakhs / Year', placements: '12.0 LPA Average', ranking: '#30 in India (Engineering)', logo: 'dtu-delhi', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'DTU is one of the top state engineering universities in Delhi.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.6 Lakhs', seats: 240 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iiit-hyderabad', name: 'International Institute of Information Technology, Hyderabad', location: 'Hyderabad, Telangana', rating: 9.0, fees: '₹3.0 Lakhs / Year', placements: '18.5 LPA Average', ranking: '#15 in India (Engineering)', logo: 'iiit-hyderabad', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'IIIT Hyderabad is a top research university in India.', courses: [{ name: 'B.Tech in CSE', fees: '₹3.0 Lakhs', seats: 200 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'pune-institute', name: 'Pune Institute of Computer Technology (PICT)', location: 'Pune, Maharashtra', rating: 8.4, fees: '₹1.5 Lakhs / Year', placements: '7.5 LPA Average', ranking: '#50 in India (Engineering)', logo: 'pune-institute', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'PICT Pune is a leading autonomous engineering college.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.5 Lakhs', seats: 240 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'kiet-university', name: 'KIET Deemed University', location: 'Ghaziabad, Uttar Pradesh', rating: 8.9, fees: '₹1.4 Lakhs / Year', placements: '7.2 LPA Average', ranking: '#45 in India (Engineering)', logo: 'kiet-university', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'KIET is an NAAC A+ accredited engineering institute.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.4 Lakhs', seats: 300 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nmims-mumbai', name: 'NMIMS University, Mumbai', location: 'Mumbai, Maharashtra', rating: 8.9, fees: '₹4.5 Lakhs / Year', placements: '9.5 LPA Average', ranking: '#10 in India (Engineering)', logo: 'nmims-mumbai', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'NMIMS Mumbai offers premier technology programs.', courses: [{ name: 'B.Tech in CSE', fees: '₹4.5 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iiit-bangalore', name: 'International Institute of Information Technology, Bangalore', location: 'Bangalore, Karnataka', rating: 8.8, fees: '₹2.6 Lakhs / Year', placements: '14.0 LPA Average', ranking: '#22 in India (Engineering)', logo: 'iiit-bangalore', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'IIIT Bangalore is a premier tech institute.', courses: [{ name: 'B.Tech in CSE', fees: '₹2.6 Lakhs', seats: 200 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Rajkot
-  { id: 'marwadi-university', name: 'Marwadi University, Rajkot', location: 'Rajkot, Gujarat', rating: 8.2, fees: '₹1.3 Lakhs / Year', placements: '4.5 LPA Average', ranking: '#58 in India', logo: 'marwadi-university', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'Marwadi University is a top private university in Gujarat.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.3 Lakhs', seats: 200 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Surat
-  { id: 'svnit-surat', name: 'Sardar Vallabhbhai National Institute of Technology, Surat', location: 'Surat, Gujarat', rating: 8.6, fees: '₹0.7 Lakhs / Year', placements: '10.5 LPA Average', ranking: '#35 in India (Engineering)', logo: 'svnit-surat', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'SVNIT Surat is an NIT with excellent placements.', courses: [{ name: 'B.Tech in CSE', fees: '₹0.7 Lakhs', seats: 150 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Nagpur
-  { id: 'vnit-nagpur', name: 'Visvesvaraya National Institute of Technology, Nagpur', location: 'Nagpur, Maharashtra', rating: 8.5, fees: '₹0.6 Lakhs / Year', placements: '9.5 LPA Average', ranking: '#36 in India (Engineering)', logo: 'vnit-nagpur', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'VNIT Nagpur is an NIT in Maharashtra.', courses: [{ name: 'B.Tech in CSE', fees: '₹0.6 Lakhs', seats: 150 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Indore
-  { id: 'iit-indore', name: 'Indian Institute of Technology (IIT), Indore', location: 'Indore, Madhya Pradesh', rating: 9.0, fees: '₹1.0 Lakhs / Year', placements: '18.0 LPA Average', ranking: '#13 in India (Engineering)', logo: 'iit-indore', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'IIT Indore is a premier engineering institution.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.0 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iet-davv', name: 'IET-DAVV, Indore', location: 'Indore, Madhya Pradesh', rating: 8.2, fees: '₹0.8 Lakhs / Year', placements: '5.5 LPA Average', ranking: '#52 in India (Engineering)', logo: 'iet-davv', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'IET DAVV is a reputed public engineering college in Indore.', courses: [{ name: 'B.Tech in CSE', fees: '₹0.8 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-
-  // ── LAW ────────────────────────────────────────────────────────────────────
-  { id: 'nlsiu-bangalore', name: 'National Law School of India University (NLSIU)', location: 'Bangalore, Karnataka', rating: 9.5, fees: '₹2.4 Lakhs / Year', placements: '18.0 LPA Average', ranking: '#1 in India (Law)', logo: 'nlsiu-bangalore', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'NLSIU is the top National Law University in India.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹2.4 Lakhs', seats: 80 }, { name: 'LL.M', fees: '₹1.5 Lakhs', seats: 40 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nalsar-hyderabad', name: 'NALSAR University of Law, Hyderabad', location: 'Hyderabad, Telangana', rating: 9.2, fees: '₹2.5 Lakhs / Year', placements: '16.0 LPA Average', ranking: '#2 in India (Law)', logo: 'nalsar-hyderabad', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'NALSAR Hyderabad is the second top NLU in India.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹2.5 Lakhs', seats: 80 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iit-law-mumbai', name: 'Government Law College, Mumbai', location: 'Mumbai, Maharashtra', rating: 8.8, fees: '₹0.15 Lakhs / Year', placements: '12.0 LPA Average', ranking: '#6 in India (Law)', logo: 'glc-mumbai', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'GLC Mumbai is one of the oldest and most prestigious law colleges.', courses: [{ name: 'LL.B', fees: '₹0.15 Lakhs', seats: 240 }, { name: 'LL.M', fees: '₹0.25 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nlu-delhi', name: 'National Law University, Delhi', location: 'Delhi, Delhi', rating: 9.3, fees: '₹2.0 Lakhs / Year', placements: '20.0 LPA Average', ranking: '#3 in India (Law)', logo: 'nlu-delhi', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'NLU Delhi is one of the top NLUs with excellent placement.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹2.0 Lakhs', seats: 70 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nlu-jodhpur', name: 'National Law University, Jodhpur', location: 'Jaipur, Rajasthan', rating: 9.0, fees: '₹2.2 Lakhs / Year', placements: '14.0 LPA Average', ranking: '#5 in India (Law)', logo: 'nlu-jodhpur', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'NLU Jodhpur is a top NLU in Rajasthan.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹2.2 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'symbiosis-law-pune', name: 'Symbiosis Law School (SLS), Pune', location: 'Pune, Maharashtra', rating: 8.7, fees: '₹3.5 Lakhs / Year', placements: '10.0 LPA Average', ranking: '#8 in India (Law)', logo: 'symbiosis-law-pune', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'SLS Pune is a top private law school in India.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹3.5 Lakhs', seats: 120 }, { name: 'LL.M', fees: '₹2.0 Lakhs', seats: 40 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iil-indore', name: 'Indore Institute of Law (IIL)', location: 'Indore, Madhya Pradesh', rating: 8.1, fees: '₹0.61 Lakhs / Year', placements: '4.0 LPA Average', ranking: '#20 in India (Law)', logo: 'iil-indore', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'IIL Indore offers quality legal education in Madhya Pradesh.', courses: [{ name: 'B.A. LL.B', fees: '₹0.61 Lakhs', seats: 240 }, { name: 'LL.B (Hons)', fees: '₹0.61 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'renaissance-law', name: 'Renaissance University (RU), Indore', location: 'Indore, Madhya Pradesh', rating: 8.8, fees: '₹0.40 Lakhs / Year', placements: '9.0 LPA Average', ranking: '#18 in India (Law)', logo: 'renaissance-law', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'RU Indore offers law and management programs in MP.', courses: [{ name: 'B.A. LL.B', fees: '₹0.40 Lakhs', seats: 180 }, { name: 'BBA', fees: '₹1.0 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'chanakya-law-pune', name: 'Chanakya National Law University, Pune', location: 'Pune, Maharashtra', rating: 8.3, fees: '₹1.2 Lakhs / Year', placements: '6.5 LPA Average', ranking: '#12 in India (Law)', logo: 'chanakya-law-pune', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'CNLU Pune offers integrated and standalone law programs.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹1.2 Lakhs', seats: 80 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Kolkata
-  { id: 'nujs-kolkata', name: 'National University of Juridical Sciences (NUJS), Kolkata', location: 'Kolkata, West Bengal', rating: 9.1, fees: '₹2.0 Lakhs / Year', placements: '15.0 LPA Average', ranking: '#4 in India (Law)', logo: 'nujs-kolkata', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'NUJS Kolkata is a top NLU in eastern India.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹2.0 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Lucknow
-  { id: 'rmlnlu-lucknow', name: 'Ram Manohar Lohiya National Law University, Lucknow', location: 'Lucknow, Uttar Pradesh', rating: 8.9, fees: '₹1.8 Lakhs / Year', placements: '12.0 LPA Average', ranking: '#7 in India (Law)', logo: 'rmlnlu-lucknow', image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'RMLNLU Lucknow is a top NLU in northern India.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹1.8 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Chandigarh
-  { id: 'puchd-law', name: 'Panjab University Law Faculty, Chandigarh', location: 'Chandigarh, Chandigarh', rating: 8.4, fees: '₹0.30 Lakhs / Year', placements: '5.0 LPA Average', ranking: '#15 in India (Law)', logo: 'puchd-law', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'Panjab University Law Faculty is one of the oldest law schools.', courses: [{ name: 'LL.B', fees: '₹0.30 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Chennai  
-  { id: 'tnnlu-chennai', name: 'Tamil Nadu National Law University, Chennai', location: 'Chennai, Tamil Nadu', rating: 8.6, fees: '₹1.9 Lakhs / Year', placements: '10.0 LPA Average', ranking: '#10 in India (Law)', logo: 'tnnlu-chennai', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'TNNLU offers quality legal education in Tamil Nadu.', courses: [{ name: 'B.A. LL.B (Hons)', fees: '₹1.9 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  // Bengaluru extra
-  { id: 'alliance-law', name: 'Alliance School of Law, Bangalore', location: 'Bangalore, Karnataka', rating: 8.0, fees: '₹2.5 Lakhs / Year', placements: '6.0 LPA Average', ranking: '#22 in India (Law)', logo: 'alliance-law', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'Alliance Law Bangalore offers BBA LL.B and BA LL.B programs.', courses: [{ name: 'BA LL.B (Hons)', fees: '₹2.5 Lakhs', seats: 80 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-
-  // ── DESIGN ─────────────────────────────────────────────────────────────────
-  { id: 'nid-ahmedabad', name: 'National Institute of Design (NID), Ahmedabad', location: 'Ahmedabad, Gujarat', rating: 9.5, fees: '₹2.5 Lakhs / Year', placements: '12.0 LPA Average', ranking: '#1 in India (Design)', logo: 'nid-ahmedabad', image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'NID Ahmedabad is the premier design school in India.', courses: [{ name: 'B.Des', fees: '₹2.5 Lakhs', seats: 60 }, { name: 'M.Des', fees: '₹2.5 Lakhs', seats: 30 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nift-delhi', name: 'National Institute of Fashion Technology (NIFT), Delhi', location: 'Delhi, Delhi', rating: 9.2, fees: '₹1.8 Lakhs / Year', placements: '8.0 LPA Average', ranking: '#1 in India (Fashion)', logo: 'nift-delhi', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'NIFT Delhi is the top fashion institute in India.', courses: [{ name: 'B.Des (Fashion)', fees: '₹1.8 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nift-mumbai', name: 'National Institute of Fashion Technology (NIFT), Mumbai', location: 'Mumbai, Maharashtra', rating: 9.0, fees: '₹1.8 Lakhs / Year', placements: '7.5 LPA Average', ranking: '#2 in India (Fashion)', logo: 'nift-mumbai', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'NIFT Mumbai offers premium fashion design programs.', courses: [{ name: 'B.Des (Fashion)', fees: '₹1.8 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'mit-adi', name: 'MIT Art, Design and Technology University, Pune', location: 'Pune, Maharashtra', rating: 8.5, fees: '₹2.2 Lakhs / Year', placements: '6.0 LPA Average', ranking: '#5 in India (Design)', logo: 'mit-adi', image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'MIT ADT University offers cutting-edge design and technology programs.', courses: [{ name: 'B.Des (Industrial Design)', fees: '₹2.2 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'srishti-bangalore', name: 'Srishti Manipal Institute of Art, Design and Technology, Bangalore', location: 'Bangalore, Karnataka', rating: 8.8, fees: '₹3.5 Lakhs / Year', placements: '7.5 LPA Average', ranking: '#4 in India (Design)', logo: 'srishti-bangalore', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'Srishti Bangalore is a top design school in South India.', courses: [{ name: 'B.Des', fees: '₹3.5 Lakhs', seats: 80 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iid-mumbai', name: 'Industrial Design Centre (IDC), IIT Bombay, Mumbai', location: 'Mumbai, Maharashtra', rating: 9.3, fees: '₹0.8 Lakhs / Year', placements: '14.0 LPA Average', ranking: '#2 in India (Design)', logo: 'iid-mumbai', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'IDC at IIT Bombay is the top design school in India.', courses: [{ name: 'M.Des', fees: '₹0.8 Lakhs', seats: 25 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nift-indore', name: 'National Institute of Fashion Technology (NIFT), Indore', location: 'Indore, Madhya Pradesh', rating: 8.3, fees: '₹1.5 Lakhs / Year', placements: '5.5 LPA Average', ranking: '#8 in India (Fashion)', logo: 'nift-indore', image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'NIFT Indore offers fashion and design programs in Madhya Pradesh.', courses: [{ name: 'B.Des (Fashion)', fees: '₹1.5 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'nift-kolkata', name: 'National Institute of Fashion Technology (NIFT), Kolkata', location: 'Kolkata, West Bengal', rating: 8.4, fees: '₹1.8 Lakhs / Year', placements: '6.0 LPA Average', ranking: '#6 in India (Fashion)', logo: 'nift-kolkata', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'NIFT Kolkata offers world-class design education.', courses: [{ name: 'B.Des (Fashion)', fees: '₹1.8 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-
-  // ── Missing popular searches fallback colleges ──────────────────────────────
-  { id: 'ksom-bhubaneswar', name: 'KIIT School of Management (KSOM), Bhubaneswar', location: 'Bhubaneswar, Odisha', rating: 8.6, fees: '₹14.5 Lakhs / Year', placements: '8.5 LPA Average', ranking: '#32 in India (NIRF MBA)', logo: 'ksom-bhubaneswar', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'KSOM is a premier business school in Odisha.', courses: [{ name: 'MBA', fees: '₹7.25 Lakhs', seats: 360 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'psgim-coimbatore', name: 'PSG Institute of Management (PSGIM), Coimbatore', location: 'Coimbatore, Tamil Nadu', rating: 8.7, fees: '₹8.0 Lakhs / Year', placements: '7.8 LPA Average', ranking: '#40 in India (NIRF MBA)', logo: 'psgim-coimbatore', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'PSGIM is a well-known management institute in Tamil Nadu.', courses: [{ name: 'MBA', fees: '₹4.0 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'christ-institute-rajkot', name: 'Christ Institute of Management, Rajkot', location: 'Rajkot, Gujarat', rating: 8.2, fees: '₹2.5 Lakhs / Year', placements: '4.8 LPA Average', ranking: '#75 in India', logo: 'christ-institute-rajkot', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'CIM Rajkot offers specialized management courses.', courses: [{ name: 'MBA', fees: '₹1.25 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'klu-management-guntur', name: 'KL University School of Management, Guntur', location: 'Guntur, Andhra Pradesh', rating: 8.4, fees: '₹5.0 Lakhs / Year', placements: '6.2 LPA Average', ranking: '#48 in India', logo: 'klu-management-guntur', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'KLU School of Management provides quality business education in AP.', courses: [{ name: 'MBA', fees: '₹2.5 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'auro-university-surat', name: 'Auro University, Surat', location: 'Surat, Gujarat', rating: 8.3, fees: '₹6.8 Lakhs / Year', placements: '5.5 LPA Average', ranking: '#60 in India', logo: 'auro-university-surat', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'Auro University is a premier private university in Surat.', courses: [{ name: 'MBA', fees: '₹3.4 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'ggits-jabalpur', name: 'Gyan Ganga Institute of Technology and Sciences (GGITS) MBA, Jabalpur', location: 'Jabalpur, Madhya Pradesh', rating: 8.0, fees: '₹1.4 Lakhs / Year', placements: '4.2 LPA Average', ranking: '#85 in India', logo: 'ggits-jabalpur', image: 'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=600&h=400&q=80', category: 'Management', about: 'GGITS offers highly-rated management courses in Jabalpur.', courses: [{ name: 'MBA', fees: '₹0.7 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  
-  { id: 'manit-bhopal', name: 'Maulana Azad National Institute of Technology (MANIT), Bhopal', location: 'Bhopal, Madhya Pradesh', rating: 8.6, fees: '₹1.5 Lakhs / Year', placements: '9.6 LPA Average', ranking: '#24 in India (NIRF Engineering)', logo: 'manit-bhopal', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'MANIT Bhopal is an institute of national importance.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.5 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'kiit-bhubaneswar', name: 'Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar', location: 'Bhubaneswar, Odisha', rating: 8.5, fees: '₹3.5 Lakhs / Year', placements: '8.2 LPA Average', ranking: '#30 in India (NIRF Engineering)', logo: 'kiit-bhubaneswar', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'KIIT is a highly acclaimed multi-disciplinary university.', courses: [{ name: 'B.Tech in CSE', fees: '₹3.5 Lakhs', seats: 360 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'vnit-nagpur', name: 'Visvesvaraya National Institute of Technology (VNIT), Nagpur', location: 'Nagpur, Maharashtra', rating: 8.6, fees: '₹1.25 Lakhs / Year', placements: '10.4 LPA Average', ranking: '#32 in India (NIRF Engineering)', logo: 'vnit-nagpur', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'VNIT Nagpur is a premier NIT in Maharashtra.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.25 Lakhs', seats: 150 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'apsit-thane', name: 'A. P. Shah Institute of Technology (APSIT), Thane', location: 'Thane, Maharashtra', rating: 8.0, fees: '₹1.2 Lakhs / Year', placements: '5.0 LPA Average', ranking: '#88 in India', logo: 'apsit-thane', image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'APSIT Thane is a leading engineering institute in Mumbai region.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.2 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'ju-kolkata', name: 'Jadavpur University Department of Engineering, Kolkata', location: 'Kolkata, West Bengal', rating: 8.9, fees: '₹0.1 Lakhs / Year', placements: '11.8 LPA Average', ranking: '#10 in India (NIRF Engineering)', logo: 'ju-kolkata', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'Jadavpur University is legendary for top-tier education at nominal cost.', courses: [{ name: 'B.Tech in CSE', fees: '₹0.1 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'iet-lucknow', name: 'Institute of Engineering and Technology (IET), Lucknow', location: 'Lucknow, Uttar Pradesh', rating: 8.1, fees: '₹0.9 Lakhs / Year', placements: '5.8 LPA Average', ranking: '#65 in India (NIRF Engineering)', logo: 'iet-lucknow', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'IET Lucknow is the premier state-government technical college in UP.', courses: [{ name: 'B.Tech in CSE', fees: '₹0.9 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'pec-chandigarh', name: 'Punjab Engineering College (PEC), Chandigarh', location: 'Chandigarh, Chandigarh', rating: 8.4, fees: '₹1.8 Lakhs / Year', placements: '9.0 LPA Average', ranking: '#38 in India (NIRF Engineering)', logo: 'pec-chandigarh', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80', category: 'Engineering', about: 'PEC is a historical engineering college in Chandigarh.', courses: [{ name: 'B.Tech in CSE', fees: '₹1.8 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  
-  { id: 'su-law-rajkot', name: 'Saurashtra University Department of Law, Rajkot', location: 'Rajkot, Gujarat', rating: 8.0, fees: '₹0.2 Lakhs / Year', placements: '4.2 LPA Average', ranking: '#45 in India', logo: 'su-law-rajkot', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'Saurashtra University provides excellent law curricula in Gujarat.', courses: [{ name: 'LL.B', fees: '₹0.2 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'siddharth-law-surat', name: 'Siddharth Law College, Surat', location: 'Surat, Gujarat', rating: 8.1, fees: '₹0.3 Lakhs / Year', placements: '4.5 LPA Average', ranking: '#50 in India', logo: 'siddharth-law-surat', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80', category: 'Law', about: 'Siddharth Law College is a prominent law institution in Surat.', courses: [{ name: 'LL.B', fees: '₹0.3 Lakhs', seats: 180 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  
-  { id: 'ipsa-design-rajkot', name: 'Indubhai Parekh School of Design (IPSA), Rajkot', location: 'Rajkot, Gujarat', rating: 8.2, fees: '₹1.2 Lakhs / Year', placements: '4.0 LPA Average', ranking: '#28 in India', logo: 'ipsa-design-rajkot', image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'IPSA is a reputed architecture and design school in Rajkot.', courses: [{ name: 'B.Des', fees: '₹1.2 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'ppsuni-design-surat', name: 'PP Savani University Department of Design, Surat', location: 'Surat, Gujarat', rating: 8.1, fees: '₹1.5 Lakhs / Year', placements: '4.5 LPA Average', ranking: '#30 in India', logo: 'ppsuni-design-surat', image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'PP Savani University offers highly-integrated design courses in Surat.', courses: [{ name: 'B.Des', fees: '₹1.5 Lakhs', seats: 60 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'chitkara-design-chandigarh', name: 'Chitkara School of Art & Design, Chandigarh', location: 'Chandigarh, Chandigarh', rating: 8.4, fees: '₹1.8 Lakhs / Year', placements: '5.8 LPA Average', ranking: '#15 in India', logo: 'chitkara-design-chandigarh', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'Chitkara offers cutting-edge design programs near Chandigarh.', courses: [{ name: 'B.Des', fees: '₹1.8 Lakhs', seats: 120 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
-  { id: 'amity-design-lucknow', name: 'Amity School of Design, Lucknow', location: 'Lucknow, Uttar Pradesh', rating: 8.2, fees: '₹2.2 Lakhs / Year', placements: '5.2 LPA Average', ranking: '#22 in India', logo: 'amity-design-lucknow', image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80', category: 'Design', about: 'Amity Lucknow offers creative design environments for aspirants.', courses: [{ name: 'B.Des', fees: '₹2.2 Lakhs', seats: 90 }], placementDetails: [], scholarships: [], hostels: [], gallery: [], reviews: [], faq: [], infrastructure: [] },
+const STATIC_COLLEGES_OLD: any[] = [
+  {
+    "id": "iilm-university-greater-noida",
+    "name": "IILM University, Greater Noida",
+    "location": "Greater Noida, Uttar Pradesh",
+    "rating": 8.2,
+    "fees": "₹1.8 Lakhs / Year",
+    "placements": "7.5 LPA Average",
+    "ranking": "#45 in India (Private Universities)",
+    "logo": "iilm-university-greater-noida",
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "IILM University Greater Noida is a premier educational institution known for its high-quality management and engineering programs, state-of-the-art campus, and outstanding industry connections.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.8 Lakhs",
+        "seats": 180
+      },
+      {
+        "name": "MBA (General Management)",
+        "fees": "₹2.4 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹36.0 LPA"
+      },
+      {
+        "company": "Wipro",
+        "package": "₹6.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Merit Scholarship",
+        "criteria": "Marks > 90%",
+        "amount": "50% Tuition Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹1.1 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [
+      {
+        "name": "Rohan Sharma",
+        "rating": 4,
+        "text": "Great environment, helpful faculty, and nice placements.",
+        "date": "2026-05-10"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is transport available?",
+        "a": "Yes, buses connect all parts of Delhi-NCR."
+      }
+    ]
+  },
+  {
+    "id": "sushant-university-gurugram",
+    "name": "Sushant University, Gurugram",
+    "location": "Gurugram, Haryana",
+    "rating": 8,
+    "fees": "₹2.2 Lakhs / Year",
+    "placements": "6.8 LPA Average",
+    "ranking": "#52 in India (Private Universities)",
+    "logo": "sushant-university-gurugram",
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "Sushant University, formerly Ansal University, offers various undergraduate and postgraduate courses in fields like architecture, design, law, management, and engineering, focusing on holistic learning.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Marketing",
+        "fees": "₹2.2 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹1.5 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "KPMG",
+        "package": "₹8.0 LPA"
+      },
+      {
+        "company": "Deloitte",
+        "package": "₹7.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Sports Scholarship",
+        "criteria": "State level participation",
+        "amount": "25% Tuition Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Premium Girls Hostel",
+        "sharing": "Twin",
+        "fees": "₹1.2 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "haridwar-university-roorkee",
+    "name": "Haridwar University, Roorkee",
+    "location": "Roorkee, Uttarakhand",
+    "rating": 7.8,
+    "fees": "₹1.2 Lakhs / Year",
+    "placements": "5.5 LPA Average",
+    "ranking": "#68 in India (Engineering)",
+    "logo": "haridwar-university-roorkee",
+    "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Haridwar University Roorkee is committed to quality technical education, offering industry-aligned engineering courses in Uttarakhand.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Mechanical Engineering",
+        "fees": "₹1.2 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.4 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "TCS",
+        "package": "₹4.5 LPA"
+      },
+      {
+        "company": "Infosys",
+        "package": "₹4.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Uttarakhand State Merit",
+        "criteria": "State Board Top 100",
+        "amount": "Full Tuition Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Room",
+        "sharing": "Triple",
+        "fees": "₹75,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "future-university-bareilly",
+    "name": "Future University, Bareilly",
+    "location": "Bareilly, Uttar Pradesh",
+    "rating": 7.7,
+    "fees": "₹1.1 Lakhs / Year",
+    "placements": "5.2 LPA Average",
+    "ranking": "#75 in India",
+    "logo": "future-university-bareilly",
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a91?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Future University bareilly provides a wide variety of courses in engineering, business management, and computer science, prioritizing career readiness and practical exposure.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Civil Engineering",
+        "fees": "₹1.1 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "B.Tech in Information Technology",
+        "fees": "₹1.2 Lakhs",
+        "seats": 90
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Tech Mahindra",
+        "package": "₹4.5 LPA"
+      },
+      {
+        "company": "HCL Tech",
+        "package": "₹4.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Academic Concession",
+        "criteria": "Marks > 80%",
+        "amount": "₹15,000 / Year"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Boys Shared Room",
+        "sharing": "Twin",
+        "fees": "₹80,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "sanskriti-university-mathura",
+    "name": "Sanskriti University, Mathura",
+    "location": "Mathura, Uttar Pradesh",
+    "rating": 8.1,
+    "fees": "₹1.5 Lakhs / Year",
+    "placements": "6.0 LPA Average",
+    "ranking": "#35 in India (Private Universities)",
+    "logo": "sanskriti-university-mathura",
+    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "Sanskriti University Mathura focuses on providing value-based education in diverse disciplines, including technology, management, agriculture, and healthcare.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Finance",
+        "fees": "₹1.5 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹1.0 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "HDFC Bank",
+        "package": "₹6.5 LPA"
+      },
+      {
+        "company": "Genpact",
+        "package": "₹5.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Sanskriti Merit Scholarship",
+        "criteria": "Class 12 Marks > 95%",
+        "amount": "100% Tuition Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared",
+        "sharing": "Twin",
+        "fees": "₹90,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "sanskriti-university-bareilly",
+    "name": "Sanskriti University, Bareilly",
+    "location": "Bareilly, Uttar Pradesh",
+    "rating": 7.9,
+    "fees": "₹1.3 Lakhs / Year",
+    "placements": "5.8 LPA Average",
+    "ranking": "#72 in India",
+    "logo": "sanskriti-university-bareilly",
+    "image": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Sanskriti University Bareilly is a modern extension campus offering specialized undergraduate and diploma engineering programs.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in CSE",
+        "fees": "₹1.3 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "Diploma in Electrical Engineering",
+        "fees": "₹60,000",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Wipro",
+        "package": "₹4.8 LPA"
+      },
+      {
+        "company": "Cognizant",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "State Aid",
+        "criteria": "Financial constraints",
+        "amount": "₹20,000 / Year"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Boys Hostel Room",
+        "sharing": "Twin",
+        "fees": "₹85,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "amity-university-mohali",
+    "name": "Amity University, Mohali",
+    "location": "Mohali, Punjab",
+    "rating": 8.3,
+    "fees": "₹2.8 Lakhs / Year",
+    "placements": "7.8 LPA Average",
+    "ranking": "#18 in India (Private B-Schools)",
+    "logo": "amity-university-mohali",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "Amity University Mohali offers world-class facilities, advanced digital classrooms, and top placements in business management, engineering, and science fields.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Business Analytics",
+        "fees": "₹2.8 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "BBA (International Business)",
+        "fees": "₹2.0 Lakhs",
+        "seats": 180
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹38.0 LPA"
+      },
+      {
+        "company": "Flipkart",
+        "package": "₹12.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Amity Direct Entry",
+        "criteria": "Marks > 93%",
+        "amount": "100% Tuition Support"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Premium AC Single Room",
+        "sharing": "Single",
+        "fees": "₹1.5 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "sage-university-indore",
+    "name": "SAGE University, Indore",
+    "location": "Indore, Madhya Pradesh",
+    "rating": 8,
+    "fees": "₹1.5 Lakhs / Year",
+    "placements": "5.1 LPA Average",
+    "ranking": "#48 in India",
+    "logo": "sage-university-indore",
+    "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "SAGE University Indore is an award-winning academic institution in central India, offering progressive engineering, technology, and applied sciences curricula.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Artificial Intelligence",
+        "fees": "₹1.5 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "B.Tech in Mechanical Engineering",
+        "fees": "₹1.2 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "TCS",
+        "package": "₹6.5 LPA"
+      },
+      {
+        "company": "Capgemini",
+        "package": "₹5.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "SAGE Scholarship",
+        "criteria": "JEE Rank < 15000",
+        "amount": "50% Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹95,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "sage-university-bhopal",
+    "name": "SAGE University, Bhopal",
+    "location": "Bhopal, Madhya Pradesh",
+    "rating": 7.9,
+    "fees": "₹1.4 Lakhs / Year",
+    "placements": "4.8 LPA Average",
+    "ranking": "#55 in India",
+    "logo": "sage-university-bhopal",
+    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "SAGE University Bhopal provides state-of-the-art infrastructure and highly focused management/entrepreneurship programs for dynamic career paths.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in HR & Finance",
+        "fees": "₹1.4 Lakhs",
+        "seats": 90
+      },
+      {
+        "name": "BBA in Business Analytics",
+        "fees": "₹1.1 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "ICICI Bank",
+        "package": "₹6.0 LPA"
+      },
+      {
+        "company": "Airtel",
+        "package": "₹5.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Merit-Based Scholarship",
+        "criteria": "Marks > 88%",
+        "amount": "25% Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Bhopal Campus Room",
+        "sharing": "Twin",
+        "fees": "₹85,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "avantika-university-ujjain",
+    "name": "Avantika University, Ujjain",
+    "location": "Ujjain, Madhya Pradesh",
+    "rating": 8.4,
+    "fees": "₹3.1 Lakhs / Year",
+    "placements": "7.2 LPA Average",
+    "ranking": "#12 in Design (Private Universities)",
+    "logo": "avantika-university-ujjain",
+    "image": "https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Design",
+    "about": "Avantika University Ujjain is Indias first design-centered university. Promoted by MIT Group Pune, it offers highly experiential learning in design and technology.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Des in Product Design",
+        "fees": "₹3.1 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "B.Des in User Experience (UX)",
+        "fees": "₹3.5 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Microsoft India",
+        "package": "₹28.0 LPA"
+      },
+      {
+        "company": "Tata Motors",
+        "package": "₹8.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "MIT Design Scholarship",
+        "criteria": "DAT Rank < 200",
+        "amount": "50% Tuition Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Design Studios Hostel",
+        "sharing": "Twin",
+        "fees": "₹1.3 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "kk-modi-university-durg",
+    "name": "K.K. Modi University, Durg",
+    "location": "Durg, Chhattisgarh",
+    "rating": 7.6,
+    "fees": "₹1.3 Lakhs / Year",
+    "placements": "5.0 LPA Average",
+    "ranking": "#82 in India",
+    "logo": "kk-modi-university-durg",
+    "image": "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "K.K. Modi University Durg focuses on industry-ready corporate and digital management courses backed by the industrial legacy of Modi Group.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Digital Marketing",
+        "fees": "₹1.3 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General Business)",
+        "fees": "₹90,000",
+        "seats": 90
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "HDFC Bank",
+        "package": "₹5.5 LPA"
+      },
+      {
+        "company": "Tech Mahindra",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Modi Corporate Scholarship",
+        "criteria": "Class 12 Marks > 85%",
+        "amount": "30% Concession"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared Hostel",
+        "sharing": "Twin",
+        "fees": "₹70,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "medhavi-skills-university-sikkim",
+    "name": "Medhavi Skills University, Sikkim",
+    "location": "Namchi, Sikkim",
+    "rating": 8,
+    "fees": "₹1.2 Lakhs / Year",
+    "placements": "4.2 LPA Average",
+    "ranking": "#88 in India (Skill Development)",
+    "logo": "medhavi-skills-university-sikkim",
+    "image": "https://images.unsplash.com/photo-1492538368578-83b320261140?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "Medhavi Skills University is co-designed with industry partners to offer vocational and skill-integrated management and technology training in North-East India.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "BBA in Retail Management",
+        "fees": "₹1.2 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "B.Sc. in Hospitality & Tourism",
+        "fees": "₹1.4 Lakhs",
+        "seats": 90
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Taj Group",
+        "package": "₹5.0 LPA"
+      },
+      {
+        "company": "Reliance Retail",
+        "package": "₹3.6 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "North-East Merit Scheme",
+        "criteria": "Sikkim Domicile",
+        "amount": "50% Fee Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared Room",
+        "sharing": "Twin",
+        "fees": "₹60,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "mohan-babu-university-tirupati",
+    "name": "Mohan Babu University, Tirupati",
+    "location": "Tirupati, Andhra Pradesh",
+    "rating": 8.2,
+    "fees": "₹1.6 Lakhs / Year",
+    "placements": "6.2 LPA Average",
+    "ranking": "#38 in India (Private Universities)",
+    "logo": "mohan-babu-university-tirupati",
+    "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Mohan Babu University Tirupati, formerly Sree Vidyanikethan, is a premier multi-disciplinary campus famous for top placements and robust technical education.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.6 Lakhs",
+        "seats": 360
+      },
+      {
+        "name": "B.Tech in Data Science",
+        "fees": "₹1.6 Lakhs",
+        "seats": 120
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Google",
+        "package": "₹44.0 LPA"
+      },
+      {
+        "company": "Cognizant",
+        "package": "₹6.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Sree Sainath Merit Scheme",
+        "criteria": "EAPCET Rank < 5000",
+        "amount": "50% Fee Concession"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared Hostel",
+        "sharing": "Twin",
+        "fees": "₹95,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "amity-university-hyderabad",
+    "name": "Amity University, Hyderabad",
+    "location": "Hyderabad, Telangana",
+    "rating": 8.1,
+    "fees": "₹3.0 Lakhs / Year",
+    "placements": "7.2 LPA Average",
+    "ranking": "#30 in India (Private B-Schools)",
+    "logo": "amity-university-hyderabad",
+    "image": "https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "Amity University Hyderabad offers corporate-aligned BBA and MBA programs with specialized training in financial technology and global logistics.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Finance",
+        "fees": "₹3.0 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹2.0 Lakhs",
+        "seats": 180
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Deloitte",
+        "package": "₹8.5 LPA"
+      },
+      {
+        "company": "HSBC",
+        "package": "₹7.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Amity Merit Award",
+        "criteria": "Marks > 92%",
+        "amount": "50% Tuition Support"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹1.2 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "rayat-bahra-university-shimla",
+    "name": "Rayat Bahra University, Shimla",
+    "location": "Shimla, Himachal Pradesh",
+    "rating": 7.7,
+    "fees": "₹1.1 Lakhs / Year",
+    "placements": "4.5 LPA Average",
+    "ranking": "#85 in India",
+    "logo": "rayat-bahra-university-shimla",
+    "image": "https://images.unsplash.com/photo-1607013398845-2517de280c41?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "Rayat Bahra University Shimla offers scenic learning spaces and highly structured management studies customized for administrative and tourist service sectors.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Tourism",
+        "fees": "₹1.1 Lakhs",
+        "seats": 60
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹80,000",
+        "seats": 90
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "MakeMyTrip",
+        "package": "₹5.5 LPA"
+      },
+      {
+        "company": "HDFC Bank",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Hill State Concession",
+        "criteria": "HP Domicile",
+        "amount": "₹15,000 / Year"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Room",
+        "sharing": "Twin",
+        "fees": "₹65,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "rayat-bahra-university-mohali",
+    "name": "Rayat Bahra University, Mohali",
+    "location": "Mohali, Punjab",
+    "rating": 7.9,
+    "fees": "₹1.4 Lakhs / Year",
+    "placements": "5.2 LPA Average",
+    "ranking": "#60 in India",
+    "logo": "rayat-bahra-university-mohali",
+    "image": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Rayat Bahra University Mohali features a massive campus in Tricity, offering industry-tied engineering curricula and strong placements.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.4 Lakhs",
+        "seats": 180
+      },
+      {
+        "name": "B.Tech in Civil Engineering",
+        "fees": "₹1.1 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Cognizant",
+        "package": "₹6.0 LPA"
+      },
+      {
+        "company": "Wipro",
+        "package": "₹5.2 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Tricity Merit Scheme",
+        "criteria": "Marks > 85%",
+        "amount": "₹25,000 / Year"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Hostel Room",
+        "sharing": "Twin",
+        "fees": "₹80,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "rajasthan-university",
+    "name": "Rajasthan University, Jaipur",
+    "location": "Jaipur, Rajasthan",
+    "rating": 8,
+    "fees": "₹30,000 / Year",
+    "placements": "4.8 LPA Average",
+    "ranking": "#42 in India (UGC Universities)",
+    "logo": "rajasthan-university",
+    "image": "https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "University of Rajasthan is the oldest institution of higher learning in Rajasthan, offering high-quality traditional and professional management studies.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA (General Business)",
+        "fees": "₹30,000",
+        "seats": 120
+      },
+      {
+        "name": "BBA (General)",
+        "fees": "₹18,000",
+        "seats": 240
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "ICICI Bank",
+        "package": "₹5.0 LPA"
+      },
+      {
+        "company": "TCS",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "State Government Scholarship",
+        "criteria": "SC/ST/OBC category support",
+        "amount": "Full Fee Reimbursement"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Government Room",
+        "sharing": "Twin",
+        "fees": "₹15,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "don-bosco-university",
+    "name": "Don Bosco University, Guwahati",
+    "location": "Guwahati, Assam",
+    "rating": 7.9,
+    "fees": "₹1.5 Lakhs / Year",
+    "placements": "5.0 LPA Average",
+    "ranking": "#58 in India (UGC)",
+    "logo": "don-bosco-university",
+    "image": "https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Assam Don Bosco University is a premier Catholic research university, offering advanced engineering and technology courses in North-East India.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in CSE",
+        "fees": "₹1.5 Lakhs",
+        "seats": 90
+      },
+      {
+        "name": "B.Tech in Electronics",
+        "fees": "₹1.2 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Tech Mahindra",
+        "package": "₹6.0 LPA"
+      },
+      {
+        "company": "Wipro",
+        "package": "₹5.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Don Bosco Foundation Support",
+        "criteria": "Economic background",
+        "amount": "50% Fee Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Boys Shared Room",
+        "sharing": "Twin",
+        "fees": "₹75,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "dit-university-dehradun",
+    "name": "DIT University, Dehradun",
+    "location": "Dehradun, Uttarakhand",
+    "rating": 8.1,
+    "fees": "₹1.8 Lakhs / Year",
+    "placements": "6.5 LPA Average",
+    "ranking": "#45 in India (Engineering)",
+    "logo": "dit-university-dehradun",
+    "image": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "DIT University Dehradun, formerly Dehradun Institute of Technology, is a prominent private university in Uttarakhand known for B.Tech CSE placements.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.8 Lakhs",
+        "seats": 240
+      },
+      {
+        "name": "B.Tech in Cyber Security",
+        "fees": "₹2.0 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹38.0 LPA"
+      },
+      {
+        "company": "Infosys",
+        "package": "₹5.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Uttarakhand Domicile Discount",
+        "criteria": "State Residents",
+        "amount": "26% Tuition Discount"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard AC Room",
+        "sharing": "Twin",
+        "fees": "₹1.1 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "kr-mangalam-university",
+    "name": "K.R. Mangalam University, Gurugram",
+    "location": "Gurugram, Haryana",
+    "rating": 8,
+    "fees": "₹2.8 Lakhs / Year",
+    "placements": "7.5 LPA Average",
+    "ranking": "#15 in India (Private B-Schools)",
+    "logo": "kr-mangalam-university",
+    "image": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Management",
+    "about": "K.R. Mangalam University is a premier university located in Gurugram, offering dynamic undergraduate and postgraduate programs with advanced corporate training setups.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "MBA in Business Analytics",
+        "fees": "₹2.8 Lakhs",
+        "seats": 120
+      },
+      {
+        "name": "B.Tech in Computer Science",
+        "fees": "₹1.8 Lakhs",
+        "seats": 150
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Amazon",
+        "package": "₹36.0 LPA"
+      },
+      {
+        "company": "HCL",
+        "package": "₹6.0 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "KRMU Scholarship",
+        "criteria": "Class 12 Marks > 90%",
+        "amount": "50% Waiver"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "AC Double Sharing",
+        "sharing": "Twin",
+        "fees": "₹1.2 Lakhs / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  },
+  {
+    "id": "dev-bhoomi-university",
+    "name": "Dev Bhoomi Uttarakhand University, Dehradun",
+    "location": "Dehradun, Uttarakhand",
+    "rating": 7.8,
+    "fees": "₹1.3 Lakhs / Year",
+    "placements": "5.5 LPA Average",
+    "ranking": "#68 in India (UGC)",
+    "logo": "dev-bhoomi-university",
+    "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&h=400&q=80",
+    "category": "Engineering",
+    "about": "Dev Bhoomi Uttarakhand University offers practical-based engineering and medical sciences programs in a expansive foothills campus in Dehradun.",
+    "infrastructure": [
+      "AC Classrooms",
+      "Library",
+      "Sports Complex"
+    ],
+    "courses": [
+      {
+        "name": "B.Tech in CSE",
+        "fees": "₹1.3 Lakhs",
+        "seats": 180
+      },
+      {
+        "name": "B.Tech in Civil Engineering",
+        "fees": "₹1.0 Lakhs",
+        "seats": 60
+      }
+    ],
+    "placementDetails": [
+      {
+        "company": "Cognizant",
+        "package": "₹5.5 LPA"
+      },
+      {
+        "company": "HCL Tech",
+        "package": "₹4.5 LPA"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "Merit Discount Scheme",
+        "criteria": "Marks > 85%",
+        "amount": "25% Tuition Support"
+      }
+    ],
+    "hostels": [
+      {
+        "type": "Standard Shared Hostel",
+        "sharing": "Twin",
+        "fees": "₹80,000 / Year"
+      }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80"
+    ],
+    "reviews": [],
+    "faq": []
+  }
 ];
 
 // Parser Helpers

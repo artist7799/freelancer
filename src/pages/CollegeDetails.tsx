@@ -1,5 +1,5 @@
-import { useState, type FormEvent, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, type FormEvent, useEffect, useRef, useMemo } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   MapPin,
   Star,
@@ -297,492 +297,225 @@ const renderLogo = (logoId: string) => {
   }
 };
 
-interface MockUni {
-  name: string;
-  location: string;
-  rating: string;
-  placement: string;
-  averagePackage: string;
-  highestPackage: string;
-  totalOffers: number;
-  companyVisiting: number;
-  establishedYear: number;
-  accreditation: string;
-  fees: string;
-  logo: string;
-  phone?: string;
-  highestInternationalPackage?: string;
-}
+import { type MockUni, MOCK_UNIVERSITY_MAP } from '../data/mockUniversities';
 
-const MOCK_UNIVERSITY_MAP: Record<string, MockUni> = {
-  'gl-bajaj': {
-    name: 'GL Bajaj Institute of Technology and Management',
-    location: 'Greater Noida, Uttar Pradesh',
-    rating: '7.8/10',
-    placement: '53.58 LPA',
-    averagePackage: '28.83 LPA',
-    highestPackage: '53.58 LPA',
-    totalOffers: 1200,
-    companyVisiting: 180,
-    establishedYear: 1998,
-    accreditation: 'AICTE, NBA Accredited, NAAC A',
-    fees: '\u20b96.6 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 120 2350401'
-  },
-  'vidyashilp-university': {
-    name: 'Vidyashilp University (VU), Bangalore',
-    location: 'Adityanagar, Karnataka',
-    rating: '8.8/10',
-    placement: '45 LPA',
-    averagePackage: '8.5 LPA',
-    highestPackage: '45 LPA',
-    totalOffers: 2214,
-    companyVisiting: 235,
-    establishedYear: 2021,
-    accreditation: 'AICTE, NAAC, UGC Approved',
-    fees: '₹5.13 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 7773045555'
-  },
-  'graphic-era': {
-    name: 'Graphic Era (Deemed To Be University)',
-    location: 'Dehra, Uttarakhand',
-    rating: '8.3/10',
-    placement: '47.88 LPA',
-    averagePackage: '7.2 LPA',
-    highestPackage: '47.88 LPA',
-    totalOffers: 1850,
-    companyVisiting: 210,
-    establishedYear: 1993,
-    accreditation: 'AICTE, UGC, NAAC A+',
-    fees: '₹2.5 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 1800 270 1280'
-  },
-  'iibs-bangalore': {
-    name: 'International Institute of Business Studies (IIBS)',
-    location: 'Benga, Karnataka',
-    rating: '8.8/10',
-    placement: '47 LPA',
-    averagePackage: '8.2 LPA',
-    highestPackage: '47 LPA',
-    totalOffers: 1200,
-    companyVisiting: 180,
-    establishedYear: 2001,
-    accreditation: 'AICTE Approved, UGC Recognized',
-    fees: '₹4.5 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 99900 11111'
-  },
-  'bennett-university': {
-    name: 'Bennett University, Greater Noida',
-    location: 'Great, Uttar Pradesh',
-    rating: '8.7/10',
-    placement: '1.2 CR',
-    averagePackage: '9.5 LPA',
-    highestPackage: '1.2 CR',
-    totalOffers: 1650,
-    companyVisiting: 220,
-    establishedYear: 2016,
-    accreditation: 'AICTE, UGC Approved',
-    fees: '₹3.8 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 88000 22222'
-  },
-  'sanjay-ghodawat-university': {
-    name: 'Sanjay Ghodawat University',
-    location: 'Kolha, Maharashtra',
-    rating: '7.8/10',
-    placement: '15 LPA',
-    averagePackage: '5.5 LPA',
-    highestPackage: '15 LPA',
-    totalOffers: 980,
-    companyVisiting: 125,
-    establishedYear: 2009,
-    accreditation: 'UGC, AICTE Approved',
-    fees: '₹1.8 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 90110 55555'
-  },
-  'xlri-jamshedpur': {
-    name: 'Xavier School of Management',
-    location: 'Jamsh, Jharkhand',
-    rating: '8.9/10',
-    placement: '1.1 CR',
-    averagePackage: '32.7 LPA',
-    highestPackage: '1.1 CR',
-    totalOffers: 640,
-    companyVisiting: 154,
-    establishedYear: 1949,
-    accreditation: 'AACSB, AMBA, AICTE',
-    fees: '₹25.0 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 657 665 3333'
-  },
-  'alliance-university': {
-    name: 'Alliance University Bangalore',
-    location: 'Benga, Karnataka',
-    rating: '8.0/10',
-    placement: '60.1 LPA',
-    averagePackage: '8.5 LPA',
-    highestPackage: '60.1 LPA',
-    totalOffers: 1800,
-    companyVisiting: 350,
-    establishedYear: 2010,
-    accreditation: 'AICTE, IACBE, NAAC A',
-    fees: '₹15.0 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 80 4607 5400'
-  },
-  'lpu-punjab': {
-    name: 'Lovely Professional University',
-    location: 'Jalan, Punjab',
-    rating: '8.2/10',
-    placement: '2.5 CR',
-    averagePackage: '8.2 LPA',
-    highestPackage: '2.5 CR',
-    totalOffers: 2800,
-    companyVisiting: 420,
-    establishedYear: 2005,
-    accreditation: 'AICTE, UGC, WASC',
-    fees: '₹2.4 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 1824 404404'
-  },
-  'cgc-landran': {
-    name: 'Chandigarh Group of Colleges (CGC)',
-    location: 'Chand, Punjab',
-    rating: '8.5/10',
-    placement: '53 LPA',
-    averagePackage: '6.8 LPA',
-    highestPackage: '53 LPA',
-    totalOffers: 2100,
-    companyVisiting: 290,
-    establishedYear: 2001,
-    accreditation: 'AICTE, NBA Approved',
-    fees: '₹1.5 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 95011 05656'
-  },
-  'its-management': {
-    name: 'I.T.S School of Management',
-    location: 'Ghazi, Uttar Pradesh',
-    rating: '8.0/10',
-    placement: '30.86 LPA',
-    averagePackage: '7.0 LPA',
-    highestPackage: '30.86 LPA',
-    totalOffers: 850,
-    companyVisiting: 160,
-    establishedYear: 1995,
-    accreditation: 'AICTE, NBA, NAAC A',
-    fees: '₹3.5 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 84477 44044'
-  },
-  'poddar-college': {
-    name: 'Poddar International College, Jaipur',
-    location: 'Jaipu, Rajasthan',
-    rating: '9.2/10',
-    placement: '24 LPA',
-    averagePackage: '5.8 LPA',
-    highestPackage: '24 LPA',
-    totalOffers: 640,
-    companyVisiting: 110,
-    establishedYear: 1998,
-    accreditation: 'AICTE, NAAC B++',
-    fees: '₹1.2 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 90018 90018'
-  },
-  'its-professional-studies': {
-    name: 'ITS College Of Professional Studies',
-    location: 'Noida, Uttar Pradesh',
-    rating: '9.1/10',
-    placement: '10 LPA',
-    averagePackage: '4.8 LPA',
-    highestPackage: '10 LPA',
-    totalOffers: 520,
-    companyVisiting: 95,
-    establishedYear: 2003,
-    accreditation: 'AICTE, UGC Approved',
-    fees: '₹1.0 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 84477 44043'
-  },
-  'amity-university-noida': {
-    name: 'Amity University, Noida',
-    location: 'Noida, Uttar Pradesh',
-    rating: '9.5/10',
-    placement: '62 LPA',
-    averagePackage: '8.5 LPA',
-    highestPackage: '62 LPA',
-    totalOffers: 3200,
-    companyVisiting: 500,
-    establishedYear: 2005,
-    accreditation: 'AICTE, UGC, WASC',
-    fees: '₹4.8 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 120 2445252'
-  },
-  'amity-university-mumbai': {
-    name: 'Amity University Mumbai',
-    location: 'Mumba, Maharashtra',
-    rating: '8.9/10',
-    placement: '44 LPA',
-    averagePackage: '7.8 LPA',
-    highestPackage: '44 LPA',
-    totalOffers: 1100,
-    companyVisiting: 180,
-    establishedYear: 2014,
-    accreditation: 'AICTE, UGC Approved',
-    fees: '₹3.5 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 22 7198 7000'
-  },
-  'medhavi-university': {
-    name: 'Medhavi Skills University, Sikkim',
-    location: 'Namch, Sikkim',
-    rating: '8.0/10',
-    placement: '10 LPA',
-    averagePackage: '4.2 LPA',
-    highestPackage: '10 LPA',
-    totalOffers: 450,
-    companyVisiting: 70,
-    establishedYear: 2021,
-    accreditation: 'UGC Recognized, AICTE Approved',
-    fees: '₹1.2 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 99999 88888'
-  },
-  'kiet-university': {
-    name: 'KIET Deemed To Be University',
-    location: 'Ghazi, Uttar Pradesh',
-    rating: '8.9/10',
-    placement: '90 LPA',
-    averagePackage: '7.2 LPA',
-    highestPackage: '90 LPA',
-    totalOffers: 1850,
-    companyVisiting: 240,
-    establishedYear: 1998,
-    accreditation: 'AICTE, NBA, NAAC A+',
-    fees: '₹1.4 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 1800 313 0056'
-  },
-  'sage-university': {
-    name: 'SAGE University Indore',
-    location: 'Indor, Madhya Pradesh',
-    rating: '9.0/10',
-    placement: '30 LPA',
-    averagePackage: '5.1 LPA',
-    highestPackage: '30 LPA',
-    totalOffers: 720,
-    companyVisiting: 130,
-    establishedYear: 2016,
-    accreditation: 'AICTE, UGC Approved',
-    fees: '₹1.5 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 95222 37600'
-  },
-  'accman-business-school': {
-    name: 'ACCMAN Business School',
-    location: 'Great, Uttar Pradesh',
-    rating: '8.6/10',
-    placement: '18 LPA',
-    averagePackage: '5.5 LPA',
-    highestPackage: '18 LPA',
-    totalOffers: 480,
-    companyVisiting: 80,
-    establishedYear: 2006,
-    accreditation: 'AICTE Approved',
-    fees: '₹2.2 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 88002 99999'
-  },
-  'kr-mangalam': {
-    name: 'K R Mangalam University, (KRMU)',
-    location: 'Gurga, Haryana',
-    rating: '8.0/10',
-    placement: '56.6 LPA',
-    averagePackage: '7.5 LPA',
-    highestPackage: '56.6 LPA',
-    totalOffers: 1400,
-    companyVisiting: 190,
+
+const REAL_COLLEGE_HIGHLIGHTS_OVERRIDE: Record<string, any> = {
+  'dit-university-dehradun': {
     establishedYear: 2013,
-    accreditation: 'AICTE, UGC Approved',
-    fees: '₹2.8 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 11 4888 8888'
+    collegeType: 'Private University',
+    accreditation: 'NAAC Grade A, UGC & AICTE Approved',
+    rankingCustom: 'Ranked #81 in Pharmacy by NIRF 2024, Diamond Rated by QS I-GAUGE',
+    averagePackage: '₹6.0 LPA',
+    highestPackage: '₹58 LPA',
+    totalOffers: 1250,
+    companyVisiting: 250,
+    aboutText: 'DIT University (DITU), Dehradun, is a flagship private university of the Unison Group. Nestled in the scenic foothills of Mussoorie, the university is highly regarded for its NAAC Grade A accreditation, strong B.Tech CSE placements, and industry-oriented academic curriculum.',
+    rankingsListCustom: [
+      'Accredited with prestigious NAAC Grade A in Uttarakhand',
+      'Ranked 81st in Pharmacy category by NIRF 2024',
+      'Ranked in the 1001-1200 band globally by Times Higher Education (THE) World Rankings 2025',
+      'Awarded Diamond Subject Rating by QS I-GAUGE for academic quality'
+    ],
+    whyChooseList: [
+      'NAAC Grade A certified institution ensuring high standards of technical education',
+      'Excellent placement record with a peak highest package of ₹58 LPA and average of ₹6.0 LPA',
+      'Scenic 21-acre campus in Dehradun foothills providing a peaceful learning environment',
+      'Industry partnerships with Oracle, AWS, and Cisco for cutting-edge digital training',
+      'Well-stocked central library with over 1.2 Lakh print and online journals',
+      'Vibrant campus culture with international student chapters, technical clubs, and annual festivals'
+    ],
+    coursesList: [
+      { name: 'B.Tech in Computer Science & Engineering', fees: '₹2.1 Lakhs / Year', seats: 240, eligibility: '10+2 with 60% in PCM + JEE Main' },
+      { name: 'B.Arch (Bachelor of Architecture)', fees: '₹2.4 Lakhs / Year', seats: 60, eligibility: '10+2 with 50% + NATA Qualified' },
+      { name: 'MBA (Business Analytics, HR, Marketing)', fees: '₹2.2 Lakhs / Year', seats: 120, eligibility: 'Graduation with 50% + CAT/MAT/CMAT' },
+      { name: 'Bachelor of Pharmacy (B.Pharm)', fees: '₹1.6 Lakhs / Year', seats: 100, eligibility: '10+2 with 50% in PCB/PCM' }
+    ],
+    infrastructureList: ['Smart Classrooms', 'Central Library', 'Advanced Computing Labs', 'Sports Complex', 'Separate Hostels', 'Air-Conditioned Auditorium', '24/7 Infirmary'],
+    placementDetailsList: [
+      { company: 'Amazon', package: '₹38.0 LPA' },
+      { company: 'Microsoft', package: '₹44.0 LPA' },
+      { company: 'Deloitte', package: '₹8.5 LPA' },
+      { company: 'Cognizant', package: '₹6.0 LPA' }
+    ],
+    scholarshipsList: [
+      { name: 'Uttarakhand Domicile Discount', criteria: 'Uttarakhand Permanent Residents', amount: '26% Tuition Fee Waiver' },
+      { name: 'Merit-Based Scholarship', criteria: 'JEE Rank < 20000 or Class 12 Marks > 95%', amount: '50% to 100% Tuition Waiver' }
+    ],
+    hostelsList: [
+      { type: 'AC Boys Hostel (Twin Sharing)', sharing: 'Twin sharing rooms with attached mess', fees: '₹1.25 Lakhs / Year' },
+      { type: 'AC Girls Hostel (Twin Sharing)', sharing: 'Twin sharing rooms with premium safety', fees: '₹1.25 Lakhs / Year' }
+    ],
+    faqList: [
+      { q: 'What are the top recruiters at DIT University?', a: 'Amazon, Microsoft, Cognizant, Infosys, and Deloitte are the regular top recruiters.' },
+      { q: 'Is transport service available for day scholars?', a: 'Yes, a dedicated fleet of buses covers all major routes across Dehradun.' }
+    ],
+    admissionProcessTextCustom: 'Admission to DIT University is based on merit in national entrance exams like JEE Main, NATA, GATE, CAT, or qualifying exams (Class 12 / Graduation). Eligible candidates undergo counseling and a personal interview for final seat allotment.',
+    scholarshipTextCustom: 'DIT University offers extensive scholarships, including a 26% tuition fee rebate for Uttarakhand domicile students, merit scholarships based on Class 12 board marks or JEE Main ranks (up to 100% waiver), and special concessions for ward of defense personnel.',
+    placementTextCustom: 'DIT University placements have consistently been outstanding. The highest salary package reached up to ₹58 LPA, and the average salary package lies between ₹5.5 LPA and ₹6.0 LPA, with top companies like Amazon, Microsoft, and Commvault participating.'
   },
-  'pimpri-chinchwad-university': {
-    name: 'Pimpri Chinchwad University (PCU)',
-    location: 'Pune, Maharashtra',
-    rating: '9.1/10',
-    placement: '61 LPA',
-    averagePackage: '8.0 LPA',
-    highestPackage: '61 LPA',
-    totalOffers: 1850,
-    companyVisiting: 220,
-    establishedYear: 2020,
-    accreditation: 'UGC, AICTE Approved',
-    fees: '₹2.6 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 20 7117 7100'
-  },
-  'chandigarh-university': {
-    name: 'Chandigarh University (CU), Mohali',
-    location: 'Mohali, Punjab',
-    rating: '9.0/10',
-    placement: '1.7 CR',
-    averagePackage: '8.0 LPA',
-    highestPackage: '1.7 CR',
-    totalOffers: 2500,
-    companyVisiting: 310,
-    establishedYear: 2012,
-    accreditation: 'AICTE, UGC, NAAC A+ Approved',
-    fees: '₹1.8 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 1800 1212 88'
-  },
-  'jims-delhi': {
-    name: 'Jagan Institute of Management Studies (JIMS), Rohini',
-    location: 'Delhi-NCR, Delhi',
-    rating: '8.8/10',
-    placement: '22 LPA',
-    averagePackage: '7.5 LPA',
-    highestPackage: '22 LPA',
-    totalOffers: 850,
-    companyVisiting: 160,
-    establishedYear: 1993,
-    accreditation: 'AICTE Approved, NBA Accredited',
-    fees: '₹4.2 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 11 45184000'
-  },
-  'sharda-university': {
-    name: 'Sharda University, Greater Noida',
-    location: 'Noida, Uttar Pradesh',
-    rating: '8.7/10',
-    placement: '1.6 CR',
-    averagePackage: '7.0 LPA',
-    highestPackage: '1.6 CR',
-    totalOffers: 1950,
-    companyVisiting: 220,
-    establishedYear: 2009,
-    accreditation: 'AICTE, UGC, NAAC A+ Approved',
-    fees: '₹2.2 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 120 4570000'
-  },
-  'mdi-gurgaon': {
-    name: 'Management Development Institute (MDI), Gurgaon',
-    location: 'Gurgaon, Haryana',
-    rating: '8.7/10',
-    placement: '60 LPA',
-    averagePackage: '26.6 LPA',
-    highestPackage: '60 LPA',
-    totalOffers: 420,
+  'avantika-university-ujjain': {
+    establishedYear: 2017,
+    collegeType: 'Private Design University',
+    accreditation: 'UGC Recognized, promoted by MIT Group Pune',
+    rankingCustom: '#12 in Design (Private Universities in India) by IIRF',
+    averagePackage: '₹8.2 LPA',
+    highestPackage: '₹20 LPA',
+    totalOffers: 450,
     companyVisiting: 120,
-    establishedYear: 1973,
-    accreditation: 'AMBA, AACSB, AICTE Approved',
-    fees: '₹24.9 Lakhs / Year',
-    logo: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=120&h=120&q=80',
-    phone: '+91 124 4560000'
+    aboutText: 'Avantika University, Ujjain, is India’s first design-centered university, promoted by the legendary MAEER’s MIT Group of Institutions, Pune. Established in 2017, the university runs a distinctive, student-centric academic model focusing on Design, Technology, and Management education through experiential learning.',
+    rankingsListCustom: [
+      'Ranked #12 among Top Private Design Universities in India by IIRF',
+      'Recognized as India\'s First Design-Centered University by UGC',
+      'Awarded Diamond Band in Campus Life and Green Sustainability initiatives',
+      'Ranked #63 in Private Multi-Disciplinary Universities by India Today'
+    ],
+    whyChooseList: [
+      'Pioneering Design-centered education model integrated across all Engineering & Management streams',
+      'Mentorship and pedigree of the MIT Group of Institutions, Pune',
+      'High placement packages with average package of ₹8.2 LPA and top placements in UI/UX',
+      'Beautiful 60-acre green campus in Ujjain designed with creative design studios',
+      'Excellent infrastructure featuring high-end Apple Mac Labs for design students',
+      'Industry projects, internships, and workshops led by global design practitioners'
+    ],
+    coursesList: [
+      { name: 'B.Des in User Experience (UX) Design', fees: '₹3.5 Lakhs / Year', seats: 60, eligibility: '10+2 with 50% + MIT DAT / UCEED Score' },
+      { name: 'B.Des in Product Design', fees: '₹3.1 Lakhs / Year', seats: 60, eligibility: '10+2 with 50% + MIT DAT / UCEED Score' },
+      { name: 'B.Tech in Computer Science & Engineering', fees: '₹2.2 Lakhs / Year', seats: 120, eligibility: '10+2 with 50% in PCM + JEE Main' },
+      { name: 'MBA in Finance & Marketing', fees: '₹1.8 Lakhs / Year', seats: 90, eligibility: 'Graduation with 50% + CAT/MAT/XAT' }
+    ],
+    infrastructureList: ['Design Studios', 'Apple Mac Labs', 'Blended Classrooms', 'Sports Complex', 'Separate Hostels', 'Amphitheater', 'Fitness Center'],
+    placementDetailsList: [
+      { company: 'Microsoft India', package: '₹20.0 LPA' },
+      { company: 'Tata Motors', package: '₹8.5 LPA' },
+      { company: 'Infosys', package: '₹6.5 LPA' },
+      { company: 'Capgemini', package: '₹7.0 LPA' }
+    ],
+    scholarshipsList: [
+      { name: 'MIT Design Scholarship', criteria: 'DAT Rank < 200 or Class 12 Marks > 92%', amount: '50% Tuition Waiver' },
+      { name: 'MP Domicile Scholarship', criteria: 'Scheduled Tribe/Caste residents of MP', amount: 'Up to 100% Tuition Waiver' }
+    ],
+    hostelsList: [
+      { type: 'Aavaas Boys Hostel (Twin Sharing)', sharing: 'Twin-sharing design-styled hostel rooms', fees: '₹1.3 Lakhs / Year' },
+      { type: 'Aavaas Girls Hostel (Twin Sharing)', sharing: 'Twin-sharing design-styled hostel rooms', fees: '₹1.3 Lakhs / Year' }
+    ],
+    faqList: [
+      { q: 'What is unique about Avantika University?', a: 'It is India\'s first design-centered university, meaning design thinking is integrated into Engineering and Business courses.' },
+      { q: 'Are placements available for design branches?', a: 'Yes, there are excellent placements, especially in UX/UI design, with companies like Microsoft, Google, and design firms recruiting.' }
+    ],
+    admissionProcessTextCustom: 'Admission to Avantika University design programs requires clearing the MIT Design Aptitude Test (DAT) or national tests like UCEED/NID. Engineering and management admissions are based on JEE Main, CAT, or local entrance scores followed by a design-thinking assessment interview.',
+    scholarshipTextCustom: 'Avantika University offers various scholarships including the MIT Design Scholarship for top scorers in DAT/UCEED, MP Domicile scholarships for SC/ST/OBC category candidates, and merit-cum-means financial assistance for deserving students.',
+    placementTextCustom: 'Avantika University placements are managed by a highly active career services cell. The highest placement package stands at ₹20 LPA, with an average package of ₹8.2 LPA. Key hiring sectors include UI/UX design, Product design, and Software development.'
   },
-  'symbiosis-pune': {
-    name: 'Symbiosis Institute of Business Management (SIBM), Pune',
-    location: 'Pune, Maharashtra',
-    rating: '8.8/10',
-    placement: '35.05 LPA',
-    averagePackage: '26.77 LPA',
-    highestPackage: '35.05 LPA',
-    totalOffers: 1200,
-    companyVisiting: 180,
-    establishedYear: 1978,
-    accreditation: 'UGC, NAAC A++ Approved',
-    fees: '₹23.5 Lakhs / Year',
-    logo: 'symbiosis-pune',
-    phone: '+91 20 2811 6000'
+  'amity-university-mohali': {
+    establishedYear: 2021,
+    collegeType: 'Private University',
+    accreditation: 'NAAC Grade A, UGC Recognized, WASC (USA) & QAA (UK) Accredited',
+    rankingCustom: 'Top 3% Universities globally (Amity Group), #18 in Private B-Schools',
+    averagePackage: '₹7.8 LPA',
+    highestPackage: '₹20 LPA',
+    totalOffers: 950,
+    companyVisiting: 200,
+    aboutText: 'Amity University, Mohali (also known as Amity University Punjab), is a state-of-the-art campus established in 2021 by the Amity Education Group. Spanning 40 acres in the IT/Knowledge Park of Mohali, the campus is built to international standards and offers top-tier education with NAAC A and global accreditations like WASC.',
+    rankingsListCustom: [
+      'Accredited with an outstanding NAAC A Grade within its initial operational cycles',
+      'Amity Education Group is ranked among the Top 3% Universities globally by QS & THE',
+      'Ranked #18 for Private Business Schools in North India by IIRF',
+      'Internationally accredited by WASC (USA) and QAA (UK) for global degrees'
+    ],
+    whyChooseList: [
+      'Globally benchmarked 40-acre smart campus located in the Mohali IT hub',
+      'Degrees internationally recognized through WASC (USA) and QAA (UK) accreditations',
+      'Industry-aligned curriculum with global exposure and semester-abroad options',
+      'Strong placements with top MNCs recruiting, recording an average package of ₹7.8 LPA',
+      'State-of-the-art research labs, 650-seater auditorium, and modern sports complexes',
+      'Direct entry and extensive scholarship programs for high-achieving board scorers'
+    ],
+    coursesList: [
+      { name: 'MBA in Business Analytics', fees: '₹2.8 Lakhs / Year', seats: 120, eligibility: 'Graduation with 50% + CAT/MAT/AMCAT' },
+      { name: 'B.Tech in Computer Science & Engineering', fees: '₹2.2 Lakhs / Year', seats: 180, eligibility: '10+2 with 60% in PCM' },
+      { name: 'BBA in International Business', fees: '₹2.0 Lakhs / Year', seats: 120, eligibility: '10+2 with 50% in any stream' },
+      { name: 'LL.B. (Integrated Law Honors)', fees: '₹1.8 Lakhs / Year', seats: 90, eligibility: '10+2 with 50% + CLAT Score' }
+    ],
+    infrastructureList: ['Smart Classrooms', 'State-of-the-art Labs', '650-seater Auditorium', 'Cafeteria', 'AC Hostels', 'Sports Courts', 'Medical Center'],
+    placementDetailsList: [
+      { company: 'Amazon', package: '₹20.0 LPA' },
+      { company: 'Deloitte', package: '₹8.5 LPA' },
+      { company: 'Wipro', package: '₹6.5 LPA' },
+      { company: 'HDFC Bank', package: '₹7.0 LPA' }
+    ],
+    scholarshipsList: [
+      { name: 'Amity Direct Entry Scholarship', criteria: 'Class 12 Marks > 93%', amount: '100% Tuition Fee Waiver' },
+      { name: 'Sports Scholarship', criteria: 'State or National level sports achievers', amount: '25% to 50% Tuition Waiver' }
+    ],
+    hostelsList: [
+      { type: 'Premium AC Single Room', sharing: 'Single-sharing AC room with attached modern bath', fees: '₹1.5 Lakhs / Year' },
+      { type: 'AC Twin Sharing Hostel', sharing: 'Twin-sharing AC room with attached modern bath', fees: '₹1.1 Lakhs / Year' }
+    ],
+    faqList: [
+      { q: 'Does Amity Mohali offer global study options?', a: 'Yes, students can opt for study-abroad programs at other Amity campuses in London, Dubai, or Singapore.' },
+      { q: 'What international accreditations does it hold?', a: 'The university holds global accreditations from WASC (USA) and QAA (UK).' }
+    ],
+    admissionProcessTextCustom: 'Admission to Amity University Mohali is based on qualifying exam scores followed by an English language test and a personal interview. For technical courses, national test scores like JEE Main are prioritized.',
+    scholarshipTextCustom: 'Amity Mohali offers up to 100% scholarship to students scoring 95% and above in Class 12. There are also structured scholarships for sports achievements, defense personnel, and siblings of existing students.',
+    placementTextCustom: 'Amity Mohali placements benefit from the centralized placement cell of Amity Group. The highest package stands at ₹20 LPA, with an average salary package ranging from ₹7.5 LPA to ₹8.0 LPA.'
   },
   'iim-bangalore': {
-    name: 'Indian Institute of Management (IIM), Bangalore',
-    location: 'Bangalore, Karnataka',
-    rating: '8.9/10',
-    placement: '35.3 LPA',
-    averagePackage: '35.3 LPA',
-    highestPackage: '1.15 CR',
-    totalOffers: 600,
-    companyVisiting: 150,
     establishedYear: 1973,
-    accreditation: 'UGC Approved, EQUIS Accredited',
-    fees: '₹25.0 Lakhs / Year',
-    logo: 'iim-bangalore',
-    phone: '+91 80 2699 3000'
-  },
-  'dms-iit-delhi': {
-    name: 'Department of Management Studies (DMS), IIT Delhi',
-    location: 'Delhi, Delhi',
-    rating: '8.7/10',
-    placement: '40.11 LPA',
-    averagePackage: '25.8 LPA',
-    highestPackage: '40.11 LPA',
-    totalOffers: 150,
-    companyVisiting: 60,
-    establishedYear: 1993,
-    accreditation: 'AACSB Accredited, NIRF Ranked',
-    fees: '₹10.4 Lakhs / Year',
-    logo: 'dms-iit-delhi',
-    phone: '+91 11 2659 1171'
-  },
-  'fms-delhi': {
-    name: 'Faculty of Management Studies (FMS), Delhi University',
-    location: 'Delhi, Delhi',
-    rating: '8.9/10',
-    placement: '1.23 CR',
-    averagePackage: '32.4 LPA',
-    highestPackage: '1.23 CR',
-    totalOffers: 280,
-    companyVisiting: 80,
-    establishedYear: 1954,
-    accreditation: 'UGC Approved, DU Affiliated',
-    fees: '₹2.0 Lakhs / Year',
-    logo: 'fms-delhi',
-    phone: '+91 11 2766 6382'
-  },
-  'iim-ahmedabad': {
-    name: 'Indian Institute of Management (IIM), Ahmedabad',
-    location: 'Ahmedabad, Gujarat',
-    rating: '9.1/10',
-    placement: '1.46 CR',
-    averagePackage: '34.8 LPA',
-    highestPackage: '1.46 CR',
-    totalOffers: 400,
-    companyVisiting: 130,
-    establishedYear: 1961,
-    accreditation: 'EQUIS Accredited, NIRF Ranked #1',
-    fees: '₹25.0 Lakhs / Year',
-    logo: 'iim-ahmedabad',
-    phone: '+91 79 7152 7242'
-  },
-  'jlu-bhopal': {
-    name: 'Jagran Lakecity University (JLU), Bhopal',
-    location: 'Bhopal, Madhya Pradesh',
-    rating: '8.0/10',
-    placement: '24 LPA',
-    averagePackage: '4.5 LPA',
-    highestPackage: '24 LPA',
-    totalOffers: 480,
-    companyVisiting: 90,
-    establishedYear: 2013,
-    accreditation: 'UGC Approved',
-    fees: '₹1.6 Lakhs / Year',
-    logo: 'jlu-bhopal',
-    phone: '+91 755 661 1100'
+    collegeType: 'Public Business School (Institute of National Importance)',
+    accreditation: 'EQUIS Accredited, AACSB Accredited, AMBA Accredited',
+    rankingCustom: 'Ranked #2 in Management by NIRF 2024, EQUIS Accredited',
+    averagePackage: '₹35.31 LPA',
+    highestPackage: '1.15 CR',
+    totalOffers: 606,
+    companyVisiting: 150,
+    aboutText: 'The Indian Institute of Management Bangalore (IIMB) is a leading public business school established in 1973. It is recognized as an Institute of National Importance. Located in India’s high-tech capital, IIMB is EQUIS-accredited and consistently ranked among the top business schools in Central and South Asia. The 100-acre oasis campus is famous for its all-stone architecture and lush green canopy.',
+    rankingsListCustom: [
+      'Ranked #2 in NIRF Management Ranking 2024 in India',
+      'Accredited by EFMD Quality Improvement System (EQUIS) for global standard business education',
+      'Ranked #1 in Central & South Asia by Eduniversal B-School rankings',
+      'Ranked #32 globally in Financial Times (FT) Global MBA Ranking 2024'
+    ],
+    whyChooseList: [
+      'Institute of National Importance with elite global reputation and powerful alumni network',
+      'Located in Bengaluru — the Silicon Valley of India, offering unmatched corporate connect',
+      'Industry-leading placement statistics with 100% placements and a ₹35.31 LPA average package',
+      'World-class faculty comprising globally cited research scholars and industry experts',
+      'Stunning 100-acre green canopy campus with unique granite stone architecture',
+      'EQUIS and AACSB accreditations ensuring worldwide validity of your MBA degree'
+    ],
+    coursesList: [
+      { name: 'PGP (Post Graduate Programme in Management)', fees: '₹24.5 Lakhs / 2 Years', seats: 480, eligibility: 'Graduation with 50% + high CAT Percentile' },
+      { name: 'EPGP (Executive Post Graduate Programme)', fees: '₹31.0 Lakhs / Year', seats: 75, eligibility: 'Graduation + 5 years Work Exp + GMAT/GRE' },
+      { name: 'PGPEM (PGP in Enterprise Management)', fees: '₹20.1 Lakhs / 2 Years', seats: 80, eligibility: 'Working Professionals with 4+ years Exp' },
+      { name: 'PhD in Management', fees: 'Full Fellowship (100% Waiver)', seats: 30, eligibility: 'Master\'s degree + CAT/GMAT/GRE + Interview' }
+    ],
+    infrastructureList: ['All-stone Campus', 'Central Library', 'Computer Center', 'Sports Complex', 'Lush Green Gardens', 'Executive Hostels', 'Auditorium'],
+    placementDetailsList: [
+      { company: 'McKinsey & Company', package: '₹36.0 LPA' },
+      { company: 'Boston Consulting Group', package: '₹36.0 LPA' },
+      { company: 'Brain & Company', package: '₹35.0 LPA' },
+      { company: 'Goldman Sachs', package: '₹32.0 LPA' }
+    ],
+    scholarshipsList: [
+      { name: 'IIMB Financial Aid', criteria: 'Family annual income below 8.0 LPA', amount: 'Up to 100% Tuition Fee Waiver' },
+      { name: 'Aditya Birla Scholarship', criteria: 'Academic toppers of first year', amount: '₹1.75 Lakhs / Year' }
+    ],
+    hostelsList: [
+      { type: 'Single Occupancy Student Room', sharing: 'Single room with common bath & high speed internet', fees: 'Included in Tuition Fee' },
+      { type: 'EPGP Hostel Room', sharing: 'Premium single AC room for executive programs', fees: 'Included in EPGP Fee' }
+    ],
+    faqList: [
+      { q: 'How is admission to MBA program at IIMB decided?', a: 'Admission is highly competitive and is based on a high CAT percentile, academic history, work experience, and personal interview.' },
+      { q: 'Is financial assistance available at IIMB?', a: 'Yes, financial aid is provided to all deserving candidates whose family income is below 8 LPA, covering up to 100% of the fees.' }
+    ],
+    admissionProcessTextCustom: 'Admission to IIM Bangalore is based on a rigorous multi-stage selection process starting with the Common Admission Test (CAT) or GMAT/GRE for international students. Shortlisted candidates are evaluated based on written capability, academic performance, work experience, and a personal interview.',
+    scholarshipTextCustom: 'IIM Bangalore provides financial aid to PGP students based on family income and assets. Several corporate and alumni-funded merit scholarships are also awarded, including the Aditya Birla Scholarship and Citi Women Leader Award.',
+    placementTextCustom: 'IIM Bangalore holds an exemplary record of 100% placements. The average salary package is ₹35.31 LPA, with elite strategy consulting, private equity, investment banking, and tech leadership recruiters visiting the campus.'
   }
 };
 
-const getMockCollege = (idOrSlug: string) => {
+export const getMockCollege = (idOrSlug: string) => {
   let custom = MOCK_UNIVERSITY_MAP[idOrSlug];
   
   if (!custom) {
@@ -906,6 +639,7 @@ const getMockCollege = (idOrSlug: string) => {
 };
 
 export const CollegeDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { useCollegeQuery } = useColleges();
   const { data: dbCollege, isLoading: isDbLoading } = useCollegeQuery(id || '');
@@ -935,7 +669,40 @@ export const CollegeDetails = () => {
   ]);
   const isMockSlug = id ? (KNOWN_MOCK_IDS.has(id) || STATIC_COLLEGES.some((c: any) => c.id === id)) : false;
 
-  const college = dbCollege || (isMockSlug ? getMockCollege(id || '') : undefined);
+  const collegeRaw = dbCollege || (isMockSlug ? getMockCollege(id || '') : undefined);
+
+  const college = useMemo(() => {
+    if (!collegeRaw) return undefined;
+    const overrides = REAL_COLLEGE_HIGHLIGHTS_OVERRIDE[collegeRaw.id || ''] || REAL_COLLEGE_HIGHLIGHTS_OVERRIDE[id || ''];
+    if (overrides) {
+      return {
+        ...collegeRaw,
+        ...overrides,
+        courses: overrides.coursesList || collegeRaw.courses,
+        placementDetails: overrides.placementDetailsList || collegeRaw.placementDetails,
+        scholarships: overrides.scholarshipsList || collegeRaw.scholarships,
+        hostels: overrides.hostelsList || collegeRaw.hostels,
+        faq: overrides.faqList || collegeRaw.faq,
+        infrastructure: overrides.infrastructureList || collegeRaw.infrastructure,
+        rankingsList: overrides.rankingsListCustom || collegeRaw.rankingsList,
+        about: overrides.aboutText || collegeRaw.about,
+        admissionProcessText: overrides.admissionProcessTextCustom || collegeRaw.admissionProcessText,
+        scholarshipText: overrides.scholarshipTextCustom || collegeRaw.scholarshipText,
+        placementText: overrides.placementTextCustom || collegeRaw.placementText,
+        ranking: overrides.rankingCustom || collegeRaw.ranking,
+        establishedYear: overrides.establishedYear || collegeRaw.establishedYear,
+        accreditation: overrides.accreditation || collegeRaw.accreditation,
+        averagePackage: overrides.averagePackage || collegeRaw.averagePackage,
+        highestPackage: overrides.highestPackage || collegeRaw.highestPackage,
+        totalOffers: overrides.totalOffers || collegeRaw.totalOffers,
+        companyVisiting: overrides.companyVisiting || collegeRaw.companyVisiting,
+        highestInternationalPackage: overrides.highestInternationalPackage || collegeRaw.highestInternationalPackage,
+        phone: overrides.phone || collegeRaw.phone
+      };
+    }
+    return collegeRaw;
+  }, [collegeRaw, id]);
+
   const isLoading = isDbLoading && !college;
 
   const { addToCompare, removeFromCompare, isComparing } = useCompareStore();
@@ -989,6 +756,70 @@ export const CollegeDetails = () => {
       </div>
     );
   }
+
+  const handleDownloadBrochure = () => {
+    if (!college) return;
+    
+    const courseLines = (college.courses || []).map((c: any) => {
+      if (typeof c === 'object') {
+        return `- ${c.name}\n  Fees: ${c.fees || 'N/A'}\n  Seats: ${c.seats || 'N/A'}`;
+      }
+      return `- ${c}`;
+    }).join('\n\n');
+
+    const content = [
+      "========================================================================",
+      `                      ${college.name.toUpperCase()}`,
+      "                              CAMPUS PROFILE & OVERVIEW",
+      "========================================================================",
+      `Established:    ${college.establishedYear || 'N/A'}`,
+      `Accreditation:  ${college.accreditation || 'N/A'}`,
+      `Location:       ${college.location || 'N/A'}`,
+      `CM Rating:      ${college.rating ? college.rating + "/10" : 'N/A'}`,
+      `Ranking:        ${college.ranking || 'N/A'}`,
+      `Average Fees:   ${college.fees || 'N/A'}`,
+      "",
+      "------------------------------------------------------------------------",
+      "CAMPUS OVERVIEW",
+      "------------------------------------------------------------------------",
+      college.about || 'No description available.',
+      "",
+      "------------------------------------------------------------------------",
+      "KEY STATS & PLACEMENTS",
+      "------------------------------------------------------------------------",
+      `Highest Package:  ${college.highestPackage || 'N/A'}`,
+      `Average Package:  ${college.averagePackage || 'N/A'}`,
+      `Total Offers:     ${college.totalOffers || 'N/A'}`,
+      `Companies Visited: ${college.companyVisiting || 'N/A'}`,
+      "",
+      "------------------------------------------------------------------------",
+      "COURSES OFFERED",
+      "------------------------------------------------------------------------",
+      courseLines || 'Please contact admissions for the full list of courses.',
+      "",
+      "------------------------------------------------------------------------",
+      "CONTACT DETAILS",
+      "------------------------------------------------------------------------",
+      `Phone:          ${college.phone || '+91 7773045555'}`,
+      `Email:          ${college.email || ('admissions@' + college.id + '.edu.in')}`,
+      `Address:        ${college.address || (college.name + ' Campus, India')}`,
+      "",
+      "========================================================================",
+      "            Generated via Career Mantra Admissions Directory",
+      "========================================================================"
+    ].join('\n');
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${college.name.replace(/[^a-zA-Z0-9]/g, '_')}_Brochure.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    addToast('Brochure download initialized.', 'success');
+  };
 
   // Safe field normalizers
   const toArray = (val: any): any[] => {
@@ -1226,14 +1057,14 @@ export const CollegeDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Main Header Info Box */}
-          <div className="lg:col-span-12 flex flex-col md:flex-row gap-6 p-6 glass rounded-2xl border border-app-border shadow-2xl justify-between items-center bg-[#0C1221]/90">
+          <div className="lg:col-span-12 flex flex-col md:flex-row gap-6 p-6 glass rounded-2xl border border-app-border shadow-2xl justify-between items-center bg-app-card/95">
             <div className="flex items-center gap-5 text-left w-full md:w-auto">
               {renderLogo(college.logo || college.id)}
               <div>
                 <span className="inline-block text-[9px] px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] border border-[#FF7A00]/30 font-black uppercase tracking-wider mb-1.5">
                   {college.category}
                 </span>
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-display font-black leading-tight text-white uppercase tracking-tight">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-display font-black leading-tight text-app-text uppercase tracking-tight">
                   {college.name}
                 </h1>
                 <p className="text-xs text-app-muted mt-1 leading-relaxed max-w-2xl font-medium">
@@ -1246,9 +1077,9 @@ export const CollegeDetails = () => {
                   </span>
                   <span className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5 text-[#F59E0B] fill-[#F59E0B]" />
-                    <b className="text-white font-bold">{college.rating}/10 CM Rating</b>
+                    <b className="text-app-text font-bold">{college.rating}/10 CM Rating</b>
                   </span>
-                  <span className="flex items-center gap-1 px-2.5 py-0.5 rounded bg-app-card border border-app-border text-[10px] text-white font-bold">
+                  <span className="flex items-center gap-1 px-2.5 py-0.5 rounded bg-app-card border border-app-border text-[10px] text-app-text font-bold">
                     {college.ranking}
                   </span>
                 </div>
@@ -1258,14 +1089,14 @@ export const CollegeDetails = () => {
             {/* Quick Actions Header Buttons */}
             <div className="flex flex-wrap md:flex-col gap-2.5 w-full md:w-auto shrink-0 border-t md:border-t-0 md:border-l border-app-border pt-4 md:pt-0 md:pl-6 text-xs justify-center md:justify-start">
               <button
-                onClick={() => addToast('Brochure download process initiated.', 'success')}
+                onClick={() => navigate(`/common-application?collegeId=${college.id}`)}
                 className="flex-1 md:w-44 py-3 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-bold tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md"
               >
                 Apply Now
               </button>
               <button
-                onClick={() => addToast('Scholarship evaluation lead submitted.', 'success')}
-                className="flex-1 md:w-44 py-3 rounded-xl border border-[#FF7A00]/50 hover:bg-[#FF7A00]/10 text-white font-bold tracking-wider transition-all cursor-pointer bg-transparent"
+                onClick={() => navigate('/scholarships')}
+                className="flex-1 md:w-44 py-3 rounded-xl border border-[#FF7A00]/50 hover:bg-[#FF7A00]/10 text-app-text font-bold tracking-wider transition-all cursor-pointer bg-transparent"
               >
                 Scholarship eligibility
               </button>
@@ -1290,7 +1121,7 @@ export const CollegeDetails = () => {
                 className={`py-3.5 px-5 text-[11px] font-black border-b-2 whitespace-nowrap transition-all flex items-center gap-2 focus:outline-none cursor-pointer tracking-wider ${
                   activeTab === tab.id
                     ? 'border-[#FF7A00] text-[#FF7A00]'
-                    : 'border-transparent text-app-muted hover:text-white'
+                    : 'border-transparent text-app-muted hover:text-[#FF7A00]'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -1307,7 +1138,7 @@ export const CollegeDetails = () => {
           <div className="lg:col-span-8 flex flex-col gap-8 text-left">
             
             {/* Active Tab Panel */}
-            <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-[#0C1221]/90 shadow-xl min-h-[360px]">
+            <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-app-card/95 shadow-xl min-h-[360px]">
               
               {/* TAB 1: INFO */}
               {activeTab === 'info' && (
@@ -1319,7 +1150,7 @@ export const CollegeDetails = () => {
                       <div className="w-6 h-6 rounded-full bg-[#10B981]/15 text-[#10B981] flex items-center justify-center shrink-0">
                         ✔
                       </div>
-                      <h3 className="text-base font-display font-extrabold text-white uppercase tracking-wider">
+                      <h3 className="text-base font-display font-extrabold text-app-text uppercase tracking-wider">
                         {college.name.split(',')[0]} Verified Profile
                       </h3>
                     </div>
@@ -1338,27 +1169,25 @@ export const CollegeDetails = () => {
 
                   {/* Highlights Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Highlights
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                      <div className="p-3 bg-[#090D17] border border-app-border rounded-xl flex flex-col justify-center text-left">
+                      <div className="p-3 bg-app-card border border-app-border rounded-xl flex flex-col justify-center text-left">
                         <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider">Est. Year</span>
-                        <span className="text-sm font-black text-white mt-0.5">{college.establishedYear || 2021}</span>
+                        <span className="text-sm font-black text-app-text mt-0.5">{college.establishedYear || 2021}</span>
                       </div>
-                      <div className="p-3 bg-[#090D17] border border-app-border rounded-xl flex flex-col justify-center text-left">
+                      <div className="p-3 bg-app-card border border-app-border rounded-xl flex flex-col justify-center text-left">
                         <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider">College Type</span>
-                        <span className="text-sm font-black text-white mt-0.5">Private</span>
+                        <span className="text-sm font-black text-app-text mt-0.5">{college.collegeType || 'Private'}</span>
                       </div>
-                      <div className="p-3 bg-[#090D17] border border-app-border rounded-xl flex flex-col justify-center text-left col-span-2">
+                      <div className="p-3 bg-app-card border border-app-border rounded-xl flex flex-col justify-center text-left col-span-2">
                         <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider">Accreditation</span>
-                        <span className="text-xs font-black text-white mt-0.5 truncate" title={college.accreditation}>{college.accreditation || 'AICTE, UGC'}</span>
+                        <span className="text-xs font-black text-app-text mt-0.5 truncate" title={college.accreditation}>{college.accreditation || 'AICTE, UGC'}</span>
                       </div>
                     </div>
                     <p className="text-xs sm:text-sm text-app-muted leading-relaxed font-semibold">
-                      {highlightsExpanded
-                        ? `${college.name} is recognized globally for its high academic standards and student facilities. Offering high-tech laboratory infrastructure, a highly qualified faculty board, and strong links with industry recruiters, it stands out as a prime destination for technical studies.`
-                        : `Highlights Details Establishment Year ${college.establishedYear || 2021} College Type Private University...`}
+                      Highlights Details Establishment Year {college.establishedYear || 2021} College Type {college.collegeType || 'Private'} · {college.accreditation || 'AICTE, UGC Approved'} · Located in {college.location}...
                     </p>
                     <button
                       onClick={() => setHighlightsExpanded(!highlightsExpanded)}
@@ -1366,26 +1195,142 @@ export const CollegeDetails = () => {
                     >
                       {highlightsExpanded ? 'Read Less <<' : 'Read More >>'}
                     </button>
+
+                    {/* Expanded Highlights: Rich college info */}
+                    {highlightsExpanded && (
+                      <div className="flex flex-col gap-6 mt-3 border-t border-app-border pt-5">
+
+                        {/* Overview */}
+                        <p className="text-sm text-app-text leading-7 font-medium">
+                          {college.about || `${college.name} is a leading institution of higher education located in ${college.location}, dedicated to providing world-class academic programs and a vibrant campus experience. The university is known for its state-of-the-art infrastructure, experienced faculty, strong industry linkages, and excellent placement record.`}
+                        </p>
+
+                        {/* Key Facts Grid */}
+                        <div className="flex flex-col gap-3">
+                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                            Key Facts &amp; Figures
+                          </h4>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            {[
+                              { label: 'Established', value: String(college.establishedYear || 2021) },
+                              { label: 'College Type', value: college.collegeType || 'Private University' },
+                              { label: 'Location', value: college.location },
+                              { label: 'Accreditation', value: college.accreditation || 'AICTE, UGC' },
+                              { label: 'Annual Fees', value: college.fees || '₹4.5 Lakhs / Year' },
+                              { label: 'NIRF Ranking', value: college.ranking || '#Top 150 (NIRF 2025)' },
+                              { label: 'Avg. Package', value: college.averagePackage || '8.5 LPA' },
+                              { label: 'Highest Package', value: college.highestPackage || '45 LPA' },
+                              { label: 'CM Rating', value: `${college.rating}/10` },
+                            ].map((item, idx) => (
+                              <div key={idx} className="flex flex-col gap-1 p-3 rounded-xl bg-app-card border border-app-border">
+                                <span className="text-[10px] font-bold text-[#FF7A00] uppercase tracking-widest">{item.label}</span>
+                                <span className="text-sm font-extrabold text-app-text leading-snug">{item.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Academic Programs */}
+                        <div className="flex flex-col gap-3">
+                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                            Academic Programs Offered
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {(toArray(college.courses).length > 0
+                              ? toArray(college.courses).map((c: any) => typeof c === 'object' ? c.name : c)
+                              : ['B.Tech (CSE, ECE, ME, CE)', 'MBA (Marketing, Finance, HR)', 'BBA / BCA', 'MCA / M.Tech', 'B.Sc / M.Sc', 'Law (LLB / LLM)', 'Ph.D Programs']
+                            ).slice(0, 8).map((prog: string, idx: number) => (
+                              <span key={idx} className="px-3 py-1.5 rounded-lg bg-app-card border border-app-border text-xs font-bold text-app-text">
+                                {prog}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Notable Achievements */}
+                        <div className="flex flex-col gap-3">
+                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                            Notable Achievements &amp; Rankings
+                          </h4>
+                          <div className="flex flex-col gap-2.5">
+                            {(college.rankingsList || [
+                              `Ranked among Top 200 Universities in India by NIRF 2025`,
+                              `Accredited by ${college.accreditation || 'AICTE & UGC'} — ensuring quality standards`,
+                              `${college.companyVisiting || '200'}+ companies participated in campus placements`,
+                              `Highest package of ${college.highestPackage || '45 LPA'} recorded in 2025 placements`,
+                              `International MoUs with 50+ global universities for student exchange`
+                            ]).map((item: string, idx: number) => (
+                              <div key={idx} className="flex items-start gap-3 bg-app-card border border-app-border rounded-lg px-3 py-2.5">
+                                <span className="text-[#10B981] font-black shrink-0 text-sm mt-0.5">✔</span>
+                                <span className="text-sm text-app-text font-medium leading-snug">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Infrastructure */}
+                        <div className="flex flex-col gap-3">
+                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                            Infrastructure &amp; Campus Facilities
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {safeInfrastructure.map((facility: string, idx: number) => (
+                              <div key={idx} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-app-card border border-app-border text-xs text-app-text font-bold">
+                                {getFacilityIcon(facility)}
+                                <span>{facility}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Why Choose */}
+                        <div className="flex flex-col gap-3 p-5 rounded-xl bg-[#FF7A00]/8 border border-[#FF7A00]/30">
+                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider">
+                            Why Choose {college.name.split(',')[0]}?
+                          </h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {(college.whyChooseList || [
+                              `Established in ${college.establishedYear || 2021} with ${new Date().getFullYear() - (college.establishedYear || 2021)}+ years of academic excellence`,
+                              `Located in ${college.city || college.location.split(',')[0]} — a thriving educational & industrial hub`,
+                              `Average placement package of ${college.averagePackage || '8.5 LPA'} with top MNCs recruiting on campus`,
+                              `${college.accreditation || 'AICTE & UGC'} approved — ensuring nationally recognized degrees`,
+                              `Comprehensive scholarship programs for merit & need-based students`,
+                              `Vibrant campus life with 100+ clubs, fests, sports, and cultural events`
+                            ]).map((reason, idx) => (
+                              <div key={idx} className="flex items-start gap-2.5">
+                                <span className="text-[#FF7A00] font-black shrink-0 text-base leading-snug">→</span>
+                                <span className="text-sm text-app-text font-medium leading-snug">{reason}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                      </div>
+                    )}
                   </div>
 
                   {/* Important Dates Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Important Dates
                     </h3>
                     <div className="overflow-x-auto border border-app-border rounded-xl">
                       <table className="w-full text-xs text-left border-collapse">
                         <thead>
-                          <tr className="bg-[#090D17] border-b border-app-border font-black text-app-muted uppercase tracking-wider">
+                          <tr className="bg-app-card border-b border-app-border font-black text-app-muted uppercase tracking-wider">
                             <th className="p-3">Event</th>
                             <th className="p-3">Tentative Dates</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-app-border/40 font-semibold text-slate-300">
+                        <tbody className="divide-y divide-app-border/40 font-semibold text-app-text">
                           {(college.importantDates || defaultImportantDates).map((d: any, idx: number) => (
-                            <tr key={idx} className="hover:bg-white/5">
-                              <td className="p-3 font-bold text-white">{d.event}</td>
-                              <td className="p-3">{d.date}</td>
+                            <tr key={idx} className="hover:bg-app-card/30">
+                              <td className="p-3 font-bold text-app-text">{d.event}</td>
+                              <td className="p-3 text-app-muted">{d.date}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1396,7 +1341,7 @@ export const CollegeDetails = () => {
 
                   {/* Admission Process Section */}
                   <div className="flex flex-col gap-3 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Admission Process
                     </h3>
                     <p className="text-xs sm:text-sm text-app-muted leading-relaxed font-semibold">
@@ -1414,7 +1359,7 @@ export const CollegeDetails = () => {
 
                   {/* Scholarship Section */}
                   <div className="flex flex-col gap-3 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Scholarship
                     </h3>
                     <p className="text-xs sm:text-sm text-app-muted leading-relaxed font-semibold">
@@ -1432,7 +1377,7 @@ export const CollegeDetails = () => {
 
                   {/* Placements Section */}
                   <div className="flex flex-col gap-3 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Placements
                     </h3>
                     <p className="text-xs sm:text-sm text-app-muted leading-relaxed font-semibold">
@@ -1450,10 +1395,10 @@ export const CollegeDetails = () => {
 
                   {/* Rankings Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Rankings
                     </h3>
-                    <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-semibold text-slate-350 select-none">
+                    <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-semibold text-app-text select-none">
                       {(college.rankingsList || [
                         'Ranked 106 for Overall by Indiatoday 2022',
                         'Ranked 102 for Overall by Timesofindia 2021',
@@ -1470,24 +1415,24 @@ export const CollegeDetails = () => {
 
                   {/* Courses & Fees Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Courses & Fees
                     </h3>
                     <div className="overflow-x-auto border border-app-border rounded-xl">
                       <table className="w-full text-xs text-left border-collapse">
                         <thead>
-                          <tr className="bg-[#090D17] border-b border-app-border font-black text-app-muted uppercase tracking-wider">
+                          <tr className="bg-app-card border-b border-app-border font-black text-app-muted uppercase tracking-wider">
                             <th className="p-3">Course</th>
                             <th className="p-3">1st Year Fees</th>
                             <th className="p-3">Eligibility</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-app-border/40 font-semibold text-slate-300">
+                        <tbody className="divide-y divide-app-border/40 font-semibold text-app-text">
                           {safeCourses.slice(0, 3).map((c: any, idx: number) => (
-                            <tr key={idx} className="hover:bg-white/5">
-                              <td className="p-3 font-bold text-white">{c.name.split(' ')[0]}</td>
+                            <tr key={idx} className="hover:bg-app-card/30">
+                              <td className="p-3 font-bold text-app-text">{c.name.split(' ')[0]}</td>
                               <td className="p-3 font-black text-[#FF7A00]">{c.fees}</td>
-                              <td className="p-3">{c.eligibility || '10+2 with 50%'}</td>
+                              <td className="p-3 text-app-muted">{c.eligibility || '10+2 with 50%'}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1503,7 +1448,7 @@ export const CollegeDetails = () => {
 
                   {/* Gallery Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Gallery
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -1528,7 +1473,7 @@ export const CollegeDetails = () => {
 
                   {/* Videos Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Videos
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1549,7 +1494,7 @@ export const CollegeDetails = () => {
                               <PlayCircle className="w-12 h-12 text-[#EF4444] fill-[#EF4444] group-hover:scale-110 transition-transform shadow-2xl" />
                             </div>
                           </div>
-                          <span className="text-xs font-black text-slate-350 text-left truncate group-hover:text-white transition-colors" title={vid.title}>
+                          <span className="text-xs font-black text-app-muted text-left truncate group-hover:text-app-text transition-colors" title={vid.title}>
                             {vid.title}
                           </span>
                         </div>
@@ -1559,14 +1504,14 @@ export const CollegeDetails = () => {
 
                   {/* Facilities Section */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Facilities
                     </h3>
                     <div className="flex flex-wrap gap-2.5">
                       {safeInfrastructure.map((facility: string, idx: number) => (
                         <div
                           key={idx}
-                          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-app-card border border-app-border text-[10px] text-white font-extrabold uppercase tracking-wider shadow-sm hover:border-[#FF7A00]/40 transition-colors select-none"
+                          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-app-card border border-app-border text-[10px] text-app-text font-extrabold uppercase tracking-wider shadow-sm hover:border-[#FF7A00]/40 transition-colors select-none"
                         >
                           {getFacilityIcon(facility)}
                           <span>{facility}</span>
@@ -1577,7 +1522,7 @@ export const CollegeDetails = () => {
 
                   {/* Ratings & Reviews Category Circle Metrics */}
                   <div className="flex flex-col gap-4 border-t border-app-border/45 pt-6">
-                    <h3 className="text-base font-display font-black text-white uppercase tracking-wider">
+                    <h3 className="text-base font-display font-black text-app-text uppercase tracking-wider">
                       {college.name} Ratings & Reviews
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 select-none">
@@ -1631,7 +1576,7 @@ export const CollegeDetails = () => {
               {/* TAB 2: COURSES & FEES */}
               {activeTab === 'courses' && (
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-lg font-display font-bold text-white mb-2 flex items-center gap-2 uppercase tracking-wide">
+                  <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
                     <BookOpen className="w-5 h-5 text-[#FF7A00]" />
                     Courses Offered & Seat Intake
                   </h3>
@@ -1642,9 +1587,9 @@ export const CollegeDetails = () => {
                         className="flex flex-col sm:flex-row sm:items-center justify-between p-5 rounded-xl bg-app-card border border-app-border gap-4 text-sm font-medium"
                       >
                         <div className="flex flex-col">
-                          <span className="font-extrabold text-white text-base leading-snug">{course.name}</span>
+                          <span className="font-extrabold text-app-text text-base leading-snug">{course.name}</span>
                           <span className="text-xs text-app-muted mt-1 flex items-center gap-1.5">
-                            Available seats: <b className="text-white font-bold">{course.seats || 120} Seats</b>
+                            Available seats: <b className="text-app-text font-bold">{course.seats || 120} Seats</b>
                           </span>
                         </div>
                         <div className="flex items-center gap-6 shrink-0">
@@ -1662,7 +1607,7 @@ export const CollegeDetails = () => {
               {/* TAB 3: ADMISSION */}
               {activeTab === 'admission' && (
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-lg font-display font-bold text-white mb-2 flex items-center gap-2 uppercase tracking-wide">
+                  <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
                     <FileText className="w-5 h-5 text-[#FF7A00]" />
                     Admission Counseling Callback Form
                   </h3>
@@ -1681,7 +1626,7 @@ export const CollegeDetails = () => {
                             required
                             value={applyName}
                             onChange={(e) => setApplyName(e.target.value)}
-                            className="px-3.5 py-3 rounded-xl bg-[#090D17] border border-app-border text-white placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
+                            className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
                             placeholder="Enter full name"
                           />
                         </div>
@@ -1692,7 +1637,7 @@ export const CollegeDetails = () => {
                             required
                             value={applyEmail}
                             onChange={(e) => setApplyEmail(e.target.value)}
-                            className="px-3.5 py-3 rounded-xl bg-[#090D17] border border-app-border text-white placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
+                            className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
                             placeholder="example@gmail.com"
                           />
                         </div>
@@ -1702,11 +1647,11 @@ export const CollegeDetails = () => {
                         <select
                           value={applyCourse}
                           onChange={(e) => setApplyCourse(e.target.value)}
-                          className="px-3.5 py-3 rounded-xl bg-[#090D17] border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
+                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
                         >
                           <option value="">Select a Program</option>
                           {safeCourses.map((crs: any, i: number) => (
-                            <option key={i} value={crs.name} className="bg-[#0C1221]">
+                            <option key={i} value={crs.name} className="bg-app-card text-app-text">
                               {crs.name}
                             </option>
                           ))}
@@ -1729,7 +1674,7 @@ export const CollegeDetails = () => {
                 <div className="flex flex-col gap-8">
                   {/* KPI Statistical Blocks Grid - Matches Image 2 layout */}
                   <div>
-                    <h3 className="text-lg font-display font-bold text-white mb-4 uppercase tracking-wider">
+                    <h3 className="text-lg font-display font-bold text-app-text mb-4 uppercase tracking-wider">
                       {college.name} Placements
                     </h3>
                     
@@ -1780,7 +1725,7 @@ export const CollegeDetails = () => {
 
                   {/* Graphical trend chart illustration */}
                   <div className="p-5 rounded-2xl bg-app-card border border-app-border text-center">
-                    <h4 className="text-xs font-black uppercase text-white mb-4 text-left tracking-wider">Salary Distribution Trends (Previous Batches)</h4>
+                    <h4 className="text-xs font-black uppercase text-app-text mb-4 text-left tracking-wider">Salary Distribution Trends (Previous Batches)</h4>
                     <div className="w-full h-40 flex items-end justify-between px-6 pt-4 border-b border-l border-app-border relative select-none">
                       <div className="absolute top-0 right-2 text-[9px] text-app-muted font-extrabold">LPA (Package in Lakhs)</div>
                       
@@ -1794,21 +1739,21 @@ export const CollegeDetails = () => {
                       </div>
                       <div className="flex flex-col items-center gap-1.5 flex-1">
                         <div className="w-8 bg-gradient-to-t from-[#FF7A00] to-[#FF9F43] rounded-t-lg transition-all hover:opacity-90" style={{ height: '80%' }} />
-                        <span className="text-[9px] text-white font-extrabold">2025 (Avg)</span>
+                        <span className="text-[9px] text-app-text font-extrabold">2025 (Avg)</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Recruiters Logo Grid - Matches Image 3 layout */}
                   <div>
-                    <h3 className="text-base font-display font-bold text-white mb-4 uppercase tracking-wider">
+                    <h3 className="text-base font-display font-bold text-app-text mb-4 uppercase tracking-wider">
                       {college.name} Recruiters
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 select-none">
                       {recruiters.map((recName, index) => (
                         <div 
                           key={index}
-                          className="p-3.5 rounded-xl border border-app-border bg-[#090D17] text-center flex flex-col justify-center items-center hover:border-[#FF7A00]/50 hover:bg-[#FF7A00]/5 transition-all text-xs font-black text-slate-300"
+                          className="p-3.5 rounded-xl border border-app-border bg-app-card text-center flex flex-col justify-center items-center hover:border-[#FF7A00]/50 hover:bg-[#FF7A00]/5 transition-all text-xs font-black text-app-text"
                         >
                           <div className="w-8 h-8 rounded-lg bg-slate-800 text-white flex items-center justify-center font-extrabold text-[10px] mb-1.5 uppercase">
                             {recName.substring(0, 2)}
@@ -1826,13 +1771,13 @@ export const CollegeDetails = () => {
                 <div className="flex flex-col gap-8" ref={reviewSectionRef}>
                   {/* Review narrative list */}
                   <div>
-                    <h3 className="text-base font-display font-bold text-white mb-4 uppercase tracking-wider">Verified Student Testimonials</h3>
+                    <h3 className="text-base font-display font-bold text-app-text mb-4 uppercase tracking-wider">Verified Student Testimonials</h3>
                     <div className="flex flex-col gap-4">
                       {safeReviews.length > 0 ? (
                         safeReviews.map((rev: any, idx: number) => (
                           <div key={idx} className="p-5 rounded-2xl bg-app-card border border-app-border flex flex-col gap-3">
                             <div className="flex items-center justify-between text-xs font-bold">
-                              <span className="font-extrabold text-white text-sm">{rev.name}</span>
+                              <span className="font-extrabold text-app-text text-sm">{rev.name}</span>
                               <span className="text-app-muted">{rev.date}</span>
                             </div>
                             <div className="flex items-center gap-1">
@@ -1859,7 +1804,7 @@ export const CollegeDetails = () => {
                   {/* Review form block */}
                   <form onSubmit={handleReviewSubmit} className="border-t border-app-border pt-6 flex flex-col gap-4">
                     <div>
-                      <h3 className="text-base font-display font-bold text-white uppercase tracking-wider">Write A Review</h3>
+                      <h3 className="text-base font-display font-bold text-app-text uppercase tracking-wider">Write A Review</h3>
                       <p className="text-xs text-app-muted mt-1 leading-relaxed">Share your verified student experiences to earn rewards and assist fellow aspirants.</p>
                     </div>
 
@@ -1871,7 +1816,7 @@ export const CollegeDetails = () => {
                           required
                           value={revName}
                           onChange={(e) => setRevName(e.target.value)}
-                          className="px-3.5 py-3 rounded-xl bg-[#090D17] border border-app-border text-white placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
+                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
                           placeholder="e.g. Rahul Dev"
                         />
                       </div>
@@ -1880,7 +1825,7 @@ export const CollegeDetails = () => {
                         <select
                           value={revRating}
                           onChange={(e) => setRevRating(Number(e.target.value))}
-                          className="px-3.5 py-3 rounded-xl bg-[#090D17] border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
+                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
                         >
                           <option value={5}>5 Stars - Excellent Academics</option>
                           <option value={4}>4 Stars - Good Campus</option>
@@ -1895,7 +1840,7 @@ export const CollegeDetails = () => {
                         rows={4}
                         value={revText}
                         onChange={(e) => setRevText(e.target.value)}
-                        className="px-3.5 py-3 rounded-xl bg-[#090D17] border border-app-border text-white placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors resize-none"
+                        className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors resize-none"
                         placeholder="Write comments about courses, placements, or campus amenities..."
                       />
                     </div>
@@ -1912,7 +1857,7 @@ export const CollegeDetails = () => {
               {/* TAB 6: GALLERY */}
               {activeTab === 'gallery' && (
                 <div>
-                  <h3 className="text-lg font-display font-bold text-white mb-4 uppercase tracking-wide">Campus Life Gallery</h3>
+                  <h3 className="text-lg font-display font-bold text-app-text mb-4 uppercase tracking-wide">Campus Life Gallery</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {safeGallery.map((url, idx) => (
                       <div key={idx} className="h-32 rounded-xl overflow-hidden border border-app-border relative group shadow-md select-none">
@@ -1931,7 +1876,7 @@ export const CollegeDetails = () => {
               {/* TAB 7: SCHOLARSHIP */}
               {activeTab === 'scholarship' && (
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-lg font-display font-bold text-white mb-2 flex items-center gap-2 uppercase tracking-wide">
+                  <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
                     <DollarSign className="w-5 h-5 text-[#FF7A00]" />
                     Scholarships & Financial Grants
                   </h3>
@@ -1942,7 +1887,7 @@ export const CollegeDetails = () => {
                         className="p-5 rounded-xl bg-app-card border border-app-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-medium"
                       >
                         <div className="flex flex-col">
-                          <span className="font-extrabold text-white text-base">{sch.name}</span>
+                          <span className="font-extrabold text-app-text text-base">{sch.name}</span>
                           <span className="text-xs text-app-muted mt-1 leading-relaxed">Eligibility: {sch.criteria}</span>
                         </div>
                         <div className="flex flex-col sm:items-end shrink-0">
@@ -1958,7 +1903,7 @@ export const CollegeDetails = () => {
               {/* TAB 8: HOSTEL */}
               {activeTab === 'hostel' && (
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-lg font-display font-bold text-white mb-2 flex items-center gap-2 uppercase tracking-wide">
+                  <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
                     <Building className="w-5 h-5 text-[#FF7A00]" />
                     Hostels & Residential Accommodations
                   </h3>
@@ -1969,7 +1914,7 @@ export const CollegeDetails = () => {
                         className="p-5 rounded-xl bg-app-card border border-app-border flex flex-col gap-4 text-left font-medium"
                       >
                         <div>
-                          <h4 className="font-extrabold text-white text-base leading-snug">{hos.type}</h4>
+                          <h4 className="font-extrabold text-app-text text-base leading-snug">{hos.type}</h4>
                           <span className="text-xs text-[#FF7A00] mt-1 inline-block bg-[#FF7A00]/10 border border-[#FF7A00]/25 px-2.5 py-0.5 rounded-md font-bold">
                             Configuration: {hos.sharing}
                           </span>
@@ -1987,8 +1932,8 @@ export const CollegeDetails = () => {
             </div>
 
             {/* Address block with buttons & Maps - Matches Image 3 layout */}
-            <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-[#0C1221]/90 shadow-xl text-left">
-              <h3 className="text-lg font-display font-black text-white mb-5 flex items-center gap-2 uppercase tracking-wider">
+            <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-app-card/95 shadow-xl text-left">
+              <h3 className="text-lg font-display font-black text-app-text mb-5 flex items-center gap-2 uppercase tracking-wider">
                 <Map className="w-5 h-5 text-[#FF7A00]" />
                 {college.name} Address
               </h3>
@@ -2050,9 +1995,9 @@ export const CollegeDetails = () => {
             </div>
 
             {/* Live Application Form 2025 - Matches Image 4 layout */}
-            <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-[#0C1221]/90 shadow-xl text-left select-none">
+            <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-app-card/95 shadow-xl text-left select-none">
               <div className="flex items-center gap-2 mb-6">
-                <h3 className="text-base sm:text-lg font-display font-black text-white uppercase tracking-wider">Live Application</h3>
+                <h3 className="text-base sm:text-lg font-display font-black text-app-text uppercase tracking-wider">Live Application</h3>
                 <span className="px-2 py-0.5 rounded bg-[#FF7A00] text-white font-black text-[9px] uppercase tracking-wider">Form 2025</span>
               </div>
 
@@ -2060,12 +2005,12 @@ export const CollegeDetails = () => {
                 {liveApps.map((app, index) => (
                   <div key={index} className="py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4 text-xs font-semibold">
                     <div className="flex items-center gap-3.5 text-left">
-                      <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center font-extrabold text-[10px] text-white select-none border border-app-border">
+                      <div className="w-10 h-10 bg-app-bg rounded-lg flex items-center justify-center font-extrabold text-[10px] text-app-text select-none border border-app-border">
                         {app.name.substring(0, 2).toUpperCase()}
                       </div>
                       <div className="flex flex-col gap-0.5">
                         <span className="text-[10px] text-[#FF7A00] font-black uppercase tracking-wider">Applications Open for All Courses 2024</span>
-                        <span className="text-white font-extrabold text-sm max-w-md sm:truncate" title={app.name}>{app.name}</span>
+                        <span className="text-app-text font-extrabold text-sm max-w-md sm:truncate" title={app.name}>{app.name}</span>
                         <span className="text-[10px] text-app-muted mt-0.5 flex items-center gap-1">
                           <MapPin className="w-3 h-3 text-[#FF7A00]" />
                           {app.location}
@@ -2073,7 +2018,7 @@ export const CollegeDetails = () => {
                       </div>
                     </div>
                     <button 
-                      onClick={() => addToast(`Lead submitted for ${app.name}`, 'success')}
+                      onClick={() => navigate(`/common-application?collegeId=${app.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}&name=${encodeURIComponent(app.name)}&location=${encodeURIComponent(app.location)}`)}
                       className="py-2.5 px-5 rounded-lg bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black text-[10px] tracking-wider uppercase border-none cursor-pointer transition-all self-start sm:self-auto shrink-0 shadow-md"
                     >
                       Apply Now
@@ -2089,15 +2034,15 @@ export const CollegeDetails = () => {
           <div className="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-20 text-left">
             
             {/* Quick Actions Card */}
-            <div className="p-5 rounded-2xl glass border border-app-border bg-[#0C1221]/90 flex flex-col gap-3 shadow-xl">
+            <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-3 shadow-xl">
               <button 
-                onClick={() => addToast('Application session opened.', 'success')}
+                onClick={() => navigate(`/common-application?collegeId=${college.id}`)}
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md uppercase text-xs"
               >
                 Apply Now
               </button>
               <button 
-                onClick={() => addToast('Brochure PDF download initialized.', 'success')}
+                onClick={handleDownloadBrochure}
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md uppercase text-xs"
               >
                 Download Brochure
@@ -2105,11 +2050,11 @@ export const CollegeDetails = () => {
             </div>
 
             {/* ₹500* Write a Review Banner Widget - Matches Image 2 layout */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-[#121E31] to-[#0A1221] border border-app-border flex flex-col justify-between items-start gap-4 shadow-xl select-none relative overflow-hidden group">
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-app-card to-app-bg border border-app-border flex flex-col justify-between items-start gap-4 shadow-xl select-none relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[#FF7A00]/10 rounded-full blur-xl pointer-events-none group-hover:bg-[#FF7A00]/20 transition-colors" />
               <div>
                 <span className="text-2xl font-black text-[#FF7A00]">₹500*</span>
-                <h4 className="font-extrabold text-white text-xs mt-1.5 uppercase tracking-wide">Write a Review of For This College</h4>
+                <h4 className="font-extrabold text-app-text text-xs mt-1.5 uppercase tracking-wide">Write a Review of For This College</h4>
                 <p className="text-[10px] text-app-muted leading-snug mt-1">Earn cashback rewards and guidelines points on approved submissions.</p>
               </div>
               <button 
@@ -2121,15 +2066,15 @@ export const CollegeDetails = () => {
             </div>
 
             {/* Notifications panel widget - Matches Image 2 layout */}
-            <div className="p-5 rounded-2xl glass border border-[#FF7A00]/20 bg-[#0C1221]/95 flex flex-col gap-4 shadow-xl select-none">
-              <h3 className="font-display font-black text-sm text-white flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
+            <div className="p-5 rounded-2xl glass border border-[#FF7A00]/20 bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
+              <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
                 <Bell className="w-4 h-4 text-[#FF7A00]" />
                 Notifications
               </h3>
               
               <div className="flex flex-col gap-3.5">
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-white hover:text-[#FF7A00] cursor-pointer">Career Mantra Campus Rockstar</span>
+                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Career Mantra Campus Rockstar</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/03/2025</span>
                     <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>
@@ -2137,7 +2082,7 @@ export const CollegeDetails = () => {
                 </div>
 
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-white hover:text-[#FF7A00] cursor-pointer">Graphic Era University Placement Statics</span>
+                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Graphic Era University Placement Statics</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/02/2025</span>
                     <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>
@@ -2145,7 +2090,7 @@ export const CollegeDetails = () => {
                 </div>
 
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-white hover:text-[#FF7A00] cursor-pointer">Pimpri Chinchwad University Admissions Open</span>
+                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Pimpri Chinchwad University Admissions Open</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/01/2025</span>
                     <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>
@@ -2163,8 +2108,8 @@ export const CollegeDetails = () => {
             </div>
 
             {/* Top University widget - Matches Image 3 layout */}
-            <div className="p-5 rounded-2xl glass border border-app-border bg-[#0C1221]/90 flex flex-col gap-4 shadow-xl select-none">
-              <h3 className="font-display font-black text-sm text-white flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
+            <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
+              <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
                 <Award className="w-4 h-4 text-[#FF7A00]" />
                 Top University
               </h3>
@@ -2173,11 +2118,11 @@ export const CollegeDetails = () => {
                 {topUniversities.map((uni, idx) => (
                   <div key={idx} className="flex justify-between items-center text-xs font-semibold">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center font-black text-[9px] text-white border border-app-border">
+                      <div className="w-8 h-8 rounded-lg bg-app-bg flex items-center justify-center font-black text-[9px] text-app-text border border-app-border">
                         {uni.name.substring(0, 2)}
                       </div>
                       <div className="flex flex-col gap-0.5">
-                        <span className="font-extrabold text-white leading-snug">{uni.name}</span>
+                        <span className="font-extrabold text-app-text leading-snug">{uni.name}</span>
                         <span className="text-[9px] text-app-muted">{uni.location}</span>
                       </div>
                     </div>
@@ -2204,8 +2149,8 @@ export const CollegeDetails = () => {
             </div>
 
             {/* Top Courses in Location widget - Matches Image 3 layout */}
-            <div className="p-5 rounded-2xl glass border border-app-border bg-[#0C1221]/90 flex flex-col gap-3.5 shadow-xl select-none">
-              <h3 className="font-display font-black text-sm text-white flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
+            <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-3.5 shadow-xl select-none">
+              <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
                 <MapPin className="w-4 h-4 text-[#FF7A00]" />
                 Top Courses in {college.city || 'Pune'}
               </h3>
@@ -2214,7 +2159,7 @@ export const CollegeDetails = () => {
                 {topCourses.map((crsName, idx) => (
                   <div 
                     key={idx} 
-                    className="py-2.5 flex justify-between items-center text-xs font-semibold text-slate-300 hover:text-white cursor-pointer transition-colors"
+                    className="py-2.5 flex justify-between items-center text-xs font-semibold text-app-text hover:text-[#FF7A00] cursor-pointer transition-colors"
                     onClick={() => addToast(`Searching ${crsName} programs.`, 'info')}
                   >
                     <span>{crsName}</span>
@@ -2225,8 +2170,8 @@ export const CollegeDetails = () => {
             </div>
 
             {/* Students Also Visited Colleges widget - Matches Image 4 layout */}
-            <div className="p-5 rounded-2xl glass border border-app-border bg-[#0C1221]/90 flex flex-col gap-4 shadow-xl select-none">
-              <h3 className="font-display font-black text-sm text-white flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
+            <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
+              <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
                 <Layers className="w-4 h-4 text-[#FF7A00]" />
                 Students Also Visited
               </h3>
@@ -2235,11 +2180,11 @@ export const CollegeDetails = () => {
                 {liveApps.map((uni, idx) => (
                   <div key={idx} className="flex justify-between items-center text-xs font-semibold">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center font-black text-[9px] text-white border border-app-border">
+                      <div className="w-7 h-7 rounded-lg bg-app-bg flex items-center justify-center font-black text-[9px] text-app-text border border-app-border">
                         {uni.name.substring(0, 2)}
                       </div>
                       <div className="flex flex-col gap-0.5">
-                        <span className="font-extrabold text-white leading-snug truncate max-w-[150px]">{uni.name}</span>
+                        <span className="font-extrabold text-app-text leading-snug truncate max-w-[150px]">{uni.name}</span>
                         <span className="text-[9px] text-app-muted">{uni.location}</span>
                       </div>
                     </div>

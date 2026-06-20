@@ -154,10 +154,10 @@ export const Events = () => {
                       <item.icon className="w-4.5 h-4.5" />
                     </div>
                     <div>
-                      <h4 className="font-display font-extrabold text-xs text-white uppercase tracking-wide">
+                      <h4 className="font-display font-extrabold text-xs text-slate-900 dark:text-white uppercase tracking-wide">
                         {item.title}
                       </h4>
-                      <p className="text-[10px] text-slate-400 font-medium mt-0.5 leading-snug">
+                      <p className="text-[10px] text-slate-600 dark:text-slate-400 font-medium mt-0.5 leading-snug">
                         {item.desc}
                       </p>
                     </div>

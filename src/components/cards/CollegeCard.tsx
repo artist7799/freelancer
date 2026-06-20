@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MapPin, Star, Send, Heart, GitCompare, Download } from 'lucide-react';
 import type { College } from '../../types';
 import type { MouseEvent } from 'react';
@@ -168,13 +168,14 @@ interface CollegeCardProps {
 }
 
 export const CollegeCard = ({ college }: CollegeCardProps) => {
+  const navigate = useNavigate();
   const addToast = useGlobalStore().addToast;
   const { saveCollege, unsaveCollege, isSaved } = useSavedCollegesStore();
   const { addToCompare, removeFromCompare, isComparing } = useCompareStore();
 
   const handleApplyClick = (e: MouseEvent) => {
     e.preventDefault();
-    addToast(`Successfully initialized admission application for ${college.name}!`, 'success');
+    navigate(`/common-application?collegeId=${college.id}`);
   };
 
   const handleSaveToggle = (e: MouseEvent) => {

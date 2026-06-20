@@ -25,7 +25,7 @@ export const Reviews = () => {
     }))
   );
 
-  const reviews = dbReviews.length > 0 ? dbReviews : staticReviews;
+  const reviews = [...dbReviews, ...staticReviews];
 
   // Search and Filter states
   const [searchQuery, setSearchQuery] = useState('');

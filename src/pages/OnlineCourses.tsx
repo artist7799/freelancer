@@ -57,6 +57,52 @@ export const OnlineCourses = () => {
     }, 1200);
   };
 
+  const handleDownloadBrochure = (course: OnlineCourse) => {
+    const content = [
+      "========================================================================",
+      `                      ${course.university.toUpperCase()}`,
+      "                          ONLINE PROGRAM BROCHURE",
+      "========================================================================",
+      `University:     ${course.university}`,
+      `Degree Program: ${course.degree}`,
+      `Duration:       ${course.duration}`,
+      "Accreditation:  UGC-DEB Approved, NAAC A++ Rated",
+      "Mode:           100% Online & Interactive Learning",
+      `Rating:         ${course.rating}`,
+      "",
+      "------------------------------------------------------------------------",
+      "PROGRAM SYLLABUS & CURRICULUM",
+      "------------------------------------------------------------------------",
+      "Semester 1: Foundation Management & Digital Ecosystems",
+      "Semester 2: Core Domain Focus & Case Study analysis",
+      "Semester 3: Advanced Electives & Virtual Project Labs",
+      "Semester 4: Industry Capstone Internship & Placement Interview Prep",
+      "",
+      "------------------------------------------------------------------------",
+      "BENEFITS OF ONLINE LEARNING",
+      "------------------------------------------------------------------------",
+      "- Self-paced learning modules via specialized LMS",
+      "- Direct interactive masterclasses with industry captains",
+      "- Career mentoring & mock interview drives",
+      "- Credits accumulated in UGC Academic Bank of Credits (ABC)",
+      "",
+      "========================================================================",
+      "            Generated via Career Mantra Online Education",
+      "========================================================================"
+    ].join('\n');
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${course.university.replace(/[^a-zA-Z0-9]/g, '_')}_${course.degree.replace(/[^a-zA-Z0-9]/g, '_')}_Brochure.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    addToast(`${course.logo} Online Program Brochure downloaded successfully.`, 'success');
+  };
+
   // Admissions form submission
   const handleAdmissionsSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -335,7 +381,7 @@ export const OnlineCourses = () => {
                           Apply Now
                         </button>
                         <button
-                          onClick={() => handleDownloadSyllabus(course.degree)}
+                          onClick={() => handleDownloadBrochure(course)}
                           className="py-2.5 rounded-xl text-[10px] font-black uppercase hover:bg-opacity-10 transition-all border cursor-pointer text-center bg-transparent"
                           style={{ color: accent, borderColor: accent }}
                         >

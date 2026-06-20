@@ -268,14 +268,14 @@ export const Scholarships = () => {
               <Sparkles className="w-3.5 h-3.5" />
               National Scholarship Scheme
             </span>
-            <h1 className="text-3xl md:text-5xl font-display font-black leading-tight uppercase text-white">
+            <h1 className="text-3xl md:text-5xl font-display font-black leading-tight uppercase text-slate-900 dark:text-white">
               Aruna-Nand EdTech Services Scholarship Test Series
             </h1>
             <p className="text-xs md:text-sm text-app-muted leading-relaxed max-w-2xl font-semibold">
               Attempt the UG & PG Program Scholarship Test Online. Build your career with up to 100% tuition fee waivers from verified universities in India.
             </p>
             
-            <div className="grid grid-cols-2 gap-4 mt-4 text-[10px] sm:text-xs font-black uppercase text-white tracking-wider">
+            <div className="grid grid-cols-2 gap-4 mt-4 text-[10px] sm:text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
               <div className="flex items-start gap-2.5">
                 <div className="w-2.5 h-2.5 border-2 border-[#FF7A00] rounded-sm shrink-0 mt-1" />
                 <span>Based on latest exam pattern</span>
@@ -425,7 +425,7 @@ export const Scholarships = () => {
               <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
                 <Award className="w-6 h-6" />
               </div>
-              <h3 className="font-display font-extrabold text-sm text-white uppercase leading-snug">
+              <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
                 2Cr+ Scholarships
               </h3>
             </div>
@@ -434,7 +434,7 @@ export const Scholarships = () => {
               <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
                 <Star className="w-6 h-6 fill-[#FF7A00]" />
               </div>
-              <h3 className="font-display font-extrabold text-sm text-white uppercase leading-snug">
+              <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
                 Secure Top Ranks & Waivers
               </h3>
             </div>
@@ -443,7 +443,7 @@ export const Scholarships = () => {
               <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
                 <GraduationCap className="w-6 h-6" />
               </div>
-              <h3 className="font-display font-extrabold text-sm text-white uppercase leading-snug">
+              <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
                 Up to 100% MBA Fee Waivers
               </h3>
             </div>
@@ -452,7 +452,7 @@ export const Scholarships = () => {
               <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
                 <Building className="w-6 h-6" />
               </div>
-              <h3 className="font-display font-extrabold text-sm text-white uppercase leading-snug">
+              <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
                 Admissions in Top Colleges
               </h3>
             </div>
@@ -464,7 +464,7 @@ export const Scholarships = () => {
       {/* Dynamic Active Scholarships List Section */}
       <section className="py-12 bg-transparent">
         <div className="mx-auto max-w-7xl px-6 w-full text-center">
-          <h2 className="text-2xl font-display font-black text-white mb-8 uppercase tracking-wider">
+          <h2 className="text-2xl font-display font-black text-slate-900 dark:text-white mb-8 uppercase tracking-wider">
             Available Institutional Schemes
           </h2>
           {scholarshipsList.length === 0 ? (
@@ -482,7 +482,7 @@ export const Scholarships = () => {
       {/* 4. "How to register?" STEP PROCESS */}
       <section className="py-12 bg-app-card border-y border-app-border">
         <div className="mx-auto max-w-7xl px-6 w-full text-center">
-          <h2 className="text-2xl font-display font-black text-white mb-10 uppercase tracking-wider">
+          <h2 className="text-2xl font-display font-black text-slate-900 dark:text-white mb-10 uppercase tracking-wider">
             How to register?
           </h2>
           
@@ -502,7 +502,7 @@ export const Scholarships = () => {
                   <div className="w-10 h-10 rounded-full bg-app-card flex items-center justify-center text-app-muted border border-app-border mt-1">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h4 className="font-display font-bold text-sm text-white mt-1 uppercase">{s.label}</h4>
+                  <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white mt-1 uppercase">{s.label}</h4>
                   <p className="text-[11px] text-app-muted leading-relaxed font-semibold">{s.desc}</p>
                 </div>
               );
@@ -548,7 +548,7 @@ export const Scholarships = () => {
       {/* 6. Past Conclave Event */}
       <section className="py-12 bg-transparent border-t border-app-border">
         <div className="mx-auto max-w-7xl px-6 w-full text-center">
-          <h2 className="text-2xl font-display font-black text-white mb-8 uppercase tracking-wider">
+          <h2 className="text-2xl font-display font-black text-slate-900 dark:text-white mb-8 uppercase tracking-wider">
             Past Conclave Events
           </h2>
           
@@ -574,7 +574,7 @@ export const Scholarships = () => {
       {/* 7. Student Reviews Carousel */}
       <section className="py-12 bg-transparent border-t border-app-border">
         <div className="mx-auto max-w-7xl px-6 w-full text-center relative">
-          <h2 className="text-2xl font-display font-black text-white mb-2 uppercase tracking-wider">
+          <h2 className="text-2xl font-display font-black text-slate-900 dark:text-white mb-2 uppercase tracking-wider">
             Student Reviews
           </h2>
           
@@ -630,7 +630,7 @@ export const Scholarships = () => {
                         className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm border border-app-border" 
                       />
                       <div className="min-w-0">
-                        <h4 className="font-display font-extrabold text-xs text-white leading-tight uppercase truncate">
+                        <h4 className="font-display font-extrabold text-xs text-slate-900 dark:text-white leading-tight uppercase truncate">
                           {rev.name}
                         </h4>
                         <p className="text-[10px] text-app-muted font-bold leading-tight mt-0.5 truncate uppercase">
@@ -668,7 +668,7 @@ export const Scholarships = () => {
       {/* 8. FAQ ACCORDION MENU */}
       <section className="py-12 bg-transparent border-t border-app-border">
         <div className="mx-auto max-w-4xl px-6 w-full text-center">
-          <h2 className="text-2xl font-display font-black text-white mb-10 uppercase tracking-wider">
+          <h2 className="text-2xl font-display font-black text-slate-900 dark:text-white mb-10 uppercase tracking-wider">
             FAQ
           </h2>
           
@@ -682,7 +682,7 @@ export const Scholarships = () => {
                 >
                   <button
                     onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-white font-display font-bold text-xs uppercase tracking-wide cursor-pointer bg-transparent border-none outline-none"
+                    className="w-full px-6 py-4 flex items-center justify-between text-slate-900 dark:text-white font-display font-bold text-xs uppercase tracking-wide cursor-pointer bg-transparent border-none outline-none"
                   >
                     <span className="flex items-center gap-3">
                       {isOpen ? <Minus className="w-4 h-4 text-[#FF7A00] shrink-0" /> : <Plus className="w-4 h-4 text-[#FF7A00] shrink-0" />}

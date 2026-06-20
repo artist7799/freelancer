@@ -376,76 +376,6 @@ export const GlassNavbar = () => {
             </Link>
           )}
 
-          {/* User Auth Info */}
-          {isAuthenticated ? (
-            <div className="relative">
-              <button
-                onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-                className="flex items-center gap-1.5 text-slate-300 hover:text-[#FF7A00] font-black text-[10px] transition-colors cursor-pointer select-none uppercase tracking-wider bg-transparent border-none outline-none"
-              >
-                <div className="w-5 h-5 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-[10px] text-white font-bold">
-                  {(user?.fullName || 'U')[0].toUpperCase()}
-                </div>
-                <span>{(user?.fullName || '').split(' ')[0]}</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${profileDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              <AnimatePresence>
-                {profileDropdownOpen && (
-                  <>
-                    {/* Transparent Backdrop to Close */}
-                    <div className="fixed inset-0 z-40 bg-transparent" onClick={() => setProfileDropdownOpen(false)} />
-                    
-                    <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                      transition={{ duration: 0.15, ease: 'easeOut' }}
-                      className="absolute right-0 mt-2.5 w-44 rounded-xl border border-app-border bg-slate-900 shadow-2xl p-2.5 z-50 flex flex-col gap-1 text-[11px] font-bold text-slate-350"
-                    >
-                      <Link
-                        to="/dashboard"
-                        onClick={() => setProfileDropdownOpen(false)}
-                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-app-card transition-all text-left flex items-center gap-2"
-                      >
-                        <User className="w-3.5 h-3.5 text-primary" />
-                        <span>My Dashboard</span>
-                      </Link>
-                      <Link
-                        to="/compare"
-                        onClick={() => setProfileDropdownOpen(false)}
-                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-app-card transition-all text-left flex items-center gap-2"
-                      >
-                        <GitCompare className="w-3.5 h-3.5 text-secondary" />
-                        <span>Compare List</span>
-                      </Link>
-                      <hr className="border-app-border my-1" />
-                      <button
-                        onClick={() => {
-                          setProfileDropdownOpen(false);
-                          logout();
-                        }}
-                        className="w-full px-3 py-2 rounded-lg hover:text-danger hover:bg-danger/5 text-danger/90 transition-all text-left flex items-center gap-2 cursor-pointer border-none bg-transparent font-bold text-[11px]"
-                      >
-                        <LogOut className="w-3.5 h-3.5" />
-                        <span>Log Out</span>
-                      </button>
-                    </motion.div>
-                  </>
-                )}
-              </AnimatePresence>
-            </div>
-          ) : (
-            <div className="flex items-center gap-4 text-[10px] font-black uppercase text-slate-300">
-              <Link to="/login" className="hover:text-white text-slate-350 transition-colors">
-                Login
-              </Link>
-              <span className="text-slate-800 font-light">|</span>
-              <Link to="/register" className="text-[#FF7A00] hover:text-[#E06C00] transition-colors">
-                Register
-              </Link>
-            </div>
-          )}
         </div>
       </div>
 
@@ -747,44 +677,7 @@ export const GlassNavbar = () => {
               ))}
             </div>
 
-            {/* Bottom Section */}
-            <div className="mt-auto border-t border-app-border pt-6 flex flex-col gap-4">
-              {isAuthenticated ? (
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3 px-1">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                      <User className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-sm text-app-text">{user?.fullName}</p>
-                      <p className="text-xs text-app-muted">{user?.email}</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={logout}
-                    className="w-full py-3 rounded-xl border border-danger/35 text-danger font-bold hover:bg-danger/5 transition-all flex items-center justify-center gap-2"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Log Out
-                  </button>
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 gap-4">
-                  <Link
-                    to="/login"
-                    className="py-3 text-center rounded-xl border border-app-border text-app-text font-bold hover:bg-app-card transition-all text-sm"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="py-3 text-center rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold hover:opacity-95 transition-all text-sm"
-                  >
-                    Register
-                  </Link>
-                </div>
-              )}
-            </div>
+
           </div>
         )}
       </header>

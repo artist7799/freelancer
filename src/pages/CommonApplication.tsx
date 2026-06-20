@@ -1,12 +1,122 @@
 import React, { useState, useMemo } from 'react';
-import { Search, ChevronDown, Check, X, Send, Award, GraduationCap, Clock } from 'lucide-react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { Search, ChevronDown, Check, X, Send, Award, GraduationCap, Clock, Ticket } from 'lucide-react';
 import { capColleges, capCourses, capSpecializations } from '../data/capColleges';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
 import { useGlobalStore } from '../store/useGlobalStore';
 import { applicationService } from '../services/application.service';
+import { useColleges } from '../hooks/useColleges';
+import { getMockCollege } from './CollegeDetails';
 
 export const CommonApplication = () => {
   const addToast = useGlobalStore().addToast;
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const collegeId = searchParams.get('collegeId') || searchParams.get('id');
+
+  const { useCollegeQuery } = useColleges();
+  const { data: dbCollege } = useCollegeQuery(collegeId || '');
+
+  // Single Application Mode States
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState('');
+  const [couponCode, setCouponCode] = useState('');
+  const [discount, setDiscount] = useState(0);
+  const [couponApplied, setCouponApplied] = useState(false);
+
+  // Resolve specific college details dynamically
+  const currentCollege = useMemo(() => {
+    if (!collegeId) return null;
+    
+    // 1. Search in standard capColleges list
+    const capMatch = capColleges.find((c) => c.id === collegeId);
+    if (capMatch) return capMatch;
+
+    // 2. Search database or mock catalogs
+    const mockMatch = getMockCollege(collegeId);
+    const resolved = dbCollege || mockMatch;
+    if (resolved) {
+      return {
+        id: resolved.id,
+        name: resolved.name,
+        location: resolved.location,
+        fees: 1000,
+        courses: resolved.courses ? resolved.courses.map((c: any) => typeof c === 'object' ? c.name : c) : ['MBA', 'B.Tech', 'BBA'],
+        image: resolved.image || 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'
+      };
+    }
+
+    // 3. Fallback to direct search query arguments
+    const nameParam = searchParams.get('name');
+    const locationParam = searchParams.get('location');
+    if (nameParam) {
+      return {
+        id: collegeId,
+        name: nameParam,
+        location: locationParam || 'India',
+        fees: 1000,
+        courses: ['MBA', 'PGDM', 'B.Tech', 'BBA', 'BCA'],
+        image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80'
+      };
+    }
+
+    return {
+      id: collegeId,
+      name: 'Selected Institution',
+      location: 'India',
+      fees: 1000,
+      courses: ['MBA', 'B.Tech', 'BBA'],
+      image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80'
+    };
+  }, [collegeId, dbCollege, searchParams]);
+
+  // Coupon action logic
+  const handleApplyCoupon = () => {
+    const code = couponCode.trim().toUpperCase();
+    if (code === 'WELCOME' || code === 'CM50') {
+      setDiscount(500);
+      setCouponApplied(true);
+      addToast('Coupon applied successfully! You got a discount of ₹500.', 'success');
+    } else if (code === '') {
+      addToast('Please enter a coupon code.', 'warning');
+    } else {
+      addToast('Invalid coupon code. Try WELCOME or CM50.', 'error');
+    }
+  };
+
+  // Submit single college application details
+  const handleSingleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!firstName || !lastName || !email || !phone || !selectedCourse) {
+      addToast('Please fill in all the student details.', 'warning');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await applicationService.submitApplication(currentCollege?.id || collegeId || '', selectedCourse);
+      setIsSubmitting(false);
+      addToast(`Application for ${currentCollege?.name} submitted successfully! Registration ID: CAP-${Math.floor(100000 + Math.random() * 900000)}`, 'success');
+      // Reset form
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPhone('');
+      setSelectedCourse('');
+      setCouponCode('');
+      setDiscount(0);
+      setCouponApplied(false);
+      
+      setTimeout(() => {
+        navigate('/colleges');
+      }, 1500);
+    } catch (err: any) {
+      setIsSubmitting(false);
+      const msg = err.response?.data?.message || 'Failed to submit application';
+      addToast(msg, 'error');
+    }
+  };
 
   // States
   const [searchQuery, setSearchQuery] = useState('');
@@ -120,7 +230,204 @@ export const CommonApplication = () => {
     return capColleges
       .filter((college) => selectedColleges.includes(college.id))
       .reduce((sum, college) => sum + college.fees, 0);
-  }, [selectedColleges]);
+  }, [selectedColleges]);  if (collegeId && currentCollege) {
+    const originalFees = currentCollege.fees || 1000;
+    const finalFees = Math.max(0, originalFees - discount);
+
+    return (
+      <div className="relative pt-28 pb-24 min-h-screen text-left bg-slate-50/30 dark:bg-app-bg text-slate-800 dark:text-slate-100">
+        <div className="gradient-mesh opacity-40" />
+        
+        <div className="mx-auto max-w-7xl px-6 relative z-10 flex flex-col gap-8">
+          
+          {/* Centered Heading */}
+          <div className="text-center flex flex-col gap-2 mb-4">
+            <h1 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">
+              Common Application Process
+            </h1>
+            <div className="h-1 w-20 bg-[#FF7A00] mx-auto rounded-full mt-2" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: College Card */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between group">
+                
+                {/* Image and Overlay */}
+                <div className="relative h-60 w-full bg-slate-900 overflow-hidden shrink-0 border-b border-app-border/40">
+                  <img 
+                    src={currentCollege.image} 
+                    alt={currentCollege.name} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                  
+                  {/* Bottom overlay with name */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#0C1424]/90 p-4 border-t border-app-border/50 text-center">
+                    <span className="text-xs sm:text-sm font-black text-white leading-tight uppercase">
+                      {currentCollege.name}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Info and Course dropdown */}
+                <div className="p-6 flex flex-col gap-4 text-xs font-semibold text-slate-655 dark:text-slate-350">
+                  <div className="flex justify-between items-center border-b border-slate-100 dark:border-app-border pb-3">
+                    <span className="text-sm font-bold text-app-muted">Application Fees:</span>
+                    <span className="text-slate-900 dark:text-white font-black text-base">
+                      ₹ {originalFees}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col gap-2 pt-1 text-left">
+                    <label className="text-[10px] font-black text-[#FF7A00] uppercase tracking-wider">Select Course</label>
+                    <select
+                      value={selectedCourse}
+                      onChange={(e) => setSelectedCourse(e.target.value)}
+                      className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] font-bold cursor-pointer"
+                    >
+                      <option value="">Select Course</option>
+                      {currentCollege.courses.map((crs: string, idx: number) => (
+                        <option key={idx} value={crs} className="bg-app-card text-app-text">{crs}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Right Column: Student Details Form */}
+            <div className="lg:col-span-7">
+              <div className="bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-2xl p-6 md:p-8 shadow-xl flex flex-col gap-6 text-left">
+                
+                <h3 className="text-lg font-display font-black text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-app-border pb-3 flex items-center justify-between">
+                  <span>Student Details</span>
+                  <Ticket className="w-5 h-5 text-[#FF7A00]" />
+                </h3>
+
+                <form onSubmit={handleSingleSubmit} className="flex flex-col gap-4 text-xs font-semibold">
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-500 dark:text-slate-400 uppercase tracking-wide">Enter Your First Name</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="First name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-500 dark:text-slate-400 uppercase tracking-wide">Enter Your Last Name</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Last name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-500 dark:text-slate-400 uppercase tracking-wide">Enter Your Mobile Number</label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 99887 76655"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-500 dark:text-slate-400 uppercase tracking-wide">Enter Your E-mail</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="example@domain.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Coupon Code Block */}
+                  <div className="flex flex-col gap-1.5 border-t border-app-border/40 pt-4 mt-2">
+                    <label className="text-slate-500 dark:text-slate-400 uppercase tracking-wide">Enter Coupon Code</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="e.g. WELCOME"
+                        value={couponCode}
+                        onChange={(e) => setCouponCode(e.target.value)}
+                        disabled={couponApplied}
+                        className="flex-1 px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] disabled:opacity-60 uppercase font-bold"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleApplyCoupon}
+                        disabled={couponApplied}
+                        className="px-6 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-xs uppercase cursor-pointer border-none disabled:opacity-50 transition-all select-none"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Financial Summary */}
+                  <div className="bg-slate-50 dark:bg-app-bg p-4 rounded-xl border border-slate-200 dark:border-app-border mt-3 text-xs flex flex-col gap-2 font-bold">
+                    <div className="flex justify-between items-center text-slate-500">
+                      <span>Application Fees:</span>
+                      <span>₹ {originalFees}</span>
+                    </div>
+                    {discount > 0 && (
+                      <div className="flex justify-between items-center text-rose-500">
+                        <span>Discount:</span>
+                        <span>- ₹ {discount}</span>
+                      </div>
+                    )}
+                    <div className="border-t border-slate-200 dark:border-app-border pt-2.5 mt-1 flex justify-between items-center text-sm font-black text-slate-900 dark:text-white">
+                      <span>Total Amount:</span>
+                      <span className="text-[#FF7A00]">₹ {finalFees}</span>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="mt-3 w-full py-4 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50 select-none"
+                  >
+                    {isSubmitting ? (
+                      <span className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" />
+                        <span>Submit Application</span>
+                      </>
+                    )}
+                  </button>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative pt-28 pb-24 min-h-screen text-left bg-slate-50/30 dark:bg-app-bg text-slate-800 dark:text-slate-100">
@@ -235,7 +542,7 @@ export const CommonApplication = () => {
                         onChange={() => handleToggleCourse(course)}
                         className="rounded border-slate-350 dark:border-app-border bg-transparent text-emerald-650 focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
                       />
-                      <span className="font-semibold text-slate-650 dark:text-slate-300">{course}</span>
+                      <span className="font-semibold text-slate-655 dark:text-slate-300">{course}</span>
                     </label>
                   ))}
               </div>
@@ -269,7 +576,7 @@ export const CommonApplication = () => {
                         onChange={() => handleToggleSpecialization(spec)}
                         className="rounded border-slate-350 dark:border-app-border bg-transparent text-emerald-650 focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
                       />
-                      <span className="font-semibold text-slate-650 dark:text-slate-300">{spec}</span>
+                      <span className="font-semibold text-slate-655 dark:text-slate-300">{spec}</span>
                     </label>
                   ))}
               </div>
@@ -382,7 +689,7 @@ export const CommonApplication = () => {
                 <h3 className="font-display font-extrabold text-base md:text-lg text-slate-900 dark:text-white uppercase tracking-wide">
                   Common Application (CAP)
                 </h3>
-                <p className="text-[10px] text-slate-500 dark:text-slate-450 font-bold mt-0.5 leading-none uppercase">
+                <p className="text-[10px] text-slate-500 dark:text-slate-455 font-bold mt-0.5 leading-none uppercase">
                   Standardized Admissions form
                 </p>
               </div>

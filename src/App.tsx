@@ -72,11 +72,7 @@ function App() {
               <Route path="/online-courses" element={<OnlineCourses />} />
               <Route
                 path="/common-application"
-                element={
-                  <ProtectedRoute>
-                    <CommonApplication />
-                  </ProtectedRoute>
-                }
+                element={<CommonApplication />}
               />
               <Route path="/college-predictor" element={<CollegePredictor />} />
               <Route path="/education-loan" element={<EducationLoan />} />

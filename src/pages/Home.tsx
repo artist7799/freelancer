@@ -5,7 +5,6 @@ import {
   StudentHelpDesk,
   TopCourses,
   DisciplinesSection,
-  PlacementUniversities,
   AdmissionBanners,
   FeaturedCollegesMockup,
   StudentChoiceColleges,
@@ -22,9 +21,9 @@ export const Home: React.FC = () => {
       <DisciplinesSection />
       <StudentHelpDesk />
       <TopCourses />
-      <PlacementUniversities />
       <AdmissionBanners />
       <FeaturedCollegesMockup />
+
       <StudentChoiceColleges />
       <TopCollegesList />
       <PlacementVerifiedColleges />

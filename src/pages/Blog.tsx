@@ -112,7 +112,7 @@ export const Blog = () => {
               <Sparkles className="w-3.5 h-3.5" />
               Counselor Newsroom
             </span>
-            <h1 className="text-3xl md:text-5xl font-display font-black text-white tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white tracking-tight">
               Careers & Admissions <span className="gradient-text-primary">Blog</span>
             </h1>
             <p className="text-sm text-app-muted mt-2 max-w-xl">
@@ -154,7 +154,7 @@ export const Blog = () => {
                   
                   <h2 
                     onClick={() => setActivePost(featuredPost)}
-                    className="font-display font-black text-xl sm:text-2xl text-white uppercase leading-tight hover:text-[#FF7A00] cursor-pointer transition-colors"
+                    className="font-display font-black text-xl sm:text-2xl text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] cursor-pointer transition-colors"
                   >
                     {featuredPost.title}
                   </h2>
@@ -165,7 +165,7 @@ export const Blog = () => {
                 </div>
 
                 <div className="w-full flex items-center justify-between border-t border-app-border pt-4 mt-6 text-[10px] text-app-muted font-bold uppercase tracking-wider">
-                  <span className="text-white">By {featuredPost.author}</span>
+                  <span className="text-slate-900 dark:text-white font-bold">By {featuredPost.author}</span>
                   <button 
                     onClick={() => setActivePost(featuredPost)}
                     className="text-[#FF7A00] font-black hover:underline cursor-pointer border-none bg-transparent"
@@ -210,12 +210,12 @@ export const Blog = () => {
                       ))}
                     </div>
 
-                    <h2 className="text-2xl md:text-3xl font-display font-black text-white uppercase leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-display font-black text-slate-900 dark:text-white uppercase leading-tight">
                       {activePost.title}
                     </h2>
 
                     <div className="flex flex-wrap items-center gap-4 text-[10px] text-app-muted font-black uppercase tracking-wider">
-                      <span className="text-white">By {activePost.author}</span>
+                      <span className="text-slate-900 dark:text-white font-bold">By {activePost.author}</span>
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5" />
                         {activePost.date}
@@ -245,7 +245,7 @@ export const Blog = () => {
                   )}
 
                   <div className="text-xs sm:text-sm text-app-muted leading-relaxed flex flex-col gap-4 font-semibold">
-                    <p className="font-extrabold text-white text-base leading-relaxed">
+                    <p className="font-extrabold text-slate-900 dark:text-white text-base leading-relaxed">
                       {activePost.excerpt}
                     </p>
                     <p>
@@ -261,7 +261,7 @@ export const Blog = () => {
                         <User className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-extrabold text-white">About the Author: {activePost.author}</h4>
+                        <h4 className="font-extrabold text-slate-900 dark:text-white">About the Author: {activePost.author}</h4>
                         <p className="text-[11px] text-app-muted mt-0.5 leading-relaxed font-semibold">
                           Senior Admission counselor and career alignment lead specializing in B.Tech and MBA seat counseling.
                         </p>
@@ -271,7 +271,7 @@ export const Blog = () => {
                     {/* Admissions Newsletter widget */}
                     <div className="mt-6 p-6 rounded-2xl bg-gradient-to-br from-[#4F46E5]/10 to-transparent border border-app-border flex flex-col sm:flex-row items-center justify-between gap-6 text-left shadow-xl">
                       <div className="flex flex-col gap-1">
-                        <h4 className="font-display font-black text-sm text-white uppercase tracking-wide">
+                        <h4 className="font-display font-black text-sm text-slate-900 dark:text-white uppercase tracking-wide">
                           Admissions Newsletter
                         </h4>
                         <p className="text-[10px] sm:text-xs text-app-muted leading-relaxed font-semibold">
@@ -366,7 +366,7 @@ export const Blog = () => {
 
                               <h3 
                                 onClick={() => setActivePost(post)}
-                                className="font-display font-black text-base md:text-lg text-white uppercase leading-tight hover:text-[#FF7A00] transition-colors cursor-pointer"
+                                className="font-display font-black text-base md:text-lg text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] transition-colors cursor-pointer"
                               >
                                 {post.title}
                               </h3>
@@ -419,7 +419,7 @@ export const Blog = () => {
             
             {/* LATEST TIMELINES */}
             <div className="p-6 rounded-2xl glass border border-app-border flex flex-col gap-4 shadow-xl">
-              <h3 className="font-display font-black text-base text-white uppercase tracking-wider border-b border-app-border pb-3">
+              <h3 className="font-display font-black text-base text-slate-900 dark:text-white uppercase tracking-wider border-b border-app-border pb-3">
                 Latest Articles
               </h3>
               <div className="flex flex-col gap-3.5 text-xs font-semibold">
@@ -448,7 +448,7 @@ export const Blog = () => {
 
             {/* TOP CATEGORIES */}
             <div className="p-6 rounded-2xl glass border border-app-border flex flex-col gap-4 shadow-xl">
-              <h3 className="font-display font-black text-base text-white uppercase tracking-wider border-b border-app-border pb-3">
+              <h3 className="font-display font-black text-base text-slate-900 dark:text-white uppercase tracking-wider border-b border-app-border pb-3">
                 Top Categories
               </h3>
               <div className="flex flex-col gap-2.5 text-xs font-semibold">

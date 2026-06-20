@@ -1119,8 +1119,7 @@ export const PlacementUniversities = () => {
   ];
 
   const handleApplyNow = (univName: string) => {
-    addToast(`Initiated Application Form for ${univName}! Redirecting to registration page...`, 'success');
-    navigate('/register');
+    navigate(`/common-application?collegeId=${getSlugForUniv(univName)}&name=${encodeURIComponent(univName)}`);
   };
 
   const handlePlacementDetails = (slug: string) => {
@@ -1587,8 +1586,7 @@ export const FeaturedCollegesMockup = () => {
   }, [visibleCards, mockupColleges.length]);
 
   const handleApplyNow = (univName: string) => {
-    addToast(`Initiated Application Form for ${univName}! Redirecting to registration page...`, 'success');
-    navigate('/register');
+    navigate(`/common-application?collegeId=${getSlugForUniv(univName)}&name=${encodeURIComponent(univName)}`);
   };
 
   const handlePrev = () => {
