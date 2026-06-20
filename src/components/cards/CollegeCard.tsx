@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Star, Send, Heart, GitCompare } from 'lucide-react';
+import { MapPin, Star, Send, Heart, GitCompare, Download } from 'lucide-react';
 import type { College } from '../../types';
 import type { MouseEvent } from 'react';
 import { useGlobalStore } from '../../store/useGlobalStore';
@@ -197,6 +197,384 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
     }
   };
 
+  const handleDownloadDetails = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Map courses safely
+    const courseRows = (college.courses || []).map(c => `
+      <tr>
+        <td style="font-weight: 700; color: #1e293b; border-bottom: 1px solid #e5e7eb; padding: 0.75rem 1rem;">${c.name}</td>
+        <td style="font-weight: 850; color: #ff5e14; border-bottom: 1px solid #e5e7eb; padding: 0.75rem 1rem;">${c.fees}</td>
+        <td style="border-bottom: 1px solid #e5e7eb; padding: 0.75rem 1rem;">Pass in entrance/merit exams</td>
+      </tr>
+    `).join('');
+
+    // Facilities listing
+    const facilities = college.infrastructure || ['AC Classrooms', 'Central Library', 'Hostels', 'Sports Complex', 'Cafeteria', 'Wi-Fi Campus', 'Computer Lab', 'Seminar Hall'];
+    const facilityItems = facilities.map(f => `
+      <div class="facility-item" style="background-color: #f9fafb; padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700; border: 1px solid #f3f4f6; display: flex; align-items: center; gap: 8px;">
+        <span style="color: #ff5e14;">✔</span> ${f}
+      </div>
+    `).join('');
+
+    // Ratings category listing
+    const ratingsSummary = `
+      <div class="rating-card" style="background-color: #f9fafb; padding: 1rem; border-radius: 10px; border: 1px solid #f3f4f6; text-align: center;">
+        <div class="rating-card-label" style="font-size: 0.75rem; font-weight: 700; color: #4b5563;">Academics</div>
+        <div class="rating-card-value" style="font-size: 1.25rem; font-weight: 900; color: #ff5e14; margin-top: 0.25rem;">8.9/10</div>
+      </div>
+      <div class="rating-card" style="background-color: #f9fafb; padding: 1rem; border-radius: 10px; border: 1px solid #f3f4f6; text-align: center;">
+        <div class="rating-card-label" style="font-size: 0.75rem; font-weight: 700; color: #4b5563;">Faculty</div>
+        <div class="rating-card-value" style="font-size: 1.25rem; font-weight: 900; color: #ff5e14; margin-top: 0.25rem;">9.2/10</div>
+      </div>
+      <div class="rating-card" style="background-color: #f9fafb; padding: 1rem; border-radius: 10px; border: 1px solid #f3f4f6; text-align: center;">
+        <div class="rating-card-label" style="font-size: 0.75rem; font-weight: 700; color: #4b5563;">Infrastructure</div>
+        <div class="rating-card-value" style="font-size: 1.25rem; font-weight: 900; color: #ff5e14; margin-top: 0.25rem;">8.8/10</div>
+      </div>
+      <div class="rating-card" style="background-color: #f9fafb; padding: 1rem; border-radius: 10px; border: 1px solid #f3f4f6; text-align: center;">
+        <div class="rating-card-label" style="font-size: 0.75rem; font-weight: 700; color: #4b5563;">Placements</div>
+        <div class="rating-card-value" style="font-size: 1.25rem; font-weight: 900; color: #ff5e14; margin-top: 0.25rem;">9.0/10</div>
+      </div>
+    `;
+
+    // Sidebar: Visited colleges list
+    const visitedColleges = [
+      { name: "Laxminarayan Institute of Technology", location: "Nagpur, Maharashtra", rating: "8.6/10", img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=100&h=100&q=80" },
+      { name: "Priyadarshini J.L. College of Engineering", location: "Nagpur, Maharashtra", rating: "8.1/10", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=100&h=100&q=80" },
+      { name: "National Fire Service College", location: "Nagpur, Maharashtra", rating: "8.5/10", img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=100&h=100&q=80" }
+    ];
+    const visitedItems = visitedColleges.map(vc => `
+      <a href="#" class="college-item" style="display: flex; align-items: center; gap: 10px; padding: 0.5rem; border-radius: 8px; text-decoration: none; color: inherit; transition: background-color 0.2s;">
+        <img class="college-item-img" style="width: 45px; height: 45px; border-radius: 8px; object-fit: cover;" src="${vc.img}" alt="${vc.name}">
+        <div style="text-align: left;">
+          <h5 class="college-item-name" style="font-size: 0.8rem; font-weight: 800; color: #111827; margin: 0;">${vc.name}</h5>
+          <p class="college-item-meta" style="font-size: 0.7rem; color: #6b7280; margin: 2px 0 0 0;">${vc.location} • ⭐ ${vc.rating}</p>
+        </div>
+      </a>
+    `).join('');
+
+    const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${college.name} - Detailed Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+    header {
+      background-color: #001D3D;
+      color: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .hero-banner {
+      background-color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .hero-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hero-wrapper { flex-direction: column; align-items: flex-start; }
+    }
+    .hero-text {
+      flex: 1;
+      text-align: left;
+    }
+    .badge-rating {
+      display: inline-flex;
+      align-items: center;
+      background-color: #ff5e141a;
+      color: #ff5e14;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .hero-title {
+      font-size: 1.75rem;
+      font-weight: 850;
+      margin: 0 0 0.5rem 0;
+      color: #001D3D;
+      line-height: 1.2;
+    }
+    .hero-location {
+      color: #4b5563;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-apply {
+      background-color: #ff5e14;
+      color: white;
+      border: none;
+      padding: 0.75rem 2.25rem;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px #ff5e1433;
+      transition: background-color 0.2s;
+    }
+    .btn-apply:hover {
+      background-color: #d14b00;
+    }
+    .hero-img-box {
+      width: 400px;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 768px) {
+      .hero-img-box { width: 100%; }
+    }
+    .hero-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .tabs {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .tabs-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      overflow-x: auto;
+    }
+    .tab-link {
+      padding: 1.25rem 0.5rem;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+    }
+    .tab-link.active {
+      color: #ff5e14;
+      border-bottom-color: #ff5e14;
+    }
+    .main-grid {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+    .content-area {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: left;
+    }
+    .card-panel {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    }
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 850;
+      color: #001D3D;
+      margin: 0 0 1.25rem 0;
+      border-bottom: 2px solid #f3f4f6;
+      padding-bottom: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+    th {
+      background-color: #f9fafb;
+      font-weight: 800;
+      color: #374151;
+    }
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.85rem;
+    }
+    .ratings-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .sidebar-widget {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    .widget-title {
+      font-size: 1rem;
+      font-weight: 850;
+      color: #001D3D;
+      margin: 0 0 1rem 0;
+    }
+    .college-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Aruna-Nand EdTech</div>
+    <div style="font-size: 0.75rem; font-weight: bold; opacity: 0.8;">OFFLINE PROFILE SHEET</div>
+  </header>
+
+  <div class="hero-banner">
+    <div class="hero-wrapper">
+      <div class="hero-text">
+        <div class="badge-rating">★ ${college.rating} CM Rating</div>
+        <h1 class="hero-title">${college.name}</h1>
+        <div class="hero-location">📍 ${college.location} • Private Institution</div>
+        <button class="btn-apply" onclick="alert('Offline Application Logged! counselor will contact you.')">Apply Now</button>
+      </div>
+      <div class="hero-img-box">
+        <img src="${college.image}" alt="${college.name} Campus">
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tabs-wrapper">
+      <a href="#" class="tab-link active">Info</a>
+      <a href="#" class="tab-link">Courses & Fees</a>
+      <a href="#" class="tab-link">Admission 2026</a>
+      <a href="#" class="tab-link">Placements</a>
+      <a href="#" class="tab-link">Review</a>
+      <a href="#" class="tab-link">Gallery</a>
+      <a href="#" class="tab-link">Scholarship</a>
+      <a href="#" class="tab-link">Hostel</a>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <div class="content-area">
+      <div class="card-panel">
+        <h3 class="panel-title">About College</h3>
+        <p style="font-size: 0.9rem; line-height: 1.6; color: #4b5563; margin: 0;">
+          ${college.about || (college.name + ' is a premier college known for academic excellence, state-of-the-art facilities, and stellar placements.')}
+        </p>
+      </div>
+
+      <div class="card-panel">
+        <h3 class="panel-title">Courses & Fees</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="border-bottom: 2px solid #e5e7eb; padding: 0.75rem 1rem;">Course</th>
+              <th style="border-bottom: 2px solid #e5e7eb; padding: 0.75rem 1rem;">1st Year Fees</th>
+              <th style="border-bottom: 2px solid #e5e7eb; padding: 0.75rem 1rem;">Eligibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${courseRows}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-panel">
+        <h3 class="panel-title">Facilities</h3>
+        <div class="facility-grid">
+          ${facilityItems}
+        </div>
+      </div>
+
+      <div class="card-panel">
+        <h3 class="panel-title">Ratings & Reviews</h3>
+        <div class="ratings-summary">
+          ${ratingsSummary}
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Apply Offline</h4>
+        <p style="font-size: 0.8rem; color: #6b7280; margin: 0 0 1rem 0;">Request a counselor to call you back for this university.</p>
+        <button class="btn-apply" style="width: 100%;" onclick="alert('Offline callback registered!')">Request counselor</button>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4 class="widget-title">Students Also Visited</h4>
+        <div class="college-list">
+          ${visitedItems}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    // Trigger local HTML file download
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    const slugName = college.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    
+    link.href = url;
+    link.download = `${slugName}.html`;
+    document.body.appendChild(link);
+    link.click();
+    
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    addToast(`Downloaded college details: ${college.name}`, 'success');
+  };
+
   // Extract numeric packages for display
   const highestPkg = college.id === 'bennett-university' ? '1.2 CPA' : (college.id === 'sharda-university' ? '1.6 CR' : (college.id === 'iit-bombay' ? '64.5 LPA' : '52.0 LPA'));
   const averagePkg = college.placements.split(' ')[0] || '10.0 LPA';
@@ -321,12 +699,13 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
             <span>Apply Now</span>
           </button>
           
-          <Link
-            to={`/colleges/${college.id}`}
-            className="py-2.5 rounded-lg border border-slate-250 dark:border-app-border hover:border-slate-350 hover:bg-slate-50 dark:hover:bg-app-card text-center text-xs font-bold text-slate-700 dark:text-slate-200 transition-all active:scale-95 bg-transparent"
+          <button
+            onClick={handleDownloadDetails}
+            className="py-2.5 rounded-lg border border-slate-250 dark:border-app-border hover:border-slate-350 hover:bg-slate-50 dark:hover:bg-app-card text-center text-xs font-bold text-slate-700 dark:text-slate-200 transition-all active:scale-95 bg-transparent flex items-center justify-center gap-1.5 cursor-pointer"
           >
-            College Details
-          </Link>
+            <Download className="w-3.5 h-3.5" />
+            <span>College Details</span>
+          </button>
         </div>
 
       </div>

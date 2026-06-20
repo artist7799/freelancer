@@ -65,8 +65,52 @@ const PopularSearches = () => {
   const addToast = useGlobalStore().addToast;
 
   const handleSearchClick = (searchQuery: string) => {
-    addToast(`Searching for "${searchQuery}"...`, 'info');
-    navigate(`/colleges?search=${encodeURIComponent(searchQuery)}`);
+    addToast(`Filtering catalog for "${searchQuery}"...`, 'info');
+    
+    let course = '';
+    if (searchQuery.includes('MBA') || searchQuery.includes('Management')) {
+      course = 'Management';
+    } else if (searchQuery.includes('B-Tech') || searchQuery.includes('Engineering')) {
+      course = 'Engineering';
+    } else if (searchQuery.includes('Law')) {
+      course = 'Law';
+    } else if (searchQuery.includes('Design')) {
+      course = 'Design';
+    }
+
+    let location = '';
+    const cities = [
+      'Pune', 'Bangalore', 'Indore', 'Delhi', 'Mumbai', 'Bhopal', 'Bhubaneswar',
+      'Jaipur', 'Coimbatore', 'Lucknow', 'Hyderabad', 'Rajkot', 'Guntur',
+      'Chandigarh', 'Surat', 'Jabalpur', 'Chennai', 'Kolkata', 'Bengaluru',
+      'Thane', 'Nagpur'
+    ];
+    for (const city of cities) {
+      if (searchQuery.toLowerCase().includes(city.toLowerCase())) {
+        location = city;
+        break;
+      }
+    }
+
+    const params = new URLSearchParams();
+    if (course) params.set('course', course);
+    if (location) {
+      if (location === 'Bengaluru' || location === 'Bangalore') {
+        params.set('location', 'Bangalore');
+      } else if (location === 'Delhi') {
+        // Handle Delhi/Delhi-NCR
+        params.set('location', 'Delhi');
+      } else {
+        params.set('location', location);
+      }
+    }
+    
+    // Fallback if no course or location match
+    if (!course && !location) {
+      params.set('search', searchQuery);
+    }
+    
+    navigate(`/colleges?${params.toString()}`);
   };
 
   return (

@@ -13,6 +13,7 @@ import Colleges from './pages/Colleges';
 import CollegeDetails from './pages/CollegeDetails';
 import Compare from './pages/Compare';
 import Exams from './pages/Exams';
+import ExamDetails from './pages/ExamDetails';
 import Scholarships from './pages/Scholarships';
 import CareerPaths from './pages/CareerPaths';
 import Resources from './pages/Resources';
@@ -27,6 +28,8 @@ import CollegePredictor from './pages/CollegePredictor';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { EducationLoan } from './pages/EducationLoan';
+import { ReAdmission } from './pages/ReAdmission';
 
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -58,6 +61,7 @@ function App() {
               <Route path="/colleges/:id" element={<CollegeDetails />} />
               <Route path="/compare" element={<Compare />} />
               <Route path="/exams" element={<Exams />} />
+              <Route path="/exams/:id" element={<ExamDetails />} />
               <Route path="/scholarships" element={<Scholarships />} />
               <Route path="/careers" element={<CareerPaths />} />
               <Route path="/resources" element={<Resources />} />
@@ -75,6 +79,8 @@ function App() {
                 }
               />
               <Route path="/college-predictor" element={<CollegePredictor />} />
+              <Route path="/education-loan" element={<EducationLoan />} />
+              <Route path="/re-admission" element={<ReAdmission />} />
               <Route
                 path="/dashboard"
                 element={

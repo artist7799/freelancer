@@ -166,7 +166,7 @@ export const Exams = () => {
               <Sparkles className="w-3.5 h-3.5" />
               National Timelines 2026
             </span>
-            <h1 className="text-3xl md:text-5xl font-display font-black text-white tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white tracking-tight">
               Entrance <span className="gradient-text-primary">Exams</span>
             </h1>
             <p className="text-sm text-app-muted mt-2 max-w-xl">

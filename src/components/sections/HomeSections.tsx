@@ -407,50 +407,55 @@ export const Hero = () => {
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
             className="absolute inset-0 w-full h-full"
           >
-            <img
-              src={HERO_SLIDES[currentSlide].image}
-              alt={HERO_SLIDES[currentSlide].uniName}
-              className="w-full h-full object-cover brightness-[0.75] opacity-95"
-            />
+            <Link
+              to={`/colleges/${HERO_SLIDES[currentSlide].logoType}`}
+              className="block w-full h-full cursor-pointer relative z-10"
+            >
+              <img
+                src={HERO_SLIDES[currentSlide].image}
+                alt={HERO_SLIDES[currentSlide].uniName}
+                className="w-full h-full object-cover brightness-[0.75] opacity-95"
+              />
 
-            {/* Featured Partner Card - Top Right */}
-            <div className="absolute top-4 right-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm px-3.5 py-2.5 rounded-xl shadow-lg border border-slate-100 dark:border-app-border flex items-center gap-3 z-20">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shrink-0 p-0.5 border border-slate-100 dark:border-slate-800">
-                {renderHeroLogo(HERO_SLIDES[currentSlide].logoType)}
+              {/* Featured Partner Card - Top Right */}
+              <div className="absolute top-4 right-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm px-3.5 py-2.5 rounded-xl shadow-lg border border-slate-100 dark:border-app-border flex items-center gap-3 z-20">
+                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shrink-0 p-0.5 border border-slate-100 dark:border-slate-800">
+                  {renderHeroLogo(HERO_SLIDES[currentSlide].logoType)}
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[7.5px] text-slate-450 dark:text-slate-500 font-black uppercase tracking-wider leading-none">Featured Partner</span>
+                  <span className="text-[10px] font-black text-slate-800 dark:text-white leading-tight uppercase mt-1 max-w-[140px] truncate" title={HERO_SLIDES[currentSlide].uniName}>
+                    {HERO_SLIDES[currentSlide].uniName}
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-[7.5px] text-slate-450 dark:text-slate-500 font-black uppercase tracking-wider leading-none">Featured Partner</span>
-                <span className="text-[10px] font-black text-slate-800 dark:text-white leading-tight uppercase mt-1 max-w-[140px] truncate" title={HERO_SLIDES[currentSlide].uniName}>
-                  {HERO_SLIDES[currentSlide].uniName}
-                </span>
-              </div>
-            </div>
 
-            {/* Title & Stats Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end pb-20 pt-6 px-6 z-10 bg-gradient-to-t from-black/85 via-black/35 to-black/15">
-              {/* University Slide Title */}
-              <h2 className="text-xl sm:text-2xl md:text-3.5xl font-display font-black text-white uppercase tracking-wider text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-6 select-none">
-                {HERO_SLIDES[currentSlide].title}
-              </h2>
+              {/* Title & Stats Overlay */}
+              <div className="absolute inset-0 flex flex-col justify-end pb-20 pt-6 px-6 z-10 bg-gradient-to-t from-black/85 via-black/35 to-black/15">
+                {/* University Slide Title */}
+                <h2 className="text-xl sm:text-2xl md:text-3.5xl font-display font-black text-white uppercase tracking-wider text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-6 select-none">
+                  {HERO_SLIDES[currentSlide].title}
+                </h2>
 
-              {/* 4 Stats Cards Grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 max-w-3xl mx-auto w-full">
-                {HERO_SLIDES[currentSlide].stats.map((stat, sIdx) => (
-                  <div 
-                    key={sIdx} 
-                    className="bg-white/95 dark:bg-slate-900/95 p-3 rounded-lg shadow-xl border border-slate-100 dark:border-app-border flex flex-col items-center justify-center text-center gap-1.5 transition-transform hover:scale-[1.02] duration-200 select-none min-h-[75px]"
-                  >
-                    <span className="text-[11px] sm:text-[13px] md:text-sm lg:text-base font-black text-slate-805 dark:text-white">
-                      {stat.key}
-                    </span>
-                    <hr className="w-8 border-t border-slate-200 dark:border-slate-850" />
-                    <span className="text-[7.5px] sm:text-[8.5px] md:text-[9.5px] font-extrabold text-slate-600 dark:text-slate-400 leading-snug">
-                      {stat.desc}
-                    </span>
-                  </div>
-                ))}
+                {/* 4 Stats Cards Grid */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 max-w-3xl mx-auto w-full">
+                  {HERO_SLIDES[currentSlide].stats.map((stat, sIdx) => (
+                    <div 
+                      key={sIdx} 
+                      className="bg-white/95 dark:bg-slate-900/95 p-3 rounded-lg shadow-xl border border-slate-100 dark:border-app-border flex flex-col items-center justify-center text-center gap-1.5 transition-transform hover:scale-[1.02] duration-200 select-none min-h-[75px]"
+                    >
+                      <span className="text-[11px] sm:text-[13px] md:text-sm lg:text-base font-black text-slate-805 dark:text-white">
+                        {stat.key}
+                      </span>
+                      <hr className="w-8 border-t border-slate-200 dark:border-slate-850" />
+                      <span className="text-[7.5px] sm:text-[8.5px] md:text-[9.5px] font-extrabold text-slate-600 dark:text-slate-400 leading-snug">
+                        {stat.desc}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Link>
           </motion.div>
         </AnimatePresence>
 
@@ -702,7 +707,7 @@ export const StudentHelpDesk = () => {
       title: 'Common Application Process',
       desc: 'Apply Multiple Colleges Using ...',
       icon: <FileText className="w-5 h-5 text-white" />,
-      path: '/register'
+      path: '/common-application'
     },
     {
       title: 'Scholarship Test',
@@ -721,19 +726,19 @@ export const StudentHelpDesk = () => {
       title: 'College Predictor',
       desc: 'Your personalized guide to ...',
       icon: <Search className="w-5 h-5 text-white" />,
-      path: '/colleges'
+      path: '/college-predictor'
     },
     {
       title: 'Education Loan',
       desc: 'Empowering Dreams, Fueling ...',
       icon: <DollarSign className="w-5 h-5 text-white" />,
-      path: '/careers'
+      path: '/education-loan'
     },
     {
       title: 'Re-Admissions',
       desc: 'College readmission services ...',
       icon: <Building className="w-5 h-5 text-white" />,
-      path: '/contact'
+      path: '/re-admission'
     }
   ];
 
@@ -937,7 +942,7 @@ export const PlacementUniversities = () => {
 
   const universities = [
     {
-      id: 'vidyashilp',
+      id: 'vidyashilp-university',
       name: 'Vidyashilp University (VU), Bangalore',
       location: 'Adity, Karnataka',
       rating: '8.8 /10',
@@ -954,7 +959,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'iibs',
+      id: 'iibs-bangalore',
       name: 'International Institute of Business Studies (IIBS)',
       courses: 'MBA',
       location: 'Benga, Karnataka',
@@ -963,7 +968,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'bennett',
+      id: 'bennett-university',
       name: 'Bennett University, Greater Noida',
       courses: 'MBA',
       location: 'Great, Uttar Pradesh',
@@ -972,7 +977,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'sanjay-ghodawat',
+      id: 'sanjay-ghodawat-university',
       name: 'Sanjay Ghodawat University',
       location: 'Kolha, Maharashtra',
       rating: '7.8 /10',
@@ -980,7 +985,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'xlri',
+      id: 'xlri-jamshedpur',
       name: 'Xavier School of Management',
       courses: 'PGDM',
       location: 'Jamsh, Jharkhand',
@@ -989,7 +994,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'alliance',
+      id: 'alliance-university',
       name: 'Alliance University Bangalore',
       courses: 'MBA',
       location: 'Benga, Karnataka',
@@ -998,7 +1003,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'lpu',
+      id: 'lpu-punjab',
       name: 'Lovely Professional University',
       location: 'Jalan, Punjab',
       rating: '8.2 /10',
@@ -1006,7 +1011,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'cgc',
+      id: 'cgc-landran',
       name: 'Chandigarh Group of Colleges (CGC)',
       courses: 'MBA',
       location: 'Chand, Punjab',
@@ -1015,7 +1020,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'its',
+      id: 'its-management',
       name: 'I.T.S School of Management',
       courses: 'MBA',
       location: 'Ghazi, Uttar Pradesh',
@@ -1024,7 +1029,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'poddar',
+      id: 'poddar-college',
       name: 'Poddar International College, Jaipur',
       courses: 'MBA',
       location: 'Jaipu, Rajasthan',
@@ -1033,7 +1038,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'its-professional',
+      id: 'its-professional-studies',
       name: 'ITS College Of Professional Studies',
       location: 'Noida, Uttar Pradesh',
       rating: '9.1 /10',
@@ -1041,7 +1046,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'amity-noida',
+      id: 'amity-university-noida',
       name: 'Amity University, Noida',
       courses: 'MBA',
       location: 'Noida, Uttar Pradesh',
@@ -1050,7 +1055,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'amity-mumbai',
+      id: 'amity-university-mumbai',
       name: 'Amity University Mumbai',
       courses: 'MBA',
       location: 'Mumba, Maharashtra',
@@ -1059,7 +1064,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'medhavi',
+      id: 'medhavi-university',
       name: 'Medhavi Skills University, Sikkim',
       courses: 'MBA',
       location: 'Namch, Sikkim',
@@ -1068,7 +1073,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'kiet',
+      id: 'kiet-university',
       name: 'KIET Deemed To Be University',
       courses: 'MBA',
       location: 'Ghazi, Uttar Pradesh',
@@ -1077,7 +1082,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'sage',
+      id: 'sage-university',
       name: 'SAGE University Indore',
       courses: 'MBA',
       location: 'Indor, Madhya Pradesh',
@@ -1086,7 +1091,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'accman',
+      id: 'accman-business-school',
       name: 'ACCMAN Business School',
       location: 'Great, Uttar Pradesh',
       rating: '8.6 /10',
@@ -1103,7 +1108,7 @@ export const PlacementUniversities = () => {
       logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'pcu',
+      id: 'pimpri-chinchwad-university',
       name: 'Pimpri Chinchwad University (PCU)',
       courses: 'MBA',
       location: 'Pune, Maharashtra',
@@ -1118,9 +1123,8 @@ export const PlacementUniversities = () => {
     navigate('/register');
   };
 
-  const handlePlacementDetails = (univName: string) => {
-    addToast(`Opening comprehensive placement report and salary history for ${univName}...`, 'info');
-    navigate('/colleges');
+  const handlePlacementDetails = (slug: string) => {
+    navigate(`/colleges/${slug}`);
   };
 
   return (
@@ -1140,20 +1144,20 @@ export const PlacementUniversities = () => {
               <div className="bg-white dark:bg-app-card border border-slate-100 dark:border-app-border rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.02)] flex overflow-hidden hover:shadow-lg hover:scale-[1.005] transition-all duration-300 h-full">
                 
                 {/* Placement Badge on the left */}
-                <div className="w-[110px] sm:w-[130px] shrink-0 bg-[#223150] text-center p-3 flex flex-col justify-center items-center gap-1.5">
+                <Link to={`/colleges/${univ.id}`} className="w-[110px] sm:w-[130px] shrink-0 bg-[#223150] text-center p-3 flex flex-col justify-center items-center gap-1.5 hover:opacity-90 transition-opacity">
                   <span className="text-xl sm:text-2xl font-black text-[#FFB200] leading-none tracking-tight">
                     {univ.placement}
                   </span>
                   <span className="text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-wider leading-snug max-w-[80px]">
                     Highest Placement
                   </span>
-                </div>
+                </Link>
 
                 {/* Details and Actions container */}
                 <div className="flex-1 p-3.5 sm:p-5 flex items-center justify-between gap-4 min-w-0">
                   
                   {/* Left: Logo & Text info */}
-                  <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                  <Link to={`/colleges/${univ.id}`} className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1 group hover:no-underline">
                     
                     {/* Logo container */}
                     <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 border border-slate-100 rounded-lg overflow-hidden flex items-center justify-center bg-white p-1">
@@ -1166,9 +1170,11 @@ export const PlacementUniversities = () => {
 
                     {/* Text Details */}
                     <div className="flex flex-col text-left min-w-0 gap-0.5 sm:gap-1">
-                      <h3 className="font-display font-bold text-sm sm:text-base text-[#1B254B] dark:text-white truncate" title={univ.name}>
-                        {univ.name}
-                      </h3>
+                      <span className="hover:underline text-[#1B254B] dark:text-white block truncate">
+                        <h3 className="font-display font-bold text-sm sm:text-base truncate" title={univ.name}>
+                          {univ.name}
+                        </h3>
+                      </span>
                       
                       {univ.courses && (
                         <p className="text-[11px] sm:text-xs text-slate-550 dark:text-slate-400 font-semibold leading-none">
@@ -1187,7 +1193,7 @@ export const PlacementUniversities = () => {
                       </div>
 
                     </div>
-                  </div>
+                  </Link>
 
                   {/* Right: Actions */}
                   <div className="flex flex-col gap-2 shrink-0 w-[110px] sm:w-[130px]">
@@ -1200,7 +1206,7 @@ export const PlacementUniversities = () => {
                     </button>
 
                     <button
-                      onClick={() => handlePlacementDetails(univ.name)}
+                      onClick={() => handlePlacementDetails(univ.id)}
                       className="bg-[#FF5E14] text-white hover:bg-[#E04D0F] text-xs font-bold py-2 px-2.5 rounded-lg text-center cursor-pointer transition-colors leading-none"
                     >
                       Placement details
@@ -1228,6 +1234,18 @@ export const PlacementUniversities = () => {
       </div>
     </section>
   );
+};
+
+const getSlugForUniv = (name: string): string => {
+  const n = name.toLowerCase();
+  if (n.includes('alliance')) return 'alliance-university';
+  if (n.includes('sharda')) return 'sharda-university';
+  if (n.includes('lpu') || n.includes('lovely')) return 'lpu-punjab';
+  if (n.includes('amity')) return 'amity-university-noida';
+  if (n.includes('chandigarh')) return 'chandigarh-university';
+  if (n.includes('bennett')) return 'bennett-university';
+  if (n.includes('jagan') || n.includes('jims')) return 'jims-delhi';
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
 
 // ==========================================
@@ -1306,9 +1324,10 @@ export const AdmissionBanners = () => {
       <div className="w-full overflow-hidden flex relative z-10 py-2">
         <div className="flex gap-6 animate-marquee-scroll shrink-0 whitespace-nowrap">
           {doubledBanners.map((banner, idx) => (
-            <div
+            <Link
               key={idx}
-              className="relative flex w-[420px] sm:w-[480px] h-[135px] sm:h-[145px] shrink-0 rounded-2xl overflow-hidden shadow-md bg-white dark:bg-app-card border border-slate-100 dark:border-app-border select-none"
+              to={`/colleges/${getSlugForUniv(banner.univ)}`}
+              className="relative flex w-[420px] sm:w-[480px] h-[135px] sm:h-[145px] shrink-0 rounded-2xl overflow-hidden shadow-md bg-white dark:bg-app-card border border-slate-100 dark:border-app-border select-none hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
             >
               {/* Left sloped panel */}
               <div className={`w-[68%] h-full ${banner.bgColor} text-white p-3 pr-8 flex flex-col justify-between [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)] z-10 relative`}>
@@ -1380,7 +1399,7 @@ export const AdmissionBanners = () => {
                 </div>
               </div>
 
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -1638,77 +1657,78 @@ export const FeaturedCollegesMockup = () => {
               >
                 <div className="bg-white dark:bg-app-card border border-slate-100 dark:border-app-border rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)] hover:scale-[1.002] transition-all duration-300 overflow-hidden flex flex-col h-full group">
                   
-                  {/* Image Container with Zoom effect */}
-                  <div className="relative w-full h-[185px] sm:h-[205px] overflow-hidden">
-                    <img
-                      src={college.image}
-                      alt={college.fullName}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    {/* Subtle Top Image Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-                  </div>
-
-                  {/* Dark Blue Mid-Banner */}
-                  <div className="bg-[#344E68] py-3 px-4 flex items-center gap-3">
-                    {renderLogo(college.logoType)}
-                    <h3
-                      className="text-white font-bold text-xs sm:text-[13px] leading-snug flex-1 truncate"
-                      title={college.fullName}
-                    >
-                      {college.name}
-                    </h3>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-5 flex flex-col justify-between flex-1 gap-3.5 bg-white dark:bg-app-card">
-                    
-                    {/* Info details */}
-                    <div className="flex flex-col gap-2.5">
-                      
-                      {/* Location */}
-                      <div className="flex items-center gap-2 border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
-                        <MapPin className="w-4 h-4 text-[#FF5E14] shrink-0" />
-                        <span className="text-[#FF5E14] font-bold text-xs sm:text-[13px] tracking-wide">
-                          {college.location}
-                        </span>
-                      </div>
-
-                      {/* Rank */}
-                      <div className="flex items-start gap-2 border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
-                        <Trophy className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                        <span className="text-slate-650 dark:text-slate-350 font-bold text-xs sm:text-[13px] leading-snug">
-                          {college.rank}
-                        </span>
-                      </div>
-
-                      {/* Highest Package */}
-                      <div className="border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
-                        <span className="text-[#1B254B] dark:text-white font-extrabold text-xs sm:text-[13px]">
-                          {college.highestPackage}
-                        </span>
-                      </div>
-
-                      {/* Course */}
-                      <div className="border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
-                        <span className="text-slate-750 dark:text-slate-300 font-bold text-xs sm:text-[13px]">
-                          {college.course}
-                        </span>
-                      </div>
-
+                  <Link to={`/colleges/${getSlugForUniv(college.logoType)}`} className="flex flex-col flex-1 group hover:no-underline text-inherit cursor-pointer">
+                    {/* Image Container with Zoom effect */}
+                    <div className="relative w-full h-[185px] sm:h-[205px] overflow-hidden">
+                      <img
+                        src={college.image}
+                        alt={college.fullName}
+                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      {/* Subtle Top Image Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                     </div>
 
-                    {/* Apply Now Action */}
-                    <div className="text-center pt-1.5">
-                      <button
-                        onClick={() => handleApplyNow(college.fullName)}
-                        className="text-[#FF5E14] hover:text-[#D14B00] font-black text-xs sm:text-sm tracking-wide transition-all hover:scale-105 inline-block cursor-pointer bg-transparent border-none p-0 focus:outline-none"
+                    {/* Dark Blue Mid-Banner */}
+                    <div className="bg-[#344E68] py-3 px-4 flex items-center gap-3">
+                      {renderLogo(college.logoType)}
+                      <h3
+                        className="text-white font-bold text-xs sm:text-[13px] leading-snug flex-1 truncate text-left"
+                        title={college.fullName}
                       >
-                        Apply Now &gt;&gt;
-                      </button>
+                        {college.name}
+                      </h3>
                     </div>
 
+                    {/* Card Body */}
+                    <div className="p-5 flex flex-col justify-between flex-1 gap-3.5 bg-white dark:bg-app-card">
+                      
+                      {/* Info details */}
+                      <div className="flex flex-col gap-2.5">
+                        
+                        {/* Location */}
+                        <div className="flex items-center gap-2 border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
+                          <MapPin className="w-4 h-4 text-[#FF5E14] shrink-0" />
+                          <span className="text-[#FF5E14] font-bold text-xs sm:text-[13px] tracking-wide">
+                            {college.location}
+                          </span>
+                        </div>
+
+                        {/* Rank */}
+                        <div className="flex items-start gap-2 border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
+                          <Trophy className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                          <span className="text-slate-650 dark:text-slate-350 font-bold text-xs sm:text-[13px] leading-snug">
+                            {college.rank}
+                          </span>
+                        </div>
+
+                        {/* Highest Package */}
+                        <div className="border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
+                          <span className="text-[#1B254B] dark:text-white font-extrabold text-xs sm:text-[13px]">
+                            {college.highestPackage}
+                          </span>
+                        </div>
+
+                        {/* Course */}
+                        <div className="border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
+                          <span className="text-slate-750 dark:text-slate-300 font-bold text-xs sm:text-[13px]">
+                            {college.course}
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Apply Now Action (kept outside link to prevent nested links/buttons) */}
+                  <div className="text-center pb-5 bg-white dark:bg-app-card">
+                    <Link
+                      to={`/colleges/${getSlugForUniv(college.logoType)}`}
+                      className="text-[#FF5E14] hover:text-[#D14B00] font-black text-xs sm:text-sm tracking-wide transition-all hover:scale-105 inline-block cursor-pointer hover:no-underline"
+                    >
+                      Apply Now &gt;&gt;
+                    </Link>
                   </div>
 
                 </div>
@@ -1907,6 +1927,17 @@ export const StudentChoiceColleges = () => {
     return () => clearInterval(interval);
   }, [visibleCards, mockupColleges.length]);
 
+  const getChoiceSlug = (logoType: string): string => {
+    switch (logoType) {
+      case 'iim': return 'iim-bangalore';
+      case 'sibm': return 'symbiosis-pune';
+      case 'graphicera': return 'graphic-era';
+      case 'xlri': return 'xlri-jamshedpur';
+      case 'mdi': return 'mdi-gurgaon';
+      default: return logoType;
+    }
+  };
+
   const handleApplyNow = (univName: string) => {
     addToast(`Initiated Application Form for ${univName}! Redirecting to registration page...`, 'success');
     navigate('/register');
@@ -1991,104 +2022,108 @@ export const StudentChoiceColleges = () => {
                 >
                   <div className="bg-white dark:bg-app-card border border-slate-100 dark:border-app-border rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.07)] hover:scale-[1.002] transition-all duration-300 overflow-hidden flex flex-col h-full group">
                     
-                    {/* Top Image + Rank Badge + Logo Wrapper */}
-                    <div className="relative w-full h-[185px] sm:h-[205px]">
-                      {/* Visual Image container with crop */}
-                      <div className="w-full h-full overflow-hidden rounded-t-2xl">
-                        <img
-                          src={college.image}
-                          alt={college.fullName}
-                          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                          loading="lazy"
-                        />
-                        {/* Subtle Top Image Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+                    <Link to={`/colleges/${getChoiceSlug(college.logoType)}`} className="flex flex-col flex-1 hover:no-underline text-inherit cursor-pointer">
+                      {/* Top Image + Rank Badge + Logo Wrapper */}
+                      <div className="relative w-full h-[185px] sm:h-[205px]">
+                        {/* Visual Image container with crop */}
+                        <div className="w-full h-full overflow-hidden rounded-t-2xl">
+                          <img
+                            src={college.image}
+                            alt={college.fullName}
+                            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
+                          />
+                          {/* Subtle Top Image Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+                        </div>
+
+                        {/* Rank Badge */}
+                        <div className="absolute top-3 right-3 bg-[#FF5E14] text-white text-[11px] font-black py-1.5 px-3.5 rounded-full shadow-sm z-10 leading-none">
+                          Rank: {college.rank}
+                        </div>
+
+                        {/* Overlapping Logo */}
+                        <div className="absolute left-4 -bottom-5 z-20">
+                          {renderLogo(college.logoType)}
+                        </div>
                       </div>
 
-                      {/* Rank Badge */}
-                      <div className="absolute top-3 right-3 bg-[#FF5E14] text-white text-[11px] font-black py-1.5 px-3.5 rounded-full shadow-sm z-10 leading-none">
-                        Rank: {college.rank}
-                      </div>
-
-                      {/* Overlapping Logo */}
-                      <div className="absolute left-4 -bottom-5 z-20">
-                        {renderLogo(college.logoType)}
-                      </div>
-                    </div>
-
-                    {/* Card Body */}
-                    <div className="p-5 pt-7 flex flex-col justify-between flex-1 gap-3.5 bg-white dark:bg-app-card">
-                      
-                      <div className="flex flex-col gap-3">
+                      {/* Card Body */}
+                      <div className="p-5 pt-7 flex flex-col justify-between flex-1 gap-3.5 bg-white dark:bg-app-card">
                         
-                        {/* Title and rating */}
-                        <div className="flex items-start justify-between gap-3 text-left">
-                          <h3 
-                            className="font-display font-extrabold text-sm sm:text-base text-slate-800 dark:text-white uppercase leading-tight truncate flex-1" 
-                            title={college.fullName}
-                          >
-                            {college.name}
-                          </h3>
-                          <div className="flex flex-col items-end shrink-0 text-right">
-                            <div className="flex items-center gap-0.5 text-xs font-black text-amber-500">
-                              <span className="text-[#FF5E14]">★</span>
-                              <span className="text-slate-800 dark:text-white">{college.rating}</span>
-                              <span className="text-slate-450 font-bold ml-0.5">CM</span>
+                        <div className="flex flex-col gap-3 text-left">
+                          
+                          {/* Title and rating */}
+                          <div className="flex items-start justify-between gap-3 text-left">
+                            <h3 
+                              className="font-display font-extrabold text-sm sm:text-base text-slate-800 dark:text-white uppercase leading-tight truncate flex-1" 
+                              title={college.fullName}
+                            >
+                              {college.name}
+                            </h3>
+                            <div className="flex flex-col items-end shrink-0 text-right">
+                              <div className="flex items-center gap-0.5 text-xs font-black text-amber-500">
+                                <span className="text-[#FF5E14]">★</span>
+                                <span className="text-slate-800 dark:text-white">{college.rating}</span>
+                                <span className="text-slate-450 font-bold ml-0.5">CM</span>
+                              </div>
+                              <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 leading-none mt-0.5">Rating</span>
                             </div>
-                            <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 leading-none mt-0.5">Rating</span>
                           </div>
-                        </div>
 
-                        {/* Location */}
-                        <div className="flex items-center gap-1.5 text-left text-xs text-slate-400 dark:text-slate-500 mt-0.5">
-                          <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                          <span className="truncate">{college.location}</span>
-                        </div>
+                          {/* Location */}
+                          <div className="flex items-center gap-1.5 text-left text-xs text-slate-400 dark:text-slate-500 mt-0.5">
+                            <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                            <span className="truncate">{college.location}</span>
+                          </div>
 
-                        {/* High and Avg CTC */}
-                        <div className="grid grid-cols-2 gap-4 text-left border-t border-slate-100 dark:border-app-border pt-3">
-                          <div className="flex flex-col gap-0.5">
-                            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">High CTC</span>
-                            <span className="text-slate-850 dark:text-white font-extrabold text-xs sm:text-[13px]">{college.highCTC}</span>
+                          {/* High and Avg CTC */}
+                          <div className="grid grid-cols-2 gap-4 text-left border-t border-slate-100 dark:border-app-border pt-3">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">High CTC</span>
+                              <span className="text-slate-850 dark:text-white font-extrabold text-xs sm:text-[13px]">{college.highCTC}</span>
+                            </div>
+                            <div className="flex flex-col gap-0.5">
+                              <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">Avg CTC</span>
+                              <span className="text-slate-850 dark:text-white font-extrabold text-xs sm:text-[13px]">{college.avgCTC}</span>
+                            </div>
                           </div>
-                          <div className="flex flex-col gap-0.5">
-                            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">Avg CTC</span>
-                            <span className="text-slate-850 dark:text-white font-extrabold text-xs sm:text-[13px]">{college.avgCTC}</span>
-                          </div>
-                        </div>
 
-                        {/* Course and Fees */}
-                        <div className="grid grid-cols-2 gap-4 text-left border-b border-slate-100 dark:border-app-border pb-3">
-                          <div className="flex items-center gap-1">
-                            <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Course:</span>
-                            <span className="text-[#FF5E14] font-black text-[11px] sm:text-xs leading-none">{college.course}</span>
+                          {/* Course and Fees */}
+                          <div className="grid grid-cols-2 gap-4 text-left border-b border-slate-100 dark:border-app-border pb-3">
+                            <div className="flex items-center gap-1">
+                              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Course:</span>
+                              <span className="text-[#FF5E14] font-black text-[11px] sm:text-xs leading-none">{college.course}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Fees:</span>
+                              <span className="text-slate-700 dark:text-slate-300 font-extrabold text-[11px] sm:text-xs leading-none">{college.fees}</span>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Fees:</span>
-                            <span className="text-slate-700 dark:text-slate-300 font-extrabold text-[11px] sm:text-xs leading-none">{college.fees}</span>
-                          </div>
+
                         </div>
 
                       </div>
+                    </Link>
 
-                      {/* Action buttons */}
+                    {/* Action buttons (outside to avoid nested interactive elements) */}
+                    <div className="px-5 pb-5 bg-white dark:bg-app-card">
                       <div className="grid grid-cols-2 gap-3 pt-1">
-                        <button
-                          onClick={() => handleApplyNow(college.fullName)}
-                          className="bg-[#FF5E14] hover:bg-[#D14B00] text-white font-black text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1 cursor-pointer shadow-md shadow-orange-500/10 hover:shadow-orange-500/25 transition-all duration-300 border border-transparent leading-none"
+                        <Link
+                          to={`/colleges/${getChoiceSlug(college.logoType)}`}
+                          className="bg-[#FF5E14] hover:bg-[#D14B00] text-white font-black text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1 cursor-pointer shadow-md shadow-orange-500/10 hover:shadow-orange-500/25 transition-all duration-300 border border-transparent leading-none hover:no-underline"
                         >
                           <Send className="w-3.5 h-3.5 transform -rotate-45" />
                           <span>Apply Now</span>
-                        </button>
+                        </Link>
                         
-                        <button
-                          onClick={() => handleCollegeDetails(college.fullName)}
-                          className="bg-white dark:bg-transparent border border-slate-350 dark:border-app-border hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-app-card text-slate-800 dark:text-slate-200 font-black text-xs py-2.5 px-3 rounded-xl text-center cursor-pointer transition-all duration-300 leading-none"
+                        <Link
+                          to={`/colleges/${getChoiceSlug(college.logoType)}`}
+                          className="bg-white dark:bg-transparent border border-slate-350 dark:border-app-border hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-app-card text-slate-800 dark:text-slate-200 font-black text-xs py-2.5 px-3 rounded-xl text-center cursor-pointer transition-all duration-300 leading-none hover:no-underline flex items-center justify-center"
                         >
                           College Details
-                        </button>
+                        </Link>
                       </div>
-
                     </div>
 
                   </div>
@@ -2201,6 +2236,17 @@ export const TopCollegesList = () => {
   const addToast = useGlobalStore().addToast;
   const navigate = useNavigate();
 
+  const getTopSlug = (logoType: string): string => {
+    switch (logoType) {
+      case 'dms': return 'dms-iit-delhi';
+      case 'krmu': return 'kr-mangalam';
+      case 'sharda': return 'sharda-university';
+      case 'fms': return 'fms-delhi';
+      case 'iima': return 'iim-ahmedabad';
+      default: return logoType;
+    }
+  };
+
   const handleApplyNow = (univName: string) => {
     addToast(`Initiated Application Form for ${univName}! Redirecting to registration page...`, 'success');
     navigate('/register');
@@ -2293,66 +2339,68 @@ export const TopCollegesList = () => {
             <ScrollReveal key={idx} delay={idx * 0.05}>
               <div className="bg-white dark:bg-app-card border border-slate-150 dark:border-app-border rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.015)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.05)] hover:scale-[1.002] transition-all duration-300 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 group">
                 
-                {/* Left section: Logo + Details */}
-                <div className="flex items-start gap-4 flex-1 min-w-0 w-full">
-                  
-                  {/* Logo Container with hover animation */}
-                  <div className="overflow-hidden rounded-md transition-transform duration-300 group-hover:scale-105 shrink-0">
-                    {renderLogo(college.logoType)}
-                  </div>
-
-                  {/* Text specs */}
-                  <div className="flex flex-col gap-1 text-left min-w-0 flex-1">
-                    <h3 
-                      className="font-display font-extrabold text-sm sm:text-base text-slate-850 dark:text-white leading-tight truncate" 
-                      title={college.fullName}
-                    >
-                      {college.name}
-                    </h3>
+                <Link to={`/colleges/${getTopSlug(college.logoType)}`} className="flex flex-col sm:flex-row items-center gap-4 flex-1 min-w-0 w-full hover:no-underline text-inherit cursor-pointer">
+                  {/* Left section: Logo + Details */}
+                  <div className="flex items-start gap-4 flex-1 min-w-0 w-full">
                     
-                    {college.courses && (
-                      <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                        {college.courses}
-                      </span>
-                    )}
+                    {/* Logo Container with hover animation */}
+                    <div className="overflow-hidden rounded-md transition-transform duration-300 group-hover:scale-105 shrink-0">
+                      {renderLogo(college.logoType)}
+                    </div>
 
-                    <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 mt-0.5">
-                      <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500">
-                        <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        <span className="truncate">{college.location}</span>
-                      </div>
-                      <div className="flex items-center gap-1 text-xs font-black text-amber-500">
-                        <span className="text-[#FF5E14]">★</span>
-                        <span className="text-slate-700 dark:text-slate-300">{college.rating}</span>
+                    {/* Text specs */}
+                    <div className="flex flex-col gap-1 text-left min-w-0 flex-1">
+                      <h3 
+                        className="font-display font-extrabold text-sm sm:text-base text-slate-850 dark:text-white leading-tight truncate" 
+                        title={college.fullName}
+                      >
+                        {college.name}
+                      </h3>
+                      
+                      {college.courses && (
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                          {college.courses}
+                        </span>
+                      )}
+
+                      <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 mt-0.5">
+                        <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500">
+                          <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span className="truncate">{college.location}</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-xs font-black text-amber-500">
+                          <span className="text-[#FF5E14]">★</span>
+                          <span className="text-slate-700 dark:text-slate-300">{college.rating}</span>
+                        </div>
                       </div>
                     </div>
+
                   </div>
 
-                </div>
-
-                {/* Center/Right section: Highest Placement stats */}
-                <div className="flex flex-col justify-center text-center sm:text-right md:text-center px-1 sm:px-3 shrink-0">
-                  <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">Highest Placement</span>
-                  <span className="text-[#FF5E14] font-black text-sm sm:text-base mt-1.5 leading-none">
-                    {college.highestPlacement}
-                  </span>
-                </div>
+                  {/* Center/Right section: Highest Placement stats */}
+                  <div className="flex flex-col justify-center text-center sm:text-right md:text-center px-1 sm:px-3 shrink-0">
+                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">Highest Placement</span>
+                    <span className="text-[#FF5E14] font-black text-sm sm:text-base mt-1.5 leading-none">
+                      {college.highestPlacement}
+                    </span>
+                  </div>
+                </Link>
 
                 {/* Far Right actions */}
                 <div className="flex flex-col gap-2 shrink-0 w-full sm:w-[130px]">
-                  <button
-                    onClick={() => handleApplyNow(college.fullName)}
-                    className="border border-[#FF5E14] text-[#FF5E14] hover:bg-[#FF5E14] hover:text-white text-xs font-black py-2 px-2.5 rounded-lg text-center cursor-pointer transition-all duration-300 leading-none bg-transparent"
+                  <Link
+                    to={`/colleges/${getTopSlug(college.logoType)}`}
+                    className="border border-[#FF5E14] text-[#FF5E14] hover:bg-[#FF5E14] hover:text-white text-xs font-black py-2 px-2.5 rounded-lg text-center cursor-pointer transition-all duration-300 leading-none bg-transparent hover:no-underline h-8 flex items-center justify-center"
                   >
                     Apply Now
-                  </button>
-                  <button
-                    onClick={() => handleKnowMore(college.fullName)}
-                    className="bg-[#FF5E14] text-white hover:bg-[#D14B00] text-xs font-black py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-colors leading-none border-none group-hover:scale-[1.01]"
+                  </Link>
+                  <Link
+                    to={`/colleges/${getTopSlug(college.logoType)}`}
+                    className="bg-[#FF5E14] text-white hover:bg-[#D14B00] text-xs font-black py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-colors leading-none border-none group-hover:scale-[1.01] hover:no-underline h-8"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Know more</span>
-                  </button>
+                  </Link>
                 </div>
 
               </div>
@@ -2702,80 +2750,84 @@ export const PlacementVerifiedColleges = () => {
                     {/* College Card */}
                     <div className="bg-white dark:bg-app-card border border-slate-150 dark:border-app-border rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-350 relative flex flex-col h-full group">
                       
-                      {/* Image container */}
-                      <div className="relative overflow-hidden h-48 w-full rounded-t-2xl">
-                        <img 
-                          src={college.image} 
-                          alt={college.name} 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                        />
-                        {/* Placement Verified stamp */}
-                        <div className="absolute top-3 right-3 z-10 bg-emerald-500 text-white text-[9px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(16,185,129,0.3)] border border-emerald-400/30 flex items-center justify-center gap-1">
-                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                          Placement Verified
-                        </div>
-                        
-                        {/* Overlapping logo container */}
-                        <div className="absolute -bottom-7 left-5 z-20">
-                          <LogoComponent />
-                        </div>
-                      </div>
-
-                      {/* Card Body */}
-                      <div className="p-5 pt-9 flex flex-col justify-between flex-1">
-                        <div>
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider bg-[#FF5E14]/10 px-2 py-0.5 rounded">
-                              Rank #{college.rank}
-                            </span>
-                            <div className="flex items-center gap-1 text-xs font-black text-amber-500">
-                              <span>★</span>
-                              <span className="text-slate-700 dark:text-slate-300">{college.rating} / 10</span>
-                            </div>
+                      <Link to={`/colleges/${college.id}`} className="flex flex-col flex-1 hover:no-underline text-inherit cursor-pointer">
+                        {/* Image container */}
+                        <div className="relative overflow-hidden h-48 w-full rounded-t-2xl">
+                          <img 
+                            src={college.image} 
+                            alt={college.name} 
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                          />
+                          {/* Placement Verified stamp */}
+                          <div className="absolute top-3 right-3 z-10 bg-emerald-500 text-white text-[9px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(16,185,129,0.3)] border border-emerald-400/30 flex items-center justify-center gap-1">
+                            <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                            Placement Verified
                           </div>
                           
-                          <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight mb-1 group-hover:text-[#FF5E14] transition-colors text-left line-clamp-1" title={college.name}>
-                            {college.shortName}
-                          </h3>
-                          
-                          <p className="text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1 mb-4 text-left">
-                            <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                            {college.location}
-                          </p>
-
-                          {/* Placement Stats Grid */}
-                          <div className="grid grid-cols-2 gap-2 p-2.5 bg-slate-50 dark:bg-app-card rounded-xl border border-slate-100 dark:border-app-border mb-4">
-                            <div className="flex flex-col text-left">
-                              <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Highest Package</span>
-                              <span className="text-[#FF5E14] font-black text-xs sm:text-sm mt-0.5">{college.highCtc}</span>
-                            </div>
-                            <div className="flex flex-col text-left border-l border-slate-200 dark:border-app-border pl-3">
-                              <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Average Package</span>
-                              <span className="text-slate-800 dark:text-slate-200 font-extrabold text-xs sm:text-sm mt-0.5">{college.avgCtc}</span>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center justify-between text-xs mb-5">
-                            <span className="text-slate-400 dark:text-slate-500">Course Fees:</span>
-                            <span className="font-extrabold text-slate-800 dark:text-slate-200">{college.fees}</span>
+                          {/* Overlapping logo container */}
+                          <div className="absolute -bottom-7 left-5 z-20">
+                            <LogoComponent />
                           </div>
                         </div>
 
-                        {/* Action Buttons */}
+                        {/* Card Body */}
+                        <div className="p-5 pt-9 flex flex-col justify-between flex-1 text-left">
+                          <div>
+                            <div className="flex items-center justify-between mb-2">
+                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider bg-[#FF5E14]/10 px-2 py-0.5 rounded">
+                                Rank #{college.rank}
+                              </span>
+                              <div className="flex items-center gap-1 text-xs font-black text-amber-500">
+                                <span>★</span>
+                                <span className="text-slate-700 dark:text-slate-300">{college.rating} / 10</span>
+                              </div>
+                            </div>
+                            
+                            <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight mb-1 group-hover:text-[#FF5E14] transition-colors text-left line-clamp-1" title={college.name}>
+                              {college.shortName}
+                            </h3>
+                            
+                            <p className="text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1 mb-4 text-left">
+                              <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                              {college.location}
+                            </p>
+
+                            {/* Placement Stats Grid */}
+                            <div className="grid grid-cols-2 gap-2 p-2.5 bg-slate-50 dark:bg-app-card rounded-xl border border-slate-100 dark:border-app-border mb-4">
+                              <div className="flex flex-col text-left">
+                                <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Highest Package</span>
+                                <span className="text-[#FF5E14] font-black text-xs sm:text-sm mt-0.5">{college.highCtc}</span>
+                              </div>
+                              <div className="flex flex-col text-left border-l border-slate-200 dark:border-app-border pl-3">
+                                <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Average Package</span>
+                                <span className="text-slate-800 dark:text-slate-200 font-extrabold text-xs sm:text-sm mt-0.5">{college.avgCtc}</span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center justify-between text-xs mb-5">
+                              <span className="text-slate-400 dark:text-slate-500">Course Fees:</span>
+                              <span className="font-extrabold text-slate-800 dark:text-slate-200">{college.fees}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+
+                      {/* Action Buttons */}
+                      <div className="px-5 pb-5 bg-white dark:bg-app-card">
                         <div className="flex items-center gap-2 mt-auto">
-                          <button
-                            onClick={() => handleApplyNow(college.name)}
-                            className="flex-1 bg-[#FF5E14] hover:bg-[#D14B00] text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-colors border-none shadow-[0_4px_10px_rgba(255,94,20,0.15)] active:scale-95"
+                          <Link
+                            to={`/colleges/${college.id}`}
+                            className="flex-1 bg-[#FF5E14] hover:bg-[#D14B00] text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-colors border-none shadow-[0_4px_10px_rgba(255,94,20,0.15)] active:scale-95 hover:no-underline text-center"
                           >
                             <Send className="w-3.5 h-3.5" />
                             <span>Apply Now</span>
-                          </button>
-                          <button
-                            onClick={() => handleKnowMore(college.name)}
-                            className="flex-1 border border-slate-250 dark:border-app-border hover:border-slate-350 hover:bg-slate-50 dark:hover:bg-app-card text-slate-700 dark:text-slate-200 text-xs font-bold py-2 px-3 rounded-lg text-center cursor-pointer transition-all active:scale-95 bg-transparent"
+                          </Link>
+                          <Link
+                            to={`/colleges/${college.id}`}
+                            className="flex-1 border border-slate-250 dark:border-app-border hover:border-slate-350 hover:bg-slate-50 dark:hover:bg-app-card text-slate-700 dark:text-slate-200 text-xs font-bold py-2.5 px-3 rounded-lg text-center cursor-pointer transition-all active:scale-95 bg-transparent hover:no-underline flex items-center justify-center"
                           >
                             Details
-                          </button>
+                          </Link>
                         </div>
                       </div>
 
@@ -2811,9 +2863,9 @@ export const UpcomingExamsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
 
-  const handleReadMore = (examName: string) => {
+  const handleReadMore = (examId: string, examName: string) => {
     addToast(`Loading exam guides and updates for ${examName}...`, 'info');
-    navigate('/exams');
+    navigate(`/exams/${examId}`);
   };
 
   useEffect(() => {
@@ -2900,75 +2952,77 @@ export const UpcomingExamsCarousel = () => {
                     {/* Exam Card */}
                     <div className="bg-white dark:bg-app-card border border-slate-150 dark:border-app-border rounded-2xl p-5 shadow-lg hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between h-full group">
                       
-                      {/* Header */}
-                      <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-slate-100 dark:border-app-border">
-                        <LogoComponent />
-                        <div className="text-left">
-                          <h3 className="font-display font-extrabold text-lg text-slate-850 dark:text-white leading-tight group-hover:text-[#FF5E14] transition-colors">
-                            {exam.name}
-                          </h3>
-                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                            Management Entrance
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Calendar Body */}
-                      <div className="flex flex-col gap-4 text-left mb-6">
-                        {/* Application Date */}
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
-                            <Calendar className="w-4 h-4" />
-                          </div>
-                          <div className="flex flex-col">
-                            <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
-                              Application Date
-                            </span>
-                            <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
-                              {exam.appDate}
+                      <Link to={`/exams/${exam.id}`} className="flex flex-col flex-1 hover:no-underline text-inherit cursor-pointer">
+                        {/* Header */}
+                        <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-slate-100 dark:border-app-border w-full">
+                          <LogoComponent />
+                          <div className="text-left">
+                            <h3 className="font-display font-extrabold text-lg text-slate-850 dark:text-white leading-tight group-hover:text-[#FF5E14] transition-colors">
+                              {exam.name}
+                            </h3>
+                            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                              Management Entrance
                             </span>
                           </div>
                         </div>
 
-                        {/* Examination Date */}
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
-                            <Calendar className="w-4 h-4" />
+                        {/* Calendar Body */}
+                        <div className="flex flex-col gap-4 text-left mb-6 w-full">
+                          {/* Application Date */}
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
+                              <Calendar className="w-4 h-4" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
+                                Application Date
+                              </span>
+                              <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
+                                {exam.appDate}
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex flex-col">
-                            <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
-                              Examination Date
-                            </span>
-                            <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
-                              {exam.examDate}
-                            </span>
-                          </div>
-                        </div>
 
-                        {/* Result */}
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
-                            <Calendar className="w-4 h-4" />
+                          {/* Examination Date */}
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
+                              <Calendar className="w-4 h-4" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
+                                Examination Date
+                              </span>
+                              <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
+                                {exam.examDate}
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex flex-col">
-                            <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
-                              Result
-                            </span>
-                            <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
-                              {exam.resultDate}
-                            </span>
+
+                          {/* Result */}
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
+                              <Calendar className="w-4 h-4" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
+                                Result
+                              </span>
+                              <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
+                                {exam.resultDate}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
 
                       {/* Footer Trigger Link */}
                       <div className="flex justify-center pt-3 border-t border-slate-100 dark:border-app-border">
-                        <button
-                          onClick={() => handleReadMore(exam.name)}
-                          className="text-xs font-black text-[#FF5E14] hover:text-[#D14B00] flex items-center gap-1 hover:gap-2 transition-all cursor-pointer bg-transparent border-none"
+                        <Link
+                          to={`/exams/${exam.id}`}
+                          className="text-xs font-black text-[#FF5E14] hover:text-[#D14B00] flex items-center gap-1 hover:gap-2 transition-all cursor-pointer hover:no-underline"
                         >
                           Read More &gt;&gt;
-                        </button>
+                        </Link>
                       </div>
 
                     </div>

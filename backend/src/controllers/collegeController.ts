@@ -144,6 +144,12 @@ export const getCollegeBySlugOrId = catchAsync(async (req: Request, res: Respons
     reviews: college.reviews,
     faq: college.faq,
     infrastructure: college.infrastructure,
+    totalOffers: college.totalOffers,
+    companyVisiting: college.companyVisiting,
+    highestInternationalPackage: college.highestInternationalPackage,
+    phone: college.phone,
+    address: college.address,
+    email: college.email,
   };
 
   res.status(200).json({

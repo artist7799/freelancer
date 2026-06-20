@@ -11,14 +11,7 @@ import {
   StudentChoiceColleges,
   TopCollegesList,
   PlacementVerifiedColleges,
-  UpcomingExamsCarousel,
-  ScholarshipsList,
-  StudentServices,
-  CareerRoadmapsSection,
-  TestimonialsCarousel,
-  BlogsSection,
-  FAQSection,
-  CTA
+  UpcomingExamsCarousel
 } from '../components/sections/HomeSections';
 
 export const Home: React.FC = () => {
@@ -36,13 +29,6 @@ export const Home: React.FC = () => {
       <TopCollegesList />
       <PlacementVerifiedColleges />
       <UpcomingExamsCarousel />
-      <ScholarshipsList />
-      <StudentServices />
-      <CareerRoadmapsSection />
-      <TestimonialsCarousel />
-      <BlogsSection />
-      <FAQSection />
-      <CTA />
     </div>
   );
 };

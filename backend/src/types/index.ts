@@ -92,6 +92,14 @@ export interface ICollege extends Document {
   reviews: IReview[];
   faq: IFAQItem[];
   infrastructure: string[];
+  
+  // Placement & Contact redone fields
+  totalOffers?: number;
+  companyVisiting?: number;
+  highestInternationalPackage?: string;
+  phone?: string;
+  address?: string;
+  email?: string;
 }
 
 export interface ICourse extends Document {
