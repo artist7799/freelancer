@@ -1300,7 +1300,7 @@ export const CollegeDetails = () => {
                               `${college.accreditation || 'AICTE & UGC'} approved — ensuring nationally recognized degrees`,
                               `Comprehensive scholarship programs for merit & need-based students`,
                               `Vibrant campus life with 100+ clubs, fests, sports, and cultural events`
-                            ]).map((reason, idx) => (
+                            ]).map((reason: string, idx: number) => (
                               <div key={idx} className="flex items-start gap-2.5">
                                 <span className="text-[#FF7A00] font-black shrink-0 text-base leading-snug">→</span>
                                 <span className="text-sm text-app-text font-medium leading-snug">{reason}</span>
