@@ -44,26 +44,12 @@
   50% { opacity: 0.8; filter: blur(60px); }
 }
 
-/* ─────────────────────────────────────────
-   DARK THEME (Default)
-───────────────────────────────────────── */
-:root {
-  --bg-color: #080B16;
-  --card-color: rgba(15, 20, 40, 0.85);
-  --card-color-hover: rgba(20, 28, 55, 0.95);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-color-hover: rgba(255, 255, 255, 0.18);
-  --text-color: #F1F5F9;
-  --muted-color: #94A3B8;
-  --nav-bg: rgba(8, 11, 22, 0.92);
-  --glow-color: rgba(79, 70, 229, 0.18);
-  --input-bg: rgba(15, 20, 40, 0.9);
-}
+@variant dark (&:where(.dark, .dark *));
 
 /* ─────────────────────────────────────────
-   LIGHT THEME (optional toggle)
+   LIGHT THEME (Default)
 ───────────────────────────────────────── */
-:root.light {
+:root {
   --bg-color: #F8FAFC;
   --card-color: rgba(255, 255, 255, 0.92);
   --card-color-hover: rgba(255, 255, 255, 1);
@@ -74,6 +60,22 @@
   --nav-bg: rgba(255, 255, 255, 0.94);
   --glow-color: rgba(79, 70, 229, 0.07);
   --input-bg: #FFFFFF;
+}
+
+/* ─────────────────────────────────────────
+   DARK THEME (optional toggle)
+───────────────────────────────────────── */
+:root.dark {
+  --bg-color: #080B16;
+  --card-color: rgba(15, 20, 40, 0.85);
+  --card-color-hover: rgba(20, 28, 55, 0.95);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.18);
+  --text-color: #F1F5F9;
+  --muted-color: #94A3B8;
+  --nav-bg: rgba(8, 11, 22, 0.92);
+  --glow-color: rgba(79, 70, 229, 0.18);
+  --input-bg: rgba(15, 20, 40, 0.9);
 }
 
 body {

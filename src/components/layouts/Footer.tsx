@@ -153,24 +153,24 @@ export const Footer = () => {
     {
       title: "TOP EXAM",
       links: [
-        { label: "Management Exams", path: "/exams" },
-        { label: "Medical Exams", path: "/exams" },
-        { label: "Pharmacy Exams", path: "/exams" },
-        { label: "Engineering Exams", path: "/exams" },
-        { label: "Law Exams", path: "/exams" },
-        { label: "Commerce Exam", path: "/exams" },
-        { label: "Online Exam", path: "/exams" }
+        { label: "Management Exams", path: "/exams?stream=Management" },
+        { label: "Medical Exams", path: "/exams?stream=Dental" },
+        { label: "Pharmacy Exams", path: "/exams?search=Pharmacy" },
+        { label: "Engineering Exams", path: "/exams?stream=Engineering" },
+        { label: "Law Exams", path: "/exams?stream=Law" },
+        { label: "Commerce Exam", path: "/exams?stream=Commerce" },
+        { label: "Online Exam", path: "/exams?mode=Online" }
       ]
     },
     {
       title: "STUDENT HELPDESK",
       links: [
-        { label: "Common Application Process", path: "/register" },
-        { label: "Education Loan", path: "/contact" },
+        { label: "Common Application Process", path: "/common-application" },
+        { label: "Education Loan", path: "/education-loan" },
         { label: "Expert Guidance", path: "/contact" },
         { label: "Cashback Offers Program", path: "/scholarships" },
-        { label: "Exam Rank Predictor", path: "/exams" },
-        { label: "Re-Admission", path: "/register" },
+        { label: "Exam Rank Predictor", path: "/college-predictor" },
+        { label: "Re-Admission", path: "/re-admission" },
         { label: "Apply For Scholarship Test", path: "/scholarships" }
       ]
     },
@@ -179,16 +179,16 @@ export const Footer = () => {
       links: [
         { label: "Career Profiling Test", path: "/careers" },
         { label: "Compare College", path: "/compare" },
-        { label: "College Predictor", path: "/colleges" }
+        { label: "College Predictor", path: "/college-predictor" }
       ]
     },
     {
       title: "LATEST COLLEGE UPDATES",
       links: [
         { label: "Top MBA admissions", path: "/colleges?course=Management" },
-        { label: "Blog", path: "/resources" },
+        { label: "Blog", path: "/blog" },
         { label: "Terms & Conditions", path: "/resources" },
-        { label: "Events", path: "/resources" },
+        { label: "Events", path: "/events" },
         { label: "Privacy Policy", path: "/resources" },
         { label: "Refund & Cancellation Policy", path: "/resources" }
       ]

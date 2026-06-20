@@ -154,32 +154,35 @@ const ShardaLogo = () => (
   </svg>
 );
 
-const renderLogo = (logoId: string) => {
+const renderLogo = (logoId: string, name: string) => {
   const container = (child: React.ReactNode) => (
     <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center p-0.5 border border-app-border shrink-0">
       {child}
     </div>
   );
-  switch (logoId) {
-    case 'iit-bombay': return container(<IITBLogo />);
-    case 'iim-bangalore': return container(<IIMBLogo />);
-    case 'aiims-delhi': return container(<AIIMSLogo />);
-    case 'kr-mangalam': return container(<KRMULogo />);
-    case 'great-lakes': return container(<GreatLakesLogo />);
-    case 'vydehi-medical': return container(<VydehiLogo />);
-    case 'jims-delhi':
-    case 'jims-gn':
-      return container(<JIMSLogo />);
-    case 'accurate-group': return container(<AccurateLogo />);
-    case 'amity-university': return container(<AmityLogo />);
-    case 'gl-bajaj': return container(<GLBajajLogo />);
-    case 'bennett-university': return container(<BennettLogo />);
-    case 'lloyd-school': return container(<LloydLogo />);
-    case 'mangalmay-institute': return container(<MangalmayLogo />);
-    case 'sharda-university': return container(<ShardaLogo />);
-    default:
-      return container(<JIMSLogo />);
+  
+  if (logoId.includes('kr-mangalam')) {
+    return container(<KRMULogo />);
   }
+  if (logoId.includes('amity')) {
+    return container(<AmityLogo />);
+  }
+
+  const clean = name.replace(/,/g, '').replace(/University/gi, 'U').replace(/Greater Noida/gi, 'GN').replace(/Gurugram/gi, 'G').replace(/Bareilly/gi, 'B').replace(/Mathura/gi, 'M').replace(/Indore/gi, 'I').replace(/Bhopal/gi, 'B').replace(/Ujjain/gi, 'U').replace(/Durg/gi, 'D').replace(/Sikkim/gi, 'S').replace(/Tirupati/gi, 'T').replace(/Hyderabad/gi, 'H').replace(/Shimla/gi, 'S').replace(/Mohali/gi, 'M').replace(/Jaipur/gi, 'J').replace(/Guwahati/gi, 'G').replace(/Dehradun/gi, 'D').replace(/Uttarakhand/gi, 'U');
+  const initials = clean
+    .split(/\s+/)
+    .map(w => w[0])
+    .join('')
+    .replace(/[^a-zA-Z]/g, '')
+    .toUpperCase()
+    .substring(0, 4) || 'COL';
+
+  return container(
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <rect x="12" y="12" width="76" height="76" rx="12" fill="#0A369D" />
+      <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">{initials}</text>
+    </svg>
+  );
 };
 
 export const Dashboard = () => {
@@ -323,7 +326,7 @@ export const Dashboard = () => {
     {
       id: 1,
       title: 'Scholarship Match Found!',
-      desc: 'You qualify for the Bennett Engineering Excellence Scholarship. Check details.',
+      desc: 'You qualify for the DIT Engineering Excellence Scholarship. Check details.',
       time: '2 hours ago',
       type: 'success',
       unread: true
@@ -331,7 +334,7 @@ export const Dashboard = () => {
     {
       id: 2,
       title: 'College Application Update',
-      desc: 'Your application for Sharda University is approved. Offer letter generated.',
+      desc: 'Your application for K.R. Mangalam University is approved. Offer letter generated.',
       time: '1 day ago',
       type: 'info',
       unread: true
@@ -704,7 +707,7 @@ export const Dashboard = () => {
                         <div className="flex flex-col gap-2.5">
                           {savedCollegesList.slice(0, 3).map((col: any) => (
                             <Link key={col.id} to={`/colleges/${col.id}`} className="flex items-center gap-3 p-2.5 rounded-xl bg-app-card border border-app-border hover:border-app-border transition-colors">
-                              {renderLogo(col.logo || col.id)}
+                              {renderLogo(col.logo || col.id, col.name)}
                               <div className="flex-1 min-w-0 text-left">
                                 <p className="font-extrabold text-xs text-white truncate">{col.name}</p>
                                 <p className="text-[10px] text-app-muted truncate mt-0.5">{col.location}</p>
@@ -732,7 +735,7 @@ export const Dashboard = () => {
                           {comparedCollegesList.slice(0, 3).map((col: any) => (
                             <div key={col.id} className="flex items-center justify-between p-2.5 rounded-xl bg-app-card border border-app-border">
                               <div className="flex items-center gap-3 min-w-0 text-left">
-                                {renderLogo(col.logo || col.id)}
+                                {renderLogo(col.logo || col.id, col.name)}
                                 <div className="min-w-0">
                                   <p className="font-extrabold text-xs text-white truncate">{col.name}</p>
                                   <p className="text-[10px] text-app-muted truncate mt-0.5">{col.category}</p>
@@ -810,7 +813,7 @@ export const Dashboard = () => {
                       {comparedCollegesList.map((col: any) => (
                         <div key={col.id} className="p-5 rounded-2xl bg-app-card border border-app-border flex items-center justify-between">
                           <div className="flex items-center gap-4 min-w-0">
-                            {renderLogo(col.logo || col.id)}
+                            {renderLogo(col.logo || col.id, col.name)}
                             <div className="min-w-0">
                               <h4 className="font-extrabold text-sm text-white truncate">{col.name}</h4>
                               <p className="text-[11px] text-app-muted truncate mt-1">{col.location}</p>

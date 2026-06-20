@@ -60,87 +60,59 @@ import { blogs } from '../../data/blogs';
 // SECTION 1: HERO
 // ==========================================
 // SVGs FOR CRISP UNIVERSITY VECTOR LOGOS IN HERO SHOWCASE
-const LPULogoHero = () => (
+const IILMLogo = () => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
     <rect x="5" y="5" width="90" height="90" rx="8" fill="white" />
-    <circle cx="50" cy="38" r="22" fill="#F37021" />
-    <circle cx="50" cy="38" r="17" fill="white" />
-    <path d="M50 25 C45 35 45 42 50 50 C55 42 55 35 50 25 Z" fill="#F37021" />
-    <path d="M50 25 C40 30 35 38 42 46 C45 42 48 35 50 25 Z" fill="#231F20" />
-    <path d="M50 25 C60 30 65 38 58 46 C55 42 52 35 50 25 Z" fill="#231F20" />
-    <text x="50" y="72" fill="#231F20" fontSize="7.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">LOVELY</text>
-    <text x="50" y="80" fill="#231F20" fontSize="6.5" fontWeight="700" textAnchor="middle" fontFamily="sans-serif">UNIVERSITY</text>
+    <rect x="12" y="12" width="76" height="76" rx="6" fill="#0A369D" />
+    <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">IILM</text>
   </svg>
 );
 
-const BITSLogo = () => (
+const SushantLogo = () => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
-    <rect x="10" y="10" width="80" height="80" rx="8" fill="#0A369D" />
-    <circle cx="50" cy="42" r="18" fill="white" />
-    <path d="M50 30 C46 36 46 44 50 52 C54 44 54 36 50 30 Z" fill="#E74C3C" />
-    <text x="50" y="75" fill="white" fontSize="9" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">BITS PILANI</text>
+    <rect x="5" y="5" width="90" height="90" rx="8" fill="white" />
+    <rect x="12" y="12" width="76" height="76" rx="6" fill="#800000" />
+    <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="serif">SU</text>
   </svg>
 );
 
-const NMIMSLogo = () => (
+const KRMULogo = () => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
-    <circle cx="50" cy="42" r="34" fill="#A8201A" />
-    <text x="50" y="50" fill="white" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="serif">NMIMS</text>
-    <text x="50" y="66" fill="#FFD700" fontSize="7.5" fontWeight="700" textAnchor="middle" fontFamily="sans-serif">MUMBAI</text>
+    <rect x="5" y="5" width="90" height="90" rx="8" fill="white" />
+    <path d="M25 24 L50 14 L75 24 L75 57 C75 75 50 88 50 88 C50 88 25 75 25 57 Z" fill="#005B94" />
+    <path d="M30 28 L50 19 L70 28 L70 55 C70 70 50 81 50 81 C50 81 30 70 30 55 Z" fill="white" />
+    <text x="50" y="65" fill="#005B94" fontSize="13" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">KRMU</text>
   </svg>
 );
 
-const SIULogo = () => (
+const DITLogo = () => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
-    <circle cx="50" cy="45" r="34" fill="#E31B23" />
-    <circle cx="50" cy="45" r="26" fill="white" />
-    <circle cx="50" cy="45" r="20" fill="#E31B23" />
-    <text x="50" y="51" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">SIU</text>
-    <text x="50" y="86" fill="#E31B23" fontSize="6.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">SYMBIOSIS</text>
+    <rect x="5" y="5" width="90" height="90" rx="8" fill="white" />
+    <rect x="12" y="12" width="76" height="76" rx="6" fill="#1B4D3E" />
+    <text x="50" y="58" fill="white" fontSize="24" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">DIT</text>
   </svg>
 );
 
-const MITWPLogo = () => (
+const MBULogo = () => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
-    <circle cx="50" cy="50" r="42" fill="#1B254B" />
-    <circle cx="50" cy="50" r="34" fill="white" />
-    <text x="50" y="58" fill="#1B254B" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">MIT</text>
-  </svg>
-);
-
-const IITBLogoHero = () => (
-  <svg viewBox="0 0 100 100" className="w-full h-full">
-    <circle cx="50" cy="50" r="42" fill="#0F2C59" />
-    <circle cx="50" cy="50" r="24" fill="none" stroke="white" strokeWidth="4" />
-    <path d="M50 35 L50 65 M35 50 L65 50" stroke="white" strokeWidth="4" />
-    <text x="50" y="80" fill="white" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">IIT BOMBAY</text>
-  </svg>
-);
-
-const ShardaLogoHero = () => (
-  <svg viewBox="0 0 100 100" className="w-full h-full">
-    <circle cx="50" cy="50" r="42" fill="#0072CE" />
-    <circle cx="50" cy="50" r="32" fill="white" />
-    <text x="50" y="56" fill="#0072CE" fontSize="10" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">SHARDA</text>
+    <rect x="5" y="5" width="90" height="90" rx="8" fill="white" />
+    <circle cx="50" cy="50" r="38" fill="#0F2C59" />
+    <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">MBU</text>
   </svg>
 );
 
 const renderHeroLogo = (logoType: string) => {
   switch (logoType) {
-    case 'mit-wpu':
-      return <MITWPLogo />;
-    case 'iit-bombay':
-      return <IITBLogoHero />;
-    case 'sharda-university':
-      return <ShardaLogoHero />;
-    case 'bits-pilani':
-      return <BITSLogo />;
-    case 'nmims-mumbai':
-      return <NMIMSLogo />;
-    case 'lpu-punjab':
-      return <LPULogoHero />;
-    case 'symbiosis-pune':
-      return <SIULogo />;
+    case 'iilm-university-greater-noida':
+      return <IILMLogo />;
+    case 'sushant-university-gurugram':
+      return <SushantLogo />;
+    case 'kr-mangalam-university':
+      return <KRMULogo />;
+    case 'dit-university-dehradun':
+      return <DITLogo />;
+    case 'mohan-babu-university-tirupati':
+      return <MBULogo />;
     default:
       return null;
   }
@@ -149,100 +121,72 @@ const renderHeroLogo = (logoType: string) => {
 const HERO_SLIDES = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
     title: 'Admissions Open 2026 Batch',
-    uniInitials: 'MIT',
-    uniName: 'MIT World Peace University',
-    logoType: 'mit-wpu',
+    uniInitials: 'IILM',
+    uniName: 'IILM University, Greater Noida',
+    logoType: 'iilm-university-greater-noida',
     stats: [
-      { key: '16.3 LPA', desc: 'Average CTC for top 100 placements' },
-      { key: '51.0 LPA', desc: 'Highest package offered this year' },
-      { key: '1600+', desc: 'Offers generated during campus drive' },
-      { key: '200+', desc: 'Global academic partners' }
+      { key: '7.5 LPA', desc: 'Average CTC for graduates' },
+      { key: '36.0 LPA', desc: 'Highest package offered' },
+      { key: '500+', desc: 'Offers generated during campus drive' },
+      { key: '120+', desc: 'Top recruiters visiting' }
     ]
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80',
     title: 'Admission Conclave Live',
-    uniInitials: 'IITB',
-    uniName: 'Indian Institute of Technology Bombay',
-    logoType: 'iit-bombay',
+    uniInitials: 'Sushant',
+    uniName: 'Sushant University, Gurugram',
+    logoType: 'sushant-university-gurugram',
     stats: [
-      { key: '21.8 LPA', desc: 'Average CTC for engineering graduates' },
-      { key: '1.68 Cr', desc: 'Highest international package offered' },
-      { key: '350+', desc: 'Top global tech recruiters on campus' },
-      { key: 'Top 100', desc: 'Ranked globally for engineering education' }
+      { key: '6.8 LPA', desc: 'Average CTC for graduates' },
+      { key: '32.0 LPA', desc: 'Highest domestic package' },
+      { key: '500+', desc: 'Offers generated during campus drive' },
+      { key: '120+', desc: 'Top corporate recruiters' }
     ]
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=80',
     title: 'Premium Campus Placements',
-    uniInitials: 'SU',
-    uniName: 'Sharda University Noida',
-    logoType: 'sharda-university',
+    uniInitials: 'KRMU',
+    uniName: 'K.R. Mangalam University, Gurugram',
+    logoType: 'kr-mangalam-university',
     stats: [
-      { key: '12.5 LPA', desc: 'Highest package offered in engineering/management' },
-      { key: '150+', desc: 'MNCs and Fortune 500 recruiters visiting' },
-      { key: '80%+', desc: 'Scholarships offered on merit basis' },
-      { key: '4500+', desc: 'Placed students across diverse streams' }
+      { key: '7.5 LPA', desc: 'Average CTC for graduates' },
+      { key: '56.6 LPA', desc: 'Highest domestic package' },
+      { key: '500+', desc: 'Offers generated during campus drive' },
+      { key: '120+', desc: 'Marquee corporate partners' }
     ]
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80',
     title: 'Admissions & Scholarships Open',
-    uniInitials: 'BITS',
-    uniName: 'Birla Institute of Technology & Science Pilani',
-    logoType: 'bits-pilani',
+    uniInitials: 'DIT',
+    uniName: 'DIT University, Dehradun',
+    logoType: 'dit-university-dehradun',
     stats: [
-      { key: '30.37 LPA', desc: 'Average CTC for Computer Science' },
-      { key: '60.75 LPA', desc: 'Highest domestic salary package offered' },
-      { key: '100%', desc: 'Placement rate for eligible candidates' },
-      { key: '400+', desc: 'Pre-placement offers (PPOs) received' }
+      { key: '6.5 LPA', desc: 'Average CTC for computer science' },
+      { key: '38.0 LPA', desc: 'Highest salary package offered' },
+      { key: '500+', desc: 'Offers generated during campus drive' },
+      { key: '120+', desc: 'Top global recruiters' }
     ]
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=1200&q=80',
-    title: 'MBA & Law Enrollment Live',
-    uniInitials: 'NMIMS',
-    uniName: 'NMIMS Deemed-to-be-University Mumbai',
-    logoType: 'nmims-mumbai',
+    image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80',
+    title: 'Admission Conclave Live',
+    uniInitials: 'MBU',
+    uniName: 'Mohan Babu University, Tirupati',
+    logoType: 'mohan-babu-university-tirupati',
     stats: [
-      { key: '23.07 LPA', desc: 'Average CTC for Core MBA programs' },
-      { key: '67.80 LPA', desc: 'Highest domestic package in placements' },
-      { key: '160+', desc: 'Premium recruiters and consulting giants' },
-      { key: '35%+', desc: 'Students receiving pre-placement offers' }
-    ]
-  },
-  {
-    id: 6,
-    image: 'https://images.unsplash.com/photo-1607237138185-eedd996c5c0c?auto=format&fit=crop&w=1200&q=80',
-    title: 'Admission Open Batch 2026 Batch',
-    uniInitials: 'LPU',
-    uniName: 'Lovely Professional University Punjab',
-    logoType: 'lpu-punjab',
-    stats: [
-      { key: '400+', desc: 'Recruiters of IITs/IIMs/NITs also hire from LPU' },
-      { key: '₹ 10.23 Lac', desc: 'Average salary of top 25% placed students' },
-      { key: '6000+', desc: 'Offers from Fortune 500 companies' },
-      { key: '2225+', desc: 'Recruiters hired LPU students' }
-    ]
-  },
-  {
-    id: 7,
-    image: 'https://images.unsplash.com/photo-1519789144558-d3b67f371721?auto=format&fit=crop&w=1200&q=80',
-    title: 'Symbiosis SET/SNAP Registrations',
-    uniInitials: 'SIU',
-    uniName: 'Symbiosis International University Pune',
-    logoType: 'symbiosis-pune',
-    stats: [
-      { key: '20.5 LPA', desc: 'Average CTC for MBA batch' },
-      { key: '39.0 LPA', desc: 'Highest salary package offered' },
-      { key: '100+', desc: 'Corporate partners for internships' },
-      { key: '250+', desc: 'Offers made by marquee recruiters' }
+      { key: '6.2 LPA', desc: 'Average CTC for graduates' },
+      { key: '44.0 LPA', desc: 'Highest salary package offered' },
+      { key: '500+', desc: 'Offers generated during campus drive' },
+      { key: '120+', desc: 'Top technology recruiters' }
     ]
   }
 ];
@@ -942,179 +886,94 @@ export const PlacementUniversities = () => {
 
   const universities = [
     {
-      id: 'vidyashilp-university',
-      name: 'Vidyashilp University (VU), Bangalore',
-      location: 'Adity, Karnataka',
-      rating: '8.8 /10',
-      placement: '45 LPA',
-      logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'graphic-era',
-      name: 'Graphic Era (Deemed To Be University)',
-      courses: 'MBA',
-      location: 'Dehra, Uttarakhand',
-      rating: '8.3 /10',
-      placement: '47.88 LPA',
-      logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'iibs-bangalore',
-      name: 'International Institute of Business Studies (IIBS)',
-      courses: 'MBA',
-      location: 'Benga, Karnataka',
-      rating: '8.8 /10',
-      placement: '47 LPA',
-      logo: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'bennett-university',
-      name: 'Bennett University, Greater Noida',
-      courses: 'MBA',
-      location: 'Great, Uttar Pradesh',
-      rating: '8.7 /10',
-      placement: '1.2 CR',
-      logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'sanjay-ghodawat-university',
-      name: 'Sanjay Ghodawat University',
-      location: 'Kolha, Maharashtra',
-      rating: '7.8 /10',
-      placement: '15 LPA',
-      logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'xlri-jamshedpur',
-      name: 'Xavier School of Management',
-      courses: 'PGDM',
-      location: 'Jamsh, Jharkhand',
-      rating: '8.9 /10',
-      placement: '1.1 CR',
-      logo: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'alliance-university',
-      name: 'Alliance University Bangalore',
-      courses: 'MBA',
-      location: 'Benga, Karnataka',
-      rating: '8 /10',
-      placement: '60.1 LPA',
-      logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'lpu-punjab',
-      name: 'Lovely Professional University',
-      location: 'Jalan, Punjab',
+      id: 'iilm-university-greater-noida',
+      name: 'IILM University, Greater Noida',
+      courses: 'B.Tech | MBA',
+      location: 'Greater Noida, Uttar Pradesh',
       rating: '8.2 /10',
-      placement: '2.5 CR',
-      logo: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=120&h=120&q=80',
+      placement: '36 LPA',
+      logo: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'cgc-landran',
-      name: 'Chandigarh Group of Colleges (CGC)',
-      courses: 'MBA',
-      location: 'Chand, Punjab',
-      rating: '8.5 /10',
-      placement: '53 LPA',
+      id: 'sushant-university-gurugram',
+      name: 'Sushant University, Gurugram',
+      courses: 'MBA | BBA',
+      location: 'Gurugram, Haryana',
+      rating: '8.0 /10',
+      placement: '32 LPA',
+      logo: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=120&h=120&q=80',
+    },
+    {
+      id: 'haridwar-university-roorkee',
+      name: 'Haridwar University, Roorkee',
+      courses: 'B.Tech',
+      location: 'Roorkee, Uttarakhand',
+      rating: '7.8 /10',
+      placement: '18 LPA',
+      logo: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=120&h=120&q=80',
+    },
+    {
+      id: 'sage-university-indore',
+      name: 'SAGE University, Indore',
+      courses: 'B.Tech',
+      location: 'Indore, Madhya Pradesh',
+      rating: '8.0 /10',
+      placement: '30 LPA',
       logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'its-management',
-      name: 'I.T.S School of Management',
-      courses: 'MBA',
-      location: 'Ghazi, Uttar Pradesh',
-      rating: '8 /10',
-      placement: '30.86 LPA',
-      logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'poddar-college',
-      name: 'Poddar International College, Jaipur',
-      courses: 'MBA',
-      location: 'Jaipu, Rajasthan',
-      rating: '9.2 /10',
-      placement: '24 LPA',
-      logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'its-professional-studies',
-      name: 'ITS College Of Professional Studies',
-      location: 'Noida, Uttar Pradesh',
-      rating: '9.1 /10',
-      placement: '10 LPA',
-      logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'amity-university-noida',
-      name: 'Amity University, Noida',
-      courses: 'MBA',
-      location: 'Noida, Uttar Pradesh',
-      rating: '9.5 /10',
-      placement: '62 LPA',
-      logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'amity-university-mumbai',
-      name: 'Amity University Mumbai',
-      courses: 'MBA',
-      location: 'Mumba, Maharashtra',
-      rating: '8.9 /10',
-      placement: '44 LPA',
-      logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'medhavi-university',
-      name: 'Medhavi Skills University, Sikkim',
-      courses: 'MBA',
-      location: 'Namch, Sikkim',
-      rating: '8 /10',
-      placement: '10 LPA',
+      id: 'sage-university-bhopal',
+      name: 'SAGE University, Bhopal',
+      courses: 'MBA | BBA',
+      location: 'Bhopal, Madhya Pradesh',
+      rating: '7.9 /10',
+      placement: '25 LPA',
       logo: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'kiet-university',
-      name: 'KIET Deemed To Be University',
-      courses: 'MBA',
-      location: 'Ghazi, Uttar Pradesh',
-      rating: '8.9 /10',
-      placement: '90 LPA',
-      logo: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=120&h=120&q=80',
+      id: 'avantika-university-ujjain',
+      name: 'Avantika University, Ujjain',
+      courses: 'B.Des',
+      location: 'Ujjain, Madhya Pradesh',
+      rating: '8.4 /10',
+      placement: '20 LPA',
+      logo: 'https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'sage-university',
-      name: 'SAGE University Indore',
-      courses: 'MBA',
-      location: 'Indor, Madhya Pradesh',
-      rating: '9 /10',
-      placement: '30 LPA',
-      logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=120&h=120&q=80',
+      id: 'mohan-babu-university-tirupati',
+      name: 'Mohan Babu University, Tirupati',
+      courses: 'B.Tech',
+      location: 'Tirupati, Andhra Pradesh',
+      rating: '8.2 /10',
+      placement: '44 LPA',
+      logo: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'accman-business-school',
-      name: 'ACCMAN Business School',
-      location: 'Great, Uttar Pradesh',
-      rating: '8.6 /10',
-      placement: '18 LPA',
-      logo: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&h=120&q=80',
+      id: 'amity-university-hyderabad',
+      name: 'Amity University, Hyderabad',
+      courses: 'MBA | BBA',
+      location: 'Hyderabad, Telangana',
+      rating: '8.1 /10',
+      placement: '26 LPA',
+      logo: 'https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=120&h=120&q=80',
     },
     {
-      id: 'kr-mangalam',
-      name: 'K R Mangalam University, (KRMU)',
-      courses: 'MBA',
-      location: 'Gurga, Haryana',
-      rating: '8 /10',
+      id: 'dit-university-dehradun',
+      name: 'DIT University, Dehradun',
+      courses: 'B.Tech',
+      location: 'Dehradun, Uttarakhand',
+      rating: '8.1 /10',
+      placement: '38 LPA',
+      logo: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=120&h=120&q=80',
+    },
+    {
+      id: 'kr-mangalam-university',
+      name: 'K.R. Mangalam University, Gurugram',
+      courses: 'MBA | B.Tech',
+      location: 'Gurugram, Haryana',
+      rating: '8.0 /10',
       placement: '56.6 LPA',
-      logo: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=120&h=120&q=80',
-    },
-    {
-      id: 'pimpri-chinchwad-university',
-      name: 'Pimpri Chinchwad University (PCU)',
-      courses: 'MBA',
-      location: 'Pune, Maharashtra',
-      rating: '9.1 /10',
-      placement: '61 LPA',
-      logo: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=120&h=120&q=80',
+      logo: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=120&h=120&q=80',
     }
   ];
 
@@ -1237,13 +1096,31 @@ export const PlacementUniversities = () => {
 
 const getSlugForUniv = (name: string): string => {
   const n = name.toLowerCase();
-  if (n.includes('alliance')) return 'alliance-university';
-  if (n.includes('sharda')) return 'sharda-university';
-  if (n.includes('lpu') || n.includes('lovely')) return 'lpu-punjab';
-  if (n.includes('amity')) return 'amity-university-noida';
-  if (n.includes('chandigarh')) return 'chandigarh-university';
-  if (n.includes('bennett')) return 'bennett-university';
-  if (n.includes('jagan') || n.includes('jims')) return 'jims-delhi';
+  if (n.includes('iilm')) return 'iilm-university-greater-noida';
+  if (n.includes('sushant')) return 'sushant-university-gurugram';
+  if (n.includes('haridwar')) return 'haridwar-university-roorkee';
+  if (n.includes('future')) return 'future-university-bareilly';
+  if (n.includes('mathura')) return 'sanskriti-university-mathura';
+  if (n.includes('sanskriti') && n.includes('bareilly')) return 'sanskriti-university-bareilly';
+  if (n.includes('sanskriti')) return 'sanskriti-university-mathura';
+  if (n.includes('amity') && n.includes('mohali')) return 'amity-university-mohali';
+  if (n.includes('amity') && n.includes('hyderabad')) return 'amity-university-hyderabad';
+  if (n.includes('amity')) return 'amity-university-mohali'; // fallback
+  if (n.includes('sage') && n.includes('indore')) return 'sage-university-indore';
+  if (n.includes('sage') && n.includes('bhopal')) return 'sage-university-bhopal';
+  if (n.includes('sage')) return 'sage-university-indore'; // fallback
+  if (n.includes('avantika')) return 'avantika-university-ujjain';
+  if (n.includes('modi') || n.includes('kk')) return 'kk-modi-university-durg';
+  if (n.includes('medhavi')) return 'medhavi-skills-university-sikkim';
+  if (n.includes('mohan') || n.includes('babu')) return 'mohan-babu-university-tirupati';
+  if (n.includes('rayat') && n.includes('shimla')) return 'rayat-bahra-university-shimla';
+  if (n.includes('rayat') && n.includes('mohali')) return 'rayat-bahra-university-mohali';
+  if (n.includes('rajasthan')) return 'rajasthan-university';
+  if (n.includes('bosco') || n.includes('don')) return 'don-bosco-university';
+  if (n.includes('dit')) return 'dit-university-dehradun';
+  if (n.includes('mangalam') || n.includes('kr')) return 'kr-mangalam-university';
+  if (n.includes('dev') || n.includes('bhoomi')) return 'dev-bhoomi-university';
+  
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
 
@@ -1254,49 +1131,49 @@ const getSlugForUniv = (name: string): string => {
 export const AdmissionBanners = () => {
   const banners = [
     {
-      univ: 'Alliance University',
+      univ: 'IILM University, Greater Noida',
       bgColor: 'bg-[#6B2326]',
-      highest: '60.1 LPA',
-      recruiters: '600+',
-      average: '8.5 LPA',
-      companies: ['Capgemini', 'Deloitte', 'Infosys', 'KPMG'],
+      highest: '36 LPA',
+      recruiters: '120+',
+      average: '7.5 LPA',
+      companies: ['Amazon', 'Wipro', 'TCS', 'Infosys'],
       image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=400&q=80',
     },
     {
-      univ: 'Sharda University',
+      univ: 'Sushant University, Gurugram',
       bgColor: 'bg-[#1E40AF]',
-      highest: '1.6 CR',
-      recruiters: '600+',
-      average: '7 LPA',
-      companies: ['Deloitte', 'Amazon', 'TechM', 'HDFC'],
+      highest: '32 LPA',
+      recruiters: '120+',
+      average: '6.8 LPA',
+      companies: ['KPMG', 'Deloitte', 'HCL', 'Wipro'],
       image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400&q=80',
     },
     {
-      univ: 'LPU University',
+      univ: 'K.R. Mangalam University, Gurugram',
       bgColor: 'bg-[#C2410C]',
-      highest: '3 CR',
-      recruiters: '1100+',
-      average: '8.2 LPA',
-      companies: ['Google', 'Microsoft', 'Amazon', 'Cognizant'],
-      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=80',
+      highest: '56.6 LPA',
+      recruiters: '120+',
+      average: '7.5 LPA',
+      companies: ['Amazon', 'HCL', 'TCS', 'Wipro'],
+      image: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=400&q=80',
     },
     {
-      univ: 'Amity University',
+      univ: 'Amity University, Mohali',
       bgColor: 'bg-[#1E293B]',
-      highest: '62 LPA',
-      recruiters: '800+',
-      average: '9.5 LPA',
-      companies: ['Accenture', 'Wipro', 'TCS', 'HCL'],
-      image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=400&q=80',
+      highest: '20 LPA',
+      recruiters: '200+',
+      average: '7.8 LPA',
+      companies: ['Amazon', 'Deloitte', 'Wipro', 'HDFC'],
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80',
     },
     {
-      univ: 'Chandigarh University',
+      univ: 'DIT University, Dehradun',
       bgColor: 'bg-[#991B1B]',
-      highest: '54.75 LPA',
-      recruiters: '900+',
-      average: '8 LPA',
-      companies: ['IBM', 'Deloitte', 'Intel', 'Amazon'],
-      image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=400&q=80',
+      highest: '38 LPA',
+      recruiters: '250+',
+      average: '6.5 LPA',
+      companies: ['Amazon', 'Infosys', 'Deloitte', 'Cognizant'],
+      image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=400&q=80',
     }
   ];
 
@@ -1416,91 +1293,6 @@ export const AdmissionBanners = () => {
 // ==========================================
 // MOCKUP UNIVERSITY CARDS SECTION
 // ==========================================
-const BennettLogo = () => (
-  <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-200">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Red Shield */}
-      <path d="M50 5 C75 5 85 15 85 45 C85 75 50 95 50 95 C50 95 15 75 15 45 C15 15 25 5 50 5 Z" fill="#B32025" />
-      {/* Gold Inner Shield border */}
-      <path d="M50 10 C70 10 78 18 78 45 C78 70 50 88 50 88 C50 88 22 70 22 45 C22 18 30 10 50 10 Z" fill="none" stroke="#FFD700" strokeWidth="3" />
-      {/* Book/Crest icon in center */}
-      <path d="M35 50 L50 35 L65 50 L50 65 Z" fill="#FFD700" />
-      <path d="M35 50 H65 M50 35 V65" stroke="#B32025" strokeWidth="2" />
-      {/* Text or initials */}
-      <text x="50" y="80" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">BENNETT</text>
-    </svg>
-  </div>
-);
-
-const CULogo = () => (
-  <div className="w-12 h-12 bg-[#1A1A1A] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-800">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Blue / Red Outer Ring */}
-      <circle cx="50" cy="50" r="40" fill="#0C1B33" stroke="#FF5E14" strokeWidth="3" />
-      {/* Gear/Sunburst in center */}
-      <circle cx="50" cy="50" r="22" fill="#E63946" />
-      {/* Cog teeth/spokes */}
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-        <rect
-          key={angle}
-          x="46"
-          y="22"
-          width="8"
-          height="12"
-          fill="#E63946"
-          transform={`rotate(${angle} 50 50)`}
-        />
-      ))}
-      <circle cx="50" cy="50" r="14" fill="#0C1B33" />
-      <circle cx="50" cy="50" r="8" fill="#FFB200" />
-      {/* Initials */}
-      <text x="50" y="54" fill="white" fontSize="14" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">CU</text>
-    </svg>
-  </div>
-);
-
-const JIMSLogo = () => (
-  <div className="w-12 h-12 bg-[#034DA2] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#023e82]">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* jims text */}
-      <text x="50" y="45" fill="white" fontSize="30" fontWeight="900" fontStyle="italic" textAnchor="middle" fontFamily="monospace, sans-serif">jims</text>
-      {/* divider */}
-      <line x1="15" y1="60" x2="85" y2="60" stroke="white" strokeWidth="3" />
-      {/* tiny subtext */}
-      <text x="50" y="78" fill="white" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">ROHINI</text>
-    </svg>
-  </div>
-);
-
-const AllianceLogo = () => (
-  <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-200">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Green Background Circle */}
-      <circle cx="50" cy="50" r="45" fill="#1B4D3E" />
-      {/* Gold Crown */}
-      <path d="M30 65 L35 45 L50 55 L65 45 L70 65 Z" fill="#FFD700" />
-      <circle cx="30" cy="40" r="3" fill="#FFD700" />
-      <circle cx="50" cy="50" r="3" fill="#FFD700" />
-      <circle cx="70" cy="40" r="3" fill="#FFD700" />
-      {/* Banner with initials */}
-      <text x="50" y="80" fill="white" fontSize="14" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">AU</text>
-    </svg>
-  </div>
-);
-
-const LPULogo = () => (
-  <div className="w-12 h-12 bg-[#FF7A00] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-orange-600">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Outer Ring */}
-      <circle cx="50" cy="50" r="42" fill="none" stroke="white" strokeWidth="4" />
-      {/* Star */}
-      <polygon points="50,15 63,38 90,38 68,54 77,80 50,65 23,80 32,54 10,38 37,38" fill="white" />
-      {/* Text */}
-      <text x="50" y="58" fill="#FF7A00" fontSize="16" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">LPU</text>
-    </svg>
-  </div>
-);
-
 export const FeaturedCollegesMockup = () => {
   const addToast = useGlobalStore().addToast;
   const navigate = useNavigate();
@@ -1509,54 +1301,54 @@ export const FeaturedCollegesMockup = () => {
 
   const mockupColleges = [
     {
-      name: 'Bennett University, Greater Noida...',
-      fullName: 'Bennett University, Greater Noida',
-      location: 'Greater Noida,Uttar Pradesh',
-      rank: 'B.Tech 52 out of 246 Top Private Colleges in India 2023',
-      highestPackage: 'Highest Package - 1.2 CR',
-      course: 'Course: MBA|PGDM',
+      name: 'IILM University, Greater Noida...',
+      fullName: 'IILM University, Greater Noida',
+      location: 'Greater Noida, Uttar Pradesh',
+      rank: '#45 in India (Private Universities)',
+      highestPackage: 'Highest Package - 36 LPA',
+      course: 'Course: B.Tech|MBA',
       image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'bennett'
+      logoType: 'iilm-university-greater-noida'
     },
     {
-      name: 'Chandigarh University, Chandigarh ...',
-      fullName: 'Chandigarh University, Chandigarh',
-      location: ',Chandigarh',
-      rank: 'Ranked 41 for Overall by Indiatoday Ranking',
-      highestPackage: 'Highest Package - 1.7 CR',
-      course: 'Course: MBA|PGDM',
+      name: 'Sushant University, Gurugram...',
+      fullName: 'Sushant University, Gurugram',
+      location: 'Gurugram, Haryana',
+      rank: '#52 in India (Private Universities)',
+      highestPackage: 'Highest Package - 32 LPA',
+      course: 'Course: MBA|BBA',
       image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'chandigarh'
+      logoType: 'sushant-university-gurugram'
     },
     {
-      name: 'Jagan Institute of Management Studies Ne...',
-      fullName: 'Jagan Institute of Management Studies (JIMS), Rohini, Delhi',
-      location: 'Delhi-NCR,Delhi',
-      rank: 'Ranked 64 For MBA By India Today 2023',
+      name: 'Sanskriti University, Mathura...',
+      fullName: 'Sanskriti University, Mathura',
+      location: 'Mathura, Uttar Pradesh',
+      rank: '#35 in India (Private Universities)',
       highestPackage: 'Highest Package - 22 LPA',
-      course: 'Course: MBA|PGDM',
-      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'jims'
+      course: 'Course: MBA|BBA',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&h=400&q=80',
+      logoType: 'sanskriti-university-mathura'
     },
     {
-      name: 'Alliance University, Bangalore ...',
-      fullName: 'Alliance University, Bangalore',
-      location: 'Bangalore,Karnataka',
-      rank: 'Ranked 39 for MBA by NIRF 2023',
-      highestPackage: 'Highest Package - 60.1 LPA',
-      course: 'Course: MBA|PGDM',
-      image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'alliance'
+      name: 'DIT University, Dehradun...',
+      fullName: 'DIT University, Dehradun',
+      location: 'Dehradun, Uttarakhand',
+      rank: '#45 in India (Engineering)',
+      highestPackage: 'Highest Package - 38 LPA',
+      course: 'Course: B.Tech',
+      image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&h=400&q=80',
+      logoType: 'dit-university-dehradun'
     },
     {
-      name: 'Lovely Professional University, Punjab ...',
-      fullName: 'Lovely Professional University (LPU), Punjab',
-      location: 'Jalandhar,Punjab',
-      rank: 'Ranked 32 for MBA by NIRF 2023',
-      highestPackage: 'Highest Package - 2.5 CR',
-      course: 'Course: MBA|PGDM',
-      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'lpu'
+      name: 'Dev Bhoomi Uttarakhand University...',
+      fullName: 'Dev Bhoomi Uttarakhand University, Dehradun',
+      location: 'Dehradun, Uttarakhand',
+      rank: '#68 in India (UGC)',
+      highestPackage: 'Highest Package - 20 LPA',
+      course: 'Course: B.Tech',
+      image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&h=400&q=80',
+      logoType: 'dev-bhoomi-university'
     }
   ];
 
@@ -1599,20 +1391,21 @@ export const FeaturedCollegesMockup = () => {
   };
 
   const renderLogo = (type: string) => {
-    switch (type) {
-      case 'bennett':
-        return <BennettLogo />;
-      case 'chandigarh':
-        return <CULogo />;
-      case 'jims':
-        return <JIMSLogo />;
-      case 'alliance':
-        return <AllianceLogo />;
-      case 'lpu':
-        return <LPULogo />;
-      default:
-        return null;
-    }
+    const initials = type
+      .replace('-university', '')
+      .split('-')
+      .map(w => w[0])
+      .join('')
+      .toUpperCase()
+      .substring(0, 4) || 'COL';
+    return (
+      <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-200">
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <rect x="5" y="5" width="90" height="90" rx="8" fill="#0A369D" />
+          <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">{initials}</text>
+        </svg>
+      </div>
+    );
   };
 
   return (
@@ -1756,72 +1549,61 @@ export const FeaturedCollegesMockup = () => {
 // ==========================================
 // STUDENT CHOICE COLLEGES SECTION
 // ==========================================
-const IIMLogo = () => (
-  <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-200">
+const ChoiceIILMLogo = () => (
+  <div className="w-12 h-12 bg-[#1A365D] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#142A4A]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Black Ring */}
-      <circle cx="50" cy="50" r="43" fill="none" stroke="black" strokeWidth="4" />
-      {/* Inner design (circular decorative text pattern style) */}
-      <circle cx="50" cy="50" r="30" fill="none" stroke="black" strokeWidth="2" strokeDasharray="4 2" />
-      {/* Centered hands or crest icon */}
-      <path d="M50 28 L62 48 H38 Z" fill="black" />
-      <path d="M50 72 L38 52 H62 Z" fill="black" />
-      <circle cx="50" cy="50" r="6" fill="black" />
-      <text x="50" y="88" fill="black" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">IIMK</text>
+      <circle cx="50" cy="50" r="42" fill="none" stroke="#D4AF37" strokeWidth="3" />
+      <text x="50" y="48" fill="white" fontSize="22" fontWeight="950" textAnchor="middle" fontFamily="Outfit, sans-serif">IILM</text>
+      <text x="50" y="68" fill="#D4AF37" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">UNIVERSITY</text>
     </svg>
   </div>
 );
 
-const SIBMLogo = () => (
-  <div className="w-12 h-12 bg-[#B32025] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#9b1b1f]">
+const ChoiceSushantLogo = () => (
+  <div className="w-12 h-12 bg-[#FF7A00] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-[#E06C00]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Inner white shape */}
-      <rect x="18" y="18" width="64" height="64" rx="8" fill="white" />
-      {/* Red crest letters */}
-      <text x="50" y="44" fill="#B32025" fontSize="22" fontWeight="950" textAnchor="middle" fontFamily="sans-serif">SIBM</text>
-      {/* subtext */}
-      <text x="50" y="60" fill="#B32025" fontSize="14" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">PUNE</text>
-      <line x1="28" y1="70" x2="72" y2="70" stroke="#B32025" strokeWidth="2" />
+      <path d="M50 15 L75 35 V65 L50 85 L25 65 V35 Z" fill="white" opacity="0.15" />
+      <polygon points="50,20 70,40 50,60 30,40" fill="white" />
+      <text x="50" y="78" fill="white" fontSize="10" fontWeight="900" textAnchor="middle" fontFamily="Outfit, sans-serif">SUSHANT</text>
     </svg>
   </div>
 );
 
-const GraphicEraLogo = () => (
-  <div className="w-12 h-12 bg-[#B8292F] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-[#9e2025]">
+const AmityLogo = () => (
+  <div className="w-12 h-12 bg-[#002147] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-900">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Circular Gold Seal style */}
-      <circle cx="50" cy="50" r="42" fill="white" stroke="#E5A93C" strokeWidth="3" />
-      {/* Inner Logo Symbol */}
-      <path d="M50 20 L75 42 L65 75 L35 75 L25 42 Z" fill="#B8292F" />
-      <circle cx="50" cy="48" r="12" fill="white" />
-      {/* Flame in center */}
-      <path d="M50 40 C55 40 58 46 50 56 C42 46 45 40 50 40 Z" fill="#E5A93C" />
+      <rect x="15" y="15" width="70" height="70" rx="6" fill="#002147" />
+      <circle cx="50" cy="50" r="28" fill="#FFC72C" />
+      <text x="50" y="58" fill="#002147" fontSize="15" fontWeight="950" textAnchor="middle" fontFamily="Outfit, sans-serif">AMITY</text>
     </svg>
   </div>
 );
 
-const XLRILogo = () => (
-  <div className="w-12 h-12 bg-[#0C2340] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-800">
+const SanskritiLogo = () => (
+  <div className="w-12 h-12 bg-[#F26522] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#D94F12]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <path d="M50 8 C72 8 82 18 82 45 C82 72 50 92 50 92 C50 92 18 72 18 45 C18 18 28 8 50 8 Z" fill="#0C2340" />
-      <path d="M50 14 C68 14 76 22 76 45 C76 68 50 85 50 85 C50 85 24 68 24 45 C24 22 32 14 50 14 Z" fill="none" stroke="white" strokeWidth="2" />
-      {/* XLRI Text */}
-      <text x="50" y="46" fill="white" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">XLRI</text>
-      <line x1="32" y1="56" x2="68" y2="56" stroke="white" strokeWidth="2" />
-      <text x="50" y="72" fill="#E5A93C" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">JAMSHEDPUR</text>
+      <circle cx="50" cy="50" r="42" fill="white" stroke="#F26522" strokeWidth="3" />
+      <text x="50" y="55" fill="#F26522" fontSize="15" fontWeight="950" textAnchor="middle" fontFamily="Outfit, sans-serif">SANSKRITI</text>
     </svg>
   </div>
 );
 
-const MDILogo = () => (
-  <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-200">
+const ChoiceDITLogo = () => (
+  <div className="w-12 h-12 bg-[#9E1B1B] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-[#7A1212]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Red and Blue shape */}
-      <rect x="15" y="15" width="70" height="70" rx="6" fill="#0B3C5D" />
-      <path d="M15 15 L85 15 L85 45 L15 65 Z" fill="#D9534F" />
-      {/* Initials */}
-      <text x="50" y="55" fill="white" fontSize="26" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">MDI</text>
-      <text x="50" y="78" fill="white" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">GURGAON</text>
+      <path d="M50 10 L85 30 V70 L50 90 L15 70 V30 Z" fill="white" opacity="0.2" />
+      <text x="50" y="52" fill="white" fontSize="24" fontWeight="950" textAnchor="middle" fontFamily="Outfit, sans-serif">DIT</text>
+      <text x="50" y="72" fill="#FFD700" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">UNIVERSITY</text>
+    </svg>
+  </div>
+);
+
+const DevBhoomiLogo = () => (
+  <div className="w-12 h-12 bg-[#006A4E] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-[#00523C]">
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <circle cx="50" cy="50" r="42" fill="white" stroke="#006A4E" strokeWidth="3" />
+      <path d="M30 65 L50 35 L70 65 Z" fill="#006A4E" />
+      <text x="50" y="80" fill="#006A4E" fontSize="11" fontWeight="950" textAnchor="middle" fontFamily="Outfit, sans-serif">DBUU</text>
     </svg>
   </div>
 );
@@ -1834,69 +1616,82 @@ export const StudentChoiceColleges = () => {
 
   const mockupColleges = [
     {
-      name: 'Indian Institute of Manag...',
-      fullName: 'Indian Institute of Management (IIM), Kolkata',
-      location: 'Kolkata, West Bengal',
-      rank: 6,
-      rating: '8.6',
-      highCTC: '1.15 CR',
-      avgCTC: '35.07 LPA',
+      name: 'IILM University, Greater Noida',
+      fullName: 'IILM University, Greater Noida',
+      location: 'Greater Noida, Uttar Pradesh',
+      rank: 1,
+      rating: '8.2',
+      highCTC: '36.0 LPA',
+      avgCTC: '7.5 LPA',
       course: 'MBA|PGDM',
-      fees: '25 Lakhs',
+      fees: '1.8 Lakhs',
       image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'iim'
+      logoType: 'iilm-university-greater-noida'
     },
     {
-      name: 'Symbiosis Institute of B...',
-      fullName: 'Symbiosis Institute of Business Management (SIBM), Pune',
-      location: 'Pune, Maharashtra',
-      rank: 7,
-      rating: '8.8',
-      highCTC: '35.05 LPA',
-      avgCTC: '26.77 LPA',
+      name: 'Sushant University, Gurugram',
+      fullName: 'Sushant University, Gurugram',
+      location: 'Gurugram, Haryana',
+      rank: 2,
+      rating: '8.0',
+      highCTC: '12.0 LPA',
+      avgCTC: '6.8 LPA',
       course: 'MBA|PGDM',
-      fees: '23.5 Lakhs',
+      fees: '2.2 Lakhs',
       image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'sibm'
+      logoType: 'sushant-university-gurugram'
     },
     {
-      name: 'Graphic Era University, D...',
-      fullName: 'Graphic Era University, Dehradun',
+      name: 'Amity University, Mohali',
+      fullName: 'Amity University, Mohali',
+      location: 'Mohali, Punjab',
+      rank: 3,
+      rating: '8.3',
+      highCTC: '38.0 LPA',
+      avgCTC: '7.8 LPA',
+      course: 'MBA|PGDM',
+      fees: '2.8 Lakhs',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=400&q=80',
+      logoType: 'amity-university-mohali'
+    },
+    {
+      name: 'Sanskriti University, Mathura',
+      fullName: 'Sanskriti University, Mathura',
+      location: 'Mathura, Uttar Pradesh',
+      rank: 4,
+      rating: '8.1',
+      highCTC: '12.0 LPA',
+      avgCTC: '6.0 LPA',
+      course: 'MBA|PGDM',
+      fees: '1.5 Lakhs',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&h=400&q=80',
+      logoType: 'sanskriti-university-mathura'
+    },
+    {
+      name: 'DIT University, Dehradun',
+      fullName: 'DIT University, Dehradun',
       location: 'Dehradun, Uttarakhand',
-      rank: 8,
-      rating: '8.4',
-      highCTC: '40 LPA',
-      avgCTC: '6 LPA',
-      course: 'MBA|PGDM',
-      fees: '8 Lakhs',
-      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'graphicera'
-    },
-    {
-      name: 'Xavier School of Manag...',
-      fullName: 'Xavier School of Management (XLRI), Jamshedpur',
-      location: 'Jamshedpur, Jharkhand',
-      rank: 9,
-      rating: '8.9',
-      highCTC: '1.1 CR',
-      avgCTC: '32.7 LPA',
-      course: 'MBA|PGDM',
-      fees: '26.8 Lakhs',
-      image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'xlri'
-    },
-    {
-      name: 'Management Development I...',
-      fullName: 'Management Development Institute (MDI), Gurgaon',
-      location: 'Gurgaon, Haryana',
-      rank: 10,
-      rating: '8.7',
-      highCTC: '60 LPA',
-      avgCTC: '26.6 LPA',
-      course: 'MBA|PGDM',
-      fees: '24.9 Lakhs',
+      rank: 5,
+      rating: '8.0',
+      highCTC: '24.0 LPA',
+      avgCTC: '6.5 LPA',
+      course: 'B.Tech',
+      fees: '2.0 Lakhs',
       image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80',
-      logoType: 'mdi'
+      logoType: 'dit-dehradun'
+    },
+    {
+      name: 'Dev Bhoomi Uttarakhand Univ',
+      fullName: 'Dev Bhoomi Uttarakhand University',
+      location: 'Dehradun, Uttarakhand',
+      rank: 6,
+      rating: '7.9',
+      highCTC: '15.0 LPA',
+      avgCTC: '5.8 LPA',
+      course: 'B.Tech',
+      fees: '1.4 Lakhs',
+      image: 'https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=600&h=400&q=80',
+      logoType: 'dev-bhoomi-university-uttrakhand'
     }
   ];
 
@@ -1926,14 +1721,7 @@ export const StudentChoiceColleges = () => {
   }, [visibleCards, mockupColleges.length]);
 
   const getChoiceSlug = (logoType: string): string => {
-    switch (logoType) {
-      case 'iim': return 'iim-bangalore';
-      case 'sibm': return 'symbiosis-pune';
-      case 'graphicera': return 'graphic-era';
-      case 'xlri': return 'xlri-jamshedpur';
-      case 'mdi': return 'mdi-gurgaon';
-      default: return logoType;
-    }
+    return logoType;
   };
 
   const handleApplyNow = (univName: string) => {
@@ -1957,16 +1745,18 @@ export const StudentChoiceColleges = () => {
 
   const renderLogo = (type: string) => {
     switch (type) {
-      case 'iim':
-        return <IIMLogo />;
-      case 'sibm':
-        return <SIBMLogo />;
-      case 'graphicera':
-        return <GraphicEraLogo />;
-      case 'xlri':
-        return <XLRILogo />;
-      case 'mdi':
-        return <MDILogo />;
+      case 'iilm-university-greater-noida':
+        return <ChoiceIILMLogo />;
+      case 'sushant-university-gurugram':
+        return <ChoiceSushantLogo />;
+      case 'amity-university-mohali':
+        return <AmityLogo />;
+      case 'sanskriti-university-mathura':
+        return <SanskritiLogo />;
+      case 'dit-dehradun':
+        return <ChoiceDITLogo />;
+      case 'dev-bhoomi-university-uttrakhand':
+        return <DevBhoomiLogo />;
       default:
         return null;
     }
@@ -2163,69 +1953,50 @@ export const StudentChoiceColleges = () => {
 // ==========================================
 // TOP COLLEGES / UNIVERSITIES SECTION
 // ==========================================
-const DMSIITDLogo = () => (
-  <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-200">
+const TColIILMLogo = () => (
+  <div className="w-14 h-14 bg-[#6B2326] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#6B2326]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <circle cx="50" cy="50" r="42" fill="none" stroke="#0F2C59" strokeWidth="4" />
-      <text x="50" y="45" fill="#FF5E14" fontSize="24" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">dms</text>
-      {/* Small decorative shield underneath */}
-      <path d="M40 55 L50 65 L60 55 Z" fill="#0F2C59" />
-      <text x="50" y="80" fill="#0F2C59" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">IIT DELHI</text>
+      <rect width="100" height="100" fill="#6B2326" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="24" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">IILM</text>
     </svg>
   </div>
 );
 
-const ShardaLogo = () => (
+const TColAmityLogo = () => (
+  <div className="w-14 h-14 bg-[#FBBF24] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#FBBF24]">
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <rect width="100" height="100" fill="#FBBF24" rx="10" />
+      <text x="50" y="55" fill="#1E293B" fontSize="20" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">AMITY</text>
+    </svg>
+  </div>
+);
+
+const TColSushantLogo = () => (
+  <div className="w-14 h-14 bg-[#1E40AF] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#1E40AF]">
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <rect width="100" height="100" fill="#1E40AF" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="22" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">SU</text>
+    </svg>
+  </div>
+);
+
+const TColDITLogo = () => (
+  <div className="w-14 h-14 bg-[#0F766E] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#0F766E]">
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <rect width="100" height="100" fill="#0F766E" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="24" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">DIT</text>
+    </svg>
+  </div>
+);
+
+const TColKRMULogo = () => (
   <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Lotus petals */}
-      <path d="M50 20 C60 40 85 45 50 85 C15 45 40 40 50 20 Z" fill="#0072CE" opacity="0.8" />
-      <path d="M50 35 C65 50 90 55 50 85 C10 55 35 50 50 35 Z" fill="#EAAA00" opacity="0.8" />
-      <path d="M50 50 C70 60 85 70 50 85 C15 70 30 60 50 50 Z" fill="#E31B23" opacity="0.8" />
-      {/* Stem or water lines */}
-      <line x1="20" y1="85" x2="80" y2="85" stroke="#0072CE" strokeWidth="3" />
-      <text x="50" y="96" fill="#0072CE" fontSize="9" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">SHARDA</text>
-    </svg>
-  </div>
-);
-
-const IIMALogo = () => (
-  <div className="w-14 h-14 bg-[#0A1A30] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#081526]">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      <circle cx="50" cy="50" r="42" fill="none" stroke="white" strokeWidth="3" />
-      {/* Shield with Jali pattern */}
-      <path d="M30 45 C30 25 50 15 50 15 C50 15 70 25 70 45 C70 70 50 85 50 85 C50 85 30 70 30 45 Z" fill="white" />
-      <text x="50" y="52" fill="#0A1A30" fontSize="16" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">IIMA</text>
-      {/* Subtext */}
-      <text x="50" y="68" fill="#E5A93C" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">AHMEDABAD</text>
-    </svg>
-  </div>
-);
-
-const KRMULogo = () => (
-  <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Shield logo */}
       <path d="M25 20 L50 10 L75 20 L75 55 C75 75 50 90 50 90 C50 90 25 75 25 55 Z" fill="#005B94" />
-      {/* Inner white shield */}
       <path d="M30 24 L50 15 L70 24 L70 53 C70 70 50 83 50 83 C50 83 30 70 30 53 Z" fill="white" />
-      {/* Book and star symbol */}
       <path d="M40 38 H60 V48 H40 Z" fill="#D9534F" />
       <polygon points="50,22 53,29 60,29 55,34 57,41 50,37 43,41 45,34 40,29 47,29" fill="#EAAA00" />
-      {/* letters KRMU */}
       <text x="50" y="70" fill="#005B94" fontSize="11" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">KRMU</text>
-    </svg>
-  </div>
-);
-
-const FMSLogo = () => (
-  <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Eagle wings wings vector representation */}
-      <path d="M20 40 C35 30 50 45 50 45 C50 45 65 30 80 40 C70 55 50 75 50 75 C50 75 30 55 20 40 Z" fill="black" />
-      <circle cx="50" cy="40" r="8" fill="black" />
-      {/* FMS Text */}
-      <text x="50" y="88" fill="black" fontSize="16" fontWeight="black" textAnchor="middle" fontFamily="serif">FMS</text>
     </svg>
   </div>
 );
@@ -2236,11 +2007,11 @@ export const TopCollegesList = () => {
 
   const getTopSlug = (logoType: string): string => {
     switch (logoType) {
-      case 'dms': return 'dms-iit-delhi';
-      case 'krmu': return 'kr-mangalam';
-      case 'sharda': return 'sharda-university';
-      case 'fms': return 'fms-delhi';
-      case 'iima': return 'iim-ahmedabad';
+      case 'iilm': return 'iilm-university-greater-noida';
+      case 'krmu': return 'kr-mangalam-university';
+      case 'amity': return 'amity-university-mohali';
+      case 'sushant': return 'sushant-university-gurugram';
+      case 'dit': return 'dit-university-dehradun';
       default: return logoType;
     }
   };
@@ -2257,64 +2028,64 @@ export const TopCollegesList = () => {
 
   const collegesData = [
     {
-      name: 'Department Of Management Studi...',
-      fullName: 'Department Of Management Studies (DMS IIT Delhi), Delhi',
-      courses: 'Courses: MBA....',
-      location: 'Delhi, Delhi',
-      rating: '8.7 /10',
-      highestPlacement: '40.11 LPA',
-      logoType: 'dms',
+      name: 'IILM University, Greater Noida',
+      fullName: 'IILM University, Greater Noida',
+      courses: 'Courses: MBA, B.Tech, BBA',
+      location: 'Greater Noida, Uttar Pradesh',
+      rating: '8.2 /10',
+      highestPlacement: '36 LPA',
+      logoType: 'iilm',
     },
     {
-      name: 'K R Mangalam University, (KRMU...',
-      fullName: 'K R Mangalam University, (KRMU), Gurgaon',
-      courses: 'Courses: MBA....',
-      location: 'Gurga, Haryana',
+      name: 'K.R. Mangalam University, Gurugram',
+      fullName: 'K.R. Mangalam University, Gurugram',
+      courses: 'Courses: MBA, B.Tech, BBA',
+      location: 'Gurugram, Haryana',
       rating: '8 /10',
       highestPlacement: '56.6 LPA',
       logoType: 'krmu',
     },
     {
-      name: 'Sharda University Greater Noid...',
-      fullName: 'Sharda University, Greater Noida',
-      courses: 'Courses: MBA....',
-      location: 'Noida, Uttar Pradesh',
-      rating: '8.8 /10',
-      highestPlacement: '1.6 CR',
-      logoType: 'sharda',
+      name: 'Amity University, Mohali',
+      fullName: 'Amity University, Mohali',
+      courses: 'Courses: MBA, BBA',
+      location: 'Mohali, Punjab',
+      rating: '8.3 /10',
+      highestPlacement: '38 LPA',
+      logoType: 'amity',
     },
     {
-      name: 'FMS Delhi: Faculty of Manageme...',
-      fullName: 'FMS Delhi: Faculty of Management Studies, Delhi',
-      courses: 'Courses: MBA....',
-      location: 'Delhi, Delhi',
-      rating: '8.9 /10',
-      highestPlacement: '1.23 CR',
-      logoType: 'fms',
+      name: 'Sushant University, Gurugram',
+      fullName: 'Sushant University, Gurugram',
+      courses: 'Courses: MBA, BBA, B.Tech',
+      location: 'Gurugram, Haryana',
+      rating: '8.0 /10',
+      highestPlacement: '32 LPA',
+      logoType: 'sushant',
     },
     {
-      name: 'Indian Institute of Management...',
-      fullName: 'Indian Institute of Management (IIMA), Ahmedabad',
-      courses: '',
-      location: 'Ahmed, Gujarat',
-      rating: '9.1 /10',
-      highestPlacement: '1.46 CR',
-      logoType: 'iima',
+      name: 'DIT University, Dehradun',
+      fullName: 'DIT University, Dehradun',
+      courses: 'Courses: B.Tech, M.Tech',
+      location: 'Dehradun, Uttarakhand',
+      rating: '8.1 /10',
+      highestPlacement: '38 LPA',
+      logoType: 'dit',
     }
   ];
 
   const renderLogo = (type: string) => {
     switch (type) {
-      case 'dms':
-        return <DMSIITDLogo />;
-      case 'sharda':
-        return <ShardaLogo />;
-      case 'iima':
-        return <IIMALogo />;
+      case 'iilm':
+        return <TColIILMLogo />;
+      case 'amity':
+        return <TColAmityLogo />;
+      case 'sushant':
+        return <TColSushantLogo />;
+      case 'dit':
+        return <TColDITLogo />;
       case 'krmu':
-        return <KRMULogo />;
-      case 'fms':
-        return <FMSLogo />;
+        return <TColKRMULogo />;
       default:
         return null;
     }
@@ -2424,61 +2195,47 @@ export const TopCollegesList = () => {
 // ==========================================
 // VECTOR LOGOS FOR PLACEMENT VERIFIED & EXAMS
 // ==========================================
-const GLBajajLogo = () => (
-  <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
+const PVIILMLogo = () => (
+  <div className="w-14 h-14 bg-[#6B2326] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#6B2326]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <path d="M20 20 L50 5 L80 20 L80 60 C80 80 50 95 50 95 C50 95 20 80 20 60 Z" fill="#003566" />
-      <path d="M25 24 L50 11 L75 24 L75 58 C75 75 50 88 50 88 C50 88 25 75 25 58 Z" fill="#FFD166" />
-      <path d="M30 28 L50 17 L70 28 L70 56 C70 70 50 81 50 81 C50 81 30 70 30 56 Z" fill="#003566" />
-      <text x="50" y="52" fill="#FFD166" fontSize="14" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">GLB</text>
-      <text x="50" y="66" fill="white" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">ESTD 1997</text>
+      <rect width="100" height="100" fill="#6B2326" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="24" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">IILM</text>
     </svg>
   </div>
 );
 
-const PVGraphicEraLogo = () => (
-  <div className="w-14 h-14 bg-[#0F4C81] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#0F4C81]">
+const PVDITLogo = () => (
+  <div className="w-14 h-14 bg-[#0F766E] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#0F766E]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <circle cx="50" cy="50" r="42" fill="white" />
-      <path d="M35 30 H65 V42 H47 V50 H60 V62 H47 V70 H35 Z" fill="#0F4C81" />
-      <path d="M55 50 H65 V70 H55 Z" fill="#E67E22" />
-      <text x="50" y="24" fill="#0F4C81" fontSize="9" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">GEU</text>
+      <rect width="100" height="100" fill="#0F766E" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="24" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">DIT</text>
     </svg>
   </div>
 );
 
-const JLULogo = () => (
-  <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
+const PVSAGELogo = () => (
+  <div className="w-14 h-14 bg-[#1E293B] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#1E293B]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <rect x="15" y="15" width="70" height="70" rx="10" fill="#0056B3" />
-      <circle cx="50" cy="45" r="20" fill="none" stroke="#FFC107" strokeWidth="4" />
-      <path d="M40 65 L50 75 L60 65" stroke="white" strokeWidth="4" strokeLinecap="round" fill="none" />
-      <text x="50" y="50" fill="white" fontSize="12" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">JLU</text>
+      <rect width="100" height="100" fill="#1E293B" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="24" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">SAGE</text>
     </svg>
   </div>
 );
 
-const PVBennettLogo = () => (
-  <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
+const PVKRMULogo = () => (
+  <div className="w-14 h-14 bg-[#FF7A00] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#FF7A00]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <rect x="10" y="10" width="80" height="80" rx="8" fill="#A8201A" />
-      <rect x="15" y="15" width="70" height="70" rx="5" fill="white" />
-      <path d="M35 30 H55 C65 30 65 42 55 42 H35 Z" fill="#A8201A" />
-      <path d="M35 42 H58 C68 42 68 55 58 55 H35 Z" fill="#A8201A" />
-      <rect x="35" y="30" width="10" height="40" fill="#A8201A" />
-      <circle cx="70" cy="30" r="4" fill="#FFC107" />
+      <rect width="100" height="100" fill="#FF7A00" rx="10" />
+      <text x="50" y="55" fill="white" fontSize="22" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">KRMU</text>
     </svg>
   </div>
 );
 
-const PVCULogo = () => (
-  <div className="w-14 h-14 bg-[#1B4D3E] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#153B30]">
+const PVAmityLogo = () => (
+  <div className="w-14 h-14 bg-[#FBBF24] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#FBBF24]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <circle cx="50" cy="50" r="42" fill="none" stroke="#D4AF37" strokeWidth="3" />
-      <circle cx="50" cy="50" r="36" fill="white" />
-      <path d="M35 35 C40 30 50 30 55 35 C60 40 60 50 55 55 C50 60 40 60 35 55 Z" fill="none" stroke="#1B4D3E" strokeWidth="4" />
-      <path d="M45 45 C48 42 52 42 55 45 C58 48 58 52 55 55" fill="none" stroke="#D4AF37" strokeWidth="3" />
-      <text x="50" y="80" fill="#1B4D3E" fontSize="12" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">CU</text>
+      <rect width="100" height="100" fill="#FBBF24" rx="10" />
+      <text x="50" y="55" fill="#1E293B" fontSize="20" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">AMITY</text>
     </svg>
   </div>
 );
@@ -2536,69 +2293,69 @@ const XATLogo = () => (
 // DATASETS
 const placementColleges = [
   {
-    id: 'gl-bajaj',
-    name: 'GL Bajaj Institute of Technology and Management',
-    shortName: 'GL Bajaj',
-    location: 'Greater Noida, Uttar Pradesh',
-    rating: 7.8,
-    rank: 11,
-    highCtc: '53.58 LPA',
-    avgCtc: '28.83 LPA',
-    fees: '₹6.6 Lakhs',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-    logo: GLBajajLogo
-  },
-  {
-    id: 'graphic-era',
-    name: 'Graphic Era University',
-    shortName: 'Graphic Era',
-    location: 'Dehradun, Uttarakhand',
-    rating: 8.4,
-    rank: 12,
-    highCtc: '40.00 LPA',
-    avgCtc: '6.00 LPA',
-    fees: '₹4.21 Lakhs',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80',
-    logo: PVGraphicEraLogo
-  },
-  {
-    id: 'jlu-bhopal',
-    name: 'Jagran Lakecity University',
-    shortName: 'JLU Bhopal',
-    location: 'Bhopal, Madhya Pradesh',
-    rating: 8.0,
-    rank: 13,
-    highCtc: '24.00 LPA',
-    avgCtc: '4.50 LPA',
-    fees: '₹1.6 Lakhs',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80',
-    logo: JLULogo
-  },
-  {
-    id: 'bennett-university',
-    name: 'Bennett University',
-    shortName: 'Bennett',
+    id: 'iilm-university-greater-noida',
+    name: 'IILM University, Greater Noida',
+    shortName: 'IILM University',
     location: 'Greater Noida, Uttar Pradesh',
     rating: 8.2,
-    rank: 14,
-    highCtc: '1.2 CPA',
-    avgCtc: '7.99 LPA',
-    fees: '₹5.7 Lakhs',
-    image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80',
-    logo: PVBennettLogo
+    rank: 11,
+    highCtc: '36.00 LPA',
+    avgCtc: '7.50 LPA',
+    fees: '₹1.8 Lakhs',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
+    logo: PVIILMLogo
   },
   {
-    id: 'chandigarh-university',
-    name: 'Chandigarh University',
-    shortName: 'CU',
-    location: 'Mohali, Punjab',
+    id: 'dit-university-dehradun',
+    name: 'DIT University, Dehradun',
+    shortName: 'DIT University',
+    location: 'Dehradun, Uttarakhand',
     rating: 8.1,
+    rank: 12,
+    highCtc: '38.00 LPA',
+    avgCtc: '6.50 LPA',
+    fees: '₹1.8 Lakhs',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80',
+    logo: PVDITLogo
+  },
+  {
+    id: 'sage-university-bhopal',
+    name: 'SAGE University, Bhopal',
+    shortName: 'SAGE Bhopal',
+    location: 'Bhopal, Madhya Pradesh',
+    rating: 7.9,
+    rank: 13,
+    highCtc: '6.00 LPA',
+    avgCtc: '4.80 LPA',
+    fees: '₹1.4 Lakhs',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80',
+    logo: PVSAGELogo
+  },
+  {
+    id: 'kr-mangalam-university',
+    name: 'K.R. Mangalam University, Gurugram',
+    shortName: 'K.R. Mangalam',
+    location: 'Gurugram, Haryana',
+    rating: 8.0,
+    rank: 14,
+    highCtc: '36.00 LPA',
+    avgCtc: '7.50 LPA',
+    fees: '₹2.8 Lakhs',
+    image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&h=400&q=80',
+    logo: PVKRMULogo
+  },
+  {
+    id: 'amity-university-mohali',
+    name: 'Amity University, Mohali',
+    shortName: 'Amity Mohali',
+    location: 'Mohali, Punjab',
+    rating: 8.3,
     rank: 15,
-    highCtc: '54.75 LPA',
-    avgCtc: '9.50 LPA',
-    fees: '₹2.5 Lakhs',
+    highCtc: '38.00 LPA',
+    avgCtc: '7.80 LPA',
+    fees: '₹2.8 Lakhs',
     image: 'https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=600&h=400&q=80',
-    logo: PVCULogo
+    logo: PVAmityLogo
   }
 ];
 

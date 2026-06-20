@@ -14,12 +14,22 @@ export interface BlogPost {
 import { useBlogs } from '../hooks/useBlogs';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
 import { useGlobalStore } from '../store/useGlobalStore';
+import { blogPosts as staticBlogPosts } from '../data/blog';
 
 export const Blog = () => {
   const addToast = useGlobalStore().addToast;
   const { useBlogsQuery } = useBlogs();
-  const { data: postsList, isLoading } = useBlogsQuery({ limit: 1000 });
-  const finalPosts = (postsList || []) as any[];
+  const { data: postsResponse, isLoading } = useBlogsQuery({ limit: 1000 });
+  
+  const apiPosts: any[] = 
+    Array.isArray(postsResponse) ? postsResponse :
+    Array.isArray(postsResponse?.blogs) ? postsResponse.blogs :
+    Array.isArray(postsResponse?.data?.blogs) ? postsResponse.data.blogs : [];
+
+  const apiIds = new Set(apiPosts.map((p: any) => p.id));
+  const finalPosts: any[] = apiPosts.length > 0
+    ? [...apiPosts, ...staticBlogPosts.filter((p) => !apiIds.has(p.id))]
+    : staticBlogPosts;
 
   const blogCategories = useMemo(() => {
     return Array.from(new Set(finalPosts.flatMap((p: any) => p.categories || []))).sort() as string[];
@@ -115,38 +125,38 @@ export const Blog = () => {
             <h1 className="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white tracking-tight">
               Careers & Admissions <span className="gradient-text-primary">Blog</span>
             </h1>
-            <p className="text-sm text-app-muted mt-2 max-w-xl">
+            <p className="text-sm text-slate-600 dark:text-app-muted mt-2 max-w-xl font-semibold">
               Stay ahead of JEE limits, scholarship releases, and admission timelines with our curated analytical reviews.
             </p>
           </div>
           
           {/* Search Trigger */}
-          <div className="w-full md:max-w-xs flex items-center bg-app-card border border-app-border rounded-xl px-3 py-2.5 relative z-10">
+          <div className="w-full md:max-w-xs flex items-center bg-[#FFFFFF]/90 dark:bg-app-card border border-slate-200 dark:border-app-border rounded-xl px-3 py-2.5 relative z-10">
             <input
               type="text"
               placeholder="Search articles..."
               value={searchQuery}
               onChange={handleSearchChange}
-              className="w-full bg-transparent border-none outline-none text-xs text-slate-900 placeholder-[#94A3B8] font-semibold pr-2"
+              className="w-full bg-transparent border-none outline-none text-xs text-slate-800 dark:text-white placeholder-[#94A3B8] font-bold pr-2"
             />
-            <Search className="w-4 h-4 text-app-muted cursor-pointer" />
+            <Search className="w-4 h-4 text-slate-400 dark:text-app-muted cursor-pointer" />
           </div>
         </div>
 
         {/* FEATURED BANNER (Only on catalog overview without active filters) */}
         {!activePost && !searchQuery && !selectedCategory && featuredPost && (
           <ScrollReveal>
-            <div className="glass rounded-3xl border border-app-border overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12 shadow-2xl hover:border-app-border transition-all group">
+            <div className="glass rounded-3xl border border-slate-200 dark:border-app-border overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12 shadow-2xl hover:border-slate-300 dark:hover:border-app-border transition-all group">
               <div className="lg:col-span-7 h-64 lg:h-96 relative overflow-hidden">
                 <img 
                   src={featuredPost.image} 
                   alt={featuredPost.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080B16] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080B16]/90 via-transparent to-transparent" />
               </div>
               
-              <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between items-start text-left">
+              <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between items-start text-left bg-white/70 dark:bg-transparent">
                 <div className="flex flex-col gap-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF7A00]/10 text-[#FF7A00]">
                     Featured Article
@@ -154,18 +164,18 @@ export const Blog = () => {
                   
                   <h2 
                     onClick={() => setActivePost(featuredPost)}
-                    className="font-display font-black text-xl sm:text-2xl text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] cursor-pointer transition-colors"
+                    className="font-display font-black text-xl sm:text-2xl text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] dark:hover:text-[#FF7A00] cursor-pointer transition-colors"
                   >
                     {featuredPost.title}
                   </h2>
                   
-                  <p className="text-xs sm:text-sm text-app-muted font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-app-muted font-bold leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
                 </div>
 
                 <div className="w-full flex items-center justify-between border-t border-app-border pt-4 mt-6 text-[10px] text-app-muted font-bold uppercase tracking-wider">
-                  <span className="text-slate-900 dark:text-white font-bold">By {featuredPost.author}</span>
+                  <span className="text-white font-bold">By {featuredPost.author}</span>
                   <button 
                     onClick={() => setActivePost(featuredPost)}
                     className="text-[#FF7A00] font-black hover:underline cursor-pointer border-none bg-transparent"
@@ -210,12 +220,12 @@ export const Blog = () => {
                       ))}
                     </div>
 
-                    <h2 className="text-2xl md:text-3xl font-display font-black text-slate-900 dark:text-white uppercase leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-display font-black text-white uppercase leading-tight">
                       {activePost.title}
                     </h2>
 
                     <div className="flex flex-wrap items-center gap-4 text-[10px] text-app-muted font-black uppercase tracking-wider">
-                      <span className="text-slate-900 dark:text-white font-bold">By {activePost.author}</span>
+                      <span className="text-white font-bold">By {activePost.author}</span>
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5" />
                         {activePost.date}
@@ -245,7 +255,7 @@ export const Blog = () => {
                   )}
 
                   <div className="text-xs sm:text-sm text-app-muted leading-relaxed flex flex-col gap-4 font-semibold">
-                    <p className="font-extrabold text-slate-900 dark:text-white text-base leading-relaxed">
+                    <p className="font-extrabold text-white text-base leading-relaxed">
                       {activePost.excerpt}
                     </p>
                     <p>
@@ -261,7 +271,7 @@ export const Blog = () => {
                         <User className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-extrabold text-slate-900 dark:text-white">About the Author: {activePost.author}</h4>
+                        <h4 className="font-extrabold text-white">About the Author: {activePost.author}</h4>
                         <p className="text-[11px] text-app-muted mt-0.5 leading-relaxed font-semibold">
                           Senior Admission counselor and career alignment lead specializing in B.Tech and MBA seat counseling.
                         </p>
@@ -271,7 +281,7 @@ export const Blog = () => {
                     {/* Admissions Newsletter widget */}
                     <div className="mt-6 p-6 rounded-2xl bg-gradient-to-br from-[#4F46E5]/10 to-transparent border border-app-border flex flex-col sm:flex-row items-center justify-between gap-6 text-left shadow-xl">
                       <div className="flex flex-col gap-1">
-                        <h4 className="font-display font-black text-sm text-slate-900 dark:text-white uppercase tracking-wide">
+                        <h4 className="font-display font-black text-sm text-white uppercase tracking-wide">
                           Admissions Newsletter
                         </h4>
                         <p className="text-[10px] sm:text-xs text-app-muted leading-relaxed font-semibold">
@@ -285,7 +295,7 @@ export const Blog = () => {
                           placeholder="Your email address"
                           value={newsletterEmail}
                           onChange={(e) => setNewsletterEmail(e.target.value)}
-                          className="px-3.5 py-2.5 w-full sm:w-48 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-semibold"
+                          className="px-3.5 py-2.5 w-full sm:w-48 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-semibold"
                         />
                         <button
                           type="submit"
@@ -366,17 +376,17 @@ export const Blog = () => {
 
                               <h3 
                                 onClick={() => setActivePost(post)}
-                                className="font-display font-black text-base md:text-lg text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] transition-colors cursor-pointer"
+                                className="font-display font-black text-base md:text-lg text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] dark:hover:text-[#FF7A00] transition-colors cursor-pointer"
                               >
                                 {post.title}
                               </h3>
 
-                              <p className="text-xs text-app-muted font-semibold leading-relaxed line-clamp-2">
+                              <p className="text-xs text-slate-600 dark:text-app-muted font-bold leading-relaxed line-clamp-2">
                                 {post.excerpt}
                               </p>
                             </div>
 
-                            <div className="text-[9px] font-black text-app-muted/65 uppercase tracking-wider mt-4">
+                            <div className="text-[9px] font-black text-slate-500 dark:text-app-muted/65 uppercase tracking-wider mt-4">
                               BY {post.author} • {post.date}
                             </div>
 
@@ -419,7 +429,7 @@ export const Blog = () => {
             
             {/* LATEST TIMELINES */}
             <div className="p-6 rounded-2xl glass border border-app-border flex flex-col gap-4 shadow-xl">
-              <h3 className="font-display font-black text-base text-slate-900 dark:text-white uppercase tracking-wider border-b border-app-border pb-3">
+              <h3 className="font-display font-black text-base text-white uppercase tracking-wider border-b border-app-border pb-3">
                 Latest Articles
               </h3>
               <div className="flex flex-col gap-3.5 text-xs font-semibold">
@@ -448,7 +458,7 @@ export const Blog = () => {
 
             {/* TOP CATEGORIES */}
             <div className="p-6 rounded-2xl glass border border-app-border flex flex-col gap-4 shadow-xl">
-              <h3 className="font-display font-black text-base text-slate-900 dark:text-white uppercase tracking-wider border-b border-app-border pb-3">
+              <h3 className="font-display font-black text-base text-white uppercase tracking-wider border-b border-app-border pb-3">
                 Top Categories
               </h3>
               <div className="flex flex-col gap-2.5 text-xs font-semibold">

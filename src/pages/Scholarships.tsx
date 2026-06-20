@@ -8,61 +8,34 @@ import { ScholarshipCard } from '../components/cards/ScholarshipCard';
 
 // Custom inline SVG logos for sponsor institutions
 const SponsorLogo = ({ id }: { id: string }) => {
+  const renderTextLogo = (main: string, sub: string, bgColor: string) => (
+    <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="5" width="40" height="40" rx="6" fill={bgColor} />
+      <text x="25" y="30" fill="white" fontSize="14" fontWeight="900" fontFamily="Outfit" textAnchor="middle">{main}</text>
+      <text x="52" y="25" fill="#F8FAFC" fontSize="11" fontWeight="900" fontFamily="Outfit">{main}</text>
+      <text x="52" y="36" fill="#94A3B8" fontSize="7" fontWeight="bold" fontFamily="Outfit">{sub}</text>
+    </svg>
+  );
+
   switch (id) {
-    case 'accurate':
-      return (
-        <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="5" width="40" height="40" rx="6" fill="#1E3A8A" />
-          <path d="M15 35 L25 15 L35 35 Z" fill="white" />
-          <circle cx="25" cy="27" r="3" fill="#F59E0B" />
-          <text x="55" y="25" fill="#F8FAFC" fontSize="11" fontWeight="900" fontFamily="Outfit">ACCURATE</text>
-          <text x="55" y="36" fill="#94A3B8" fontSize="7" fontWeight="bold" fontFamily="Outfit">GROUP OF INSTITUTIONS</text>
-        </svg>
-      );
     case 'iilm':
-      return (
-        <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 10 H30 V40 H10 Z" fill="#991B1B" />
-          <circle cx="35" cy="25" r="5" fill="#F59E0B" />
-          <text x="48" y="25" fill="#991B1B" fontSize="13" fontWeight="950" fontFamily="Outfit">IILM</text>
-          <text x="48" y="37" fill="#94A3B8" fontSize="8" fontWeight="bold" fontFamily="Outfit">UNIVERSITY</text>
-        </svg>
-      );
-    case 'alliance':
-      return (
-        <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="18" fill="#080B16" stroke="#1E3A8A" strokeWidth="2" />
-          <path d="M20 30 L25 18 L30 30 Z" fill="#1E3A8A" />
-          <text x="50" y="24" fill="#3B82F6" fontSize="11" fontWeight="900" fontFamily="Outfit">ALLIANCE</text>
-          <text x="50" y="35" fill="#94A3B8" fontSize="8" fontWeight="bold" fontFamily="Outfit">UNIVERSITY</text>
-        </svg>
-      );
-    case 'dpu':
-      return (
-        <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 10 C15 5, 35 5, 40 10 C45 15, 45 35, 40 40 C35 45, 15 45, 10 40 Z" fill="#991B1B" opacity="0.15" />
-          <text x="15" y="32" fill="#991B1B" fontSize="24" fontWeight="950" fontFamily="Outfit" letterSpacing="2">DPU</text>
-        </svg>
-      );
-    case 'bennett':
-      return (
-        <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="10" width="30" height="30" rx="4" fill="#0369A1" />
-          <path d="M12 25 L18 17 L24 25" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-          <text x="42" y="24" fill="#F8FAFC" fontSize="11" fontWeight="900" fontFamily="Outfit">BENNETT</text>
-          <text x="42" y="35" fill="#0369A1" fontSize="8" fontWeight="black" fontFamily="Outfit">UNIVERSITY</text>
-        </svg>
-      );
-    case 'graphic':
-      return (
-        <svg className="h-10 w-auto max-w-[140px]" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="18" fill="#BE123C" />
-          <circle cx="25" cy="25" r="12" fill="#080B16" />
-          <circle cx="25" cy="25" r="6" fill="#BE123C" />
-          <text x="50" y="24" fill="#BE123C" fontSize="10" fontWeight="900" fontFamily="Outfit">Graphic Era</text>
-          <text x="50" y="35" fill="#94A3B8" fontSize="8" fontWeight="bold" fontFamily="Outfit">UNIVERSITY</text>
-        </svg>
-      );
+      return renderTextLogo('IILM', 'UNIVERSITY', '#991B1B');
+    case 'sushant':
+      return renderTextLogo('SU', 'UNIVERSITY', '#0369A1');
+    case 'sanskriti':
+      return renderTextLogo('SUN', 'UNIVERSITY', '#D97706');
+    case 'amity':
+      return renderTextLogo('AMITY', 'UNIVERSITY', '#0A369D');
+    case 'sage':
+      return renderTextLogo('SAGE', 'UNIVERSITY', '#059669');
+    case 'avantika':
+      return renderTextLogo('AVAN', 'UNIVERSITY', '#7C3AED');
+    case 'dit':
+      return renderTextLogo('DITU', 'UNIVERSITY', '#1E3A8A');
+    case 'kr-mangalam':
+      return renderTextLogo('KRMU', 'UNIVERSITY', '#005B94');
+    case 'dev-bhoomi':
+      return renderTextLogo('DBUU', 'UNIVERSITY', '#E11D48');
     default:
       return null;
   }
@@ -140,35 +113,35 @@ export const Scholarships = () => {
     {
       id: 'rev-1',
       name: 'Divya Shaha',
-      college: 'Presidency university, Bangalore',
+      college: 'Sushant University, Gurugram',
       avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80',
       text: 'Thanks to Aruna-Nand EdTech Services, which is famous for its relevance, the extensive B.Tech Training and coaching is easy to grasp. From poor academic results to top aptitude gurus in India, Aruna-Nand EdTech Services knows how to improve things. It contains all the guiding principles required to complete your B.Tech successfully.'
     },
     {
       id: 'rev-2',
       name: 'Jitesh Naidu',
-      college: 'Kirloskar Institute, Harihar',
+      college: 'IILM University, Greater Noida',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80',
       text: 'Every class Aruna-Nand EdTech Services conduct is packed with good material, engaging stories, interesting events, and tremendous positive energy. No MBA question escapes their structured mock analysis and counseling sessions. The guides are extremely thorough and helpful.'
     },
     {
       id: 'rev-3',
       name: 'Kalpana Singh',
-      college: 'CUTM, Bhubaneswar',
+      college: 'Mohan Babu University, Tirupati',
       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80',
       text: "I'm happy I picked the Aruna-Nand EdTech Services to learn and understand about my B.Tech since every mentor member offers their students great attention in both the academic and extracurricular areas. Their feedback mechanisms are top-notch and highly detailed."
     },
     {
       id: 'rev-4',
       name: 'Uday Gosavi',
-      college: 'Lexicon MILE, Pune',
+      college: 'Avantika University, Ujjain',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80',
       text: 'MBA is a temple of real knowledge. The counselors take the task of molding the mind with complete dedication. Highly recommend Aruna-Nand EdTech Services to anyone looking to make a compassionate career transition and score high scholarships.'
     },
     {
       id: 'rev-5',
       name: 'Arpita Adhikary',
-      college: 'Student, RGVP university Bhopal',
+      college: 'SAGE University, Bhopal',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&h=100&q=80',
       text: 'The scholarship test helped me secure admission into one of the top engineering universities in Bhopal with a full waiver. The mock tests and preparation materials provided by Aruna-Nand EdTech Services were key to my scoring success.'
     }
@@ -407,7 +380,7 @@ export const Scholarships = () => {
       <section className="bg-app-card border-b border-app-border py-6">
         <div className="mx-auto max-w-7xl px-6 w-full">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            {['accurate', 'iilm', 'alliance', 'dpu', 'bennett', 'graphic'].map((colId) => (
+            {['iilm', 'sushant', 'sanskriti', 'amity', 'sage', 'avantika', 'dit', 'kr-mangalam', 'dev-bhoomi'].map((colId) => (
               <div key={colId} className="bg-app-card rounded-xl px-4 py-2 flex items-center justify-center border border-app-border shrink-0 hover:scale-105 transition-transform duration-300">
                 <SponsorLogo id={colId} />
               </div>

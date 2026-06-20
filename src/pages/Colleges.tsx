@@ -4,32 +4,9 @@ import { Filter, SlidersHorizontal, RefreshCw, ChevronDown, Award, DollarSign, B
 import { CollegeCard } from '../components/cards/CollegeCard';
 import { useColleges } from '../hooks/useColleges';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
-import { getStaticCollege } from '../data/mockUniversities';
+import { colleges as staticCollegesData } from '../data/colleges';
 
-const PLACEMENT_UNIV_IDS = [
-  'vidyashilp-university',
-  'graphic-era',
-  'iibs-bangalore',
-  'bennett-university',
-  'sanjay-ghodawat-university',
-  'xlri-jamshedpur',
-  'alliance-university',
-  'lpu-punjab',
-  'cgc-landran',
-  'its-management',
-  'poddar-college',
-  'its-professional-studies',
-  'amity-university-noida',
-  'amity-university-mumbai',
-  'medhavi-university',
-  'kiet-university',
-  'sage-university',
-  'accman-business-school',
-  'kr-mangalam',
-  'pimpri-chinchwad-university'
-];
-
-export const STATIC_COLLEGES: any[] = PLACEMENT_UNIV_IDS.map(id => getStaticCollege(id)).filter(Boolean);
+export const STATIC_COLLEGES: any[] = staticCollegesData;
 
 // ── Comprehensive Static Fallback Colleges ────────────────────────────────────
 // Used when the API / backend returns no data, ensuring Popular Searches always show results.

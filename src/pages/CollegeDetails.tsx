@@ -292,8 +292,20 @@ const renderLogo = (logoId: string) => {
     case 'lloyd-school': return container(<LloydLogo />);
     case 'mangalmay-institute': return container(<MangalmayLogo />);
     case 'sharda-university': return container(<ShardaLogo />);
-    default:
-      return container(<JIMSLogo />);
+    default: {
+      const initials = (logoId || '')
+        .split('-')
+        .map(w => w[0])
+        .join('')
+        .toUpperCase()
+        .substring(0, 4) || 'COL';
+      return container(
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <rect x="12" y="12" width="76" height="76" rx="12" fill="#0A369D" />
+          <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">{initials}</text>
+        </svg>
+      );
+    }
   }
 };
 
@@ -516,126 +528,8 @@ const REAL_COLLEGE_HIGHLIGHTS_OVERRIDE: Record<string, any> = {
 };
 
 export const getMockCollege = (idOrSlug: string) => {
-  let custom = MOCK_UNIVERSITY_MAP[idOrSlug];
-  
-  if (!custom) {
-    const staticCol = STATIC_COLLEGES.find((c: any) => c.id === idOrSlug);
-    if (staticCol) {
-      custom = {
-        name: staticCol.name,
-        location: staticCol.location,
-        rating: `${staticCol.rating}/10`,
-        placement: staticCol.placements,
-        averagePackage: staticCol.placements?.split(' ')[0] || '8.5 LPA',
-        highestPackage: staticCol.placements?.split(' ')[0] || '45 LPA',
-        totalOffers: 350,
-        companyVisiting: 120,
-        establishedYear: 2002,
-        accreditation: staticCol.ranking || 'UGC, AICTE Approved',
-        fees: staticCol.fees,
-        logo: staticCol.image,
-        phone: '+91 7773045555'
-      };
-    }
-  }
-
-  if (!custom) return null;
-
-  const name = custom.name;
-  const rating = parseFloat(custom.rating) || 8.5;
-  const location = custom.location;
-  const city = location.split(',')[0].trim();
-  const state = location.split(',')[1]?.trim() || '';
-
-  return {
-    id: idOrSlug,
-    name,
-    location,
-    city,
-    state,
-    rating,
-    fees: custom.fees || '₹4.5 Lakhs / Year',
-    placements: `${custom.averagePackage || '8.5 LPA'} Average`,
-    ranking: `#${Math.floor(50 + Math.random() * 50)} in NIRF 2025`,
-    logo: custom.logo,
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80',
-    category: 'Management',
-    about: `${name} is a state-of-the-art educational institution known for its focus on holistic learning, world-class amenities, and consistent placement achievements. Established in ${custom.establishedYear}, the university has steadily built a reputation for excellence in technical and business studies, catering to students from all parts of India.`,
-    courses: [
-      { name: 'B.Tech in Computer Science & Engineering', fees: custom.fees || '₹5.13 Lakhs / Year', seats: 240 },
-      { name: 'MBA (Marketing & Finance Specializations)', fees: '₹4.8 Lakhs / Year', seats: 180 },
-      { name: 'BBA in Business Analytics', fees: '₹3.5 Lakhs / Year', seats: 120 },
-      { name: 'BA in Liberal Arts', fees: '₹2.4 Lakhs / Year', seats: 90 }
-    ],
-    placementDetails: [
-      { company: 'Flipkart', package: '₹14 LPA' },
-      { company: 'Amazon', package: '₹28 LPA' },
-      { company: 'Deloitte', package: '₹8.5 LPA' },
-      { company: 'KPMG', package: '₹9 LPA' }
-    ],
-    scholarships: [
-      { name: 'Merit-Based Scholarship', criteria: 'Board marks > 95% or JEE Rank < 10000', amount: '100% Tuition Fee Waiver' },
-      { name: 'Need-based Financial Aid', criteria: 'Family annual income under ₹6.0 Lakhs', amount: '50% Fee Waiver' }
-    ],
-    hostels: [
-      { type: 'AC Boys Hostel (Twin Sharing)', sharing: 'Twin sharing rooms with attached bath', fees: '₹1.5 Lakhs / Year' },
-      { type: 'AC Girls Hostel (Twin Sharing)', sharing: 'Twin sharing rooms with attached bath', fees: '₹1.5 Lakhs / Year' }
-    ],
-    reviews: [
-      { name: 'Aditya Sen', rating: 5, text: 'The professors are outstanding, and the placement cell really supports you at every step.', date: '2026-04-10' },
-      { name: 'Neha Sharma', rating: 4, text: 'Campus is extremely clean with super-fast Wi-Fi. The courses are practical and aligned with market needs.', date: '2026-05-15' }
-    ],
-    faq: [
-      { q: 'What is the cutoff for MBA admission?', a: 'Admissions are based on merit indexing in CAT/MAT/SNAP followed by personal interviews.' },
-      { q: 'Is hostel accommodation compulsory?', a: 'No, hostel accommodation is optional, though highly recommended for full-time students.' }
-    ],
-    infrastructure: ['AC Classrooms', 'Central Library', 'Sports Complex', 'Hostels', 'Cafeteria', 'Wi-Fi Campus', 'Robotics Center', 'Moot Court'],
-    gallery: [
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&h=400&q=80',
-      'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&h=400&q=80',
-      'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&h=400&q=80',
-      'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&h=400&q=80'
-    ],
-    totalOffers: custom.totalOffers,
-    companyVisiting: custom.companyVisiting,
-    highestInternationalPackage: custom.highestInternationalPackage || '37.26 LPA',
-    phone: custom.phone || '+91 7773045555',
-    address: `${name} Campus, ${location}, India`,
-    email: `admissions@${idOrSlug}.edu.in`,
-    accreditation: custom.accreditation || 'AICTE, UGC Approved',
-    averagePackage: custom.averagePackage || '8.5 LPA',
-    highestPackage: custom.highestPackage || '45 LPA',
-    importantDates: [
-      { event: 'Application Form Release', date: 'January 2026' },
-      { event: 'Last Date to Apply', date: 'June 2026' },
-      { event: 'Entrance Test / Interview', date: 'June - July 2026' },
-      { event: 'Admission Confirmation', date: 'July 2026' },
-      { event: 'Academic Session Commencement', date: 'August 2026' },
-      { event: 'Scholarship Application Deadline', date: 'July 2026' },
-      { event: 'Hostel Registration', date: 'July - August 2026' }
-    ],
-    admissionProcessText: `Admission to ${name} is offered for undergraduate and postgraduate programs across multiple disciplines including Business, Computer Science, Liberal Arts, Design, and Law. The university uses national or state-level exam merit indexing, followed by an online interview round for final seat allotment.`,
-    scholarshipText: `Scholarship Details: ${name} offers Merit-based Scholarships for students scoring above 90% in boards or competitive exams, covering up to 100% of tuition. Need-based scholarships are available for families with annual income under 6 LPA.`,
-    placementText: `Placement Details: Highest Package offered is Rs. ${custom.highestPackage || '45 LPA'} and Average Package is Rs. ${custom.averagePackage || '8.5 LPA'}. More than ${custom.companyVisiting || 200} companies participate in the campus recruitment drive.`,
-    rankingsList: [
-      'Ranked 106 for Overall by Indiatoday 2022',
-      'Ranked 102 for Overall by Timesofindia 2021',
-      'Ranked 98 for Overall by IIRF 2020',
-      'Ranked 105 for Overall by Indiatoday 2019'
-    ],
-    videos: [
-      { title: `Campus Tour of ${name}`, url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
-      { title: `Think Excellence. Think ${name}`, url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' }
-    ],
-    ratingsCategories: {
-      academics: 8.9,
-      faculty: 9.2,
-      infrastructure: 8.3,
-      placement: 8.6,
-      socialLife: 8.4,
-      accommodation: 9.1
-    }
-  };
+  const staticCol = STATIC_COLLEGES.find((c: any) => c.id === idOrSlug);
+  return staticCol || null;
 };
 
 export const CollegeDetails = () => {
@@ -644,28 +538,27 @@ export const CollegeDetails = () => {
   const { useCollegeQuery } = useColleges();
   const { data: dbCollege, isLoading: isDbLoading } = useCollegeQuery(id || '');
   const KNOWN_MOCK_IDS = new Set([
-    'vidyashilp-university', 'graphic-era', 'iibs-bangalore', 'bennett-university',
-    'sanjay-ghodawat-university', 'xlri-jamshedpur', 'alliance-university', 'lpu-punjab',
-    'cgc-landran', 'its-management', 'poddar-college', 'its-professional-studies',
-    'amity-university-noida', 'amity-university-mumbai', 'medhavi-university', 'kiet-university',
-    'sage-university', 'accman-business-school', 'kr-mangalam', 'pimpri-chinchwad-university',
-    'chandigarh-university', 'jims-delhi', 'sharda-university', 'mdi-gurgaon', 'symbiosis-pune',
-    'iim-bangalore', 'dms-iit-delhi', 'fms-delhi', 'iim-ahmedabad', 'jlu-bhopal', 'gl-bajaj',
-    'iim-lucknow', 'iim-calcutta', 'rkdf-university', 'mandsaur-university',
-    'icfai-hyderabad', 'great-lakes-chennai',
-    'mit-pune', 'vit-vellore', 'manipal-university', 'srm-chennai', 'thapar-patiala',
-    'dtu-delhi', 'iiit-hyderabad', 'pune-institute', 'nmims-mumbai', 'iiit-bangalore',
-    'marwadi-university', 'svnit-surat', 'vnit-nagpur', 'iit-indore', 'iet-davv',
-    'nlsiu-bangalore', 'nalsar-hyderabad', 'iit-law-mumbai', 'nlu-delhi', 'nlu-jodhpur',
-    'symbiosis-law-pune', 'iil-indore', 'renaissance-law', 'chanakya-law-pune',
-    'nujs-kolkata', 'rmlnlu-lucknow', 'puchd-law', 'tnnlu-chennai', 'alliance-law',
-    'nid-ahmedabad', 'nift-delhi', 'nift-mumbai', 'mit-adi', 'srishti-bangalore',
-    'iid-mumbai', 'nift-indore', 'nift-chennai', 'nift-bengaluru', 'nift-kolkata',
-    'ksom-bhubaneswar', 'psgim-coimbatore', 'christ-institute-rajkot', 'klu-management-guntur',
-    'auro-university-surat', 'ggits-jabalpur', 'manit-bhopal', 'kiit-bhubaneswar',
-    'apsit-thane', 'ju-kolkata', 'iet-lucknow', 'pec-chandigarh', 'su-law-rajkot',
-    'siddharth-law-surat', 'ipsa-design-rajkot', 'ppsuni-design-surat', 'chitkara-design-chandigarh',
-    'amity-design-lucknow'
+    'iilm-university-greater-noida',
+    'sushant-university-gurugram',
+    'haridwar-university-roorkee',
+    'future-university-bareilly',
+    'sanskriti-university-mathura',
+    'sanskriti-university-bareilly',
+    'amity-university-mohali',
+    'sage-university-indore',
+    'sage-university-bhopal',
+    'avantika-university-ujjain',
+    'kk-modi-university-durg',
+    'medhavi-skills-university-sikkim',
+    'mohan-babu-university-tirupati',
+    'amity-university-hyderabad',
+    'rayat-bahra-university-shimla',
+    'rayat-bahra-university-mohali',
+    'rajasthan-university',
+    'don-bosco-university',
+    'dit-university-dehradun',
+    'kr-mangalam-university',
+    'dev-bhoomi-university'
   ]);
   const isMockSlug = id ? (KNOWN_MOCK_IDS.has(id) || STATIC_COLLEGES.some((c: any) => c.id === id)) : false;
 
@@ -805,7 +698,7 @@ export const CollegeDetails = () => {
       `Address:        ${college.address || (college.name + ' Campus, India')}`,
       "",
       "========================================================================",
-      "            Generated via Career Mantra Admissions Directory",
+      "            Generated via Aruna-Nand EdTech Admissions Directory",
       "========================================================================"
     ].join('\n');
 
@@ -993,9 +886,9 @@ export const CollegeDetails = () => {
 
   // Top Universities widget (screenshot 2/3 data)
   const topUniversities = [
-    { name: 'IIBS, Bangalore', rating: '8.8/10', location: 'Karnatak Bengaluru' },
-    { name: 'Alliance University', rating: '8/10', location: 'Karnatak Bengaluru' },
-    { name: 'PIC Jaipur', rating: '9.2/10', location: 'Rajasthan Jaipur' }
+    { name: 'IILM University, Greater Noida', rating: '8.2/10', location: 'Uttar Pradesh Greater Noida' },
+    { name: 'Sushant University, Gurugram', rating: '8/10', location: 'Haryana Gurugram' },
+    { name: 'Amity University, Mohali', rating: '8.3/10', location: 'Punjab Mohali' }
   ];
 
   // Top courses dynamic widget
@@ -1006,13 +899,13 @@ export const CollegeDetails = () => {
 
   // Live Application Form list (screenshot 4/5 data)
   const liveApps = [
-    { name: 'Sadhu Vaswani Institute Of Management Studies For Girls', location: 'Pune, Maharashtra' },
-    { name: 'MIT College Of Management, Pune', location: 'Pune, Maharashtra' },
-    { name: 'DY Patil International University, Pune', location: 'Pune, Maharashtra' },
-    { name: 'Lexicon Management Institute Of Leadership And Excellence', location: 'Pune, Maharashtra' },
-    { name: 'SaiBalaji International Institute Of Management Sciences', location: 'Pune, Maharashtra' },
-    { name: 'Kirloskar Institute Of Management, Pune', location: 'Pune, Maharashtra' },
-    { name: 'Indira Institute Of Management, Pune', location: 'Pune, Maharashtra' }
+    { name: 'DIT University, Dehradun', location: 'Dehradun, Uttarakhand' },
+    { name: 'K.R. Mangalam University, Gurugram', location: 'Gurugram, Haryana' },
+    { name: 'SAGE University, Indore', location: 'Indore, Madhya Pradesh' },
+    { name: 'Avantika University, Ujjain', location: 'Ujjain, Madhya Pradesh' },
+    { name: 'Mohan Babu University, Tirupati', location: 'Tirupati, Andhra Pradesh' },
+    { name: 'Dev Bhoomi Uttarakhand University, Dehradun', location: 'Dehradun, Uttarakhand' },
+    { name: 'Sanskriti University, Mathura', location: 'Mathura, Uttar Pradesh' }
   ];
 
   return (
@@ -2074,7 +1967,7 @@ export const CollegeDetails = () => {
               
               <div className="flex flex-col gap-3.5">
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Career Mantra Campus Rockstar</span>
+                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Aruna-Nand EdTech Campus Rockstar</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/03/2025</span>
                     <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>

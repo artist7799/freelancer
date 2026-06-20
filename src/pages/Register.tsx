@@ -7,7 +7,7 @@ import { useGlobalStore } from '../store/useGlobalStore';
 
 export const Register = () => {
   const navigate = useNavigate();
-  const { register, verifyOtp, isVerifyingOtp, tempRegData, resendOtp } = useAuthStore();
+  const { register, verifyOtp, isVerifyingOtp, tempRegData, resendOtp, isAuthenticated } = useAuthStore();
   const addToast = useGlobalStore().addToast;
 
   // Form states
@@ -20,6 +20,13 @@ export const Register = () => {
 
   // Password strength meter states
   const [strength, setStrength] = useState({ label: 'Empty', color: 'bg-white/10', percent: 0 });
+
+  // Redirect home once authenticated (after successful registration)
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
 
   useEffect(() => {
     if (!password) {

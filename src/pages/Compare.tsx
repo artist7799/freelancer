@@ -132,32 +132,35 @@ const ShardaLogo = () => (
   </svg>
 );
 
-const renderLogo = (logoId: string) => {
+const renderLogo = (logoId: string, name: string) => {
   const container = (child: React.ReactNode) => (
     <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1.5 shadow-md border border-app-border shrink-0">
       {child}
     </div>
   );
-  switch (logoId) {
-    case 'iit-bombay': return container(<IITBLogo />);
-    case 'iim-bangalore': return container(<IIMBLogo />);
-    case 'aiims-delhi': return container(<AIIMSLogo />);
-    case 'kr-mangalam': return container(<KRMULogo />);
-    case 'great-lakes': return container(<GreatLakesLogo />);
-    case 'vydehi-medical': return container(<VydehiLogo />);
-    case 'jims-delhi':
-    case 'jims-gn':
-      return container(<JIMSLogo />);
-    case 'accurate-group': return container(<AccurateLogo />);
-    case 'amity-university': return container(<AmityLogo />);
-    case 'gl-bajaj': return container(<GLBajajLogo />);
-    case 'bennett-university': return container(<BennettLogo />);
-    case 'lloyd-school': return container(<LloydLogo />);
-    case 'mangalmay-institute': return container(<MangalmayLogo />);
-    case 'sharda-university': return container(<ShardaLogo />);
-    default:
-      return container(<JIMSLogo />);
+  
+  if (logoId.includes('kr-mangalam')) {
+    return container(<KRMULogo />);
   }
+  if (logoId.includes('amity')) {
+    return container(<AmityLogo />);
+  }
+
+  const clean = name.replace(/,/g, '').replace(/University/gi, 'U').replace(/Greater Noida/gi, 'GN').replace(/Gurugram/gi, 'G').replace(/Bareilly/gi, 'B').replace(/Mathura/gi, 'M').replace(/Indore/gi, 'I').replace(/Bhopal/gi, 'B').replace(/Ujjain/gi, 'U').replace(/Durg/gi, 'D').replace(/Sikkim/gi, 'S').replace(/Tirupati/gi, 'T').replace(/Hyderabad/gi, 'H').replace(/Shimla/gi, 'S').replace(/Mohali/gi, 'M').replace(/Jaipur/gi, 'J').replace(/Guwahati/gi, 'G').replace(/Dehradun/gi, 'D').replace(/Uttarakhand/gi, 'U');
+  const initials = clean
+    .split(/\s+/)
+    .map(w => w[0])
+    .join('')
+    .replace(/[^a-zA-Z]/g, '')
+    .toUpperCase()
+    .substring(0, 4) || 'COL';
+
+  return container(
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <rect x="12" y="12" width="76" height="76" rx="12" fill="#0A369D" />
+      <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">{initials}</text>
+    </svg>
+  );
 };
 
 // Parsing Helpers
@@ -298,7 +301,7 @@ export const Compare = () => {
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
 
-                      {renderLogo(col.logo || col.id)}
+                      {renderLogo(col.logo || col.id, col.name)}
                       <div>
                         <h3 className="font-extrabold text-sm text-white leading-tight line-clamp-1">{col.name}</h3>
                         <p className="text-[10px] text-app-muted mt-1">{col.location}</p>

@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, X, Calendar, BookOpen, Clock, FileText, Download, CheckCircle, ChevronDown, RefreshCw, Sparkles } from 'lucide-react';
 import { useExams } from '../hooks/useExams';
 import { ExamCard } from '../components/cards/ExamCard';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
 import type { Exam } from '../types';
 import { useGlobalStore } from '../store/useGlobalStore';
+import { exams as staticExamsData } from '../data/exams';
 
 export const Exams = () => {
+  const [searchParams] = useSearchParams();
   const addToast = useGlobalStore().addToast;
   const { useExamsQuery } = useExams();
-  const { data: examsList, isLoading } = useExamsQuery({ limit: 1000 });
-  const finalExams = examsList || [];
+  const { data: examsResponse, isLoading } = useExamsQuery({ limit: 1000 });
+  
+  const apiExams: any[] = 
+    Array.isArray(examsResponse) ? examsResponse :
+    Array.isArray(examsResponse?.exams) ? examsResponse.exams :
+    Array.isArray(examsResponse?.data?.exams) ? examsResponse.data.exams : [];
+
+  const apiIds = new Set(apiExams.map((e: any) => e.id));
+  const finalExams: any[] = apiExams.length > 0
+    ? [...apiExams, ...staticExamsData.filter((e) => !apiIds.has(e.id))]
+    : staticExamsData;
 
   const [searchInput, setSearchInput] = useState('');
   const [query, setQuery] = useState('');
@@ -19,10 +31,6 @@ export const Exams = () => {
   const [courseSearch, setCourseSearch] = useState('');
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
   const [selectedModes, setSelectedModes] = useState<string[]>([]);
-
-  const [sortBy, setSortBy] = useState('name');
-  const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
-  const [activeModalTab, setActiveModalTab] = useState('Overview');
 
   const streamsList = [
     'Engineering',
@@ -36,6 +44,57 @@ export const Exams = () => {
     'Design'
   ];
 
+  const modesList = [
+    'Online',
+    'Offline',
+    'ONLINE & OFFLINE BOTH'
+  ];
+
+  // Synchronization with URL queries
+  useEffect(() => {
+    const streamParam = searchParams.get('stream');
+    const modeParam = searchParams.get('mode');
+    const searchParam = searchParams.get('search');
+
+    if (streamParam) {
+      const matchedStream = streamsList.find(
+        (s) => s.toLowerCase() === streamParam.toLowerCase()
+      );
+      if (matchedStream) {
+        setSelectedStreams([matchedStream]);
+      } else {
+        setSelectedStreams([streamParam]);
+      }
+    } else {
+      setSelectedStreams([]);
+    }
+
+    if (modeParam) {
+      const matchedMode = modesList.find(
+        (m) => m.toLowerCase() === modeParam.toLowerCase()
+      );
+      if (matchedMode) {
+        setSelectedModes([matchedMode]);
+      } else {
+        setSelectedModes([modeParam]);
+      }
+    } else {
+      setSelectedModes([]);
+    }
+
+    if (searchParam) {
+      setSearchInput(searchParam);
+      setQuery(searchParam);
+    } else {
+      setSearchInput('');
+      setQuery('');
+    }
+  }, [searchParams]);
+
+  const [sortBy, setSortBy] = useState('name');
+  const [selectedExam, setSelectedExam] = useState<Exam | null>(null);
+  const [activeModalTab, setActiveModalTab] = useState('Overview');
+
   const coursesList = [
     'Allied',
     'B.A.',
@@ -47,12 +106,6 @@ export const Exams = () => {
     'BCA',
     'BDS',
     'MBA'
-  ];
-
-  const modesList = [
-    'Online',
-    'Offline',
-    'ONLINE & OFFLINE BOTH'
   ];
 
   const handleToggleStream = (stream: string) => {

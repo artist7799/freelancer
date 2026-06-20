@@ -140,7 +140,7 @@ export const SearchEverywhereModal: React.FC = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-4">
                   <span className="text-xs px-2.5 py-1 rounded-full bg-app-card border border-app-border text-app-muted">
-                    "IIT Bombay"
+                    "IILM University"
                   </span>
                   <span className="text-xs px-2.5 py-1 rounded-full bg-app-card border border-app-border text-app-muted">
                     "JEE Advanced"

@@ -8,6 +8,7 @@ import {
 import { useExams } from '../hooks/useExams';
 import { useGlobalStore } from '../store/useGlobalStore';
 import type { Exam } from '../types';
+import { exams as staticExamsData } from '../data/exams';
 
 // ── Mock exam details to supplement the API when offline ─────────────────────
 const MOCK_EXAM_MAP: Record<string, Partial<Exam> & { slug: string; conductingBody?: string; applicationStartDate?: string; applicationEndDate?: string; eligibility: string; pattern: string; }> = {
@@ -146,9 +147,19 @@ export const ExamDetails = () => {
   const [indexOpen, setIndexOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Merge: prefer DB record, fall back to static mock
-  const mockData = id ? MOCK_EXAM_MAP[id] : undefined;
-  const exam: any = dbExam || mockData || null;
+  // Merge: prefer DB record, fall back to static mock or static exams dataset
+  const cleanId = id ? id.replace(/-(2025|2026)$/, '') : '';
+  const mockData = id 
+    ? (MOCK_EXAM_MAP[id] || (cleanId ? MOCK_EXAM_MAP[`${cleanId}-2025`] : undefined)) 
+    : undefined;
+  const staticData = id 
+    ? (staticExamsData.find(e => e.id === id) || (cleanId ? staticExamsData.find(e => e.id === cleanId) : undefined)) 
+    : undefined;
+  const exam: any = dbExam 
+    ? dbExam 
+    : (staticData || mockData) 
+      ? { ...staticData, ...mockData } 
+      : null;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

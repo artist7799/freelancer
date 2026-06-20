@@ -135,32 +135,35 @@ const ShardaLogo = () => (
   </svg>
 );
 
-const renderLogo = (logoId: string) => {
+const renderLogo = (logoId: string, name: string) => {
   const container = (child: React.ReactNode) => (
     <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center p-1 shrink-0 shadow-sm border border-slate-200">
       {child}
     </div>
   );
-  switch (logoId) {
-    case 'iit-bombay': return container(<IITBLogo />);
-    case 'iim-bangalore': return container(<IIMBLogo />);
-    case 'aiims-delhi': return container(<AIIMSLogo />);
-    case 'kr-mangalam': return container(<KRMULogo />);
-    case 'great-lakes': return container(<GreatLakesLogo />);
-    case 'vydehi-medical': return container(<VydehiLogo />);
-    case 'jims-delhi':
-    case 'jims-gn':
-      return container(<JIMSLogo />);
-    case 'accurate-group': return container(<AccurateLogo />);
-    case 'amity-university': return container(<AmityLogo />);
-    case 'gl-bajaj': return container(<GLBajajLogo />);
-    case 'bennett-university': return container(<BennettLogo />);
-    case 'lloyd-school': return container(<LloydLogo />);
-    case 'mangalmay-institute': return container(<MangalmayLogo />);
-    case 'sharda-university': return container(<ShardaLogo />);
-    default:
-      return container(<JIMSLogo />);
+  
+  if (logoId.includes('kr-mangalam')) {
+    return container(<KRMULogo />);
   }
+  if (logoId.includes('amity')) {
+    return container(<AmityLogo />);
+  }
+
+  const clean = name.replace(/,/g, '').replace(/University/gi, 'U').replace(/Greater Noida/gi, 'GN').replace(/Gurugram/gi, 'G').replace(/Bareilly/gi, 'B').replace(/Mathura/gi, 'M').replace(/Indore/gi, 'I').replace(/Bhopal/gi, 'B').replace(/Ujjain/gi, 'U').replace(/Durg/gi, 'D').replace(/Sikkim/gi, 'S').replace(/Tirupati/gi, 'T').replace(/Hyderabad/gi, 'H').replace(/Shimla/gi, 'S').replace(/Mohali/gi, 'M').replace(/Jaipur/gi, 'J').replace(/Guwahati/gi, 'G').replace(/Dehradun/gi, 'D').replace(/Uttarakhand/gi, 'U');
+  const initials = clean
+    .split(/\s+/)
+    .map(w => w[0])
+    .join('')
+    .replace(/[^a-zA-Z]/g, '')
+    .toUpperCase()
+    .substring(0, 4) || 'COL';
+
+  return container(
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <rect x="12" y="12" width="76" height="76" rx="12" fill="#0A369D" />
+      <text x="50" y="58" fill="white" fontSize="22" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">{initials}</text>
+    </svg>
+  );
 };
 
 interface CollegeCardProps {
@@ -241,9 +244,9 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
 
     // Sidebar: Visited colleges list
     const visitedColleges = [
-      { name: "Laxminarayan Institute of Technology", location: "Nagpur, Maharashtra", rating: "8.6/10", img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=100&h=100&q=80" },
-      { name: "Priyadarshini J.L. College of Engineering", location: "Nagpur, Maharashtra", rating: "8.1/10", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=100&h=100&q=80" },
-      { name: "National Fire Service College", location: "Nagpur, Maharashtra", rating: "8.5/10", img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=100&h=100&q=80" }
+      { name: "DIT University, Dehradun", location: "Dehradun, Uttarakhand", rating: "8.1/10", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=100&h=100&q=80" },
+      { name: "Avantika University, Ujjain", location: "Ujjain, Madhya Pradesh", rating: "8.4/10", img: "https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?auto=format&fit=crop&w=100&h=100&q=80" },
+      { name: "Sushant University, Gurugram", location: "Gurugram, Haryana", rating: "8.0/10", img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=100&h=100&q=80" }
     ];
     const visitedItems = visitedColleges.map(vc => `
       <a href="#" class="college-item" style="display: flex; align-items: center; gap: 10px; padding: 0.5rem; border-radius: 8px; text-decoration: none; color: inherit; transition: background-color 0.2s;">
@@ -576,8 +579,29 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
     addToast(`Downloaded college details: ${college.name}`, 'success');
   };
 
-  // Extract numeric packages for display
-  const highestPkg = college.id === 'bennett-university' ? '1.2 CPA' : (college.id === 'sharda-university' ? '1.6 CR' : (college.id === 'iit-bombay' ? '64.5 LPA' : '52.0 LPA'));
+  // Extract numeric packages for display dynamically
+  const getHighestPackage = () => {
+    if (college.placementDetails && college.placementDetails.length > 0) {
+      const pkgs = college.placementDetails.map(p => p.package);
+      let maxPkgStr = '';
+      let maxVal = 0;
+      pkgs.forEach(pkgStr => {
+        const num = parseFloat(pkgStr.replace(/[^0-9.]/g, ''));
+        if (num > maxVal) {
+          maxVal = num;
+          maxPkgStr = pkgStr;
+        }
+      });
+      if (maxPkgStr) return maxPkgStr;
+    }
+    if (college.id === 'mohan-babu-university-tirupati') return '44.0 LPA';
+    if (college.id === 'dit-university-dehradun') return '38.0 LPA';
+    if (college.id === 'amity-university-mohali') return '38.0 LPA';
+    if (college.id === 'iilm-university-greater-noida') return '36.0 LPA';
+    if (college.id === 'kr-mangalam-university') return '36.0 LPA';
+    return '12.0 LPA';
+  };
+  const highestPkg = getHighestPackage();
   const averagePkg = college.placements.split(' ')[0] || '10.0 LPA';
 
   return (
@@ -639,7 +663,7 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
         
         {/* Overlapping logo container */}
         <div className="absolute -bottom-7 left-5 z-20">
-          {renderLogo(college.logo || college.id)}
+          {renderLogo(college.logo || college.id, college.name)}
         </div>
       </div>
  

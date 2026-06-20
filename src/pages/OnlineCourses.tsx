@@ -87,7 +87,7 @@ export const OnlineCourses = () => {
       "- Credits accumulated in UGC Academic Bank of Credits (ABC)",
       "",
       "========================================================================",
-      "            Generated via Career Mantra Online Education",
+      "            Generated via Aruna-Nand EdTech Online Education",
       "========================================================================"
     ].join('\n');
 

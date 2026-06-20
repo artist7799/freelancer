@@ -61,7 +61,7 @@ const DISC_DATA: Record<string, {
       'Top B.Tech Colleges in Karnataka','Top B.Tech Colleges in Maharashtra','Top B.Tech Colleges in Punjab',
       'Top B.Tech Colleges in Rajasthan','Top B.Tech Colleges in Tamil Nadu','Top B.Tech Colleges in Telangana','Top B.Tech Colleges in Uttar Pradesh',
     ],
-    featured: [{ name: 'Bennett University, Greater Noida', location: 'Greater Noida, Uttar Pradesh', logo: 'BU' }],
+    featured: [{ name: 'DIT University, Dehradun', location: 'Dehradun, Uttarakhand', logo: 'DIT' }],
   },
   'MBA': {
     megaTitle: 'TOP MBA COLLEGES IN INDIA',
@@ -83,7 +83,7 @@ const DISC_DATA: Record<string, {
       'Top MBA Colleges in Karnataka','Top MBA Colleges in Maharashtra','Top MBA Colleges in Punjab',
       'Top MBA Colleges in Rajasthan','Top MBA Colleges in Tamil Nadu','Top MBA Colleges in Telangana','Top MBA Colleges in Uttar Pradesh',
     ],
-    featured: [{ name: 'Alliance University, Bangalore', location: 'Bangalore, Karnataka', logo: 'AU' }],
+    featured: [{ name: 'Amity University, Mohali', location: 'Mohali, Punjab', logo: 'AMITY' }],
   },
   'MBBS': {
     megaTitle: 'TOP MBBS COLLEGES IN INDIA',
@@ -104,7 +104,7 @@ const DISC_DATA: Record<string, {
       'Top MBBS Colleges in Karnataka','Top MBBS Colleges in Maharashtra','Top MBBS Colleges in Punjab',
       'Top MBBS Colleges in Rajasthan','Top MBBS Colleges in Tamil Nadu','Top MBBS Colleges in Telangana','Top MBBS Colleges in Uttar Pradesh',
     ],
-    featured: [{ name: 'MIT World Peace University, Pune', location: 'Pune, Maharashtra', logo: 'MIT' }],
+    featured: [{ name: 'Dev Bhoomi Uttarakhand University, Dehradun', location: 'Dehradun, Uttarakhand', logo: 'DBUU' }],
   },
   'DESIGN': {
     megaTitle: 'TOP DESIGN COLLEGES IN INDIA',
@@ -127,9 +127,9 @@ const DISC_DATA: Record<string, {
       'Top Design Colleges in Rajasthan','Top Design Colleges in Telangana','Top Design Colleges in Uttar Pradesh',
     ],
     featured: [
-      { name: 'Shadan Women College of Engineering & Technology, Hyderabad', location: 'Suryapet, Telangana', logo: 'SW' },
-      { name: 'Swamy Vivekananda Medical College, Namakkal', location: 'Namakkal, Tamil Nadu', logo: 'SV' },
-      { name: 'Mepco Schlenk Engineering College, Sivakasi', location: 'Sethur, Tamil Nadu', logo: 'MS' },
+      { name: 'Avantika University, Ujjain', location: 'Ujjain, Madhya Pradesh', logo: 'AVANTIKA' },
+      { name: 'Sushant University, Gurugram', location: 'Gurugram, Haryana', logo: 'SUSHANT' },
+      { name: 'Haridwar University, Roorkee', location: 'Roorkee, Uttarakhand', logo: 'HARIDWAR' },
     ],
   },
   'LAW': {
@@ -149,7 +149,7 @@ const DISC_DATA: Record<string, {
       'Top Law Colleges in Karnataka','Top Law Colleges in Maharashtra','Top Law Colleges in Punjab',
       'Top Law Colleges in Rajasthan','Top Law Colleges in Tamil Nadu','Top Law Colleges in Uttar Pradesh',
     ],
-    featured: [{ name: 'National Law University, Delhi', location: 'New Delhi, Delhi', logo: 'NLU' }],
+    featured: [{ name: 'Rajasthan University, Jaipur', location: 'Jaipur, Rajasthan', logo: 'RAJASTHAN' }],
   },
 };
 
@@ -269,8 +269,8 @@ export const GlassNavbar = () => {
       name: 'B.TECH', 
       path: '/colleges?course=Engineering',
       sub: [
-        { name: 'IIT Bombay', path: '/colleges/iit-bombay' },
-        { name: 'BITS Pilani', path: '/colleges/bits-pilani' },
+        { name: 'DIT University', path: '/colleges/dit-university-dehradun' },
+        { name: 'Haridwar University', path: '/colleges/haridwar-university-roorkee' },
         { name: 'Browse All B.Tech', path: '/colleges?course=Engineering' }
       ]
     },
@@ -278,7 +278,8 @@ export const GlassNavbar = () => {
       name: 'MBA', 
       path: '/colleges?course=Management',
       sub: [
-        { name: 'IIM Bangalore', path: '/colleges/iim-bangalore' },
+        { name: 'Sushant University', path: '/colleges/sushant-university-gurugram' },
+        { name: 'Amity University, Mohali', path: '/colleges/amity-university-mohali' },
         { name: 'Browse All MBA', path: '/colleges?course=Management' }
       ]
     },
@@ -286,7 +287,7 @@ export const GlassNavbar = () => {
       name: 'MBBS', 
       path: '/colleges?course=Medicine',
       sub: [
-        { name: 'AIIMS New Delhi', path: '/colleges/aiims-delhi' },
+        { name: 'Dev Bhoomi University', path: '/colleges/dev-bhoomi-university' },
         { name: 'Browse All MBBS', path: '/colleges?course=Medicine' }
       ]
     },
@@ -294,7 +295,7 @@ export const GlassNavbar = () => {
       name: 'DESIGN', 
       path: '/colleges?course=Design',
       sub: [
-        { name: 'IIT Bombay Design', path: '/colleges/iit-bombay' },
+        { name: 'Avantika University', path: '/colleges/avantika-university-ujjain' },
         { name: 'Browse All Design', path: '/colleges?course=Design' }
       ]
     },
@@ -302,7 +303,7 @@ export const GlassNavbar = () => {
       name: 'LAW', 
       path: '/colleges?course=Law',
       sub: [
-        { name: 'NLSIU Bangalore', path: '/colleges/nlsiu-bangalore' },
+        { name: 'Sushant University', path: '/colleges/sushant-university-gurugram' },
         { name: 'Browse All Law', path: '/colleges?course=Law' }
       ]
     },

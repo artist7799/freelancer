@@ -80,12 +80,12 @@ export const allNews: NewsItem[] = [
   {
     id: 'an-2',
     category: 'News Category',
-    title: 'ISBR Business School: Courses, Fees, Admission 2025, Placements, Cut Off, Ranking',
+    title: 'Amity University, Mohali: Courses, Fees, Admission 2025, Placements, Cut Off, Ranking',
     author: 'Ashvini',
     date: '2024-12-31 09:06:58',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&h=250&q=80',
-    excerpt: 'ISBR Business School was established in 1990. It has become a re',
-    content: 'ISBR Business School in Bangalore is a premier management institution with a global reputation. It features excellent PGDM programs, dual specialties, international exchange options, and strong corporate connections. Annual placement cycles record averages of around 8 to 10 LPA, with recruiters from top MNCs visiting campus.'
+    excerpt: 'Amity University Mohali offers world-class facilities and top placements.',
+    content: 'Amity University in Mohali is a premier management institution with a global reputation. It features excellent MBA and BBA programs, dual specialties, international exchange options, and strong corporate connections. Annual placement cycles record averages of around 7.8 LPA, with recruiters from top MNCs visiting campus.'
   },
   {
     id: 'an-3',
@@ -150,12 +150,12 @@ export const allNews: NewsItem[] = [
   {
     id: 'an-9',
     category: 'Admission news',
-    title: 'MBA in Alliance University Course & Fees 2026',
+    title: 'MBA in Sushant University Gurugram Course & Fees 2026',
     author: 'Ashvini',
     date: '2024-12-09 13:42:00',
     image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&h=250&q=80',
-    excerpt: 'Find registration fees, PGDM specialties, placement records, and entrance exam requirements for Alliance candidates.',
-    content: 'Alliance University admissions are active for MBA classes. Offering international course integrations, a large campus, and active corporate recruitment, the college accepts CAT, NMAT, and MAT scores.'
+    excerpt: 'Find registration fees, MBA specialties, placement records, and entrance exam requirements for Sushant candidates.',
+    content: 'Sushant University Gurugram admissions are active for MBA classes. Offering international course integrations, a large campus, and active corporate recruitment, the college accepts CAT, NMAT, and MAT scores.'
   },
   {
     id: 'an-10',
@@ -235,11 +235,11 @@ export const trendingNews: NewsItem[] = [
   },
   {
     id: 'tn-8',
-    title: 'LNCT Bhopal: Scholarship criteria and placements details...',
+    title: 'SAGE University Bhopal: Scholarship criteria and placements details...',
     author: 'Ashvini',
     date: '2024-11-09 13:42:15',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=100&q=80',
-    excerpt: 'Incubation facilities and campus placements at LNCT University.',
-    content: 'LNCT University in Bhopal has launched academic scholarships for tech fields. Students can join campus coding camps and startup projects.'
+    excerpt: 'Incubation facilities and campus placements at SAGE University Bhopal.',
+    content: 'SAGE University in Bhopal has launched academic scholarships for management fields. Students can join campus business camps and startup projects.'
   }
 ];

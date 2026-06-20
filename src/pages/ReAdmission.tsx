@@ -35,22 +35,22 @@ export const ReAdmission: React.FC = () => {
 
   const reviews = [
     {
-      text: "I'm glad I chose Career Mantra to learn about my MBA since every mentor gave their students their undivided attention in academic and extracurricular areas. They provided us with efficient...",
+      text: "I'm glad I chose Aruna-Nand EdTech to learn about my MBA since every mentor gave their students their undivided attention in academic and extracurricular areas. They provided us with efficient...",
       name: "Arpita Adhikary",
       role: "Student, RGPV university Bhopal"
     },
     {
-      text: "Thanks to Career Mantra, which is famous for its relevance, the extensive MBA Training and coaching is easy to grasp. From poor academic results to top aptitude...",
+      text: "Thanks to Aruna-Nand EdTech, which is famous for its relevance, the extensive MBA Training and coaching is easy to grasp. From poor academic results to top aptitude...",
       name: "Divya Shaha",
       role: "Presidency university, Bangalore"
     },
     {
-      text: "Every class Career Mantra conduct is packed with good material, engaging stories, interesting events, and tremendous positive energy. No MBA question escapes...",
+      text: "Every class Aruna-Nand EdTech conduct is packed with good material, engaging stories, interesting events, and tremendous positive energy. No MBA question escapes...",
       name: "Jitesh Naidu",
       role: "Kirloskar Institute, Harihar"
     },
     {
-      text: "I'm happy I picked the Career Mantra to learn and understand about my MBA since every mentor member offers their students great attention in both the academic and extracurricular...",
+      text: "I'm happy I picked the Aruna-Nand EdTech to learn and understand about my MBA since every mentor member offers their students great attention in both the academic and extracurricular...",
       name: "Kalpana Singh",
       role: "CUTM, Bhubaneswar"
     }
@@ -85,7 +85,7 @@ export const ReAdmission: React.FC = () => {
               Resume Your Learning Journey
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-tight text-white uppercase tracking-tight max-w-xl">
-              Welcome to <span className="text-[#FF7A00]">Career Mantra...</span>
+              Welcome to <span className="text-[#FF7A00]">Aruna-Nand EdTech...</span>
             </h1>
             <h2 className="text-base sm:text-lg font-bold text-slate-300">
               Re-admission Process
@@ -94,7 +94,7 @@ export const ReAdmission: React.FC = () => {
               Don't let a temporary setback stand in the way of your future. Apply for readmission.
             </p>
             <p className="text-xs sm:text-sm text-slate-450 leading-relaxed font-medium max-w-xl">
-              With Career Mantra, students can get the support they need to get back on track and achieve their academic and career goals. Candidates are provided the facility to rejoin and complete their respective courses/programmes within the given time.
+              With Aruna-Nand EdTech, students can get the support they need to get back on track and achieve their academic and career goals. Candidates are provided the facility to rejoin and complete their respective courses/programmes within the given time.
             </p>
           </div>
 

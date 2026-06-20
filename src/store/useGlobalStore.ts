@@ -18,24 +18,28 @@ interface GlobalState {
 }
 
 export const useGlobalStore = create<GlobalState>((set) => {
-  // Read initial theme from localStorage, default to dark
-  const savedTheme = (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+  // Read initial theme from localStorage, default to light
+  const savedTheme = (localStorage.getItem('theme') as 'dark' | 'light') || 'light';
   const initialTheme = savedTheme;
 
   // Apply theme class to document
-  if (initialTheme === 'light') {
-    document.documentElement.classList.add('light');
-  } else {
+  if (initialTheme === 'dark') {
+    document.documentElement.classList.add('dark');
     document.documentElement.classList.remove('light');
+  } else {
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
   }
 
   return {
     theme: initialTheme,
     setTheme: (theme) => {
-      if (theme === 'light') {
-        document.documentElement.classList.add('light');
-      } else {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
         document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
       }
       localStorage.setItem('theme', theme);
       set({ theme });
@@ -43,10 +47,12 @@ export const useGlobalStore = create<GlobalState>((set) => {
     toggleTheme: () => {
       set((state) => {
         const next = state.theme === 'dark' ? 'light' : 'dark';
-        if (next === 'light') {
-          document.documentElement.classList.add('light');
-        } else {
+        if (next === 'dark') {
+          document.documentElement.classList.add('dark');
           document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
         }
         localStorage.setItem('theme', next);
         return { theme: next };
