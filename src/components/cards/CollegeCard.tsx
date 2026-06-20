@@ -245,11 +245,13 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
           <GitCompare className="w-3.5 h-3.5" />
         </button>
 
-        <img
-          src={college.image}
-          alt={college.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
-        />
+        <Link to={`/colleges/${college.id}`} className="block h-full w-full">
+          <img
+            src={college.image}
+            alt={college.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+          />
+        </Link>
         {/* Rating Badge */}
         <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-app-border text-xs font-semibold text-white">
           <Star className="w-3.5 h-3.5 text-warning fill-warning" />
@@ -261,19 +263,21 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
           {renderLogo(college.logo || college.id)}
         </div>
       </div>
-
+ 
       {/* Info & Metrics */}
       <div className="p-5 pt-9 flex-1 flex flex-col gap-4">
         <div>
-          <div className="flex items-center gap-1 text-[10px] font-black text-[#FF5E14] uppercase tracking-wider mb-1">
-            <span className="bg-[#FF5E14]/10 px-2 py-0.5 rounded">
-              {college.ranking.split(' in ')[0] || '#1 in India'}
-            </span>
-          </div>
-          
-          <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight group-hover:text-[#FF5E14] transition-colors duration-300 text-left line-clamp-1" title={college.name}>
-            {college.name}
-          </h3>
+          <Link to={`/colleges/${college.id}`} className="block hover:no-underline text-left">
+            <div className="flex items-center gap-1 text-[10px] font-black text-[#FF5E14] uppercase tracking-wider mb-1">
+              <span className="bg-[#FF5E14]/10 px-2 py-0.5 rounded">
+                {college.ranking.split(' in ')[0] || '#1 in India'}
+              </span>
+            </div>
+            
+            <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight group-hover:text-[#FF5E14] transition-colors duration-300 line-clamp-1" title={college.name}>
+              {college.name}
+            </h3>
+          </Link>
           
           <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 mt-1 text-left">
             <MapPin className="w-3.5 h-3.5 text-slate-400" />
