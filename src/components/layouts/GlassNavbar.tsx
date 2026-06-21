@@ -381,9 +381,9 @@ export const GlassNavbar = () => {
       </div>
 
       <header 
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 pointer-events-auto bg-white/80 dark:bg-app-bg/85 backdrop-blur-md border-b border-slate-200 dark:border-app-border shadow-sm flex items-center ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 pointer-events-auto bg-app-bg/90 backdrop-blur-md border-b border-app-border shadow-sm flex items-center ${
           isScrolled 
-            ? 'top-0 h-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)]' 
+            ? 'top-0 h-16 shadow-[0_4px_20px_rgba(0,0,0,0.2)]' 
             : 'top-0 lg:top-[36px] h-16'
         }`}
       >
@@ -391,16 +391,16 @@ export const GlassNavbar = () => {
           
           {/* Left: Brand Logo styled like Aruna-Nand EdTech */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-10 h-10 rounded-full bg-primary dark:bg-white flex items-center justify-center border border-slate-700/10 shadow-sm select-none shrink-0">
-              <span className="font-display font-black text-xs text-white dark:text-primary tracking-tight">
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center border border-white/10 shadow-sm select-none shrink-0">
+              <span className="font-display font-black text-xs text-white tracking-tight">
                 AN
               </span>
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-lg font-black tracking-tight font-display text-primary dark:text-white leading-none uppercase">
+              <span className="text-lg font-black tracking-tight font-display text-app-text leading-none uppercase">
                 ARUNA-NAND EDTECH
               </span>
-              <span className="text-[8px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1 leading-none">
+              <span className="text-[8px] text-slate-400 font-bold uppercase tracking-wider mt-1 leading-none">
                 Empowering Students
               </span>
             </div>
@@ -511,7 +511,7 @@ export const GlassNavbar = () => {
                       className={`py-1.5 text-xs font-black tracking-wide transition-all flex items-center gap-0.5 cursor-pointer uppercase ${
                         isOpen
                           ? 'text-accent'
-                          : 'text-slate-800 dark:text-slate-200 hover:text-accent'
+                          : 'text-app-text hover:text-accent'
                       }`}
                     >
                       {disc.name}
@@ -626,7 +626,7 @@ export const GlassNavbar = () => {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-1 rounded-full text-slate-800 dark:text-slate-200 hover:text-accent transition-colors cursor-pointer shrink-0"
+              className="p-1 rounded-full text-app-text hover:text-accent transition-colors cursor-pointer shrink-0"
               title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
               {theme === 'dark' ? <Sun className="w-5.5 h-5.5 stroke-[2.5]" /> : <Moon className="w-5.5 h-5.5 stroke-[2.5]" />}
@@ -635,7 +635,7 @@ export const GlassNavbar = () => {
             {/* Search Everywhere Magnifying Glass Trigger */}
             <button
               onClick={() => setSearchModalOpen(true)}
-              className="p-1 rounded-full text-slate-800 dark:text-slate-200 hover:text-accent transition-colors cursor-pointer shrink-0"
+              className="p-1 rounded-full text-app-text hover:text-accent transition-colors cursor-pointer shrink-0"
               title="Search Everywhere"
             >
               <Search className="w-5.5 h-5.5 stroke-[2.5]" />
@@ -644,7 +644,7 @@ export const GlassNavbar = () => {
             {/* Mobile Menu Toggle Button (Visible on mobile/tablet) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-app-card rounded-lg lg:hidden"
+              className="p-2 text-app-text hover:bg-app-card/10 dark:hover:bg-app-card rounded-lg lg:hidden"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

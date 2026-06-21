@@ -252,10 +252,10 @@ export const Hero = () => {
   return (
     <section className="relative min-h-[580px] w-full bg-app-bg overflow-hidden flex flex-col lg:flex-row pt-24 lg:pt-28">
       {/* LEFT PANEL: Branding & Localised Search (SaaS Primary Blue & Secondary Purple) */}
-      <div className="w-full lg:w-5/12 bg-gradient-to-br from-primary via-blue-700 to-secondary p-8 md:p-12 lg:p-16 flex flex-col justify-center items-start text-left gap-6 relative z-20">
+      <div className="w-full lg:w-5/12 bg-gradient-to-br from-[#1E0B36] via-[#3B0764] to-secondary p-8 md:p-12 lg:p-16 flex flex-col justify-center items-start text-left gap-6 relative z-20">
         
         {/* Slant clipping backdrop skew line on desktop */}
-        <div className="hidden lg:block absolute inset-y-0 right-[-40px] w-20 bg-blue-800 transform skew-x-[-8deg] z-10 pointer-events-none border-r-4 border-accent" />
+        <div className="hidden lg:block absolute inset-y-0 right-[-40px] w-20 bg-[#3B0764] transform skew-x-[-8deg] z-10 pointer-events-none border-r-4 border-accent" />
 
         <div className="relative z-20 flex flex-col gap-5 w-full">
           {/* Tagline Badge */}

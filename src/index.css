@@ -50,15 +50,15 @@
    LIGHT THEME (Default)
 ───────────────────────────────────────── */
 :root {
-  --bg-color: #F8FAFC;
-  --card-color: #FFFFFF;
-  --card-color-hover: #FFFFFF;
-  --border-color: #E2E8F0;
-  --border-color-hover: #CBD5E1;
-  --text-color: #0F172A;
-  --muted-color: #64748B;
-  --nav-bg: rgba(248, 250, 252, 0.8);
-  --glow-color: rgba(37, 99, 235, 0.05);
+  --bg-color: #E0F2FE; /* Light sky blue background */
+  --card-color: #FFFFFF; /* Clean white cards */
+  --card-color-hover: #F0F9FF; /* Light sky blue tint on hover */
+  --border-color: #BAE6FD; /* Sky-200 border */
+  --border-color-hover: #7DD3FC; /* Sky-300 border hover */
+  --text-color: #0F172A; /* Slate-900 for clear readability */
+  --muted-color: #475569; /* Slate-600 */
+  --nav-bg: rgba(224, 242, 254, 0.85); /* Blurred sky-100 */
+  --glow-color: rgba(14, 165, 233, 0.15); /* Soft sky-500 glow */
   --input-bg: #FFFFFF;
 }
 
