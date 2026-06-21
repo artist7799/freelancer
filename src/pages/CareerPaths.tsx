@@ -41,7 +41,7 @@ export const CareerPaths = () => {
     <div className="relative pt-28 pb-20 min-h-screen bg-app-bg text-app-text">
       {/* Background Gradients */}
       <div className="gradient-mesh opacity-80 absolute inset-0 pointer-events-none" />
-      <div className="absolute top-20 right-10 w-96 h-96 bg-[#FF7A00]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#4F46E5]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10 text-left">
@@ -49,7 +49,7 @@ export const CareerPaths = () => {
         {/* Title */}
         <div className="mb-12 p-8 rounded-3xl glass border border-app-border relative overflow-hidden flex flex-col gap-2">
           <div className="absolute inset-0 bg-gradient-to-r from-[#4F46E5]/10 to-transparent pointer-events-none" />
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FF7A00]/10 text-[#FF7A00] self-start mb-2">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F97316]/10 text-[#F97316] self-start mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             Interactive Learning Roadmaps
           </span>
@@ -67,7 +67,7 @@ export const CareerPaths = () => {
           {/* LEFT: selector sidebar */}
           <aside className="lg:col-span-3 flex flex-col gap-2.5 p-4 rounded-2xl glass border border-app-border w-full shadow-2xl">
             <h3 className="text-xs font-black uppercase tracking-wider text-app-muted px-2.5 mb-2 flex items-center gap-2">
-              <ListTodo className="w-4 h-4 text-[#FF7A00]" />
+              <ListTodo className="w-4 h-4 text-[#F97316]" />
               Choose Career Path
             </h3>
             {careers.map((road) => (
@@ -78,7 +78,7 @@ export const CareerPaths = () => {
                 }}
                 className={`w-full py-3.5 px-4 rounded-xl text-xs font-bold text-left transition-all cursor-pointer ${
                   activeId === road.id
-                    ? 'bg-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/25'
+                    ? 'bg-[#F97316] text-white shadow-lg shadow-[#F97316]/25'
                     : 'text-app-muted hover:text-white hover:bg-app-card'
                 }`}
               >
@@ -106,8 +106,8 @@ export const CareerPaths = () => {
                       <span>Avg Salary: <b className="text-[#10B981]">{activeRoadmap.salary}</b></span>
                     </div>
                     <div className="flex items-center gap-1.5 text-white">
-                      <Flame className="w-4 h-4 text-[#FF7A00]" />
-                      <span>Demand: <b className="text-[#FF7A00]">{activeRoadmap.demand}</b></span>
+                      <Flame className="w-4 h-4 text-[#F97316]" />
+                      <span>Demand: <b className="text-[#F97316]">{activeRoadmap.demand}</b></span>
                     </div>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export const CareerPaths = () => {
                       <defs>
                         <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                           <stop offset="0%" stopColor="#4F46E5" />
-                          <stop offset="100%" stopColor="#FF7A00" />
+                          <stop offset="100%" stopColor="#F97316" />
                         </linearGradient>
                       </defs>
                     </svg>
@@ -151,7 +151,7 @@ export const CareerPaths = () => {
               {activeRoadmap.steps.map((step, idx) => (
                 <div key={idx} className="relative flex flex-col gap-3">
                   {/* Circle step milestone indicator */}
-                  <div className="absolute -left-[39px] md:-left-[53px] top-1.5 w-8 h-8 rounded-full bg-app-bg border-2 border-[#FF7A00] flex items-center justify-center text-xs font-black text-[#FF7A00] shadow-lg shadow-[#FF7A00]/20">
+                  <div className="absolute -left-[39px] md:-left-[53px] top-1.5 w-8 h-8 rounded-full bg-app-bg border-2 border-[#F97316] flex items-center justify-center text-xs font-black text-[#F97316] shadow-lg shadow-[#F97316]/20">
                     {idx + 1}
                   </div>
 
@@ -172,11 +172,11 @@ export const CareerPaths = () => {
                           onClick={() => toggleSkill(skill)}
                           className={`px-3.5 py-2 rounded-xl border text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer bg-transparent ${
                             completed
-                              ? 'bg-[#FF7A00]/20 border-[#FF7A00]/40 text-[#FF7A00] shadow-md shadow-[#FF7A00]/5'
+                              ? 'bg-[#F97316]/20 border-[#F97316]/40 text-[#F97316] shadow-md shadow-[#F97316]/5'
                               : 'border-app-border hover:border-app-border text-app-muted hover:text-white'
                           }`}
                         >
-                          <CheckSquare className={`w-4 h-4 ${completed ? 'text-[#FF7A00] fill-[#FF7A00]/10' : 'text-app-muted'}`} />
+                          <CheckSquare className={`w-4 h-4 ${completed ? 'text-[#F97316] fill-[#F97316]/10' : 'text-app-muted'}`} />
                           <span>{skill}</span>
                         </button>
                       );
@@ -188,7 +188,7 @@ export const CareerPaths = () => {
 
             {/* Disclaimer */}
             <div className="flex gap-3 p-5 rounded-2xl bg-app-card border border-app-border text-xs text-app-muted leading-relaxed font-semibold">
-              <Info className="w-5 h-5 text-[#FF7A00] shrink-0" />
+              <Info className="w-5 h-5 text-[#F97316] shrink-0" />
               <p>
                 <b>Guide:</b> Clearing technical skills increases your profile readiness percentage. Work through each step from fundamentals to deployment metrics to master this career path.
               </p>

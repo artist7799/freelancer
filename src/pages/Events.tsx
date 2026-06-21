@@ -81,7 +81,7 @@ export const Events = () => {
         </button>
         <button
           onClick={() => setIsRegModalOpen(true)}
-          className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-black text-white bg-[#FF7A00] hover:bg-[#E06C00] shadow-lg shadow-orange-500/20 hover:shadow-orange-500/35 transition-all duration-300 cursor-pointer"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-black text-white bg-[#F97316] hover:bg-[#EA580C] shadow-lg shadow-orange-500/20 hover:shadow-orange-500/35 transition-all duration-300 cursor-pointer"
         >
           <span>Register Now</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -105,13 +105,13 @@ export const Events = () => {
             
             {/* Left Panel - Hero Info */}
             <div className="lg:col-span-7 flex flex-col items-start gap-6">
-              <span className="px-3.5 py-1 rounded-full bg-[#FF7A00]/25 border border-[#FF7A00]/50 text-[#FF7A00] text-[10px] font-black tracking-wider uppercase">
+              <span className="px-3.5 py-1 rounded-full bg-[#F97316]/25 border border-[#F97316]/50 text-[#F97316] text-[10px] font-black tracking-wider uppercase">
                 EXCEL & ACHIEVE • 2025 CONCLAVE
               </span>
               
               <h1 className="text-3xl sm:text-5xl font-display font-black text-white leading-tight uppercase tracking-wide">
                 Welcome to Aruna-Nand EdTech Services' <br />
-                <span className="text-[#FF7A00] drop-shadow-md">उड़ान MBA Conclave 2k25</span>
+                <span className="text-[#F97316] drop-shadow-md">उड़ान MBA Conclave 2k25</span>
               </h1>
               
               <p className="text-sm text-slate-300 max-w-xl leading-relaxed">
@@ -122,14 +122,14 @@ export const Events = () => {
               <div className="flex flex-wrap items-center gap-3.5 mt-2">
                 <button
                   onClick={() => setIsRegModalOpen(true)}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-black uppercase text-white bg-[#FF7A00] hover:bg-[#E06C00] shadow-md shadow-orange-500/10 hover:shadow-orange-500/25 transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-black uppercase text-white bg-[#F97316] hover:bg-[#EA580C] shadow-md shadow-orange-500/10 hover:shadow-orange-500/25 transition-all duration-200 cursor-pointer"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
                   Register Now
                 </button>
                 <button
                   onClick={handleDownloadBrochure}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-black uppercase text-[#FF7A00] border-2 border-[#FF7A00] hover:bg-[#FF7A00] hover:text-white transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-black uppercase text-[#F97316] border-2 border-[#F97316] hover:bg-[#F97316] hover:text-white transition-all duration-200 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   Download Brochure
@@ -150,7 +150,7 @@ export const Events = () => {
                     key={idx}
                     className="p-4 rounded-2xl bg-app-card backdrop-blur-md border border-app-border hover:border-app-border transition-all flex flex-col gap-2.5 text-left"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#FF7A00]/15 flex items-center justify-center text-[#FF7A00]">
+                    <div className="w-8 h-8 rounded-lg bg-[#F97316]/15 flex items-center justify-center text-[#F97316]">
                       <item.icon className="w-4.5 h-4.5" />
                     </div>
                     <div>
@@ -176,7 +176,7 @@ export const Events = () => {
           <div className="lg:col-span-8 flex flex-col gap-8">
             <ScrollReveal delay={0}>
               <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border shadow-md flex flex-col gap-5 text-left">
-                <span className="text-[10px] font-black text-[#FF7A00] tracking-wider uppercase leading-none">
+                <span className="text-[10px] font-black text-[#F97316] tracking-wider uppercase leading-none">
                   EVENT HIGHLIGHTS & SUMMARY
                 </span>
                 <h2 className="text-2xl md:text-3xl font-display font-black text-slate-900 dark:text-white uppercase tracking-wide">
@@ -207,14 +207,14 @@ export const Events = () => {
                     title: "Student Assistance", 
                     desc: "Complimentary guidance on application essays, GD/PI training, and profiles.",
                     icon: HelpCircle,
-                    color: "text-[#FF7A00] bg-[#FF7A00]/10 border-[#FF7A00]/20"
+                    color: "text-[#F97316] bg-[#F97316]/10 border-[#F97316]/20"
                   },
                   { 
                     stat: "Countless", 
                     title: "Opportunities", 
                     desc: "Explore dual degrees, executive courses, global study trips, and packages.",
                     icon: Briefcase,
-                    color: "text-blue-500 bg-blue-500/10 border-blue-500/20"
+                    color: "text-accent bg-accent/15 border-accent/30"
                   }
                 ].map((item, idx) => (
                   <div 
@@ -248,7 +248,7 @@ export const Events = () => {
             <ScrollReveal delay={0.2}>
               <div className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border shadow-md flex flex-col gap-5 text-left">
                 <h3 className="font-display font-black text-sm text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-app-border pb-3">
-                  <Award className="w-4 h-4 text-[#FF7A00]" />
+                  <Award className="w-4 h-4 text-[#F97316]" />
                   Key Highlights
                 </h3>
                 <ul className="flex flex-col gap-3.5 text-xs text-slate-700 dark:text-slate-300">
@@ -261,7 +261,7 @@ export const Events = () => {
                     "One-on-one professional Counselling sessions"
                   ].map((hl, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-4.5 h-4.5 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/30 text-[#FF7A00] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-4.5 h-4.5 rounded-full bg-[#F97316]/10 border border-[#F97316]/30 text-[#F97316] flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3 h-3 stroke-[3]" />
                       </div>
                       <span className="font-semibold leading-normal">{hl}</span>
@@ -275,7 +275,7 @@ export const Events = () => {
             <ScrollReveal delay={0.3}>
               <div className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border shadow-md flex flex-col gap-5 text-left">
                 <h3 className="font-display font-black text-sm text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 dark:border-app-border pb-3">
-                  <Users className="w-4 h-4 text-[#FF7A00]" />
+                  <Users className="w-4 h-4 text-[#F97316]" />
                   Who Can Attend?
                 </h3>
                 <ul className="flex flex-col gap-3.5 text-xs text-slate-700 dark:text-slate-300">
@@ -286,7 +286,7 @@ export const Events = () => {
                     "Autonomous Universities & B-Schools delegates"
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-4.5 h-4.5 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/30 text-[#FF7A00] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-4.5 h-4.5 rounded-full bg-[#F97316]/10 border border-[#F97316]/30 text-[#F97316] flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3 h-3 stroke-[3]" />
                       </div>
                       <span className="font-semibold leading-normal">{item}</span>
@@ -345,7 +345,7 @@ export const Events = () => {
                 EXCLUSIVE OFFER FOR ASPIRANTS
               </span>
               
-              <h3 className="font-display font-black text-lg md:text-xl text-[#FF7A00] leading-tight uppercase">
+              <h3 className="font-display font-black text-lg md:text-xl text-[#F97316] leading-tight uppercase">
                 Free Scholarship Test worth ₹2 Crore!
               </h3>
               
@@ -359,7 +359,7 @@ export const Events = () => {
                   setIsFloatingOpen(false);
                   setIsRegModalOpen(true);
                 }}
-                className="mt-2 w-full py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 hover:scale-[1.02] transition-all cursor-pointer border-none"
+                className="mt-2 w-full py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 hover:scale-[1.02] transition-all cursor-pointer border-none"
               >
                 <Send className="w-3.5 h-3.5 rotate-45" />
                 <span>Register now</span>
@@ -405,7 +405,7 @@ export const Events = () => {
                   placeholder="Rahul Verma"
                   value={regName}
                   onChange={(e) => setRegName(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -417,7 +417,7 @@ export const Events = () => {
                   placeholder="rahul@domain.com"
                   value={regEmail}
                   onChange={(e) => setRegEmail(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -429,7 +429,7 @@ export const Events = () => {
                   placeholder="+91 99887 76655"
                   value={regPhone}
                   onChange={(e) => setRegPhone(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -439,7 +439,7 @@ export const Events = () => {
                   <select
                     value={regSpecialization}
                     onChange={(e) => setRegSpecialization(e.target.value)}
-                    className="px-3 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] font-semibold"
+                    className="px-3 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316] font-semibold"
                   >
                     <option value="Finance">Finance</option>
                     <option value="Marketing">Marketing</option>
@@ -454,7 +454,7 @@ export const Events = () => {
                   <select
                     value={regYear}
                     onChange={(e) => setRegYear(e.target.value)}
-                    className="px-3 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] font-semibold"
+                    className="px-3 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316] font-semibold"
                   >
                     <option value="2025">2025</option>
                     <option value="2026">2026</option>
@@ -465,7 +465,7 @@ export const Events = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 w-full py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50"
+                className="mt-2 w-full py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <span className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />

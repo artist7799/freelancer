@@ -263,7 +263,7 @@ export const CommonApplication = () => {
             <h1 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">
               Common Application Process
             </h1>
-            <div className="h-1 w-20 bg-[#FF7A00] mx-auto rounded-full mt-2" />
+            <div className="h-1 w-20 bg-[#F97316] mx-auto rounded-full mt-2" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -299,11 +299,11 @@ export const CommonApplication = () => {
                   </div>
 
                   <div className="flex flex-col gap-2 pt-1 text-left">
-                    <label className="text-[10px] font-black text-[#FF7A00] uppercase tracking-wider">Select Course</label>
+                    <label className="text-[10px] font-black text-[#F97316] uppercase tracking-wider">Select Course</label>
                     <select
                       value={selectedCourse}
                       onChange={(e) => setSelectedCourse(e.target.value)}
-                      className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] font-bold cursor-pointer"
+                      className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316] font-bold cursor-pointer"
                     >
                       <option value="">Select Course</option>
                       {currentCollege.courses.map((crs: string, idx: number) => (
@@ -322,7 +322,7 @@ export const CommonApplication = () => {
                 
                 <h3 className="text-lg font-display font-black text-slate-900 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-app-border pb-3 flex items-center justify-between">
                   <span>Student Details</span>
-                  <Ticket className="w-5 h-5 text-[#FF7A00]" />
+                  <Ticket className="w-5 h-5 text-[#F97316]" />
                 </h3>
 
                 <form onSubmit={handleSingleSubmit} className="flex flex-col gap-4 text-xs font-semibold">
@@ -336,7 +336,7 @@ export const CommonApplication = () => {
                         placeholder="First name"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                       />
                     </div>
 
@@ -348,7 +348,7 @@ export const CommonApplication = () => {
                         placeholder="Last name"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
-                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                       />
                     </div>
                   </div>
@@ -362,7 +362,7 @@ export const CommonApplication = () => {
                         placeholder="+91 99887 76655"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                       />
                     </div>
 
@@ -374,7 +374,7 @@ export const CommonApplication = () => {
                         placeholder="example@domain.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                        className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                       />
                     </div>
                   </div>
@@ -389,13 +389,13 @@ export const CommonApplication = () => {
                         value={couponCode}
                         onChange={(e) => setCouponCode(e.target.value)}
                         disabled={couponApplied}
-                        className="flex-1 px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] disabled:opacity-60 uppercase font-bold"
+                        className="flex-1 px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316] disabled:opacity-60 uppercase font-bold"
                       />
                       <button
                         type="button"
                         onClick={handleApplyCoupon}
                         disabled={couponApplied}
-                        className="px-6 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-xs uppercase cursor-pointer border-none disabled:opacity-50 transition-all select-none"
+                        className="px-6 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-xs uppercase cursor-pointer border-none disabled:opacity-50 transition-all select-none"
                       >
                         Apply
                       </button>
@@ -416,7 +416,7 @@ export const CommonApplication = () => {
                     )}
                     <div className="border-t border-slate-200 dark:border-app-border pt-2.5 mt-1 flex justify-between items-center text-sm font-black text-slate-900 dark:text-white">
                       <span>Total Amount:</span>
-                      <span className="text-[#FF7A00]">₹ {finalFees}</span>
+                      <span className="text-[#F97316]">₹ {finalFees}</span>
                     </div>
                   </div>
 
@@ -424,7 +424,7 @@ export const CommonApplication = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-3 w-full py-4 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50 select-none"
+                    className="mt-3 w-full py-4 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50 select-none"
                   >
                     {isSubmitting ? (
                       <span className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
@@ -613,7 +613,7 @@ export const CommonApplication = () => {
                     setSelectedSpecializations([]);
                     setSearchQuery('');
                   }}
-                  className="mt-4 text-xs font-black text-white bg-[#FF7A00] hover:bg-[#E06C00] px-5 py-2.5 rounded-lg border-none cursor-pointer transition-all uppercase tracking-wider"
+                  className="mt-4 text-xs font-black text-white bg-[#F97316] hover:bg-[#EA580C] px-5 py-2.5 rounded-lg border-none cursor-pointer transition-all uppercase tracking-wider"
                 >
                   Clear All Filters
                 </button>
@@ -667,7 +667,7 @@ export const CommonApplication = () => {
                             className={`w-full py-2.5 rounded-xl text-xs font-black uppercase flex items-center justify-center gap-1 cursor-pointer transition-all border-none ${
                               isSelected
                                 ? 'bg-slate-800 text-white hover:bg-slate-900 dark:bg-white/10 dark:text-white dark:hover:bg-white/15'
-                                : 'bg-[#FF7A00] text-white hover:bg-[#E06C00] shadow-md shadow-orange-500/10'
+                                : 'bg-[#F97316] text-white hover:bg-[#EA580C] shadow-md shadow-orange-500/10'
                             }`}
                           >
                             {isSelected ? (
@@ -736,7 +736,7 @@ export const CommonApplication = () => {
                 </div>
                 <div className="border-t border-slate-200 dark:border-app-border pt-2.5 mt-2.5 flex justify-between items-center text-xs font-black">
                   <span>TOTAL APPLICATION FEE:</span>
-                  <span className="text-[#FF7A00] text-sm">₹ {totalFees}</span>
+                  <span className="text-[#F97316] text-sm">₹ {totalFees}</span>
                 </div>
               </div>
 
@@ -748,7 +748,7 @@ export const CommonApplication = () => {
                   placeholder=" राहुल वर्मा / Rahul Verma"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -760,7 +760,7 @@ export const CommonApplication = () => {
                   placeholder="rahul@domain.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -772,7 +772,7 @@ export const CommonApplication = () => {
                   placeholder="+91 99887 76655"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -781,7 +781,7 @@ export const CommonApplication = () => {
                 <select
                   value={qualification}
                   onChange={(e) => setQualification(e.target.value)}
-                  className="px-3 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] font-semibold"
+                  className="px-3 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316] font-semibold"
                 >
                   <option value="12th Pass">12th Pass / Equivalent</option>
                   <option value="Bachelor's Degree">Bachelor's Degree</option>
@@ -792,7 +792,7 @@ export const CommonApplication = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 w-full py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50"
+                className="mt-2 w-full py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <span className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />

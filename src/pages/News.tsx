@@ -95,8 +95,8 @@ export const News = () => {
       <section className="mx-auto max-w-7xl px-4 md:px-6 mb-8 mt-4 relative z-10">
         <div className="bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-xl p-3 flex flex-col md:flex-row items-center gap-3 shadow-md w-full">
           
-          {/* Breaking News Navy Badge */}
-          <div className="bg-[#1B254B] dark:bg-primary text-white text-xs font-black uppercase px-4 py-2.5 rounded-lg shrink-0 select-none tracking-widest flex items-center shadow-md animate-pulse">
+          {/* Breaking News Burgundy Badge */}
+          <div className="bg-[#9F1239] dark:bg-primary text-white text-xs font-black uppercase px-4 py-2.5 rounded-lg shrink-0 select-none tracking-widest flex items-center shadow-md animate-pulse">
             Breaking News
           </div>
 
@@ -199,7 +199,7 @@ export const News = () => {
                           </span>
                         )}
 
-                        <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-snug group-hover:text-[#FF7A00] transition-colors duration-300 uppercase">
+                        <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-snug group-hover:text-[#F97316] transition-colors duration-300 uppercase">
                           {item.title}
                         </h3>
 
@@ -219,7 +219,7 @@ export const News = () => {
                           {item.excerpt}
                           <button
                             onClick={() => setActiveArticle(item)}
-                            className="text-[#FF7A00] hover:text-[#E06C00] font-black underline ml-1 cursor-pointer bg-transparent border-none p-0 text-xs inline-block"
+                            className="text-[#F97316] hover:text-[#EA580C] font-black underline ml-1 cursor-pointer bg-transparent border-none p-0 text-xs inline-block"
                           >
                             Read More...
                           </button>
@@ -233,13 +233,13 @@ export const News = () => {
                         {/* Circular Share Anchors */}
                         <button
                           onClick={() => handleSocialShare('facebook', item.title)}
-                          className="w-7 h-7 rounded-full bg-slate-50 hover:bg-blue-600 hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
+                          className="w-7 h-7 rounded-full bg-slate-50 hover:bg-primary hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
                         >
                           <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
                         </button>
                         <button
                           onClick={() => handleSocialShare('twitter', item.title)}
-                          className="w-7 h-7 rounded-full bg-slate-50 hover:bg-sky-500 hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
+                          className="w-7 h-7 rounded-full bg-slate-50 hover:bg-secondary hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
                         >
                           <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                         </button>
@@ -290,7 +290,7 @@ export const News = () => {
               <h3 className="text-xl font-display font-extrabold text-slate-800 dark:text-white uppercase tracking-wider">
                 Trending News
               </h3>
-              <div className="w-full h-[2.5px] bg-[#FF7A00] mt-2 rounded" />
+              <div className="w-full h-[2.5px] bg-[#F97316] mt-2 rounded" />
             </div>
 
             {/* Trending Items List */}
@@ -313,7 +313,7 @@ export const News = () => {
                     </h4>
                     <div className="flex items-center justify-between w-full mt-1.5 text-[9px] text-slate-400 dark:text-slate-500 font-bold uppercase">
                       <span>{tn.date.split(' ')[0]}</span>
-                      <span className="text-[#FF7A00] font-black underline">Read more..</span>
+                      <span className="text-[#F97316] font-black underline">Read more..</span>
                     </div>
                   </div>
                 </button>
@@ -391,13 +391,13 @@ export const News = () => {
                 <span className="font-black select-none">Share:</span>
                 <button
                   onClick={() => handleSocialShare('facebook', activeArticle.title)}
-                  className="w-7 h-7 rounded-full bg-slate-50 hover:bg-blue-600 hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
+                  className="w-7 h-7 rounded-full bg-slate-50 hover:bg-primary hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
                 >
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
                 </button>
                 <button
                   onClick={() => handleSocialShare('twitter', activeArticle.title)}
-                  className="w-7 h-7 rounded-full bg-slate-50 hover:bg-sky-500 hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
+                  className="w-7 h-7 rounded-full bg-slate-50 hover:bg-secondary hover:text-white dark:bg-app-card text-slate-500 dark:text-slate-400 flex items-center justify-center transition-all border border-slate-200 dark:border-app-border cursor-pointer shadow-sm"
                 >
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                 </button>
@@ -411,7 +411,7 @@ export const News = () => {
 
               <button
                 onClick={() => setActiveArticle(null)}
-                className="px-6 py-2.5 text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#E06C00] rounded-xl transition-all border-none cursor-pointer"
+                className="px-6 py-2.5 text-xs font-bold text-white bg-[#F97316] hover:bg-[#EA580C] rounded-xl transition-all border-none cursor-pointer"
               >
                 Close Article
               </button>

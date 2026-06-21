@@ -207,7 +207,7 @@ export const ExamDetails = () => {
     return (
       <div className="pt-36 pb-20 min-h-screen bg-app-bg flex items-center justify-center">
         <div className="text-center">
-          <div className="w-14 h-14 rounded-full border-4 border-[#FF7A00] border-t-transparent animate-spin mx-auto mb-5" />
+          <div className="w-14 h-14 rounded-full border-4 border-[#F97316] border-t-transparent animate-spin mx-auto mb-5" />
           <p className="text-app-muted text-sm font-semibold">Loading exam details...</p>
         </div>
       </div>
@@ -220,7 +220,7 @@ export const ExamDetails = () => {
         <GraduationCap className="w-16 h-16 text-app-muted/30" />
         <h2 className="text-2xl font-bold font-display">Exam Not Found</h2>
         <p className="text-app-muted text-sm max-w-sm">The requested exam "{id}" does not exist in our catalog.</p>
-        <Link to="/exams" className="mt-4 inline-flex items-center gap-2 text-[#FF7A00] font-bold hover:underline text-sm">
+        <Link to="/exams" className="mt-4 inline-flex items-center gap-2 text-[#F97316] font-bold hover:underline text-sm">
           <ArrowLeft className="w-4 h-4" /> Return to Exams Catalog
         </Link>
       </div>
@@ -232,9 +232,9 @@ export const ExamDetails = () => {
       {/* ── Breadcrumb ──────────────────────────────────────────────── */}
       <div className="bg-app-card border-b border-app-border py-3 px-6">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-app-muted font-semibold">
-          <Link to="/" className="hover:text-[#FF7A00] transition-colors">Home</Link>
+          <Link to="/" className="hover:text-[#F97316] transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <Link to="/exams" className="hover:text-[#FF7A00] transition-colors">Exams</Link>
+          <Link to="/exams" className="hover:text-[#F97316] transition-colors">Exams</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <span className="text-white">{exam.name}</span>
         </div>
@@ -243,7 +243,7 @@ export const ExamDetails = () => {
       {/* ── Hero Banner ─────────────────────────────────────────────── */}
       <div className="bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] border-b border-app-border py-10 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,122,0,0.12),transparent_70%)] pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF7A00]/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/40 to-transparent" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <Link to="/exams" className="inline-flex items-center gap-1.5 text-xs text-app-muted hover:text-white font-bold mb-5 transition-colors">
@@ -253,7 +253,7 @@ export const ExamDetails = () => {
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-3 py-1 rounded-full bg-[#FF7A00]/15 text-[#FF7A00] text-[10px] font-black uppercase tracking-wider border border-[#FF7A00]/20">
+                <span className="px-3 py-1 rounded-full bg-[#F97316]/15 text-[#F97316] text-[10px] font-black uppercase tracking-wider border border-[#F97316]/20">
                   {exam.category || 'Management'} Entrance
                 </span>
                 <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider border ${exam.mode === 'online' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-blue-500/10 text-blue-400 border-blue-500/20'}`}>
@@ -266,12 +266,12 @@ export const ExamDetails = () => {
 
               <h1 className="text-3xl md:text-4xl font-display font-black text-white leading-tight mb-2">
                 {exam.name}{' '}
-                <span className="text-[#FF7A00]">Complete Guide</span>
+                <span className="text-[#F97316]">Complete Guide</span>
               </h1>
               <p className="text-sm text-app-muted font-semibold mb-1">{exam.fullName}</p>
               {exam.conductingBody && (
                 <p className="text-xs text-slate-500 flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-[#FF7A00]" />
+                  <Award className="w-3.5 h-3.5 text-[#F97316]" />
                   Conducted by: <span className="text-slate-400 font-semibold">{exam.conductingBody}</span>
                 </p>
               )}
@@ -279,10 +279,10 @@ export const ExamDetails = () => {
 
             {/* Countdown pill */}
             <div className="shrink-0 flex flex-col items-center justify-center p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md min-w-[140px] text-center shadow-xl">
-              <Calendar className="w-6 h-6 text-[#FF7A00] mb-2" />
+              <Calendar className="w-6 h-6 text-[#F97316] mb-2" />
               <span className="text-[10px] font-black text-app-muted uppercase tracking-wider mb-1">Exam Date</span>
               <span className="text-sm font-extrabold text-white leading-tight">{exam.date?.replace(/-/g, '.')}</span>
-              <span className="text-[10px] text-[#FF7A00] font-black mt-2 px-2 py-0.5 rounded-full bg-[#FF7A00]/10">
+              <span className="text-[10px] text-[#F97316] font-black mt-2 px-2 py-0.5 rounded-full bg-[#F97316]/10">
                 {getDaysLeft(exam.date)}
               </span>
             </div>
@@ -297,7 +297,7 @@ export const ExamDetails = () => {
               { label: 'Result Date', value: exam.resultDate?.replace(/-/g, '.') || 'TBD', icon: Award },
             ].map((item) => (
               <div key={item.label} className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
-                <item.icon className="w-4 h-4 text-[#FF7A00] shrink-0 mt-0.5" />
+                <item.icon className="w-4 h-4 text-[#F97316] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[9px] font-black text-app-muted uppercase tracking-wider block">{item.label}</span>
                   <span className="text-xs font-extrabold text-white mt-0.5 block">{item.value}</span>
@@ -318,7 +318,7 @@ export const ExamDetails = () => {
                 onClick={() => handleTabClick(tab)}
                 className={`py-3.5 px-4 text-[11px] font-bold whitespace-nowrap border-b-2 transition-all cursor-pointer shrink-0 ${
                   activeTab === tab
-                    ? 'border-[#FF7A00] text-[#FF7A00] bg-[#FF7A00]/5'
+                    ? 'border-[#F97316] text-[#F97316] bg-[#F97316]/5'
                     : 'border-transparent text-app-muted hover:text-white hover:bg-white/5'
                 }`}
               >
@@ -343,7 +343,7 @@ export const ExamDetails = () => {
                 className="w-full flex items-center justify-between p-4 text-sm font-black text-white hover:bg-white/5 transition-colors cursor-pointer border-none bg-transparent text-left"
               >
                 <span className="flex items-center gap-2">
-                  <ListChecks className="w-4 h-4 text-[#FF7A00]" />
+                  <ListChecks className="w-4 h-4 text-[#F97316]" />
                   Show List of Contents
                 </span>
                 <ChevronRight className={`w-4 h-4 text-app-muted transition-transform ${indexOpen ? 'rotate-90' : ''}`} />
@@ -352,8 +352,8 @@ export const ExamDetails = () => {
                 <div className="border-t border-app-border px-4 pb-4">
                   <ol className="flex flex-col gap-2 mt-3">
                     {CONTENT_INDEX.map((item, idx) => (
-                      <li key={item} className="flex items-center gap-3 text-xs text-app-muted hover:text-[#FF7A00] transition-colors cursor-pointer">
-                        <span className="w-5 h-5 rounded-full bg-[#FF7A00]/10 text-[#FF7A00] flex items-center justify-center text-[9px] font-black shrink-0">
+                      <li key={item} className="flex items-center gap-3 text-xs text-app-muted hover:text-[#F97316] transition-colors cursor-pointer">
+                        <span className="w-5 h-5 rounded-full bg-[#F97316]/10 text-[#F97316] flex items-center justify-center text-[9px] font-black shrink-0">
                           {idx + 1}
                         </span>
                         <span className="font-semibold">{item}</span>
@@ -367,7 +367,7 @@ export const ExamDetails = () => {
             {/* Description Card */}
             <div className="rounded-2xl border border-app-border bg-app-card p-6">
               <h2 className="text-base font-display font-extrabold text-white mb-3 flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-[#FF7A00]" />
+                <BookOpen className="w-4 h-4 text-[#F97316]" />
                 {exam.name} – Overview
               </h2>
               <p className="text-sm text-app-muted leading-relaxed">{exam.description}</p>
@@ -381,8 +381,8 @@ export const ExamDetails = () => {
                   { label: 'Eligibility', value: exam.eligibility?.split('.')[0] + '.', icon: GraduationCap },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-app-border">
-                    <div className="w-8 h-8 rounded-lg bg-[#FF7A00]/10 flex items-center justify-center shrink-0">
-                      <item.icon className="w-4 h-4 text-[#FF7A00]" />
+                    <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-4 h-4 text-[#F97316]" />
                     </div>
                     <div>
                       <span className="text-[9px] font-black text-app-muted uppercase tracking-wider block">{item.label}</span>
@@ -407,7 +407,7 @@ export const ExamDetails = () => {
             {/* Exam Pattern */}
             <div className="rounded-2xl border border-app-border bg-app-card p-6">
               <h2 className="text-base font-display font-extrabold text-white mb-4 flex items-center gap-2">
-                <FileText className="w-4 h-4 text-[#FF7A00]" />
+                <FileText className="w-4 h-4 text-[#F97316]" />
                 Exam Pattern
               </h2>
               <p className="text-sm text-app-muted leading-relaxed mb-4">{exam.pattern}</p>
@@ -433,13 +433,13 @@ export const ExamDetails = () => {
             {/* Syllabus */}
             <div className="rounded-2xl border border-app-border bg-app-card p-6">
               <h2 className="text-base font-display font-extrabold text-white mb-4 flex items-center gap-2">
-                <ListChecks className="w-4 h-4 text-[#FF7A00]" />
+                <ListChecks className="w-4 h-4 text-[#F97316]" />
                 Syllabus Breakdown
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {(exam.syllabus || []).map((sub: string, i: number) => (
                   <div key={i} className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-app-border text-xs text-white font-bold">
-                    <div className="w-6 h-6 rounded-lg bg-[#FF7A00]/10 flex items-center justify-center shrink-0 text-[#FF7A00] font-black text-[10px]">
+                    <div className="w-6 h-6 rounded-lg bg-[#F97316]/10 flex items-center justify-center shrink-0 text-[#F97316] font-black text-[10px]">
                       {i + 1}
                     </div>
                     {sub}
@@ -451,7 +451,7 @@ export const ExamDetails = () => {
             {/* Preparation Tips */}
             <div className="rounded-2xl border border-app-border bg-app-card p-6">
               <h2 className="text-base font-display font-extrabold text-white mb-4 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#FF7A00]" />
+                <Sparkles className="w-4 h-4 text-[#F97316]" />
                 Preparation Tips
               </h2>
               <ul className="flex flex-col gap-3">
@@ -474,7 +474,7 @@ export const ExamDetails = () => {
             {/* Important Dates */}
             <div className="rounded-2xl border border-app-border bg-app-card p-6">
               <h2 className="text-base font-display font-extrabold text-white mb-4 flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-[#FF7A00]" />
+                <Calendar className="w-4 h-4 text-[#F97316]" />
                 Important Dates
               </h2>
               <div className="flex flex-col gap-0 rounded-xl overflow-hidden border border-app-border">
@@ -488,7 +488,7 @@ export const ExamDetails = () => {
                 ].map((row, i) => (
                   <div key={row.event} className={`flex items-center justify-between px-4 py-3.5 text-xs font-semibold ${i % 2 === 0 ? 'bg-white/[0.02]' : 'bg-transparent'} border-b border-app-border last:border-b-0`}>
                     <span className="text-app-muted flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A00] shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] shrink-0" />
                       {row.event}
                     </span>
                     <span className="text-white font-extrabold ml-4 text-right whitespace-nowrap">{row.date}</span>
@@ -500,7 +500,7 @@ export const ExamDetails = () => {
             {/* FAQ */}
             <div className="rounded-2xl border border-app-border bg-app-card p-6">
               <h2 className="text-base font-display font-extrabold text-white mb-4 flex items-center gap-2">
-                <HelpCircle className="w-4 h-4 text-[#FF7A00]" />
+                <HelpCircle className="w-4 h-4 text-[#F97316]" />
                 Frequently Asked Questions
               </h2>
               <div className="flex flex-col gap-4">
@@ -513,13 +513,13 @@ export const ExamDetails = () => {
                   <details key={i} className="group rounded-xl border border-app-border bg-white/[0.02] overflow-hidden">
                     <summary className="flex items-center justify-between px-4 py-3.5 text-sm font-bold text-white cursor-pointer hover:bg-white/5 transition-colors list-none">
                       <span className="flex items-center gap-2.5">
-                        <span className="w-5 h-5 rounded-full bg-[#FF7A00]/10 text-[#FF7A00] flex items-center justify-center text-[9px] font-black shrink-0">Q</span>
+                        <span className="w-5 h-5 rounded-full bg-[#F97316]/10 text-[#F97316] flex items-center justify-center text-[9px] font-black shrink-0">Q</span>
                         {faq.q}
                       </span>
                       <ChevronRight className="w-4 h-4 text-app-muted group-open:rotate-90 transition-transform shrink-0" />
                     </summary>
                     <div className="px-4 pb-4 pt-1 text-sm text-app-muted leading-relaxed border-t border-app-border">
-                      <span className="text-[#FF7A00] font-bold mr-2">A:</span>
+                      <span className="text-[#F97316] font-bold mr-2">A:</span>
                       {faq.a}
                     </div>
                   </details>
@@ -528,10 +528,10 @@ export const ExamDetails = () => {
             </div>
 
             {/* Get Exam Alerts Form */}
-            <div id="alerts-form" className="rounded-2xl border border-[#FF7A00]/20 bg-gradient-to-br from-[#FF7A00]/5 to-transparent p-6 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF7A00]/40 to-transparent" />
+            <div id="alerts-form" className="rounded-2xl border border-[#F97316]/20 bg-gradient-to-br from-[#F97316]/5 to-transparent p-6 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/40 to-transparent" />
               <h2 className="text-base font-display font-extrabold text-white mb-1 flex items-center gap-2">
-                <Bell className="w-4 h-4 text-[#FF7A00]" />
+                <Bell className="w-4 h-4 text-[#F97316]" />
                 Get {exam.name} Alerts
               </h2>
               <p className="text-xs text-app-muted mb-5">
@@ -552,7 +552,7 @@ export const ExamDetails = () => {
                       placeholder={field.placeholder}
                       value={(formData as any)[field.name]}
                       onChange={handleFormChange}
-                      className="w-full pl-9 pr-3 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-app-muted outline-none focus:border-[#FF7A00] transition-all font-medium"
+                      className="w-full pl-9 pr-3 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-app-muted outline-none focus:border-[#F97316] transition-all font-medium"
                     />
                   </div>
                 ))}
@@ -562,7 +562,7 @@ export const ExamDetails = () => {
                     name="state"
                     value={formData.state}
                     onChange={handleFormChange}
-                    className="w-full pl-9 pr-3 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#FF7A00] transition-all appearance-none font-medium cursor-pointer"
+                    className="w-full pl-9 pr-3 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#F97316] transition-all appearance-none font-medium cursor-pointer"
                   >
                     <option value="">Select State</option>
                     {['Maharashtra', 'Delhi', 'Karnataka', 'Tamil Nadu', 'Uttar Pradesh', 'Gujarat', 'Rajasthan', 'West Bengal', 'Madhya Pradesh', 'Punjab'].map(s => (
@@ -578,13 +578,13 @@ export const ExamDetails = () => {
                     placeholder="City"
                     value={formData.city}
                     onChange={handleFormChange}
-                    className="w-full pl-9 pr-3 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-app-muted outline-none focus:border-[#FF7A00] transition-all font-medium"
+                    className="w-full pl-9 pr-3 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-app-muted outline-none focus:border-[#F97316] transition-all font-medium"
                   />
                 </div>
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#FF7A00]/25 border-none cursor-pointer active:scale-[0.98]"
+                    className="w-full py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#F97316]/25 border-none cursor-pointer active:scale-[0.98]"
                   >
                     <Send className="w-4 h-4" />
                     Register Now – Get Free Alerts
@@ -603,7 +603,7 @@ export const ExamDetails = () => {
               <h3 className="text-xs font-black text-white uppercase tracking-wider mb-1">Quick Actions</h3>
               <Link
                 to="/common-application"
-                className="w-full py-3 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#FF7A00]/20 border-none cursor-pointer active:scale-[0.98] hover:no-underline"
+                className="w-full py-3 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#F97316]/20 border-none cursor-pointer active:scale-[0.98] hover:no-underline"
               >
                 <Send className="w-4 h-4" />
                 Apply Now
@@ -612,14 +612,14 @@ export const ExamDetails = () => {
                 onClick={() => addToast('Downloading question papers... Check your downloads!', 'success')}
                 className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-app-border text-white font-bold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
-                <Download className="w-4 h-4 text-[#FF7A00]" />
+                <Download className="w-4 h-4 text-[#F97316]" />
                 Download Question Paper
               </button>
               <Link
                 to="/college-predictor"
                 className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-app-border text-white font-bold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer hover:no-underline"
               >
-                <TrendingUp className="w-4 h-4 text-[#FF7A00]" />
+                <TrendingUp className="w-4 h-4 text-[#F97316]" />
                 Predict My College
               </Link>
             </div>
@@ -638,7 +638,7 @@ export const ExamDetails = () => {
             {/* Other Upcoming Exams */}
             <div className="rounded-2xl border border-app-border bg-app-card p-5">
               <h3 className="text-xs font-black text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Calendar className="w-3.5 h-3.5 text-[#FF7A00]" />
+                <Calendar className="w-3.5 h-3.5 text-[#F97316]" />
                 Other Upcoming Exams
               </h3>
               <div className="flex flex-col gap-2">
@@ -646,27 +646,27 @@ export const ExamDetails = () => {
                   <Link
                     key={e.id}
                     to={`/exams/${e.id}`}
-                    className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-app-border hover:border-[#FF7A00]/30 hover:bg-[#FF7A00]/5 transition-all cursor-pointer group hover:no-underline"
+                    className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-app-border hover:border-[#F97316]/30 hover:bg-[#F97316]/5 transition-all cursor-pointer group hover:no-underline"
                   >
                     <div>
-                      <span className="text-xs font-extrabold text-white group-hover:text-[#FF7A00] transition-colors block">{e.name}</span>
+                      <span className="text-xs font-extrabold text-white group-hover:text-[#F97316] transition-colors block">{e.name}</span>
                       <span className="text-[10px] text-app-muted">{e.dates}</span>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-app-muted group-hover:text-[#FF7A00] transition-colors shrink-0" />
+                    <ChevronRight className="w-3.5 h-3.5 text-app-muted group-hover:text-[#F97316] transition-colors shrink-0" />
                   </Link>
                 ))}
               </div>
               <Link
                 to="/exams"
-                className="mt-3 w-full py-2.5 rounded-xl border border-app-border text-xs font-bold text-app-muted hover:text-[#FF7A00] hover:border-[#FF7A00]/30 transition-all cursor-pointer text-center block hover:no-underline"
+                className="mt-3 w-full py-2.5 rounded-xl border border-app-border text-xs font-bold text-app-muted hover:text-[#F97316] hover:border-[#F97316]/30 transition-all cursor-pointer text-center block hover:no-underline"
               >
                 View All Exams →
               </Link>
             </div>
 
             {/* Promo Conclave Widget */}
-            <div className="rounded-2xl overflow-hidden border border-[#FF7A00]/20 relative">
-              <div className="bg-gradient-to-br from-[#FF7A00] to-[#D14B00] p-5 text-white">
+            <div className="rounded-2xl overflow-hidden border border-[#F97316]/20 relative">
+              <div className="bg-gradient-to-br from-[#F97316] to-[#EA580C] p-5 text-white">
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="w-4 h-4" />
                   <span className="text-[10px] font-black uppercase tracking-wider">Career Conclave 2025</span>
@@ -677,7 +677,7 @@ export const ExamDetails = () => {
                 </p>
                 <Link
                   to="/events"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white text-[#FF7A00] font-black text-xs cursor-pointer transition-all hover:bg-orange-50 hover:no-underline"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white text-[#F97316] font-black text-xs cursor-pointer transition-all hover:bg-orange-50 hover:no-underline"
                 >
                   <Calendar className="w-3.5 h-3.5" />
                   Register Free

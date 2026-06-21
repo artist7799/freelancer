@@ -156,7 +156,7 @@ export const Reviews = () => {
             {/* FIND STATE */}
             <div className="p-6 bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-xl shadow-md flex flex-col gap-3">
               <span className="text-xs font-black text-slate-850 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#FF7A00]" />
+                <MapPin className="w-4 h-4 text-[#F97316]" />
                 FIND STATE
               </span>
               <input
@@ -164,7 +164,7 @@ export const Reviews = () => {
                 placeholder="Search State"
                 value={stateSearch}
                 onChange={(e) => setStateSearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-lg bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-800 dark:text-white placeholder-slate-400 outline-none focus:border-[#FF7A00]"
+                className="text-xs px-3 py-2 rounded-lg bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-800 dark:text-white placeholder-slate-400 outline-none focus:border-[#F97316]"
               />
               <div className="flex flex-col gap-2.5 text-xs text-slate-650 dark:text-slate-400 max-h-36 overflow-y-auto pr-1 no-scrollbar">
                 {allStates
@@ -175,7 +175,7 @@ export const Reviews = () => {
                         type="checkbox"
                         checked={selectedStates.includes(state)}
                         onChange={() => handleToggleState(state)}
-                        className="rounded border-slate-350 dark:border-app-border bg-transparent text-[#FF7A00] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
+                        className="rounded border-slate-350 dark:border-app-border bg-transparent text-[#F97316] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
                       />
                       <span>{state}</span>
                     </label>
@@ -186,7 +186,7 @@ export const Reviews = () => {
             {/* FIND CITY */}
             <div className="p-6 bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-xl shadow-md flex flex-col gap-3">
               <span className="text-xs font-black text-slate-850 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#FF7A00]" />
+                <MapPin className="w-4 h-4 text-[#F97316]" />
                 FIND CITY
               </span>
               <input
@@ -194,7 +194,7 @@ export const Reviews = () => {
                 placeholder="Search City"
                 value={citySearch}
                 onChange={(e) => setCitySearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-lg bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-800 dark:text-white placeholder-slate-400 outline-none focus:border-[#FF7A00]"
+                className="text-xs px-3 py-2 rounded-lg bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-800 dark:text-white placeholder-slate-400 outline-none focus:border-[#F97316]"
               />
               <div className="flex flex-col gap-2.5 text-xs text-slate-650 dark:text-slate-400 max-h-36 overflow-y-auto pr-1 no-scrollbar">
                 {allCities
@@ -205,7 +205,7 @@ export const Reviews = () => {
                         type="checkbox"
                         checked={selectedCities.includes(city)}
                         onChange={() => handleToggleCity(city)}
-                        className="rounded border-slate-350 dark:border-app-border bg-transparent text-[#FF7A00] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
+                        className="rounded border-slate-350 dark:border-app-border bg-transparent text-[#F97316] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
                       />
                       <span>{city}</span>
                     </label>
@@ -216,7 +216,7 @@ export const Reviews = () => {
             {/* RATING FILTER */}
             <div className="p-6 bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-xl shadow-md flex flex-col gap-3.5">
               <span className="text-xs font-black text-slate-850 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <Star className="w-4 h-4 fill-[#FF7A00] stroke-[#FF7A00]" />
+                <Star className="w-4 h-4 fill-[#F97316] stroke-[#F97316]" />
                 Rating
               </span>
               <div className="flex flex-col gap-3">
@@ -226,7 +226,7 @@ export const Reviews = () => {
                       type="checkbox"
                       checked={selectedRatings.includes(stars)}
                       onChange={() => handleToggleRating(stars)}
-                      className="rounded border-slate-350 dark:border-app-border bg-transparent text-[#FF7A00] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
+                      className="rounded border-slate-350 dark:border-app-border bg-transparent text-[#F97316] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
                     />
                     <div className="flex items-center gap-0.5">
                       {Array.from({ length: 5 }).map((_, i) => (
@@ -234,7 +234,7 @@ export const Reviews = () => {
                           key={i}
                           className={`w-3.5 h-3.5 ${
                             i < stars
-                              ? 'fill-[#FF7A00] stroke-[#FF7A00]'
+                              ? 'fill-[#F97316] stroke-[#F97316]'
                               : 'fill-slate-200 dark:fill-white/10 stroke-slate-300 dark:stroke-white/10'
                           }`}
                         />
@@ -260,7 +260,7 @@ export const Reviews = () => {
                     setSelectedRatings([]);
                     setSearchQuery('');
                   }}
-                  className="mt-4 text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#E06C00] px-5 py-2.5 rounded-lg border-none cursor-pointer transition-all"
+                  className="mt-4 text-xs font-bold text-white bg-[#F97316] hover:bg-[#EA580C] px-5 py-2.5 rounded-lg border-none cursor-pointer transition-all"
                 >
                   Clear All Filters
                 </button>
@@ -283,14 +283,16 @@ export const Reviews = () => {
                             <h3 className="font-display font-extrabold text-sm text-slate-800 dark:text-white leading-tight uppercase truncate">
                               {review.collegeName}
                             </h3>
-                            <p className="text-xs text-[#FF7A00] dark:text-[#FF7A00] font-black mt-1 leading-none">
-                              {review.studentName} <span className="text-slate-400 dark:text-slate-500 font-bold ml-1">{review.course}</span>
+                            <p className="text-xs text-[#F97316] dark:text-[#F97316] font-black mt-1 leading-none flex items-center gap-1.5">
+                              <span>{review.studentName}</span>
+                              <span className="inline-flex items-center justify-center w-3.5 h-3.5 bg-success rounded-full text-white text-[8px] font-bold" title="Verified Student">✓</span>
+                              <span className="text-slate-400 dark:text-slate-500 font-medium ml-1">{review.course}</span>
                             </p>
                           </div>
 
                           {/* Star Rating badges */}
                           <div className="flex items-center gap-0.5 shrink-0 bg-slate-50 dark:bg-app-card border border-slate-100 dark:border-app-border px-2 py-1 rounded-lg">
-                            <Star className="w-3.5 h-3.5 fill-[#FF7A00] stroke-[#FF7A00]" />
+                            <Star className="w-3.5 h-3.5 fill-[#F97316] stroke-[#F97316]" />
                             <span className="text-[10px] font-black text-slate-750 dark:text-slate-200 mt-0.5">{review.rating}.0</span>
                           </div>
                         </div>
@@ -315,7 +317,7 @@ export const Reviews = () => {
                         <div className="flex justify-end mt-4 border-t border-slate-100 dark:border-app-border pt-3">
                           <button
                             onClick={() => setActiveReview(review)}
-                            className="text-xs font-black text-[#FF7A00] hover:text-[#E06C00] uppercase tracking-wider bg-transparent border-none cursor-pointer flex items-center gap-1 transition-colors"
+                            className="text-xs font-black text-[#F97316] hover:text-[#EA580C] uppercase tracking-wider bg-transparent border-none cursor-pointer flex items-center gap-1 transition-colors"
                           >
                             Read More
                           </button>
@@ -356,7 +358,7 @@ export const Reviews = () => {
           <aside className="lg:col-span-3 flex flex-col gap-6 text-left sticky top-24">
             <div className="bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-xl shadow-md overflow-hidden">
               {/* Header Box in Orange */}
-              <div className="bg-[#FF7A00] text-white px-5 py-4 font-display font-black text-sm uppercase tracking-wider flex items-center gap-2">
+              <div className="bg-[#F97316] text-white px-5 py-4 font-display font-black text-sm uppercase tracking-wider flex items-center gap-2">
                 <Award className="w-5 h-5" />
                 Top Reviews
               </div>
@@ -374,7 +376,7 @@ export const Reviews = () => {
                         {r.collegeName}
                       </span>
                       <div className="flex items-center shrink-0">
-                        <Star className="w-3 h-3 fill-[#FF7A00] stroke-[#FF7A00]" />
+                        <Star className="w-3 h-3 fill-[#F97316] stroke-[#F97316]" />
                         <span className="text-[9px] font-black text-slate-600 dark:text-slate-300 ml-0.5">{r.rating}.0</span>
                       </div>
                     </div>
@@ -407,13 +409,13 @@ export const Reviews = () => {
             {/* Header */}
             <div className="flex justify-between items-start gap-4 mb-5 border-b border-slate-100 dark:border-app-border pb-4">
               <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#FF7A00]/10 border border-[#FF7A00]/25 text-[#FF7A00] font-black uppercase tracking-wider">
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#F97316]/10 border border-[#F97316]/25 text-[#F97316] font-black uppercase tracking-wider">
                   Rating {activeReview.rating}.0 / 5.0
                 </span>
                 <h3 className="font-display font-extrabold text-xl text-slate-900 dark:text-white mt-2.5 uppercase leading-tight">
                   {activeReview.collegeName}
                 </h3>
-                <p className="text-xs text-[#FF7A00] font-black mt-1 uppercase">
+                <p className="text-xs text-[#F97316] font-black mt-1 uppercase">
                   {activeReview.studentName} <span className="text-slate-450 dark:text-slate-500 font-bold ml-1">{activeReview.course}</span>
                 </p>
               </div>
@@ -429,7 +431,7 @@ export const Reviews = () => {
             <div className="flex flex-col gap-5 text-sm text-slate-600 dark:text-slate-400">
               <div>
                 <h4 className="font-black text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-2 flex items-center gap-1.5">
-                  <BookOpen className="w-4 h-4 text-[#FF7A00]" />
+                  <BookOpen className="w-4 h-4 text-[#F97316]" />
                   Campus Life
                 </h4>
                 <p className="leading-relaxed bg-slate-50 dark:bg-app-card p-4 rounded-xl border border-slate-100 dark:border-app-border">
@@ -439,7 +441,7 @@ export const Reviews = () => {
 
               <div>
                 <h4 className="font-black text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-2 flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-[#FF7A00]" />
+                  <Award className="w-4 h-4 text-[#F97316]" />
                   Internships Opportunities
                 </h4>
                 <p className="leading-relaxed bg-slate-50 dark:bg-app-card p-4 rounded-xl border border-slate-100 dark:border-app-border">
@@ -449,7 +451,7 @@ export const Reviews = () => {
 
               <div>
                 <h4 className="font-black text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-2 flex items-center gap-1.5">
-                  <Star className="w-4 h-4 text-[#FF7A00]" />
+                  <Star className="w-4 h-4 text-[#F97316]" />
                   Placement Experience
                 </h4>
                 <p className="leading-relaxed bg-slate-50 dark:bg-app-card p-4 rounded-xl border border-slate-100 dark:border-app-border">
@@ -462,7 +464,7 @@ export const Reviews = () => {
             <div className="mt-8 flex justify-end border-t border-slate-100 dark:border-app-border pt-4">
               <button
                 onClick={() => setActiveReview(null)}
-                className="px-6 py-2.5 text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#E06C00] rounded-xl transition-all border-none cursor-pointer"
+                className="px-6 py-2.5 text-xs font-bold text-white bg-[#F97316] hover:bg-[#EA580C] rounded-xl transition-all border-none cursor-pointer"
               >
                 Close Review
               </button>

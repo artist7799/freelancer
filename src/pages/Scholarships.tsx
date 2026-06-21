@@ -237,7 +237,7 @@ export const Scholarships = () => {
           
           {/* Left: Heading and Bullets */}
           <div className="lg:col-span-7 flex flex-col gap-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FF7A00]/10 text-[#FF7A00] self-start">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F97316]/10 text-[#F97316] self-start">
               <Sparkles className="w-3.5 h-3.5" />
               National Scholarship Scheme
             </span>
@@ -250,19 +250,19 @@ export const Scholarships = () => {
             
             <div className="grid grid-cols-2 gap-4 mt-4 text-[10px] sm:text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
               <div className="flex items-start gap-2.5">
-                <div className="w-2.5 h-2.5 border-2 border-[#FF7A00] rounded-sm shrink-0 mt-1" />
+                <div className="w-2.5 h-2.5 border-2 border-[#F97316] rounded-sm shrink-0 mt-1" />
                 <span>Based on latest exam pattern</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-2.5 h-2.5 border-2 border-[#FF7A00] rounded-sm shrink-0 mt-1" />
+                <div className="w-2.5 h-2.5 border-2 border-[#F97316] rounded-sm shrink-0 mt-1" />
                 <span>Fresh questions created by expert faculty</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-2.5 h-2.5 border-2 border-[#FF7A00] rounded-sm shrink-0 mt-1" />
+                <div className="w-2.5 h-2.5 border-2 border-[#F97316] rounded-sm shrink-0 mt-1" />
                 <span>Detailed Performance Analysis</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-2.5 h-2.5 border-2 border-[#FF7A00] rounded-sm shrink-0 mt-1" />
+                <div className="w-2.5 h-2.5 border-2 border-[#F97316] rounded-sm shrink-0 mt-1" />
                 <span>Trusted by 25,000+ Students.</span>
               </div>
             </div>
@@ -270,7 +270,7 @@ export const Scholarships = () => {
 
           {/* Right: Registration Box */}
           <div className="lg:col-span-5 w-full max-w-md glass rounded-3xl shadow-2xl border border-app-border overflow-hidden shrink-0 self-center">
-            <div className="bg-[#FF7A00] text-white py-4 text-center font-display font-black text-sm uppercase tracking-widest">
+            <div className="bg-[#F97316] text-white py-4 text-center font-display font-black text-sm uppercase tracking-widest">
               Registration
             </div>
 
@@ -365,7 +365,7 @@ export const Scholarships = () => {
 
               <button
                 type="submit"
-                className="w-full bg-[#FF7A00] hover:bg-[#D14B00] text-white text-xs font-black uppercase py-3.5 rounded-xl mt-2 transition-all shadow-lg shadow-[#FF7A00]/25 cursor-pointer border-none"
+                className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white text-xs font-black uppercase py-3.5 rounded-xl mt-2 transition-all shadow-lg shadow-[#F97316]/25 cursor-pointer border-none"
               >
                 Register Now
               </button>
@@ -395,7 +395,7 @@ export const Scholarships = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <div className="p-6 glass border border-app-border rounded-2xl shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
+              <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316]">
                 <Award className="w-6 h-6" />
               </div>
               <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
@@ -404,8 +404,8 @@ export const Scholarships = () => {
             </div>
 
             <div className="p-6 glass border border-app-border rounded-2xl shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
-                <Star className="w-6 h-6 fill-[#FF7A00]" />
+              <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316]">
+                <Star className="w-6 h-6 fill-[#F97316]" />
               </div>
               <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
                 Secure Top Ranks & Waivers
@@ -413,7 +413,7 @@ export const Scholarships = () => {
             </div>
 
             <div className="p-6 glass border border-app-border rounded-2xl shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
+              <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316]">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
@@ -422,7 +422,7 @@ export const Scholarships = () => {
             </div>
 
             <div className="p-6 glass border border-app-border rounded-2xl shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00]">
+              <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316]">
                 <Building className="w-6 h-6" />
               </div>
               <h3 className="font-display font-extrabold text-sm text-slate-900 dark:text-white uppercase leading-snug">
@@ -469,7 +469,7 @@ export const Scholarships = () => {
               const Icon = s.icon;
               return (
                 <div key={s.step} className="flex flex-col items-center gap-3 text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#FF7A00]/10 text-[#FF7A00] flex items-center justify-center font-display font-black text-lg border border-[#FF7A00]/20 shadow-sm">
+                  <div className="w-14 h-14 rounded-full bg-[#F97316]/10 text-[#F97316] flex items-center justify-center font-display font-black text-lg border border-[#F97316]/20 shadow-sm">
                     {s.step}
                   </div>
                   <div className="w-10 h-10 rounded-full bg-app-card flex items-center justify-center text-app-muted border border-app-border mt-1">
@@ -491,25 +491,25 @@ export const Scholarships = () => {
           <div className="bg-[#0b0f1d] border border-app-border rounded-3xl p-8 md:p-10 shadow-xl text-white grid grid-cols-2 md:grid-cols-4 gap-6 text-center select-none">
             
             <div className="flex flex-col items-center gap-1 border-r border-app-border last:border-0">
-              <Users className="w-6 h-6 text-[#FF7A00] mb-1.5" />
+              <Users className="w-6 h-6 text-[#F97316] mb-1.5" />
               <span className="text-2xl md:text-3xl font-display font-black tracking-tight">10000+</span>
               <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider mt-1">Students</span>
             </div>
 
             <div className="flex flex-col items-center gap-1 border-r border-app-border last:border-0">
-              <Award className="w-6 h-6 text-[#FF7A00] mb-1.5" />
+              <Award className="w-6 h-6 text-[#F97316] mb-1.5" />
               <span className="text-2xl md:text-3xl font-display font-black tracking-tight">2 Crore+</span>
               <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider mt-1">Scholarship</span>
             </div>
 
             <div className="flex flex-col items-center gap-1 border-r border-app-border last:border-0 md:border-r">
-              <Building className="w-6 h-6 text-[#FF7A00] mb-1.5" />
+              <Building className="w-6 h-6 text-[#F97316] mb-1.5" />
               <span className="text-2xl md:text-3xl font-display font-black tracking-tight">1000+</span>
               <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider mt-1">University</span>
             </div>
 
             <div className="flex flex-col items-center gap-1 last:border-0 border-none">
-              <Calendar className="w-6 h-6 text-[#FF7A00] mb-1.5" />
+              <Calendar className="w-6 h-6 text-[#F97316] mb-1.5" />
               <span className="text-2xl md:text-3xl font-display font-black tracking-tight">12+ Years</span>
               <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider mt-1">In Education</span>
             </div>
@@ -553,7 +553,7 @@ export const Scholarships = () => {
           
           <div className="flex items-center justify-center gap-0.5 mb-8">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-[#FF7A00] stroke-[#FF7A00]" />
+              <Star key={i} className="w-5 h-5 fill-[#F97316] stroke-[#F97316]" />
             ))}
           </div>
 
@@ -580,7 +580,7 @@ export const Scholarships = () => {
                     <div>
                       <div className="flex items-center gap-0.5 mb-3">
                         {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-[#FF7A00] stroke-[#FF7A00]" />
+                          <Star key={i} className="w-3.5 h-3.5 fill-[#F97316] stroke-[#F97316]" />
                         ))}
                       </div>
 
@@ -590,7 +590,7 @@ export const Scholarships = () => {
                       
                       <button
                         onClick={() => toggleReviewExpand(rev.id)}
-                        className="text-[11px] font-black text-[#FF7A00] hover:text-[#E06C00] uppercase mt-2.5 cursor-pointer bg-transparent border-none p-0 inline-block"
+                        className="text-[11px] font-black text-[#F97316] hover:text-[#EA580C] uppercase mt-2.5 cursor-pointer bg-transparent border-none p-0 inline-block"
                       >
                         {isExpanded ? 'Read less' : 'Read more'}
                       </button>
@@ -658,7 +658,7 @@ export const Scholarships = () => {
                     className="w-full px-6 py-4 flex items-center justify-between text-slate-900 dark:text-white font-display font-bold text-xs uppercase tracking-wide cursor-pointer bg-transparent border-none outline-none"
                   >
                     <span className="flex items-center gap-3">
-                      {isOpen ? <Minus className="w-4 h-4 text-[#FF7A00] shrink-0" /> : <Plus className="w-4 h-4 text-[#FF7A00] shrink-0" />}
+                      {isOpen ? <Minus className="w-4 h-4 text-[#F97316] shrink-0" /> : <Plus className="w-4 h-4 text-[#F97316] shrink-0" />}
                       {faq.q}
                     </span>
                   </button>

@@ -137,7 +137,7 @@ export const OnlineCourses = () => {
               Anywhere Access Easy Learning
             </span>
             <h1 className="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white uppercase tracking-tight leading-tight">
-              The Best <span className="text-[#FF7A00]">Platform</span> For <br />
+              The Best <span className="text-[#F97316]">Platform</span> For <br />
               Enhancing Skills
             </h1>
             <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-semibold">
@@ -155,7 +155,7 @@ export const OnlineCourses = () => {
               />
               <button 
                 onClick={() => setSelectedCategory(null)}
-                className="px-6 py-2.5 rounded-full text-xs font-black text-white bg-[#FF7A00] hover:bg-[#E06C00] cursor-pointer border-none shadow-md"
+                className="px-6 py-2.5 rounded-full text-xs font-black text-white bg-[#F97316] hover:bg-[#EA580C] cursor-pointer border-none shadow-md"
               >
                 Search
               </button>
@@ -170,7 +170,7 @@ export const OnlineCourses = () => {
               className="w-full h-full object-cover opacity-85"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/20 to-transparent" />
-            <div className="absolute top-4 right-4 bg-[#FF7A00]/95 text-white font-black text-[9px] uppercase px-3 py-1 rounded shadow-lg">
+            <div className="absolute top-4 right-4 bg-[#F97316]/95 text-white font-black text-[9px] uppercase px-3 py-1 rounded shadow-lg">
               Online Learning
             </div>
           </div>
@@ -188,7 +188,7 @@ export const OnlineCourses = () => {
               key={idx}
               className="p-5 rounded-2xl bg-white dark:bg-app-card border border-slate-250 dark:border-app-border shadow-sm hover:shadow-md transition-all flex items-start gap-4 text-left"
             >
-              <div className="p-3 rounded-xl bg-[#FF7A00]/10 text-[#FF7A00] shrink-0">
+              <div className="p-3 rounded-xl bg-[#F97316]/10 text-[#F97316] shrink-0">
                 <srv.icon className="w-5 h-5" />
               </div>
               <div className="flex flex-col gap-1">
@@ -253,7 +253,7 @@ export const OnlineCourses = () => {
               onClick={() => setSelectedCategory(null)}
               className={`px-3.5 py-2 rounded-full border transition-all cursor-pointer ${
                 selectedCategory === null
-                  ? 'bg-[#FF7A00] text-white border-transparent'
+                  ? 'bg-[#F97316] text-white border-transparent'
                   : 'bg-app-card text-slate-650 dark:text-slate-400 border-slate-200 dark:border-app-border hover:border-slate-350 dark:hover:border-app-border'
               }`}
             >
@@ -265,7 +265,7 @@ export const OnlineCourses = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-2 rounded-full border transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-[#FF7A00] text-white border-transparent'
+                    ? 'bg-[#F97316] text-white border-transparent'
                     : 'bg-app-card text-slate-650 dark:text-slate-400 border-slate-200 dark:border-app-border hover:border-slate-350 dark:hover:border-app-border'
                 }`}
               >
@@ -288,7 +288,7 @@ export const OnlineCourses = () => {
                   setSelectedCategory(null);
                   setSearchQuery('');
                 }}
-                className="mt-4 text-xs font-black text-white bg-[#FF7A00] hover:bg-[#E06C00] px-5 py-2.5 rounded-lg border-none cursor-pointer transition-all uppercase tracking-wider"
+                className="mt-4 text-xs font-black text-white bg-[#F97316] hover:bg-[#EA580C] px-5 py-2.5 rounded-lg border-none cursor-pointer transition-all uppercase tracking-wider"
               >
                 Clear All Filters
               </button>
@@ -297,7 +297,7 @@ export const OnlineCourses = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
               {filteredCourses.map((course, idx) => {
                 const accentColors = [
-                  '#FF7A00','#6366F1','#10B981','#F59E0B','#EC4899','#3B82F6',
+                  '#F97316','#6366F1','#10B981','#F59E0B','#EC4899','#3B82F6',
                   '#8B5CF6','#14B8A6','#EF4444','#F97316','#06B6D4','#84CC16'
                 ];
                 const accent = accentColors[idx % accentColors.length];
@@ -452,7 +452,7 @@ export const OnlineCourses = () => {
             {/* Visual FAQ illustration representation */}
             <div className="h-44 w-full rounded-2xl bg-app-bg border border-app-border shadow-lg flex items-center justify-center p-4 relative overflow-hidden mt-2 select-none">
               <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-40" />
-              <HelpCircle className="w-12 h-12 text-[#FF7A00] animate-bounce" />
+              <HelpCircle className="w-12 h-12 text-[#F97316] animate-bounce" />
             </div>
           </div>
 
@@ -500,7 +500,7 @@ export const OnlineCourses = () => {
                 <h3 className="font-display font-extrabold text-base md:text-lg text-slate-900 dark:text-white uppercase tracking-wide">
                   Course Enquiry
                 </h3>
-                <p className="text-[10px] text-[#FF7A00] font-black mt-0.5 leading-none uppercase">
+                <p className="text-[10px] text-[#F97316] font-black mt-0.5 leading-none uppercase">
                   {selectedProgram.university}
                 </p>
               </div>
@@ -527,7 +527,7 @@ export const OnlineCourses = () => {
                   placeholder="Rahul Verma"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -539,7 +539,7 @@ export const OnlineCourses = () => {
                   placeholder="rahul@domain.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
@@ -551,14 +551,14 @@ export const OnlineCourses = () => {
                   placeholder="+91 99887 76655"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00]"
+                  className="px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-card border border-slate-200 dark:border-app-border text-slate-900 dark:text-white outline-none focus:border-[#F97316]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 w-full py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50"
+                className="mt-2 w-full py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <span className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />

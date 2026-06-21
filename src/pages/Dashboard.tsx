@@ -394,7 +394,7 @@ export const Dashboard = () => {
         <ScrollReveal>
           <div className="glass p-6 sm:p-8 rounded-3xl border border-app-border bg-gradient-to-tr from-white/[0.01] to-white/[0.03] flex flex-col md:flex-row items-center justify-between gap-6 mb-8 shadow-xl">
             <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-[#FF7A00] to-[#4F46E5] p-1 flex items-center justify-center shadow-lg shadow-[#FF7A00]/25 group">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-[#F97316] to-[#4F46E5] p-1 flex items-center justify-center shadow-lg shadow-[#F97316]/25 group">
                 <div className="w-full h-full bg-app-bg rounded-full flex items-center justify-center overflow-hidden relative">
                   {user?.profileImage ? (
                     <img src={user.profileImage} alt={profileName} className="w-full h-full object-cover" />
@@ -414,7 +414,7 @@ export const Dashboard = () => {
               <div>
                 <h1 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight flex items-center gap-2 justify-center sm:justify-start">
                   {profileName}
-                  <span className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FF7A00]/20 border border-[#FF7A00]/30 text-[9px] font-black uppercase text-[#FF7A00] tracking-wider">
+                  <span className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#F97316]/20 border border-[#F97316]/30 text-[9px] font-black uppercase text-[#F97316] tracking-wider">
                     <Sparkles className="w-2.5 h-2.5" /> Premium Student
                   </span>
                 </h1>
@@ -438,7 +438,7 @@ export const Dashboard = () => {
               </div>
               <div className="text-center px-4 border-l border-app-border">
                 <p className="text-[10px] text-app-muted font-black uppercase tracking-wider">Compare</p>
-                <p className="text-2xl font-black text-[#FF7A00] mt-1">{compareIds.length}</p>
+                <p className="text-2xl font-black text-[#F97316] mt-1">{compareIds.length}</p>
               </div>
               <div className="text-center px-2 border-l border-app-border">
                 <p className="text-[10px] text-app-muted font-black uppercase tracking-wider">Applied</p>
@@ -461,17 +461,17 @@ export const Dashboard = () => {
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`w-full py-3.5 px-5 rounded-2xl border text-left font-bold text-sm transition-all flex items-center justify-between cursor-pointer ${
                     activeTab === tab.id
-                      ? 'bg-app-card border-[#FF7A00]/40 text-[#FF7A00] shadow-sm'
+                      ? 'bg-app-card border-[#F97316]/40 text-[#F97316] shadow-sm'
                       : 'bg-app-card border-app-border text-app-muted hover:text-white hover:bg-white/[0.05]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 ${activeTab === tab.id ? 'text-[#FF7A00]' : 'text-app-muted'}`} />
+                    <Icon className={`w-4 h-4 ${activeTab === tab.id ? 'text-[#F97316]' : 'text-app-muted'}`} />
                     <span>{tab.label}</span>
                   </div>
                   {tab.badge !== undefined && tab.badge > 0 && (
                     <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
-                      activeTab === tab.id ? 'bg-[#FF7A00] text-white' : 'bg-white/10 text-app-muted'
+                      activeTab === tab.id ? 'bg-[#F97316] text-white' : 'bg-white/10 text-app-muted'
                     }`}>
                       {tab.badge}
                     </span>
@@ -514,7 +514,7 @@ export const Dashboard = () => {
                         </div>
                         <div className="p-4 rounded-xl bg-app-card border border-app-border">
                           <span className="text-[10px] text-app-muted font-black uppercase tracking-wider block">Under Review</span>
-                          <span className="text-xl font-black text-[#FF7A00] block mt-1">{adminStats.applicationStatusBreakdown?.submitted || 0}</span>
+                          <span className="text-xl font-black text-[#F97316] block mt-1">{adminStats.applicationStatusBreakdown?.submitted || 0}</span>
                         </div>
                         <div className="p-4 rounded-xl bg-app-card border border-app-border">
                           <span className="text-[10px] text-app-muted font-black uppercase tracking-wider block">Approved Offers</span>
@@ -531,7 +531,7 @@ export const Dashboard = () => {
                     <div className="glass p-6 rounded-3xl border border-app-border flex flex-col gap-4">
                       <div className="flex justify-between items-center border-b border-app-border pb-3">
                         <h3 className="font-display font-black text-lg text-white">Recent Counseling Queries</h3>
-                        <button onClick={() => setActiveTab('applications')} className="text-xs font-semibold text-[#FF7A00] hover:underline bg-transparent border-none cursor-pointer">
+                        <button onClick={() => setActiveTab('applications')} className="text-xs font-semibold text-[#F97316] hover:underline bg-transparent border-none cursor-pointer">
                           View All
                         </button>
                       </div>
@@ -544,7 +544,7 @@ export const Dashboard = () => {
                             </div>
                             <div className="flex items-center gap-3 shrink-0">
                               <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider ${
-                                app.status === 'approved' ? 'bg-[#10B981]/15 text-[#10B981]' : app.status === 'submitted' ? 'bg-[#FF7A00]/15 text-[#FF7A00]' : (app.status === 'pending' ? 'bg-slate-500/15 text-slate-350' : 'bg-rose-500/15 text-rose-450')
+                                app.status === 'approved' ? 'bg-[#10B981]/15 text-[#10B981]' : app.status === 'submitted' ? 'bg-[#F97316]/15 text-[#F97316]' : (app.status === 'pending' ? 'bg-slate-500/15 text-slate-350' : 'bg-rose-500/15 text-rose-450')
                               }`}>
                                 {app.status}
                               </span>
@@ -575,7 +575,7 @@ export const Dashboard = () => {
                   /* STUDENT OVERVIEW */
                   <div className="flex flex-col gap-6">
                     {/* AI Predictor Banner */}
-                    <div className="glass p-6 sm:p-8 rounded-3xl border border-app-border bg-gradient-to-r from-[#4F46E5]/10 to-[#FF7A00]/10 relative overflow-hidden flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 shadow-xl">
+                    <div className="glass p-6 sm:p-8 rounded-3xl border border-app-border bg-gradient-to-r from-[#4F46E5]/10 to-[#F97316]/10 relative overflow-hidden flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 shadow-xl">
                       <div className="relative z-10 flex flex-col gap-1">
                         <h2 className="text-xl sm:text-2xl font-display font-black text-white tracking-tight flex items-center gap-2">
                           Admission Eligibility Readiness
@@ -586,7 +586,7 @@ export const Dashboard = () => {
                       </div>
                       <Link
                         to="/college-predictor"
-                        className="px-5 py-3 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#FF7A00]/25 transition-all flex items-center gap-1.5 z-10 shrink-0 self-stretch sm:self-auto text-center justify-center border-none"
+                        className="px-5 py-3 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#F97316]/25 transition-all flex items-center gap-1.5 z-10 shrink-0 self-stretch sm:self-auto text-center justify-center border-none"
                       >
                         Open AI Predictor <ArrowUpRight className="w-4 h-4" />
                       </Link>
@@ -598,7 +598,7 @@ export const Dashboard = () => {
                       {/* SVG Gauge card */}
                       <div className="glass p-6 rounded-3xl border border-app-border flex flex-col gap-4 text-center">
                         <h4 className="text-xs font-black text-app-muted uppercase tracking-wider text-left flex items-center gap-1.5">
-                          <TrendingUp className="w-4 h-4 text-[#FF7A00]" />
+                          <TrendingUp className="w-4 h-4 text-[#F97316]" />
                           Admission Profile Readiness
                         </h4>
                         
@@ -620,7 +620,7 @@ export const Dashboard = () => {
                             <defs>
                               <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stopColor="#4F46E5" />
-                                <stop offset="100%" stopColor="#FF7A00" />
+                                <stop offset="100%" stopColor="#F97316" />
                               </linearGradient>
                             </defs>
                           </svg>
@@ -645,7 +645,7 @@ export const Dashboard = () => {
                         <div className="flex flex-col gap-3 mt-2">
                           {[
                             { stage: 'Submitted Callback Queries', count: applications.length, width: '100%', color: 'bg-[#4F46E5]' },
-                            { stage: 'Under Counselor Review', count: applications.filter((a: any) => a.step === 2).length, width: applications.length > 0 ? `${(applications.filter((a: any) => a.step === 2).length / applications.length) * 100}%` : '0%', color: 'bg-[#FF7A00]' },
+                            { stage: 'Under Counselor Review', count: applications.filter((a: any) => a.step === 2).length, width: applications.length > 0 ? `${(applications.filter((a: any) => a.step === 2).length / applications.length) * 100}%` : '0%', color: 'bg-[#F97316]' },
                             { stage: 'Offer Letters Issued', count: applications.filter((a: any) => a.step === 4).length, width: applications.length > 0 ? `${(applications.filter((a: any) => a.step === 4).length / applications.length) * 100}%` : '0%', color: 'bg-[#10B981]' }
                           ].map((item, idx) => (
                             <div key={idx} className="flex flex-col gap-1 text-xs">
@@ -666,7 +666,7 @@ export const Dashboard = () => {
                     <div className="glass p-6 rounded-3xl border border-app-border flex flex-col gap-4">
                       <div className="flex justify-between items-center">
                         <h3 className="font-display font-black text-lg text-white">Applications Feed</h3>
-                        <button onClick={() => setActiveTab('applications')} className="text-xs font-bold text-[#FF7A00] hover:underline flex items-center gap-0.5 bg-transparent border-none cursor-pointer">
+                        <button onClick={() => setActiveTab('applications')} className="text-xs font-bold text-[#F97316] hover:underline flex items-center gap-0.5 bg-transparent border-none cursor-pointer">
                           Manage <ChevronRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
@@ -697,9 +697,9 @@ export const Dashboard = () => {
                       <div className="glass p-6 rounded-3xl border border-app-border flex flex-col gap-4">
                         <div className="flex justify-between items-center">
                           <h4 className="font-display font-black text-base text-white flex items-center gap-2">
-                            <Bookmark className="w-4 h-4 text-[#FF7A00]" /> Bookmarked
+                            <Bookmark className="w-4 h-4 text-[#F97316]" /> Bookmarked
                           </h4>
-                          <button onClick={() => setActiveTab('saved')} className="text-xs font-semibold text-[#FF7A00] hover:underline bg-transparent border-none cursor-pointer">
+                          <button onClick={() => setActiveTab('saved')} className="text-xs font-semibold text-[#F97316] hover:underline bg-transparent border-none cursor-pointer">
                             View All ({savedIds.length})
                           </button>
                         </div>
@@ -726,7 +726,7 @@ export const Dashboard = () => {
                           <h4 className="font-display font-black text-base text-white flex items-center gap-2">
                             <GitCompare className="w-4 h-4 text-[#4F46E5]" /> Compare List
                           </h4>
-                          <Link to="/compare" className="text-xs font-semibold text-[#FF7A00] hover:underline">
+                          <Link to="/compare" className="text-xs font-semibold text-[#F97316] hover:underline">
                             Compare Sheet ({compareIds.length})
                           </Link>
                         </div>
@@ -802,7 +802,7 @@ export const Dashboard = () => {
                       <p className="text-xs text-app-muted mt-0.5 font-medium">Campuses currently loaded in comparison dashboard.</p>
                     </div>
                     {compareIds.length > 0 && (
-                      <Link to="/compare" className="py-3 px-5 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#FF9F43] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF7A00]/20">
+                      <Link to="/compare" className="py-3 px-5 rounded-xl bg-gradient-to-r from-[#F97316] to-[#FF9F43] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-[#F97316]/20">
                         Launch Comparison Dashboard <ArrowUpRight className="w-4 h-4" />
                       </Link>
                     )}
@@ -885,7 +885,7 @@ export const Dashboard = () => {
                                       isPast
                                         ? 'bg-[#10B981] text-white'
                                         : isCurrent
-                                          ? 'bg-[#FF7A00] text-white ring-4 ring-[#FF7A00]/20'
+                                          ? 'bg-[#F97316] text-white ring-4 ring-[#F97316]/20'
                                           : 'bg-app-card border border-app-border text-app-muted'
                                     }`}>
                                       {isPast ? '✓' : stepNum}
@@ -897,7 +897,7 @@ export const Dashboard = () => {
                                     )}
                                   </div>
                                   <div className="text-left sm:text-center mt-0.5">
-                                    <p className={`font-bold text-xs ${isCurrent ? 'text-[#FF7A00]' : 'text-white'}`}>{step.label}</p>
+                                    <p className={`font-bold text-xs ${isCurrent ? 'text-[#F97316]' : 'text-white'}`}>{step.label}</p>
                                     <p className="text-[10px] text-app-muted mt-0.5 font-medium">{step.desc}</p>
                                   </div>
                                 </div>
@@ -949,7 +949,7 @@ export const Dashboard = () => {
                           required
                           value={profileName}
                           onChange={(e) => setProfileName(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -960,7 +960,7 @@ export const Dashboard = () => {
                           required
                           value={profileEmail}
                           onChange={(e) => setProfileEmail(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -971,7 +971,7 @@ export const Dashboard = () => {
                           required
                           value={profilePhone}
                           onChange={(e) => setProfilePhone(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -981,7 +981,7 @@ export const Dashboard = () => {
                           type="text"
                           value={targetExam}
                           onChange={(e) => setTargetExam(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -991,7 +991,7 @@ export const Dashboard = () => {
                           type="text"
                           value={targetRank}
                           onChange={(e) => setTargetRank(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -1001,7 +1001,7 @@ export const Dashboard = () => {
                           type="text"
                           value={prefCourse}
                           onChange={(e) => setPrefCourse(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -1011,7 +1011,7 @@ export const Dashboard = () => {
                           type="text"
                           value={prefState}
                           onChange={(e) => setPrefState(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#FF7A00] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-app-card border border-app-border text-white outline-none focus:border-[#F97316] transition-colors"
                         />
                       </div>
 
@@ -1019,7 +1019,7 @@ export const Dashboard = () => {
 
                     <button
                       type="submit"
-                      className="py-3 px-6 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#FF7A00]/25 self-start mt-3 cursor-pointer border-none transition-all"
+                      className="py-3 px-6 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#F97316]/25 self-start mt-3 cursor-pointer border-none transition-all"
                     >
                       Save Profile Changes
                     </button>
@@ -1043,7 +1043,7 @@ export const Dashboard = () => {
                         key={notice.id}
                         className={`p-5 rounded-2xl border flex items-start gap-4 transition-colors ${
                           notice.unread
-                            ? 'bg-app-card border-[#FF7A00]/20 shadow-md'
+                            ? 'bg-app-card border-[#F97316]/20 shadow-md'
                             : 'bg-app-card border-app-border'
                         }`}
                       >
@@ -1052,7 +1052,7 @@ export const Dashboard = () => {
                             ? 'bg-[#10B981]/15 text-[#10B981]'
                             : notice.type === 'warning'
                               ? 'bg-[#F59E0B]/15 text-[#F59E0B]'
-                              : 'bg-[#FF7A00]/15 text-[#FF7A00]'
+                              : 'bg-[#F97316]/15 text-[#F97316]'
                         }`}>
                           {notice.type === 'success' ? (
                             <Award className="w-5 h-5" />

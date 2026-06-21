@@ -251,11 +251,11 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-[580px] w-full bg-app-bg overflow-hidden flex flex-col lg:flex-row pt-24 lg:pt-28">
-      {/* LEFT PANEL: Branding & Localised Search (Deep blue theme) */}
-      <div className="w-full lg:w-5/12 bg-gradient-to-br from-[#121A3E] via-[#0B122D] to-[#050A1A] p-8 md:p-12 lg:p-16 flex flex-col justify-center items-start text-left gap-6 relative z-20">
+      {/* LEFT PANEL: Branding & Localised Search (SaaS Primary Blue & Secondary Purple) */}
+      <div className="w-full lg:w-5/12 bg-gradient-to-br from-primary via-blue-700 to-secondary p-8 md:p-12 lg:p-16 flex flex-col justify-center items-start text-left gap-6 relative z-20">
         
         {/* Slant clipping backdrop skew line on desktop */}
-        <div className="hidden lg:block absolute inset-y-0 right-[-40px] w-20 bg-[#0B122D] transform skew-x-[-8deg] z-10 pointer-events-none border-r-4 border-[#FF7A00]" />
+        <div className="hidden lg:block absolute inset-y-0 right-[-40px] w-20 bg-blue-800 transform skew-x-[-8deg] z-10 pointer-events-none border-r-4 border-accent" />
 
         <div className="relative z-20 flex flex-col gap-5 w-full">
           {/* Tagline Badge */}
@@ -263,9 +263,9 @@ export const Hero = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 text-[10px] font-bold text-white self-start animate-pulse"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-white/10 to-white/5 border border-white/20 text-[10px] font-bold text-white self-start animate-pulse"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#FF7A00]" />
+            <Sparkles className="w-3.5 h-3.5 text-accent" />
             <span>Admission Counselling 2026</span>
           </motion.div>
 
@@ -276,7 +276,7 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-display font-black leading-[1.1] text-white uppercase tracking-tight max-w-md"
           >
-            Explore <span className="text-[#FF7A00]">Colleges</span> <br />That Fit You Best!
+            Explore <span className="text-accent">Colleges</span> <br />That Fit You Best!
           </motion.h1>
 
           {/* Search Box */}
@@ -299,11 +299,32 @@ export const Hero = () => {
             </div>
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-full text-xs font-black text-white bg-[#FF7A00] hover:bg-[#E06C00] cursor-pointer border-none shadow-md transition-all active:scale-95"
+              className="px-6 py-2.5 rounded-full text-xs font-black text-white bg-accent hover:bg-accent-hover cursor-pointer border-none shadow-md transition-all active:scale-95"
             >
               Search
             </button>
           </motion.form>
+
+          {/* AI Recommendation CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="w-full max-w-sm"
+          >
+            <Link
+              to="/college-predictor"
+              className="flex items-center justify-between p-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 text-white transition-all text-xs font-semibold group cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-accent flex items-center justify-center">
+                  <Brain className="w-4 h-4 text-white" />
+                </div>
+                <span>Try AI College Predictor 2026</span>
+              </div>
+              <span className="text-accent font-bold group-hover:translate-x-1 transition-transform">Get Matched →</span>
+            </Link>
+          </motion.div>
 
           {/* Quick Tags */}
           <motion.div
@@ -321,10 +342,10 @@ export const Hero = () => {
               { label: 'MBBS',   cat: 'Medicine' }
             ].map((tag, idx) => (
               <span key={tag.label} className="flex items-center gap-2">
-                {idx > 0 && <span className="text-slate-605">|</span>}
+                {idx > 0 && <span className="text-slate-600">|</span>}
                 <Link
                   to={`/colleges?course=${tag.cat}`}
-                  className="hover:text-[#FF7A00] transition-colors"
+                  className="hover:text-accent transition-colors"
                 >
                   {tag.label}
                 </Link>
@@ -406,14 +427,14 @@ export const Hero = () => {
         {/* Arrow Buttons overlay */}
         <button 
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-[#FF7A00] text-white flex items-center justify-center border border-white/10 hover:border-transparent opacity-0 group-hover/hero:opacity-100 transition-all duration-300 shadow-lg cursor-pointer hover:scale-105 active:scale-95"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-accent text-white flex items-center justify-center border border-white/10 hover:border-transparent opacity-0 group-hover/hero:opacity-100 transition-all duration-300 shadow-lg cursor-pointer hover:scale-105 active:scale-95"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button 
           onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-[#FF7A00] text-white flex items-center justify-center border border-white/10 hover:border-transparent opacity-0 group-hover/hero:opacity-100 transition-all duration-300 shadow-lg cursor-pointer hover:scale-105 active:scale-95"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-accent text-white flex items-center justify-center border border-white/10 hover:border-transparent opacity-0 group-hover/hero:opacity-100 transition-all duration-300 shadow-lg cursor-pointer hover:scale-105 active:scale-95"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5" />
@@ -427,7 +448,7 @@ export const Hero = () => {
               onClick={() => handleDotClick(index)}
               className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                 currentSlide === index 
-                  ? 'w-6 bg-[#FF7A00]' 
+                  ? 'w-6 bg-accent' 
                   : 'w-1.5 bg-white/40 hover:bg-white/70'
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -534,36 +555,45 @@ export const PopularDestinations = () => {
       <section className="py-16 max-w-7xl mx-auto px-6 overflow-hidden">
         <div className="flex flex-col items-center text-center gap-2 mb-10">
           <h2 className="text-3xl md:text-4xl font-display font-extrabold text-app-text tracking-tight uppercase">
-            Choose Your Favourite <span className="text-[#FF7A00]">City</span>
+            Choose Your Favourite <span className="text-primary">City</span>
           </h2>
           <p className="text-sm text-app-muted max-w-lg">
             Filter premier universities based on corporate headquarters and industrial zones.
           </p>
         </div>
 
-        {/* Circular cities listing row */}
-        <div className="flex items-center justify-start lg:justify-center gap-6 md:gap-8 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory no-scrollbar w-full">
+        {/* Modern City Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {cities.map((city, idx) => (
-            <div key={city.name} className="snap-start flex-shrink-0 flex flex-col items-center gap-3">
+            <div key={city.name}>
               <ScrollReveal delay={idx * 0.05} duration={0.4}>
                 <button
                   onClick={() => setSelectedCity(city.name)}
-                  className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-[#FF7A00] hover:border-[#E06C00] bg-slate-900 shadow-md hover:shadow-lg hover:shadow-orange-500/10 hover:scale-[1.06] transition-all duration-300 cursor-pointer flex items-center justify-center group"
+                  className="relative w-full h-52 rounded-2xl overflow-hidden border border-slate-200 dark:border-app-border shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col justify-end group text-left p-5"
                 >
-                  {/* Circular City Image */}
-                  <motion.img
+                  <img
                     src={city.image}
                     alt={city.name}
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.4, ease: 'easeOut' }}
-                    className="w-full h-full object-cover brightness-[0.75] group-hover:brightness-[0.6] transition-all duration-300"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                  
+                  {/* Badge */}
+                  <span className="absolute top-4 right-4 bg-accent text-white text-[9px] font-black tracking-wider px-2.5 py-1 rounded-full uppercase shadow-md">
+                    #{idx + 1} Choice
+                  </span>
+                  
+                  {/* City Name & Colleges count */}
+                  <div className="relative z-10 flex flex-col gap-1">
+                    <span className="font-display font-black text-lg text-white uppercase tracking-wider">
+                      {city.name}
+                    </span>
+                    <span className="text-[10px] text-slate-300 font-bold uppercase tracking-wider">
+                      {(150 - idx * 12)} Colleges Listed
+                    </span>
+                  </div>
                 </button>
               </ScrollReveal>
-              <span className="font-display font-black text-xs text-slate-800 dark:text-slate-200 tracking-wider uppercase">
-                {city.name}
-              </span>
             </div>
           ))}
         </div>
@@ -582,7 +612,7 @@ export const PopularDestinations = () => {
           <div className="relative w-full max-w-lg bg-white dark:bg-[#0F172A] rounded-2xl overflow-hidden shadow-2xl z-10 border border-slate-200 dark:border-app-border">
 
             {/* Orange header */}
-            <div className="flex items-center justify-between px-5 py-4 bg-[#FF7A00]">
+            <div className="flex items-center justify-between px-5 py-4 bg-[#F97316]">
               <h3 className="text-sm font-black text-white tracking-wide">
                 Choose Your Favourite Course ({selectedCity})
               </h3>
@@ -606,7 +636,7 @@ export const PopularDestinations = () => {
                       key={course}
                       to={`/colleges?location=${encodeURIComponent(selectedCity)}&course=${encodeURIComponent(course)}`}
                       onClick={() => setSelectedCity(null)}
-                      className="px-4 py-2 rounded-lg border-2 border-slate-200 dark:border-white/15 text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-wide hover:border-[#FF7A00] hover:text-[#FF7A00] hover:bg-orange-50 dark:hover:bg-orange-500/10 transition-all cursor-pointer"
+                      className="px-4 py-2 rounded-lg border-2 border-slate-200 dark:border-white/15 text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-wide hover:border-[#F97316] hover:text-[#F97316] hover:bg-orange-50 dark:hover:bg-orange-500/10 transition-all cursor-pointer"
                     >
                       {course}
                     </Link>
@@ -623,7 +653,7 @@ export const PopularDestinations = () => {
                       key={course}
                       to={`/colleges?location=${encodeURIComponent(selectedCity)}&course=${encodeURIComponent(course)}`}
                       onClick={() => setSelectedCity(null)}
-                      className="px-4 py-2 rounded-lg border-2 border-slate-200 dark:border-white/15 text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-wide hover:border-[#FF7A00] hover:text-[#FF7A00] hover:bg-orange-50 dark:hover:bg-orange-500/10 transition-all cursor-pointer"
+                      className="px-4 py-2 rounded-lg border-2 border-slate-200 dark:border-white/15 text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-wide hover:border-[#F97316] hover:text-[#F97316] hover:bg-orange-50 dark:hover:bg-orange-500/10 transition-all cursor-pointer"
                     >
                       {course}
                     </Link>
@@ -687,69 +717,71 @@ export const StudentHelpDesk = () => {
   ];
 
   return (
-    <section className="py-12 max-w-7xl mx-auto px-6 overflow-hidden">
-      <div className="flex flex-col items-center text-center gap-2 mb-10">
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-app-text tracking-tight">
-          Student's <span className="text-warning">Help Desk</span>
-        </h2>
-      </div>
+    <section className="w-full bg-[#FDF0E6] dark:bg-slate-900/40 border-y border-primary/10 py-16 text-left">
+      <div className="max-w-7xl mx-auto px-6 overflow-hidden">
+        <div className="flex flex-col items-center text-center gap-2 mb-10">
+          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-app-text tracking-tight">
+            Student's <span className="text-warning">Help Desk</span>
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {items.map((item, idx) => {
-          const isActive = hoveredIdx === idx;
-          return (
-            <ScrollReveal key={item.title} delay={idx * 0.05}>
-              <Link
-                to={item.path}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
-                className={`p-5 px-7 rounded-[2.5rem] border flex items-center gap-4 hover:shadow-lg transition-all duration-300 group h-full ${
-                  isActive
-                    ? 'bg-black border-transparent shadow-xl scale-[1.01]'
-                    : 'glass border-app-border bg-white dark:bg-app-card'
-                }`}
-              >
-                {/* Icon container */}
-                <div className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 shadow-md transition-all duration-300 ${
-                  isActive ? 'bg-white/10' : 'bg-[#1B254B] dark:bg-slate-800'
-                }`}>
-                  <div className="text-white">{item.icon}</div>
-                </div>
-                
-                {/* Text info */}
-                <div className="flex flex-col text-left flex-1">
-                  <span className={`font-display font-black text-sm md:text-base leading-tight transition-colors duration-200 ${
-                    isActive ? 'text-[#FF7A00]' : 'text-[#1B254B] dark:text-white group-hover:text-primary'
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {items.map((item, idx) => {
+            const isActive = hoveredIdx === idx;
+            return (
+              <ScrollReveal key={item.title} delay={idx * 0.05}>
+                <Link
+                  to={item.path}
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  className={`p-5 px-7 rounded-[2.5rem] border flex items-center gap-4 hover:shadow-lg transition-all duration-300 group h-full ${
+                    isActive
+                      ? 'bg-primary border-transparent shadow-xl scale-[1.01]'
+                      : 'glass border-app-border bg-white dark:bg-app-card'
+                  }`}
+                >
+                  {/* Icon container */}
+                  <div className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 shadow-md transition-all duration-300 ${
+                    isActive ? 'bg-white/10' : 'bg-primary dark:bg-slate-800'
                   }`}>
-                    {item.title}
-                  </span>
+                    <div className="text-white">{item.icon}</div>
+                  </div>
                   
-                  {item.desc && (
-                    <span className={`text-[10px] sm:text-xs font-semibold mt-0.5 leading-normal transition-colors duration-200 ${
-                      isActive ? 'text-white/95' : 'text-slate-400 dark:text-slate-500'
+                  {/* Text info */}
+                  <div className="flex flex-col text-left flex-1">
+                    <span className={`font-display font-black text-sm md:text-base leading-tight transition-colors duration-200 ${
+                      isActive ? 'text-accent' : 'text-primary dark:text-white group-hover:text-primary-hover'
                     }`}>
-                      {item.desc}
+                      {item.title}
                     </span>
-                  )}
-                  
-                  {item.extra && (
-                    <span className={`text-[10px] sm:text-xs font-black mt-0.5 leading-none transition-colors duration-200 ${
-                      isActive ? 'text-[#FF7A00]' : 'text-[#FF7A00]'
-                    }`}>
-                      {item.extra}
-                    </span>
-                  )}
+                    
+                    {item.desc && (
+                      <span className={`text-[10px] sm:text-xs font-semibold mt-0.5 leading-normal transition-colors duration-200 ${
+                        isActive ? 'text-white/95' : 'text-slate-400 dark:text-slate-500'
+                      }`}>
+                        {item.desc}
+                      </span>
+                    )}
+                    
+                    {item.extra && (
+                      <span className={`text-[10px] sm:text-xs font-black mt-0.5 leading-none transition-colors duration-200 ${
+                        isActive ? 'text-accent' : 'text-accent'
+                      }`}>
+                        {item.extra}
+                      </span>
+                    )}
 
-                  <span className={`text-xs font-bold mt-2.5 flex items-center gap-1 leading-none transition-colors duration-200 ${
-                    isActive ? 'text-white hover:underline' : 'text-[#FF7A00] group-hover:text-[#E06C00]'
-                  }`}>
-                    Register Now <span className="transition-transform group-hover:translate-x-1">→</span>
-                  </span>
-                </div>
-              </Link>
-            </ScrollReveal>
-          );
-        })}
+                    <span className={`text-xs font-bold mt-2.5 flex items-center gap-1 leading-none transition-colors duration-200 ${
+                      isActive ? 'text-white hover:underline' : 'text-accent group-hover:text-accent-hover'
+                    }`}>
+                      Register Now <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -760,7 +792,7 @@ export const StudentHelpDesk = () => {
 // ==========================================
 export const FeaturedColleges = () => {
   return (
-    <section className="py-20 bg-app-card border-y border-app-border">
+    <section className="py-20 bg-transparent border-y border-app-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="text-left flex flex-col gap-2">
@@ -806,66 +838,73 @@ export const TopCourses = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   const courses = [
-    { name: 'Engineering', icon: <Settings className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Engineering' },
-    { name: 'Management', icon: <Users className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Management' },
-    { name: 'Commerce', icon: <Coins className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Commerce' },
-    { name: 'Law', icon: <Gavel className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Law' },
-    { name: 'Arts', icon: <Palette className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Arts' },
-    { name: 'Architecture', icon: <Compass className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Architecture' },
-    { name: 'Dental', icon: <ToothIcon />, path: '/colleges?course=Medicine' },
-    { name: 'Agriculture', icon: <Sprout className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Agriculture' },
-    { name: 'Design', icon: <Layers className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Design' },
-    { name: 'Hotel-Management', icon: <Users className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Management' },
-    { name: 'Science', icon: <Atom className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Science' },
-    { name: 'Travel', icon: <Globe className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Management' },
-    { name: 'Veterinary-Science', icon: <PawPrint className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Medicine' },
-    { name: 'Aviation', icon: <Plane className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Engineering' },
-    { name: 'Computer', icon: <Laptop className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Engineering' },
-    { name: 'Animation', icon: <PenTool className="w-4.5 h-4.5 text-white" />, path: '/colleges?course=Design' }
+    { name: 'Engineering',      duration: '4 Years', salary: '8.5 LPA', popularity: 'Very High', icon: <Settings className="w-5 h-5 text-primary" />,          path: '/colleges?course=Engineering' },
+    { name: 'Management',       duration: '2 Years', salary: '9.2 LPA', popularity: 'Very High', icon: <Users className="w-5 h-5 text-primary" />,             path: '/colleges?course=Management' },
+    { name: 'Commerce',         duration: '3 Years', salary: '6.0 LPA', popularity: 'High',      icon: <Coins className="w-5 h-5 text-primary" />,             path: '/colleges?course=Commerce' },
+    { name: 'Law',              duration: '5 Years', salary: '7.5 LPA', popularity: 'High',      icon: <Gavel className="w-5 h-5 text-primary" />,             path: '/colleges?course=Law' },
+    { name: 'Arts',             duration: '3 Years', salary: '4.5 LPA', popularity: 'Medium',    icon: <Palette className="w-5 h-5 text-primary" />,           path: '/colleges?course=Arts' },
+    { name: 'Architecture',     duration: '5 Years', salary: '6.5 LPA', popularity: 'Medium',    icon: <Compass className="w-5 h-5 text-primary" />,           path: '/colleges?course=Architecture' },
+    { name: 'Dental',           duration: '5 Years', salary: '8.0 LPA', popularity: 'High',      icon: <ToothIcon />,                                           path: '/colleges?course=Medicine' },
+    { name: 'Agriculture',      duration: '4 Years', salary: '5.2 LPA', popularity: 'Medium',    icon: <Sprout className="w-5 h-5 text-primary" />,            path: '/colleges?course=Agriculture' },
+    { name: 'Design',           duration: '4 Years', salary: '7.0 LPA', popularity: 'High',      icon: <Layers className="w-5 h-5 text-primary" />,            path: '/colleges?course=Design' },
+    { name: 'Hotel-Management', duration: '3 Years', salary: '5.8 LPA', popularity: 'High',      icon: <Users className="w-5 h-5 text-primary" />,             path: '/colleges?course=Management' },
+    { name: 'Science',          duration: '3 Years', salary: '5.5 LPA', popularity: 'High',      icon: <Atom className="w-5 h-5 text-primary" />,              path: '/colleges?course=Science' },
+    { name: 'Travel',           duration: '3 Years', salary: '5.0 LPA', popularity: 'Medium',    icon: <Globe className="w-5 h-5 text-primary" />,             path: '/colleges?course=Management' },
+    { name: 'Veterinary',       duration: '5 Years', salary: '6.8 LPA', popularity: 'Medium',    icon: <PawPrint className="w-5 h-5 text-primary" />,          path: '/colleges?course=Medicine' },
+    { name: 'Aviation',         duration: '3 Years', salary: '8.2 LPA', popularity: 'High',      icon: <Plane className="w-5 h-5 text-primary" />,             path: '/colleges?course=Engineering' },
+    { name: 'Computer',         duration: '3 Years', salary: '7.8 LPA', popularity: 'Very High', icon: <Laptop className="w-5 h-5 text-primary" />,            path: '/colleges?course=Engineering' },
+    { name: 'Animation',        duration: '3 Years', salary: '6.2 LPA', popularity: 'High',      icon: <PenTool className="w-5 h-5 text-primary" />,           path: '/colleges?course=Design' }
   ];
 
   return (
-    <section className="w-full bg-[#F8F9FA] dark:bg-[#080C16] py-16 border-y border-slate-100 dark:border-slate-800/10">
+    <section className="w-full bg-[#FDF0E6] dark:bg-slate-900/40 py-16 border-y border-slate-200 dark:border-slate-800/10">
       <div className="max-w-7xl mx-auto px-6 overflow-hidden">
         <div className="flex flex-col items-center text-center gap-2 mb-10">
-          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#1B254B] dark:text-white tracking-tight">
-            Find Best <span className="text-[#FF8F00]">College/Universities</span>
+          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#881337] dark:text-white tracking-tight">
+            Find Best <span className="text-primary">College/Universities</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {courses.map((course, idx) => {
-            const isActive = hoveredIdx === idx;
             return (
               <ScrollReveal key={course.name} delay={idx * 0.02} duration={0.4}>
                 <Link
                   to={course.path}
                   onMouseEnter={() => setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`p-3.5 px-5 rounded-full border flex items-center justify-between gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 group w-full ${
-                    isActive
-                      ? 'bg-black border-transparent scale-[1.01] shadow-lg'
-                      : 'bg-white dark:bg-app-card border-slate-100 dark:border-app-border'
-                  }`}
+                  className="relative p-5 rounded-2xl glass glass-hover flex flex-col gap-4 shadow-sm transition-all duration-300 group h-full select-none text-left"
                 >
-                  {/* Left Group */}
-                  <div className="flex items-center gap-3 min-w-0">
-                    {/* Icon Circle */}
-                    <div className="w-9 h-9 rounded-full bg-[#0F2C59] flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    {/* Icon Container */}
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                       {course.icon}
                     </div>
-                    {/* Label */}
-                    <span className={`font-display font-semibold text-sm leading-none truncate transition-colors ${
-                      isActive ? 'text-white' : 'text-[#1B254B] dark:text-white'
+                    {/* Popularity Badge */}
+                    <span className={`text-[8px] font-black tracking-wider px-2 py-0.5 rounded-full uppercase ${
+                      course.popularity === 'Very High' 
+                        ? 'bg-rose-100 text-rose-650 dark:bg-rose-950/30 dark:text-rose-400' 
+                        : course.popularity === 'High' 
+                        ? 'bg-orange-105 text-orange-700 dark:bg-orange-950/30 dark:text-orange-400' 
+                        : 'bg-emerald-100 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400'
                     }`}>
-                      {course.name}
+                      {course.popularity}
                     </span>
                   </div>
 
-                  {/* Right Arrow */}
-                  <ChevronRight className={`w-4 h-4 shrink-0 transition-colors ${
-                    isActive ? 'text-[#FF8F00]' : 'text-slate-400 dark:text-slate-500'
-                  }`} />
+                  <div className="flex flex-col gap-1">
+                    <h3 className="font-display font-bold text-sm text-slate-805 dark:text-white group-hover:text-primary transition-colors uppercase tracking-wide">
+                      {course.name}
+                    </h3>
+                    <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 mt-2 border-t border-slate-100 dark:border-slate-800 pt-2">
+                      <span>Duration</span>
+                      <span className="font-bold text-slate-700 dark:text-slate-200">{course.duration}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
+                      <span>Avg. Salary</span>
+                      <span className="font-bold text-slate-700 dark:text-slate-200 text-accent">{course.salary}</span>
+                    </div>
+                  </div>
                 </Link>
               </ScrollReveal>
             );
@@ -986,11 +1025,11 @@ export const PlacementUniversities = () => {
   };
 
   return (
-    <section className="py-16 w-full bg-[#F8F9FA] dark:bg-[#080C16] border-y border-slate-100 dark:border-slate-800/10">
+    <section className="py-16 w-full bg-transparent border-y border-slate-100 dark:border-slate-800/10">
       <div className="max-w-7xl mx-auto px-6 overflow-hidden">
         {/* Centered Heading */}
         <div className="flex flex-col items-center text-center gap-2 mb-10">
-          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#1B254B] dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#881337] dark:text-white tracking-tight">
             Best Placement Wise <span className="text-[#FF8F00]">Universities</span>
           </h2>
         </div>
@@ -1028,7 +1067,7 @@ export const PlacementUniversities = () => {
 
                     {/* Text Details */}
                     <div className="flex flex-col text-left min-w-0 gap-0.5 sm:gap-1">
-                      <span className="hover:underline text-[#1B254B] dark:text-white block truncate">
+                      <span className="hover:underline text-[#881337] dark:text-white block truncate">
                         <h3 className="font-display font-bold text-sm sm:text-base truncate" title={univ.name}>
                           {univ.name}
                         </h3>
@@ -1058,14 +1097,14 @@ export const PlacementUniversities = () => {
                     
                     <button
                       onClick={() => handleApplyNow(univ.name)}
-                      className="border border-[#FF5E14] text-[#FF5E14] hover:bg-[#FF5E14] hover:text-white text-xs font-bold py-2 px-2.5 rounded-lg text-center cursor-pointer transition-all duration-300 leading-none"
+                      className="border border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white text-xs font-bold py-2 px-2.5 rounded-lg text-center cursor-pointer transition-all duration-300 leading-none"
                     >
                       Apply Now
                     </button>
 
                     <button
                       onClick={() => handlePlacementDetails(univ.id)}
-                      className="bg-[#FF5E14] text-white hover:bg-[#E04D0F] text-xs font-bold py-2 px-2.5 rounded-lg text-center cursor-pointer transition-colors leading-none"
+                      className="bg-[#F97316] text-white hover:bg-[#E04D0F] text-xs font-bold py-2 px-2.5 rounded-lg text-center cursor-pointer transition-colors leading-none"
                     >
                       Placement details
                     </button>
@@ -1181,7 +1220,7 @@ export const AdmissionBanners = () => {
   const doubledBanners = [...banners, ...banners, ...banners];
 
   return (
-    <section className="py-12 w-full bg-white dark:bg-app-bg/20 border-b border-slate-100 dark:border-slate-800/10 overflow-hidden relative flex flex-col gap-8">
+    <section className="py-12 w-full bg-transparent border-b border-slate-100 dark:border-slate-800/10 overflow-hidden relative flex flex-col gap-8">
       {/* Styles for continuous smooth CSS marquee */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes marquee {
@@ -1270,7 +1309,7 @@ export const AdmissionBanners = () => {
                 />
                 
                 {/* Floating Uni Name Badge */}
-                <div className="absolute top-2 right-2 bg-white/95 dark:bg-app-bg/90 py-0.5 px-1.5 rounded-md text-[8px] font-black text-[#1B254B] dark:text-white border border-slate-100 shadow-sm leading-none">
+                <div className="absolute top-2 right-2 bg-white/95 dark:bg-app-bg/90 py-0.5 px-1.5 rounded-md text-[8px] font-black text-[#881337] dark:text-white border border-slate-100 shadow-sm leading-none">
                   {banner.univ}
                 </div>
               </div>
@@ -1282,7 +1321,7 @@ export const AdmissionBanners = () => {
 
       {/* Centered Heading */}
       <div className="flex flex-col items-center text-center gap-2 px-6">
-        <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#1B254B] dark:text-white tracking-tight">
+        <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#881337] dark:text-white tracking-tight">
           Applications Open For <span className="text-[#FF8F00]">Universities 2026 Batch</span>
         </h2>
       </div>
@@ -1409,7 +1448,7 @@ export const FeaturedCollegesMockup = () => {
   };
 
   return (
-    <section className="py-16 w-full bg-[#F8F9FA] dark:bg-[#080C16] border-b border-slate-100 dark:border-slate-800/10 relative overflow-hidden group/section">
+    <section className="py-16 w-full bg-transparent border-b border-slate-100 dark:border-slate-800/10 relative overflow-hidden group/section">
       <div className="max-w-7xl mx-auto px-6 relative">
         
         {/* Navigation Buttons (Left/Right Arrows) */}
@@ -1480,8 +1519,8 @@ export const FeaturedCollegesMockup = () => {
                         
                         {/* Location */}
                         <div className="flex items-center gap-2 border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
-                          <MapPin className="w-4 h-4 text-[#FF5E14] shrink-0" />
-                          <span className="text-[#FF5E14] font-bold text-xs sm:text-[13px] tracking-wide">
+                          <MapPin className="w-4 h-4 text-[#F97316] shrink-0" />
+                          <span className="text-[#F97316] font-bold text-xs sm:text-[13px] tracking-wide">
                             {college.location}
                           </span>
                         </div>
@@ -1496,7 +1535,7 @@ export const FeaturedCollegesMockup = () => {
 
                         {/* Highest Package */}
                         <div className="border-b border-slate-100 dark:border-app-border pb-2.5 text-left">
-                          <span className="text-[#1B254B] dark:text-white font-extrabold text-xs sm:text-[13px]">
+                          <span className="text-[#881337] dark:text-white font-extrabold text-xs sm:text-[13px]">
                             {college.highestPackage}
                           </span>
                         </div>
@@ -1516,7 +1555,7 @@ export const FeaturedCollegesMockup = () => {
                   <div className="text-center pb-5 bg-white dark:bg-app-card">
                     <Link
                       to={`/colleges/${getSlugForUniv(college.logoType)}`}
-                      className="text-[#FF5E14] hover:text-[#D14B00] font-black text-xs sm:text-sm tracking-wide transition-all hover:scale-105 inline-block cursor-pointer hover:no-underline"
+                      className="text-[#F97316] hover:text-[#EA580C] font-black text-xs sm:text-sm tracking-wide transition-all hover:scale-105 inline-block cursor-pointer hover:no-underline"
                     >
                       Apply Now &gt;&gt;
                     </Link>
@@ -1535,7 +1574,7 @@ export const FeaturedCollegesMockup = () => {
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`w-2 h-2 rounded-full transition-all ${
-                currentIndex === idx ? 'bg-[#FF5E14] w-4' : 'bg-slate-300 dark:bg-slate-700'
+                currentIndex === idx ? 'bg-[#F97316] w-4' : 'bg-slate-300 dark:bg-slate-700'
               }`}
             />
           ))}
@@ -1560,7 +1599,7 @@ const ChoiceIILMLogo = () => (
 );
 
 const ChoiceSushantLogo = () => (
-  <div className="w-12 h-12 bg-[#FF7A00] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-[#E06C00]">
+  <div className="w-12 h-12 bg-[#F97316] rounded-md flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-[#EA580C]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
       <path d="M50 15 L75 35 V65 L50 85 L25 65 V35 Z" fill="white" opacity="0.15" />
       <polygon points="50,20 70,40 50,60 30,40" fill="white" />
@@ -1763,12 +1802,12 @@ export const StudentChoiceColleges = () => {
   };
 
   return (
-    <section className="py-16 w-full bg-white dark:bg-app-bg/20 border-b border-slate-100 dark:border-slate-800/10 relative overflow-hidden group/section-choice">
+    <section className="py-16 w-full bg-transparent border-b border-slate-100 dark:border-slate-800/10 relative overflow-hidden group/section-choice">
       <div className="max-w-7xl mx-auto px-6 relative flex flex-col gap-10">
         
         {/* Title */}
         <div className="flex flex-col items-center text-center gap-2">
-          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#1B254B] dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#881337] dark:text-white tracking-tight">
             Student Choice <span className="text-[#FF8F00]">Colleges</span>
           </h2>
         </div>
@@ -1826,7 +1865,7 @@ export const StudentChoiceColleges = () => {
                         </div>
 
                         {/* Rank Badge */}
-                        <div className="absolute top-3 right-3 bg-[#FF5E14] text-white text-[11px] font-black py-1.5 px-3.5 rounded-full shadow-sm z-10 leading-none">
+                        <div className="absolute top-3 right-3 bg-[#F97316] text-white text-[11px] font-black py-1.5 px-3.5 rounded-full shadow-sm z-10 leading-none">
                           Rank: {college.rank}
                         </div>
 
@@ -1851,7 +1890,7 @@ export const StudentChoiceColleges = () => {
                             </h3>
                             <div className="flex flex-col items-end shrink-0 text-right">
                               <div className="flex items-center gap-0.5 text-xs font-black text-amber-500">
-                                <span className="text-[#FF5E14]">★</span>
+                                <span className="text-[#F97316]">★</span>
                                 <span className="text-slate-800 dark:text-white">{college.rating}</span>
                                 <span className="text-slate-450 font-bold ml-0.5">CM</span>
                               </div>
@@ -1881,7 +1920,7 @@ export const StudentChoiceColleges = () => {
                           <div className="grid grid-cols-2 gap-4 text-left border-b border-slate-100 dark:border-app-border pb-3">
                             <div className="flex items-center gap-1">
                               <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Course:</span>
-                              <span className="text-[#FF5E14] font-black text-[11px] sm:text-xs leading-none">{college.course}</span>
+                              <span className="text-[#F97316] font-black text-[11px] sm:text-xs leading-none">{college.course}</span>
                             </div>
                             <div className="flex items-center gap-1">
                               <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Fees:</span>
@@ -1899,7 +1938,7 @@ export const StudentChoiceColleges = () => {
                       <div className="grid grid-cols-2 gap-3 pt-1">
                         <Link
                           to={`/colleges/${getChoiceSlug(college.logoType)}`}
-                          className="bg-[#FF5E14] hover:bg-[#D14B00] text-white font-black text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1 cursor-pointer shadow-md shadow-orange-500/10 hover:shadow-orange-500/25 transition-all duration-300 border border-transparent leading-none hover:no-underline"
+                          className="bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1 cursor-pointer shadow-md shadow-orange-500/10 hover:shadow-orange-500/25 transition-all duration-300 border border-transparent leading-none hover:no-underline"
                         >
                           <Send className="w-3.5 h-3.5 transform -rotate-45" />
                           <span>Apply Now</span>
@@ -1927,7 +1966,7 @@ export const StudentChoiceColleges = () => {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  currentIndex === idx ? 'bg-[#FF5E14] w-4' : 'bg-slate-300 dark:bg-slate-700'
+                  currentIndex === idx ? 'bg-[#F97316] w-4' : 'bg-slate-300 dark:bg-slate-700'
                 }`}
               />
             ))}
@@ -2092,12 +2131,12 @@ export const TopCollegesList = () => {
   };
 
   return (
-    <section className="py-16 w-full bg-[#F8F9FA] dark:bg-[#080C16] border-b border-slate-100 dark:border-slate-800/10">
+    <section className="py-16 w-full bg-transparent border-b border-slate-100 dark:border-slate-800/10">
       <div className="max-w-7xl mx-auto px-6 flex flex-col gap-10">
         
         {/* Title */}
         <div className="flex flex-col items-center text-center gap-2">
-          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#1B254B] dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-[2.25rem] font-display font-extrabold text-[#881337] dark:text-white tracking-tight">
             Top <span className="text-[#FF8F00]">Colleges / Universities</span>
           </h2>
         </div>
@@ -2138,7 +2177,7 @@ export const TopCollegesList = () => {
                           <span className="truncate">{college.location}</span>
                         </div>
                         <div className="flex items-center gap-1 text-xs font-black text-amber-500">
-                          <span className="text-[#FF5E14]">★</span>
+                          <span className="text-[#F97316]">★</span>
                           <span className="text-slate-700 dark:text-slate-300">{college.rating}</span>
                         </div>
                       </div>
@@ -2149,7 +2188,7 @@ export const TopCollegesList = () => {
                   {/* Center/Right section: Highest Placement stats */}
                   <div className="flex flex-col justify-center text-center sm:text-right md:text-center px-1 sm:px-3 shrink-0">
                     <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase leading-none">Highest Placement</span>
-                    <span className="text-[#FF5E14] font-black text-sm sm:text-base mt-1.5 leading-none">
+                    <span className="text-[#F97316] font-black text-sm sm:text-base mt-1.5 leading-none">
                       {college.highestPlacement}
                     </span>
                   </div>
@@ -2159,13 +2198,13 @@ export const TopCollegesList = () => {
                 <div className="flex flex-col gap-2 shrink-0 w-full sm:w-[130px]">
                   <Link
                     to={`/colleges/${getTopSlug(college.logoType)}`}
-                    className="border border-[#FF5E14] text-[#FF5E14] hover:bg-[#FF5E14] hover:text-white text-xs font-black py-2 px-2.5 rounded-lg text-center cursor-pointer transition-all duration-300 leading-none bg-transparent hover:no-underline h-8 flex items-center justify-center"
+                    className="border border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white text-xs font-black py-2 px-2.5 rounded-lg text-center cursor-pointer transition-all duration-300 leading-none bg-transparent hover:no-underline h-8 flex items-center justify-center"
                   >
                     Apply Now
                   </Link>
                   <Link
                     to={`/colleges/${getTopSlug(college.logoType)}`}
-                    className="bg-[#FF5E14] text-white hover:bg-[#D14B00] text-xs font-black py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-colors leading-none border-none group-hover:scale-[1.01] hover:no-underline h-8"
+                    className="bg-[#F97316] text-white hover:bg-[#EA580C] text-xs font-black py-2 px-2.5 rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-colors leading-none border-none group-hover:scale-[1.01] hover:no-underline h-8"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Know more</span>
@@ -2223,9 +2262,9 @@ const PVSAGELogo = () => (
 );
 
 const PVKRMULogo = () => (
-  <div className="w-14 h-14 bg-[#FF7A00] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#FF7A00]">
+  <div className="w-14 h-14 bg-[#F97316] rounded-md flex items-center justify-center p-1 shrink-0 shadow-sm border border-[#F97316]">
     <svg viewBox="0 0 100 100" className="w-full h-full">
-      <rect width="100" height="100" fill="#FF7A00" rx="10" />
+      <rect width="100" height="100" fill="#F97316" rx="10" />
       <text x="50" y="55" fill="white" fontSize="22" fontWeight="bold" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif">KRMU</text>
     </svg>
   </div>
@@ -2461,7 +2500,7 @@ export const PlacementVerifiedColleges = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="text-left flex flex-col gap-2">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-app-text tracking-tight">
-              Placement verified <span className="text-[#FF5E14]">Colleges</span>
+              Placement verified <span className="text-[#F97316]">Colleges</span>
             </h2>
             <p className="text-sm text-app-muted max-w-lg">
               Explore elite colleges with high return on investment and verified outstanding placement records.
@@ -2474,13 +2513,13 @@ export const PlacementVerifiedColleges = () => {
           {/* Arrow Buttons overlay */}
           <button 
             onClick={handlePrev}
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#FF5E14] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#F97316] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button 
             onClick={handleNext}
-            className="absolute right-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#FF5E14] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#F97316] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -2529,7 +2568,7 @@ export const PlacementVerifiedColleges = () => {
                         <div className="p-5 pt-9 flex flex-col justify-between flex-1 text-left">
                           <div>
                             <div className="flex items-center justify-between mb-2">
-                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider bg-[#FF5E14]/10 px-2 py-0.5 rounded">
+                              <span className="text-[10px] font-black text-[#F97316] uppercase tracking-wider bg-[#F97316]/10 px-2 py-0.5 rounded">
                                 Rank #{college.rank}
                               </span>
                               <div className="flex items-center gap-1 text-xs font-black text-amber-500">
@@ -2538,7 +2577,7 @@ export const PlacementVerifiedColleges = () => {
                               </div>
                             </div>
                             
-                            <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight mb-1 group-hover:text-[#FF5E14] transition-colors text-left line-clamp-1" title={college.name}>
+                            <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight mb-1 group-hover:text-[#F97316] transition-colors text-left line-clamp-1" title={college.name}>
                               {college.shortName}
                             </h3>
                             
@@ -2551,7 +2590,7 @@ export const PlacementVerifiedColleges = () => {
                             <div className="grid grid-cols-2 gap-2 p-2.5 bg-slate-50 dark:bg-app-card rounded-xl border border-slate-100 dark:border-app-border mb-4">
                               <div className="flex flex-col text-left">
                                 <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Highest Package</span>
-                                <span className="text-[#FF5E14] font-black text-xs sm:text-sm mt-0.5">{college.highCtc}</span>
+                                <span className="text-[#F97316] font-black text-xs sm:text-sm mt-0.5">{college.highCtc}</span>
                               </div>
                               <div className="flex flex-col text-left border-l border-slate-200 dark:border-app-border pl-3">
                                 <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Average Package</span>
@@ -2572,7 +2611,7 @@ export const PlacementVerifiedColleges = () => {
                         <div className="flex items-center gap-2 mt-auto">
                           <Link
                             to={`/colleges/${college.id}`}
-                            className="flex-1 bg-[#FF5E14] hover:bg-[#D14B00] text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-colors border-none shadow-[0_4px_10px_rgba(255,94,20,0.15)] active:scale-95 hover:no-underline text-center"
+                            className="flex-1 bg-[#F97316] hover:bg-[#EA580C] text-white text-xs font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-colors border-none shadow-[0_4px_10px_rgba(255,94,20,0.15)] active:scale-95 hover:no-underline text-center"
                           >
                             <Send className="w-3.5 h-3.5" />
                             <span>Apply Now</span>
@@ -2656,14 +2695,14 @@ export const UpcomingExamsCarousel = () => {
   };
 
   return (
-    <section className="py-20 bg-app-card border-b border-app-border group/carousel relative">
+    <section className="py-20 bg-transparent border-b border-app-border group/carousel relative">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="text-left flex flex-col gap-2">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-app-text tracking-tight">
-              Upcoming <span className="text-[#FF5E14]">Exams</span>
+              Upcoming <span className="text-[#F97316]">Exams</span>
             </h2>
             <p className="text-sm text-app-muted max-w-lg">
               Stay ahead of critical dates, deadlines, and results for key national management entrance tests.
@@ -2676,13 +2715,13 @@ export const UpcomingExamsCarousel = () => {
           {/* Arrow Buttons overlay */}
           <button 
             onClick={handlePrev}
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#FF5E14] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#F97316] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button 
             onClick={handleNext}
-            className="absolute right-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#FF5E14] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-slate-900/85 hover:bg-[#F97316] text-white flex items-center justify-center border border-app-border opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105 active:scale-95"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -2712,7 +2751,7 @@ export const UpcomingExamsCarousel = () => {
                         <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-slate-100 dark:border-app-border w-full">
                           <LogoComponent />
                           <div className="text-left">
-                            <h3 className="font-display font-extrabold text-lg text-slate-850 dark:text-white leading-tight group-hover:text-[#FF5E14] transition-colors">
+                            <h3 className="font-display font-extrabold text-lg text-slate-850 dark:text-white leading-tight group-hover:text-[#F97316] transition-colors">
                               {exam.name}
                             </h3>
                             <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
@@ -2725,11 +2764,11 @@ export const UpcomingExamsCarousel = () => {
                         <div className="flex flex-col gap-4 text-left mb-6 w-full">
                           {/* Application Date */}
                           <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
+                            <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center text-[#F97316] shrink-0 mt-0.5">
                               <Calendar className="w-4 h-4" />
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
+                              <span className="text-[10px] font-black text-[#F97316] uppercase tracking-wider">
                                 Application Date
                               </span>
                               <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
@@ -2740,11 +2779,11 @@ export const UpcomingExamsCarousel = () => {
 
                           {/* Examination Date */}
                           <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
+                            <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center text-[#F97316] shrink-0 mt-0.5">
                               <Calendar className="w-4 h-4" />
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
+                              <span className="text-[10px] font-black text-[#F97316] uppercase tracking-wider">
                                 Examination Date
                               </span>
                               <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
@@ -2755,11 +2794,11 @@ export const UpcomingExamsCarousel = () => {
 
                           {/* Result */}
                           <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-[#FF5E14]/10 flex items-center justify-center text-[#FF5E14] shrink-0 mt-0.5">
+                            <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center text-[#F97316] shrink-0 mt-0.5">
                               <Calendar className="w-4 h-4" />
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-[10px] font-black text-[#FF5E14] uppercase tracking-wider">
+                              <span className="text-[10px] font-black text-[#F97316] uppercase tracking-wider">
                                 Result
                               </span>
                               <span className="text-sm font-extrabold text-slate-850 dark:text-white mt-0.5">
@@ -2774,7 +2813,7 @@ export const UpcomingExamsCarousel = () => {
                       <div className="flex justify-center pt-3 border-t border-slate-100 dark:border-app-border">
                         <Link
                           to={`/exams/${exam.id}`}
-                          className="text-xs font-black text-[#FF5E14] hover:text-[#D14B00] flex items-center gap-1 hover:gap-2 transition-all cursor-pointer hover:no-underline"
+                          className="text-xs font-black text-[#F97316] hover:text-[#EA580C] flex items-center gap-1 hover:gap-2 transition-all cursor-pointer hover:no-underline"
                         >
                           Read More &gt;&gt;
                         </Link>
@@ -2798,7 +2837,7 @@ export const UpcomingExamsCarousel = () => {
 // ==========================================
 export const ScholarshipsList = () => {
   return (
-    <section className="py-20 bg-app-card border-y border-app-border">
+    <section className="py-20 bg-transparent border-y border-app-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="text-left flex flex-col gap-2">
@@ -2953,7 +2992,7 @@ export const StudentServices = () => {
   };
 
   return (
-    <section className="py-20 bg-app-card border-y border-app-border">
+    <section className="py-20 bg-transparent border-y border-app-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center gap-3.5 mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-app-text tracking-tight">
@@ -3037,7 +3076,7 @@ export const TestimonialsCarousel = () => {
   ];
 
   return (
-    <section className="py-20 bg-app-card border-y border-app-border overflow-hidden">
+    <section className="py-20 bg-transparent border-y border-app-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center gap-3.5 mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-app-text tracking-tight">
@@ -3139,7 +3178,7 @@ export const FAQSection = () => {
   };
 
   return (
-    <section className="py-20 bg-app-card border-y border-app-border">
+    <section className="py-20 bg-transparent border-y border-app-border">
       <div className="max-w-3xl mx-auto px-6">
         <div className="flex flex-col items-center text-center gap-3.5 mb-12">
           <HelpCircle className="w-8 h-8 text-secondary" />
@@ -3275,11 +3314,11 @@ export const DisciplinesSection = () => {
   };
 
   const disciplines = [
-    { name: 'B.Tech', label: 'Engineering', desc: 'IITs, NITs, and top private universities across India', icon: <Settings className="w-8 h-8 text-[#FF7A00]" />, route: '/colleges?course=Engineering' },
-    { name: 'MBA', label: 'Management', desc: 'IIMs, XLRI, and elite business management schools', icon: <TrendingUp className="w-8 h-8 text-[#FF7A00]" />, route: '/colleges?course=Management' },
-    { name: 'MBBS', label: 'Medicine', desc: 'AIIMS, JIPMER, and top medical colleges', icon: <Activity className="w-8 h-8 text-[#FF7A00]" />, route: '/colleges?course=Medicine' },
-    { name: 'Design', label: 'Design & Arts', desc: 'NID, NIFT, and top creative design schools', icon: <Palette className="w-8 h-8 text-[#FF7A00]" />, route: '/colleges?course=Design' },
-    { name: 'Law', label: 'Legal Studies', desc: 'NLUs and premier corporate law academies', icon: <Gavel className="w-8 h-8 text-[#FF7A00]" />, route: '/colleges?course=Law' }
+    { name: 'B.Tech', label: 'Engineering', desc: 'IITs, NITs, and top private universities across India', icon: <Settings className="w-8 h-8 text-[#F97316]" />, route: '/colleges?course=Engineering' },
+    { name: 'MBA', label: 'Management', desc: 'IIMs, XLRI, and elite business management schools', icon: <TrendingUp className="w-8 h-8 text-[#F97316]" />, route: '/colleges?course=Management' },
+    { name: 'MBBS', label: 'Medicine', desc: 'AIIMS, JIPMER, and top medical colleges', icon: <Activity className="w-8 h-8 text-[#F97316]" />, route: '/colleges?course=Medicine' },
+    { name: 'Design', label: 'Design & Arts', desc: 'NID, NIFT, and top creative design schools', icon: <Palette className="w-8 h-8 text-[#F97316]" />, route: '/colleges?course=Design' },
+    { name: 'Law', label: 'Legal Studies', desc: 'NLUs and premier corporate law academies', icon: <Gavel className="w-8 h-8 text-[#F97316]" />, route: '/colleges?course=Law' }
   ];
 
   const INDIAN_STATES_LIST = [
@@ -3298,13 +3337,13 @@ export const DisciplinesSection = () => {
   };
 
   return (
-    <section className="py-20 bg-app-card border-y border-app-border text-left relative overflow-hidden">
+    <section className="py-20 bg-[#FDF0E6] dark:bg-slate-900/40 border-y border-app-border text-left relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Title */}
         <div className="flex flex-col items-center text-center gap-2 mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-black text-app-text tracking-tight">
-            Top Study <span className="text-[#FF7A00]">Disciplines</span>
+            Top Study <span className="text-[#F97316]">Disciplines</span>
           </h2>
           <p className="text-sm text-app-muted max-w-lg">
             Select a pathway to capture exclusive counseling resources, fee details, and cutoff predictions.
@@ -3317,7 +3356,7 @@ export const DisciplinesSection = () => {
             <ScrollReveal key={disc.name} delay={idx * 0.05} duration={0.4}>
               <div
                 onClick={() => setLeadModal({ label: disc.name, course: disc.label })}
-                className="glass p-6 rounded-2xl border-app-border hover:border-[#FF7A00] hover:shadow-2xl hover:shadow-orange-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer group"
+                className="glass p-6 rounded-2xl border-app-border hover:border-[#F97316] hover:shadow-2xl hover:shadow-orange-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer group"
               >
                 <div className="flex flex-col gap-4">
                   {/* Icon */}
@@ -3325,7 +3364,7 @@ export const DisciplinesSection = () => {
                     {disc.icon}
                   </div>
                   <div>
-                    <h3 className="font-display font-black text-lg text-app-text group-hover:text-[#FF7A00] transition-colors uppercase tracking-wide">
+                    <h3 className="font-display font-black text-lg text-app-text group-hover:text-[#F97316] transition-colors uppercase tracking-wide">
                       {disc.name}
                     </h3>
                     <p className="text-[11px] text-app-muted mt-1 leading-relaxed font-semibold">
@@ -3334,7 +3373,7 @@ export const DisciplinesSection = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center gap-1.5 text-[11px] font-black text-[#FF7A00] uppercase tracking-wider">
+                <div className="mt-6 flex items-center gap-1.5 text-[11px] font-black text-[#F97316] uppercase tracking-wider">
                   <span>Register Path</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -3359,7 +3398,7 @@ export const DisciplinesSection = () => {
             >
               {/* Left panel — tags */}
               <div className="relative md:w-5/12 bg-gradient-to-br from-orange-50 to-amber-100 dark:from-[#1a1040] dark:to-[#0F172A] p-8 flex flex-col justify-between overflow-hidden shrink-0">
-                <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-[#FF7A00]/20 blur-2xl" />
+                <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-[#F97316]/20 blur-2xl" />
                 <div className="flex flex-col gap-2 relative z-10 mt-2 text-xs font-black uppercase text-slate-650 dark:text-slate-350 tracking-wider">
                   {['#Fast Track', '#Scholarships', '#Top Placements', '#Expert Guidance'].map((tag, i) => (
                     <span key={i} className="block select-none" style={{ paddingLeft: `${(i % 3) * 12}px` }}>{tag}</span>
@@ -3368,11 +3407,11 @@ export const DisciplinesSection = () => {
                 {/* Rocket svg */}
                 <div className="relative z-10 flex justify-center mt-6">
                   <svg viewBox="0 0 160 180" className="w-28 h-28 drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="80" cy="75" rx="20" ry="48" fill="#FF7A00"/>
+                    <ellipse cx="80" cy="75" rx="20" ry="48" fill="#F97316"/>
                     <ellipse cx="80" cy="75" rx="14" ry="42" fill="#FFA040"/>
                     <ellipse cx="80" cy="32" rx="12" ry="14" fill="#FF5500"/>
                     <circle cx="80" cy="68" r="8" fill="white" opacity="0.9"/>
-                    <circle cx="80" cy="68" r="5" fill="#1B254B"/>
+                    <circle cx="80" cy="68" r="5" fill="#881337"/>
                     <path d="M60 105 L52 128 L72 115 Z" fill="#FF5500"/>
                     <path d="M100 105 L108 128 L88 115 Z" fill="#FF5500"/>
                     <ellipse cx="80" cy="135" rx="9" ry="17" fill="#FFD700" opacity="0.9"/>
@@ -3392,7 +3431,7 @@ export const DisciplinesSection = () => {
                 {!leadDone ? (
                   <>
                     <div>
-                      <h2 className="text-base font-black text-[#FF7A00] tracking-tight uppercase leading-snug">
+                      <h2 className="text-base font-black text-[#F97316] tracking-tight uppercase leading-snug">
                         Apply for Top {leadModal.label} Colleges
                       </h2>
                       <p className="text-[10px] text-slate-400 mt-1">Get custom counselor callbacks and eligibility assessments.</p>
@@ -3415,17 +3454,17 @@ export const DisciplinesSection = () => {
                     >
                       <div className="grid grid-cols-2 gap-3">
                         <input required type="text" placeholder="First Name" value={leadFirst} onChange={e => setLeadFirst(e.target.value)}
-                          className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors" />
+                          className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#F97316] transition-colors" />
                         <input type="text" placeholder="Last Name" value={leadLast} onChange={e => setLeadLast(e.target.value)}
-                          className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors" />
+                          className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#F97316] transition-colors" />
                       </div>
                       <input required type="tel" placeholder="Mobile Number" value={leadMobile} onChange={e => setLeadMobile(e.target.value)}
-                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors" />
+                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#F97316] transition-colors" />
                       <input required type="email" placeholder="Email Address" value={leadEmail} onChange={e => setLeadEmail(e.target.value)}
-                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors" />
+                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#F97316] transition-colors" />
                       <div className="relative">
                         <select required value={leadState} onChange={e => { setLeadState(e.target.value); setLeadCity(''); }}
-                          className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors cursor-pointer">
+                          className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#F97316] transition-colors cursor-pointer">
                           <option value="">Select State</option>
                           {INDIAN_STATES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
                         </select>
@@ -3433,14 +3472,14 @@ export const DisciplinesSection = () => {
                       </div>
                       <div className="relative">
                         <select required value={leadCity} onChange={e => setLeadCity(e.target.value)}
-                          className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors cursor-pointer">
+                          className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-slate-900 dark:text-white outline-none focus:border-[#F97316] transition-colors cursor-pointer">
                           <option value="">Select City</option>
                           {(CITIES_LIST[leadState] || []).map(c => <option key={c} value={c}>{c}</option>)}
                         </select>
                         <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                       </div>
                       <button type="submit" disabled={leadSubmitting}
-                        className="w-full py-3 mt-1.5 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg cursor-pointer border-none disabled:opacity-60">
+                        className="w-full py-3 mt-1.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg cursor-pointer border-none disabled:opacity-60">
                         {leadSubmitting ? <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" /> : 'Register Now'}
                       </button>
                     </form>
@@ -3454,7 +3493,7 @@ export const DisciplinesSection = () => {
                     <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs">An expert counselor will reach out within 24 hours with top recommendations.</p>
                     <button
                       onClick={() => closeLead(disciplines.find(d => d.name === leadModal.label)?.route)}
-                      className="mt-2 px-6 py-2.5 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-xs uppercase shadow-md transition-all cursor-pointer border-none"
+                      className="mt-2 px-6 py-2.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-xs uppercase shadow-md transition-all cursor-pointer border-none"
                     >
                       Explore Colleges
                     </button>

@@ -213,9 +213,9 @@ export const Exams = () => {
         
         {/* Banner Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 p-8 rounded-3xl glass border border-app-border relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF7A00]/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F97316]/10 to-transparent pointer-events-none" />
           <div className="relative z-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FF7A00]/10 text-[#FF7A00] mb-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F97316]/10 text-[#F97316] mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               National Timelines 2026
             </span>
@@ -240,7 +240,7 @@ export const Exams = () => {
             </div>
             <button
               type="submit"
-              className="bg-[#FF7A00] hover:bg-[#D14B00] text-white text-xs font-bold uppercase px-6 py-3 rounded-lg transition-all cursor-pointer border-none shrink-0"
+              className="bg-[#F97316] hover:bg-[#EA580C] text-white text-xs font-bold uppercase px-6 py-3 rounded-lg transition-all cursor-pointer border-none shrink-0"
             >
               Search
             </button>
@@ -264,7 +264,7 @@ export const Exams = () => {
                   <p className="text-[10px] text-app-muted mt-0.5">{ex.fullName}</p>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="inline-block text-[10px] px-3 py-1 rounded-full bg-[#FF7A00]/25 text-[#FF7A00] font-black tracking-wider uppercase">
+                  <span className="inline-block text-[10px] px-3 py-1 rounded-full bg-[#F97316]/25 text-[#F97316] font-black tracking-wider uppercase">
                     {getDaysLeft(ex.date)}
                   </span>
                   <p className="text-[9px] text-app-muted mt-1.5 font-bold">Exam: {ex.date.replace(/-/g, '.')}</p>
@@ -285,7 +285,7 @@ export const Exams = () => {
               </span>
               <button
                 onClick={handleResetFilters}
-                className="text-[10px] font-bold text-app-muted hover:text-[#FF7A00] flex items-center gap-1 bg-transparent border-none cursor-pointer"
+                className="text-[10px] font-bold text-app-muted hover:text-[#F97316] flex items-center gap-1 bg-transparent border-none cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 Reset
@@ -304,7 +304,7 @@ export const Exams = () => {
                       type="checkbox"
                       checked={selectedStreams.includes(stream)}
                       onChange={() => handleToggleStream(stream)}
-                      className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                      className="rounded accent-[#F97316] w-4 h-4 cursor-pointer bg-app-card border-app-border"
                     />
                     <span>{stream}</span>
                   </label>
@@ -322,7 +322,7 @@ export const Exams = () => {
                 placeholder="Filter courses..."
                 value={courseSearch}
                 onChange={(e) => setCourseSearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-medium"
+                className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#F97316] font-medium"
               />
               <div className="flex flex-col gap-2.5 text-xs text-app-muted max-h-48 overflow-y-auto pr-1 scrollbar-thin font-medium mt-1">
                 {coursesList
@@ -333,7 +333,7 @@ export const Exams = () => {
                         type="checkbox"
                         checked={selectedCourses.includes(course)}
                         onChange={() => handleToggleCourse(course)}
-                        className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                        className="rounded accent-[#F97316] w-4 h-4 cursor-pointer bg-app-card border-app-border"
                       />
                       <span>{course}</span>
                     </label>
@@ -353,7 +353,7 @@ export const Exams = () => {
                       type="checkbox"
                       checked={selectedModes.includes(mode)}
                       onChange={() => handleToggleMode(mode)}
-                      className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                      className="rounded accent-[#F97316] w-4 h-4 cursor-pointer bg-app-card border-app-border"
                     />
                     <span className="uppercase">{mode}</span>
                   </label>
@@ -379,7 +379,7 @@ export const Exams = () => {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="appearance-none bg-app-card border border-app-border text-xs font-semibold text-white py-2 pl-3 pr-8 rounded-xl outline-none focus:border-[#FF7A00] cursor-pointer"
+                    className="appearance-none bg-app-card border border-app-border text-xs font-semibold text-white py-2 pl-3 pr-8 rounded-xl outline-none focus:border-[#F97316] cursor-pointer"
                   >
                     <option value="name">Exam Name</option>
                     <option value="examDate">Exam Date</option>
@@ -406,7 +406,7 @@ export const Exams = () => {
                 </p>
                 <button
                   onClick={handleResetFilters}
-                  className="text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#D14B00] px-5 py-3 rounded-xl border-none cursor-pointer transition-colors shadow-lg shadow-[#FF7A00]/25"
+                  className="text-xs font-bold text-white bg-[#F97316] hover:bg-[#EA580C] px-5 py-3 rounded-xl border-none cursor-pointer transition-colors shadow-lg shadow-[#F97316]/25"
                 >
                   Clear All Filters
                 </button>
@@ -445,10 +445,10 @@ export const Exams = () => {
 
             <div className="flex items-start gap-4 mb-6">
               <div className="p-3 bg-app-card rounded-2xl border border-app-border shrink-0 flex items-center justify-center">
-                <Calendar className="w-8 h-8 text-[#FF7A00]" />
+                <Calendar className="w-8 h-8 text-[#F97316]" />
               </div>
               <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#FF7A00]/10 text-[#FF7A00] font-black uppercase tracking-wider">
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] font-black uppercase tracking-wider">
                   Exam Profile
                 </span>
                 <h3 className="text-xl md:text-2xl font-display font-black text-white mt-1 leading-tight">
@@ -466,7 +466,7 @@ export const Exams = () => {
                   onClick={() => setActiveModalTab(tab)}
                   className={`py-2.5 px-4 text-xs font-bold border-b-2 whitespace-nowrap transition-colors cursor-pointer ${
                     activeModalTab === tab
-                      ? 'border-[#FF7A00] text-[#FF7A00]'
+                      ? 'border-[#F97316] text-[#F97316]'
                       : 'border-transparent text-app-muted hover:text-white'
                   }`}
                 >
@@ -480,7 +480,7 @@ export const Exams = () => {
               {activeModalTab === 'Overview' && (
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-extrabold text-white mb-1.5 text-sm flex items-center gap-1.5"><BookOpen className="w-4 h-4 text-[#FF7A00]" /> Description</h4>
+                    <h4 className="font-extrabold text-white mb-1.5 text-sm flex items-center gap-1.5"><BookOpen className="w-4 h-4 text-[#F97316]" /> Description</h4>
                     <p>{selectedExam.description}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-4 pt-3">
@@ -498,7 +498,7 @@ export const Exams = () => {
 
               {activeModalTab === 'Exam Date' && (
                 <div className="space-y-4">
-                  <h4 className="font-extrabold text-white mb-2 text-sm flex items-center gap-1.5"><Clock className="w-4 h-4 text-[#FF7A00]" /> Registration & Exam Deadlines</h4>
+                  <h4 className="font-extrabold text-white mb-2 text-sm flex items-center gap-1.5"><Clock className="w-4 h-4 text-[#F97316]" /> Registration & Exam Deadlines</h4>
                   <div className="flex flex-col gap-3">
                     {[
                       { label: 'Registration Deadline', date: selectedExam.registrationDeadline, active: true },
@@ -516,7 +516,7 @@ export const Exams = () => {
 
               {activeModalTab === 'Syllabus' && (
                 <div className="space-y-4">
-                  <h4 className="font-extrabold text-white mb-2 text-sm flex items-center gap-1.5"><FileText className="w-4 h-4 text-[#FF7A00]" /> Syllabus Subject Weightages</h4>
+                  <h4 className="font-extrabold text-white mb-2 text-sm flex items-center gap-1.5"><FileText className="w-4 h-4 text-[#F97316]" /> Syllabus Subject Weightages</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {selectedExam.syllabus.map((sub, idx) => (
                       <div
@@ -534,7 +534,7 @@ export const Exams = () => {
               {activeModalTab === 'Sample Papers' && (
                 <div className="space-y-5 text-center py-6">
                   <div className="w-12 h-12 bg-app-card rounded-full flex items-center justify-center mx-auto border border-app-border mb-2">
-                    <Download className="w-6 h-6 text-[#FF7A00]" />
+                    <Download className="w-6 h-6 text-[#F97316]" />
                   </div>
                   <div>
                     <h4 className="font-extrabold text-white text-sm">Download Free Mock Sample Papers</h4>
@@ -544,7 +544,7 @@ export const Exams = () => {
                   </div>
                   <button
                     onClick={() => addToast('Mock papers successfully compiled. Check your downloads directory!', 'success')}
-                    className="py-3 px-6 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#FF7A00]/25 transition-all border-none cursor-pointer"
+                    className="py-3 px-6 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#F97316]/25 transition-all border-none cursor-pointer"
                   >
                     Download PDF Papers
                   </button>

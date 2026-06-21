@@ -570,7 +570,7 @@ export const ExamCard = ({ exam }: ExamCardProps) => {
         {/* Right Side: Title & Action Buttons */}
         <div className="flex-1 flex flex-col gap-3 min-w-0">
           <div>
-            <h3 className="font-display font-extrabold text-lg text-slate-850 dark:text-white leading-tight truncate group-hover:text-[#FF7A00] transition-colors duration-300">
+            <h3 className="font-display font-extrabold text-lg text-slate-850 dark:text-white leading-tight truncate group-hover:text-[#F97316] transition-colors duration-300">
               {exam.name}
             </h3>
             <p className="text-[11px] text-slate-400 dark:text-slate-500 font-bold leading-normal mt-0.5 line-clamp-1">
@@ -582,14 +582,14 @@ export const ExamCard = ({ exam }: ExamCardProps) => {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => navigate(`/exams/${exam.id}?scrollTo=alerts`)}
-              className="flex items-center gap-1.5 bg-[#FF7A00] hover:bg-[#E06C00] text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-lg transition-all shadow-sm shadow-orange-500/10 cursor-pointer border-none"
+              className="flex items-center gap-1.5 bg-[#F97316] hover:bg-[#EA580C] text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-lg transition-all shadow-sm shadow-orange-500/10 cursor-pointer border-none"
             >
               <Bell className="w-3.5 h-3.5" />
               Exam Alerts
             </button>
             <button
               onClick={() => navigate(`/exams/${exam.id}?tab=Application+Form`)}
-              className="flex items-center gap-1.5 bg-[#FF7A00] hover:bg-[#E06C00] text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-lg transition-all shadow-sm shadow-orange-500/10 cursor-pointer border-none"
+              className="flex items-center gap-1.5 bg-[#F97316] hover:bg-[#EA580C] text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-lg transition-all shadow-sm shadow-orange-500/10 cursor-pointer border-none"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               Register Now
@@ -630,28 +630,28 @@ export const ExamCard = ({ exam }: ExamCardProps) => {
       <div className="flex items-center justify-between border-t border-slate-100 dark:border-app-border pt-3.5 mt-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
         <button
           onClick={() => navigate(`/exams/${exam.id}?tab=Overview`)}
-          className="hover:text-[#FF7A00] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
+          className="hover:text-[#F97316] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
         >
           Overview
         </button>
         <span className="text-slate-200 dark:text-white/5 select-none">|</span>
         <button
           onClick={() => navigate(`/exams/${exam.id}?tab=Exam+Dates`)}
-          className="hover:text-[#FF7A00] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
+          className="hover:text-[#F97316] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
         >
           Exam Date
         </button>
         <span className="text-slate-200 dark:text-white/5 select-none">|</span>
         <button
           onClick={() => navigate(`/exams/${exam.id}?tab=Syllabus`)}
-          className="hover:text-[#FF7A00] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
+          className="hover:text-[#F97316] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
         >
           Syllabus
         </button>
         <span className="text-slate-200 dark:text-white/5 select-none">|</span>
         <button
           onClick={() => navigate(`/exams/${exam.id}?tab=Question+Paper`)}
-          className="hover:text-[#FF7A00] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
+          className="hover:text-[#F97316] transition-colors cursor-pointer bg-transparent border-none p-0 uppercase font-bold text-[10px]"
         >
           Sample Papers
         </button>

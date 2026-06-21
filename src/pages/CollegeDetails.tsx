@@ -216,7 +216,7 @@ const MDILogo = () => (
 const DMSIITDLogo = () => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
     <circle cx="50" cy="50" r="42" fill="none" stroke="#0F2C59" strokeWidth="4" />
-    <text x="50" y="45" fill="#FF5E14" fontSize="24" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">dms</text>
+    <text x="50" y="45" fill="#F97316" fontSize="24" fontWeight="black" textAnchor="middle" fontFamily="sans-serif">dms</text>
     <path d="M40 55 L50 65 L60 55 Z" fill="#0F2C59" />
     <text x="50" y="80" fill="#0F2C59" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">IIT DELHI</text>
   </svg>
@@ -632,7 +632,7 @@ export const CollegeDetails = () => {
   if (isLoading) {
     return (
       <div className="pt-36 pb-20 text-center min-h-screen bg-app-bg text-app-text flex flex-col items-center justify-center gap-4">
-        <div className="w-12 h-12 rounded-full border-4 border-[#FF7A00] border-t-transparent animate-spin" />
+        <div className="w-12 h-12 rounded-full border-4 border-[#F97316] border-t-transparent animate-spin" />
         <p className="text-xs text-app-muted font-bold tracking-wider uppercase">Loading Campus Profile...</p>
       </div>
     );
@@ -643,7 +643,7 @@ export const CollegeDetails = () => {
       <div className="pt-36 pb-20 text-center min-h-screen bg-app-bg text-app-text">
         <h2 className="text-2xl font-bold font-display">College Not Found</h2>
         <p className="text-app-muted mt-2">The requested college identifier "{id}" does not exist in our catalog.</p>
-        <Link to="/colleges" className="mt-6 inline-flex items-center gap-2 text-[#FF7A00] font-bold hover:underline">
+        <Link to="/colleges" className="mt-6 inline-flex items-center gap-2 text-[#F97316] font-bold hover:underline">
           <ArrowLeft className="w-4 h-4" /> Return to Catalog
         </Link>
       </div>
@@ -750,16 +750,16 @@ export const CollegeDetails = () => {
 
   const getFacilityIcon = (facility: string) => {
     const f = facility.toLowerCase();
-    if (f.includes('auditorium')) return <Building className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('cafeteria') || f.includes('canteen')) return <Coffee className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('computer') || f.includes('lab')) return <Laptop className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('gym')) return <Dumbbell className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('hostel') || f.includes('residential')) return <Home className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('laboratory')) return <FlaskConical className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('library')) return <BookOpen className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('medical') || f.includes('emergency') || f.includes('health')) return <HeartPulse className="w-4 h-4 text-[#FF7A00]" />;
-    if (f.includes('sport') || f.includes('court') || f.includes('play')) return <Trophy className="w-4 h-4 text-[#FF7A00]" />;
-    return <CheckCircle className="w-4 h-4 text-[#FF7A00]" />;
+    if (f.includes('auditorium')) return <Building className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('cafeteria') || f.includes('canteen')) return <Coffee className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('computer') || f.includes('lab')) return <Laptop className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('gym')) return <Dumbbell className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('hostel') || f.includes('residential')) return <Home className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('laboratory')) return <FlaskConical className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('library')) return <BookOpen className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('medical') || f.includes('emergency') || f.includes('health')) return <HeartPulse className="w-4 h-4 text-[#F97316]" />;
+    if (f.includes('sport') || f.includes('court') || f.includes('play')) return <Trophy className="w-4 h-4 text-[#F97316]" />;
+    return <CheckCircle className="w-4 h-4 text-[#F97316]" />;
   };
 
   const safeInfrastructure = toArray(college.infrastructure).length > 0
@@ -912,11 +912,11 @@ export const CollegeDetails = () => {
     <div className="relative pt-16 pb-20 min-h-screen bg-app-bg text-app-text">
       {/* Background patterns */}
       <div className="gradient-mesh opacity-40 absolute inset-0 pointer-events-none" />
-      <div className="absolute top-20 right-10 w-96 h-96 bg-[#FF7A00]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-[#F97316]/5 rounded-full blur-[120px] pointer-events-none" />
       
       {/* Career Mantra Styled Subheader Navigation (Top links layout matching Image 2) */}
       <div className="w-full bg-[#121E31] border-b border-app-border text-[11px] font-bold py-2 px-6 overflow-x-auto whitespace-nowrap text-left z-20 flex gap-6 text-[#94A3B8]">
-        <Link to="/colleges" className="hover:text-white uppercase tracking-wider text-[#FF7A00]">Colleges</Link>
+        <Link to="/colleges" className="hover:text-white uppercase tracking-wider text-[#F97316]">Colleges</Link>
         <Link to="/exams" className="hover:text-white uppercase tracking-wider">Exams</Link>
         <Link to="/reviews" className="hover:text-white uppercase tracking-wider">Reviews</Link>
         <Link to="/news" className="hover:text-white uppercase tracking-wider">News</Link>
@@ -954,7 +954,7 @@ export const CollegeDetails = () => {
             <div className="flex items-center gap-5 text-left w-full md:w-auto">
               {renderLogo(college.logo || college.id)}
               <div>
-                <span className="inline-block text-[9px] px-2 py-0.5 rounded bg-[#FF7A00]/20 text-[#FF7A00] border border-[#FF7A00]/30 font-black uppercase tracking-wider mb-1.5">
+                <span className="inline-block text-[9px] px-2 py-0.5 rounded bg-[#F97316]/20 text-[#F97316] border border-[#F97316]/30 font-black uppercase tracking-wider mb-1.5">
                   {college.category}
                 </span>
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-display font-black leading-tight text-app-text uppercase tracking-tight">
@@ -965,7 +965,7 @@ export const CollegeDetails = () => {
                 </p>
                 <div className="flex flex-wrap items-center gap-4 text-xs text-app-muted mt-3">
                   <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#FF7A00]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#F97316]" />
                     {college.location}
                   </span>
                   <span className="flex items-center gap-1">
@@ -983,13 +983,13 @@ export const CollegeDetails = () => {
             <div className="flex flex-wrap md:flex-col gap-2.5 w-full md:w-auto shrink-0 border-t md:border-t-0 md:border-l border-app-border pt-4 md:pt-0 md:pl-6 text-xs justify-center md:justify-start">
               <button
                 onClick={() => navigate(`/common-application?collegeId=${college.id}`)}
-                className="flex-1 md:w-44 py-3 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-bold tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md"
+                className="flex-1 md:w-44 py-3 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-bold tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md"
               >
                 Apply Now
               </button>
               <button
                 onClick={() => navigate('/scholarships')}
-                className="flex-1 md:w-44 py-3 rounded-xl border border-[#FF7A00]/50 hover:bg-[#FF7A00]/10 text-app-text font-bold tracking-wider transition-all cursor-pointer bg-transparent"
+                className="flex-1 md:w-44 py-3 rounded-xl border border-[#F97316]/50 hover:bg-[#F97316]/10 text-app-text font-bold tracking-wider transition-all cursor-pointer bg-transparent"
               >
                 Scholarship eligibility
               </button>
@@ -1013,8 +1013,8 @@ export const CollegeDetails = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-3.5 px-5 text-[11px] font-black border-b-2 whitespace-nowrap transition-all flex items-center gap-2 focus:outline-none cursor-pointer tracking-wider ${
                   activeTab === tab.id
-                    ? 'border-[#FF7A00] text-[#FF7A00]'
-                    : 'border-transparent text-app-muted hover:text-[#FF7A00]'
+                    ? 'border-[#F97316] text-[#F97316]'
+                    : 'border-transparent text-app-muted hover:text-[#F97316]'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -1054,7 +1054,7 @@ export const CollegeDetails = () => {
                     </p>
                     <button
                       onClick={() => setAboutExpanded(!aboutExpanded)}
-                      className="text-xs text-[#FF7A00] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
+                      className="text-xs text-[#F97316] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
                     >
                       {aboutExpanded ? 'Read Less <<' : 'Read More >>'}
                     </button>
@@ -1084,7 +1084,7 @@ export const CollegeDetails = () => {
                     </p>
                     <button
                       onClick={() => setHighlightsExpanded(!highlightsExpanded)}
-                      className="text-xs text-[#FF7A00] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none"
+                      className="text-xs text-[#F97316] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none"
                     >
                       {highlightsExpanded ? 'Read Less <<' : 'Read More >>'}
                     </button>
@@ -1100,8 +1100,8 @@ export const CollegeDetails = () => {
 
                         {/* Key Facts Grid */}
                         <div className="flex flex-col gap-3">
-                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
-                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                          <h4 className="text-sm font-black text-[#F97316] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#F97316] rounded-full inline-block" />
                             Key Facts &amp; Figures
                           </h4>
                           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -1117,7 +1117,7 @@ export const CollegeDetails = () => {
                               { label: 'CM Rating', value: `${college.rating}/10` },
                             ].map((item, idx) => (
                               <div key={idx} className="flex flex-col gap-1 p-3 rounded-xl bg-app-card border border-app-border">
-                                <span className="text-[10px] font-bold text-[#FF7A00] uppercase tracking-widest">{item.label}</span>
+                                <span className="text-[10px] font-bold text-[#F97316] uppercase tracking-widest">{item.label}</span>
                                 <span className="text-sm font-extrabold text-app-text leading-snug">{item.value}</span>
                               </div>
                             ))}
@@ -1126,8 +1126,8 @@ export const CollegeDetails = () => {
 
                         {/* Academic Programs */}
                         <div className="flex flex-col gap-3">
-                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
-                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                          <h4 className="text-sm font-black text-[#F97316] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#F97316] rounded-full inline-block" />
                             Academic Programs Offered
                           </h4>
                           <div className="flex flex-wrap gap-2">
@@ -1144,8 +1144,8 @@ export const CollegeDetails = () => {
 
                         {/* Notable Achievements */}
                         <div className="flex flex-col gap-3">
-                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
-                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                          <h4 className="text-sm font-black text-[#F97316] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#F97316] rounded-full inline-block" />
                             Notable Achievements &amp; Rankings
                           </h4>
                           <div className="flex flex-col gap-2.5">
@@ -1166,8 +1166,8 @@ export const CollegeDetails = () => {
 
                         {/* Infrastructure */}
                         <div className="flex flex-col gap-3">
-                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider flex items-center gap-2">
-                            <span className="w-1 h-4 bg-[#FF7A00] rounded-full inline-block" />
+                          <h4 className="text-sm font-black text-[#F97316] uppercase tracking-wider flex items-center gap-2">
+                            <span className="w-1 h-4 bg-[#F97316] rounded-full inline-block" />
                             Infrastructure &amp; Campus Facilities
                           </h4>
                           <div className="flex flex-wrap gap-2">
@@ -1181,8 +1181,8 @@ export const CollegeDetails = () => {
                         </div>
 
                         {/* Why Choose */}
-                        <div className="flex flex-col gap-3 p-5 rounded-xl bg-[#FF7A00]/8 border border-[#FF7A00]/30">
-                          <h4 className="text-sm font-black text-[#FF7A00] uppercase tracking-wider">
+                        <div className="flex flex-col gap-3 p-5 rounded-xl bg-[#F97316]/8 border border-[#F97316]/30">
+                          <h4 className="text-sm font-black text-[#F97316] uppercase tracking-wider">
                             Why Choose {college.name.split(',')[0]}?
                           </h4>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1195,7 +1195,7 @@ export const CollegeDetails = () => {
                               `Vibrant campus life with 100+ clubs, fests, sports, and cultural events`
                             ]).map((reason: string, idx: number) => (
                               <div key={idx} className="flex items-start gap-2.5">
-                                <span className="text-[#FF7A00] font-black shrink-0 text-base leading-snug">→</span>
+                                <span className="text-[#F97316] font-black shrink-0 text-base leading-snug">→</span>
                                 <span className="text-sm text-app-text font-medium leading-snug">{reason}</span>
                               </div>
                             ))}
@@ -1244,7 +1244,7 @@ export const CollegeDetails = () => {
                     </p>
                     <button
                       onClick={() => setAdmissionExpanded(!admissionExpanded)}
-                      className="text-xs text-[#FF7A00] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
+                      className="text-xs text-[#F97316] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
                     >
                       {admissionExpanded ? 'Read Less <<' : 'Read More >>'}
                     </button>
@@ -1262,7 +1262,7 @@ export const CollegeDetails = () => {
                     </p>
                     <button
                       onClick={() => setScholarshipExpanded(!scholarshipExpanded)}
-                      className="text-xs text-[#FF7A00] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
+                      className="text-xs text-[#F97316] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
                     >
                       {scholarshipExpanded ? 'Read Less <<' : 'Read More >>'}
                     </button>
@@ -1280,7 +1280,7 @@ export const CollegeDetails = () => {
                     </p>
                     <button
                       onClick={() => setPlacementExpanded(!placementExpanded)}
-                      className="text-xs text-[#FF7A00] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
+                      className="text-xs text-[#F97316] font-black uppercase tracking-wider hover:underline text-left cursor-pointer bg-transparent border-none mt-1"
                     >
                       {placementExpanded ? 'Read Less <<' : 'Read More >>'}
                     </button>
@@ -1299,7 +1299,7 @@ export const CollegeDetails = () => {
                         'Ranked 105 for Overall by Indiatoday 2019'
                       ]).map((rankStr: string, idx: number) => (
                         <div key={idx} className="flex items-center gap-2">
-                          <span className="text-[#FF7A00] font-black">✔</span>
+                          <span className="text-[#F97316] font-black">✔</span>
                           <span>{rankStr}</span>
                         </div>
                       ))}
@@ -1324,7 +1324,7 @@ export const CollegeDetails = () => {
                           {safeCourses.slice(0, 3).map((c: any, idx: number) => (
                             <tr key={idx} className="hover:bg-app-card/30">
                               <td className="p-3 font-bold text-app-text">{c.name.split(' ')[0]}</td>
-                              <td className="p-3 font-black text-[#FF7A00]">{c.fees}</td>
+                              <td className="p-3 font-black text-[#F97316]">{c.fees}</td>
                               <td className="p-3 text-app-muted">{c.eligibility || '10+2 with 50%'}</td>
                             </tr>
                           ))}
@@ -1333,7 +1333,7 @@ export const CollegeDetails = () => {
                     </div>
                     <button
                       onClick={() => setActiveTab('courses')}
-                      className="px-4 py-2 rounded-lg bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-[10px] uppercase tracking-wider cursor-pointer border-none self-start transition-all shadow-md"
+                      className="px-4 py-2 rounded-lg bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-[10px] uppercase tracking-wider cursor-pointer border-none self-start transition-all shadow-md"
                     >
                       View All &gt;&gt;
                     </button>
@@ -1358,7 +1358,7 @@ export const CollegeDetails = () => {
                     </div>
                     <button
                       onClick={() => setActiveTab('gallery')}
-                      className="px-4 py-2 rounded-lg bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-[10px] uppercase tracking-wider cursor-pointer border-none self-start transition-all shadow-md"
+                      className="px-4 py-2 rounded-lg bg-[#F97316] hover:bg-[#EA580C] text-white font-black text-[10px] uppercase tracking-wider cursor-pointer border-none self-start transition-all shadow-md"
                     >
                       View All &gt;&gt;
                     </button>
@@ -1404,7 +1404,7 @@ export const CollegeDetails = () => {
                       {safeInfrastructure.map((facility: string, idx: number) => (
                         <div
                           key={idx}
-                          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-app-card border border-app-border text-[10px] text-app-text font-extrabold uppercase tracking-wider shadow-sm hover:border-[#FF7A00]/40 transition-colors select-none"
+                          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-app-card border border-app-border text-[10px] text-app-text font-extrabold uppercase tracking-wider shadow-sm hover:border-[#F97316]/40 transition-colors select-none"
                         >
                           {getFacilityIcon(facility)}
                           <span>{facility}</span>
@@ -1419,43 +1419,43 @@ export const CollegeDetails = () => {
                       {college.name} Ratings & Reviews
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 select-none">
-                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#FF7A00]/30 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#FF7A00] flex items-center justify-center font-black text-white text-xs shadow-md">
+                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#F97316]/30 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#F97316] flex items-center justify-center font-black text-white text-xs shadow-md">
                           {(college.ratingsCategories || ratingsCategories).academics}
                         </div>
                         <span className="text-[9px] text-app-muted font-black tracking-wider uppercase">Academics</span>
                       </div>
 
-                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#FF7A00]/30 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#FF7A00] flex items-center justify-center font-black text-white text-xs shadow-md">
+                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#F97316]/30 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#F97316] flex items-center justify-center font-black text-white text-xs shadow-md">
                           {(college.ratingsCategories || ratingsCategories).faculty}
                         </div>
                         <span className="text-[9px] text-app-muted font-black tracking-wider uppercase">Faculty</span>
                       </div>
 
-                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#FF7A00]/30 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#FF7A00] flex items-center justify-center font-black text-white text-xs shadow-md">
+                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#F97316]/30 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#F97316] flex items-center justify-center font-black text-white text-xs shadow-md">
                           {(college.ratingsCategories || ratingsCategories).infrastructure}
                         </div>
                         <span className="text-[9px] text-app-muted font-black tracking-wider uppercase">Infra</span>
                       </div>
 
-                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#FF7A00]/30 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#FF7A00] flex items-center justify-center font-black text-white text-xs shadow-md">
+                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#F97316]/30 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#F97316] flex items-center justify-center font-black text-white text-xs shadow-md">
                           {(college.ratingsCategories || ratingsCategories).placement}
                         </div>
                         <span className="text-[9px] text-app-muted font-black tracking-wider uppercase">Placement</span>
                       </div>
 
-                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#FF7A00]/30 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#FF7A00] flex items-center justify-center font-black text-white text-xs shadow-md">
+                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#F97316]/30 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#F97316] flex items-center justify-center font-black text-white text-xs shadow-md">
                           {(college.ratingsCategories || ratingsCategories).socialLife}
                         </div>
                         <span className="text-[9px] text-app-muted font-black tracking-wider uppercase">Social</span>
                       </div>
 
-                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#FF7A00]/30 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#FF7A00] flex items-center justify-center font-black text-white text-xs shadow-md">
+                      <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-app-card border border-app-border text-center gap-1.5 hover:border-[#F97316]/30 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-[#121E31] border border-[#F97316] flex items-center justify-center font-black text-white text-xs shadow-md">
                           {(college.ratingsCategories || ratingsCategories).accommodation}
                         </div>
                         <span className="text-[9px] text-app-muted font-black tracking-wider uppercase">Hostel</span>
@@ -1470,7 +1470,7 @@ export const CollegeDetails = () => {
               {activeTab === 'courses' && (
                 <div className="flex flex-col gap-6">
                   <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
-                    <BookOpen className="w-5 h-5 text-[#FF7A00]" />
+                    <BookOpen className="w-5 h-5 text-[#F97316]" />
                     Courses Offered & Seat Intake
                   </h3>
                   <div className="flex flex-col gap-4">
@@ -1488,7 +1488,7 @@ export const CollegeDetails = () => {
                         <div className="flex items-center gap-6 shrink-0">
                           <div className="flex flex-col sm:text-right">
                             <span className="text-[10px] text-app-muted uppercase font-black tracking-wider">Annual Fees</span>
-                            <span className="font-black text-lg text-[#FF7A00] mt-0.5">{course.fees}</span>
+                            <span className="font-black text-lg text-[#F97316] mt-0.5">{course.fees}</span>
                           </div>
                         </div>
                       </div>
@@ -1501,7 +1501,7 @@ export const CollegeDetails = () => {
               {activeTab === 'admission' && (
                 <div className="flex flex-col gap-6">
                   <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
-                    <FileText className="w-5 h-5 text-[#FF7A00]" />
+                    <FileText className="w-5 h-5 text-[#F97316]" />
                     Admission Counseling Callback Form
                   </h3>
                   
@@ -1519,7 +1519,7 @@ export const CollegeDetails = () => {
                             required
                             value={applyName}
                             onChange={(e) => setApplyName(e.target.value)}
-                            className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
+                            className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#F97316] transition-colors"
                             placeholder="Enter full name"
                           />
                         </div>
@@ -1530,7 +1530,7 @@ export const CollegeDetails = () => {
                             required
                             value={applyEmail}
                             onChange={(e) => setApplyEmail(e.target.value)}
-                            className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
+                            className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#F97316] transition-colors"
                             placeholder="example@gmail.com"
                           />
                         </div>
@@ -1540,7 +1540,7 @@ export const CollegeDetails = () => {
                         <select
                           value={applyCourse}
                           onChange={(e) => setApplyCourse(e.target.value)}
-                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
+                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text outline-none focus:border-[#F97316] transition-colors cursor-pointer"
                         >
                           <option value="">Select a Program</option>
                           {safeCourses.map((crs: any, i: number) => (
@@ -1552,7 +1552,7 @@ export const CollegeDetails = () => {
                       </div>
                       <button
                         type="submit"
-                        className="py-3 px-6 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs shadow-lg shadow-[#FF7A00]/25 transition-all border-none cursor-pointer flex items-center justify-center gap-2 self-start"
+                        className="py-3 px-6 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs shadow-lg shadow-[#F97316]/25 transition-all border-none cursor-pointer flex items-center justify-center gap-2 self-start"
                       >
                         <Send className="w-3.5 h-3.5" />
                         <span>Request Free Callback</span>
@@ -1573,45 +1573,45 @@ export const CollegeDetails = () => {
                     
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                       {/* KPI 1 */}
-                      <div className="bg-[#FF7A00]/5 border border-[#FF7A00]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
-                        <TrendingUp className="w-5 h-5 text-[#FF7A00]" />
+                      <div className="bg-[#F97316]/5 border border-[#F97316]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
+                        <TrendingUp className="w-5 h-5 text-[#F97316]" />
                         <span className="text-[10px] text-app-muted font-black tracking-wider uppercase">Average Package</span>
-                        <span className="text-lg font-black text-[#FF7A00]">{kpiAverage}</span>
+                        <span className="text-lg font-black text-[#F97316]">{kpiAverage}</span>
                       </div>
                       
                       {/* KPI 2 */}
-                      <div className="bg-[#FF7A00]/5 border border-[#FF7A00]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
-                        <Award className="w-5 h-5 text-[#FF7A00]" />
+                      <div className="bg-[#F97316]/5 border border-[#F97316]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
+                        <Award className="w-5 h-5 text-[#F97316]" />
                         <span className="text-[10px] text-app-muted font-black tracking-wider uppercase">Total Offers</span>
-                        <span className="text-lg font-black text-[#FF7A00]">{kpiTotalOffers}</span>
+                        <span className="text-lg font-black text-[#F97316]">{kpiTotalOffers}</span>
                       </div>
 
                       {/* KPI 3 */}
-                      <div className="bg-[#FF7A00]/5 border border-[#FF7A00]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
-                        <Building className="w-5 h-5 text-[#FF7A00]" />
+                      <div className="bg-[#F97316]/5 border border-[#F97316]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
+                        <Building className="w-5 h-5 text-[#F97316]" />
                         <span className="text-[10px] text-app-muted font-black tracking-wider uppercase">Companies Visiting</span>
-                        <span className="text-lg font-black text-[#FF7A00]">{kpiCompanies}</span>
+                        <span className="text-lg font-black text-[#F97316]">{kpiCompanies}</span>
                       </div>
 
                       {/* KPI 4 */}
-                      <div className="bg-[#FF7A00]/5 border border-[#FF7A00]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
-                        <TrendingUp className="w-5 h-5 text-[#FF7A00]" />
+                      <div className="bg-[#F97316]/5 border border-[#F97316]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
+                        <TrendingUp className="w-5 h-5 text-[#F97316]" />
                         <span className="text-[10px] text-app-muted font-black tracking-wider uppercase">Highest Package Offered</span>
-                        <span className="text-lg font-black text-[#FF7A00]">{kpiHighestDomestic}</span>
+                        <span className="text-lg font-black text-[#F97316]">{kpiHighestDomestic}</span>
                       </div>
 
                       {/* KPI 5 */}
-                      <div className="bg-[#FF7A00]/5 border border-[#FF7A00]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
-                        <Award className="w-5 h-5 text-[#FF7A00]" />
+                      <div className="bg-[#F97316]/5 border border-[#F97316]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
+                        <Award className="w-5 h-5 text-[#F97316]" />
                         <span className="text-[10px] text-app-muted font-black tracking-wider uppercase">Highest International Package</span>
-                        <span className="text-lg font-black text-[#FF7A00]">{kpiHighestIntl}</span>
+                        <span className="text-lg font-black text-[#F97316]">{kpiHighestIntl}</span>
                       </div>
 
                       {/* KPI 6 */}
-                      <div className="bg-[#FF7A00]/5 border border-[#FF7A00]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
-                        <CheckCircle className="w-5 h-5 text-[#FF7A00]" />
+                      <div className="bg-[#F97316]/5 border border-[#F97316]/20 p-4 rounded-xl flex flex-col justify-center items-center text-center gap-1">
+                        <CheckCircle className="w-5 h-5 text-[#F97316]" />
                         <span className="text-[10px] text-app-muted font-black tracking-wider uppercase">Student Placed</span>
-                        <span className="text-lg font-black text-[#FF7A00]">{kpiPlaced}</span>
+                        <span className="text-lg font-black text-[#F97316]">{kpiPlaced}</span>
                       </div>
                     </div>
                   </div>
@@ -1623,15 +1623,15 @@ export const CollegeDetails = () => {
                       <div className="absolute top-0 right-2 text-[9px] text-app-muted font-extrabold">LPA (Package in Lakhs)</div>
                       
                       <div className="flex flex-col items-center gap-1.5 flex-1">
-                        <div className="w-8 bg-slate-700/60 rounded-t-lg transition-all hover:bg-[#FF7A00] duration-300" style={{ height: '35%' }} />
+                        <div className="w-8 bg-slate-700/60 rounded-t-lg transition-all hover:bg-[#F97316] duration-300" style={{ height: '35%' }} />
                         <span className="text-[9px] text-app-muted font-bold">2023</span>
                       </div>
                       <div className="flex flex-col items-center gap-1.5 flex-1">
-                        <div className="w-8 bg-slate-700/60 rounded-t-lg transition-all hover:bg-[#FF7A00] duration-300" style={{ height: '55%' }} />
+                        <div className="w-8 bg-slate-700/60 rounded-t-lg transition-all hover:bg-[#F97316] duration-300" style={{ height: '55%' }} />
                         <span className="text-[9px] text-app-muted font-bold">2024</span>
                       </div>
                       <div className="flex flex-col items-center gap-1.5 flex-1">
-                        <div className="w-8 bg-gradient-to-t from-[#FF7A00] to-[#FF9F43] rounded-t-lg transition-all hover:opacity-90" style={{ height: '80%' }} />
+                        <div className="w-8 bg-gradient-to-t from-[#F97316] to-[#FF9F43] rounded-t-lg transition-all hover:opacity-90" style={{ height: '80%' }} />
                         <span className="text-[9px] text-app-text font-extrabold">2025 (Avg)</span>
                       </div>
                     </div>
@@ -1646,7 +1646,7 @@ export const CollegeDetails = () => {
                       {recruiters.map((recName, index) => (
                         <div 
                           key={index}
-                          className="p-3.5 rounded-xl border border-app-border bg-app-card text-center flex flex-col justify-center items-center hover:border-[#FF7A00]/50 hover:bg-[#FF7A00]/5 transition-all text-xs font-black text-app-text"
+                          className="p-3.5 rounded-xl border border-app-border bg-app-card text-center flex flex-col justify-center items-center hover:border-[#F97316]/50 hover:bg-[#F97316]/5 transition-all text-xs font-black text-app-text"
                         >
                           <div className="w-8 h-8 rounded-lg bg-slate-800 text-white flex items-center justify-center font-extrabold text-[10px] mb-1.5 uppercase">
                             {recName.substring(0, 2)}
@@ -1709,7 +1709,7 @@ export const CollegeDetails = () => {
                           required
                           value={revName}
                           onChange={(e) => setRevName(e.target.value)}
-                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors"
+                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#F97316] transition-colors"
                           placeholder="e.g. Rahul Dev"
                         />
                       </div>
@@ -1718,7 +1718,7 @@ export const CollegeDetails = () => {
                         <select
                           value={revRating}
                           onChange={(e) => setRevRating(Number(e.target.value))}
-                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
+                          className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text outline-none focus:border-[#F97316] transition-colors cursor-pointer"
                         >
                           <option value={5}>5 Stars - Excellent Academics</option>
                           <option value={4}>4 Stars - Good Campus</option>
@@ -1733,13 +1733,13 @@ export const CollegeDetails = () => {
                         rows={4}
                         value={revText}
                         onChange={(e) => setRevText(e.target.value)}
-                        className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#FF7A00] transition-colors resize-none"
+                        className="px-3.5 py-3 rounded-xl bg-app-bg border border-app-border text-app-text placeholder-slate-500 outline-none focus:border-[#F97316] transition-colors resize-none"
                         placeholder="Write comments about courses, placements, or campus amenities..."
                       />
                     </div>
                     <button
                       type="submit"
-                      className="py-3 px-6 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-bold text-xs shadow-lg shadow-[#FF7A00]/25 transition-all border-none cursor-pointer self-start"
+                      className="py-3 px-6 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs shadow-lg shadow-[#F97316]/25 transition-all border-none cursor-pointer self-start"
                     >
                       Add Comment / Review
                     </button>
@@ -1770,7 +1770,7 @@ export const CollegeDetails = () => {
               {activeTab === 'scholarship' && (
                 <div className="flex flex-col gap-6">
                   <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
-                    <DollarSign className="w-5 h-5 text-[#FF7A00]" />
+                    <DollarSign className="w-5 h-5 text-[#F97316]" />
                     Scholarships & Financial Grants
                   </h3>
                   <div className="flex flex-col gap-4">
@@ -1785,7 +1785,7 @@ export const CollegeDetails = () => {
                         </div>
                         <div className="flex flex-col sm:items-end shrink-0">
                           <span className="text-[10px] text-app-muted uppercase font-black tracking-wider">Waiver Amount</span>
-                          <span className="font-black text-lg text-[#FF7A00] mt-0.5">{sch.amount}</span>
+                          <span className="font-black text-lg text-[#F97316] mt-0.5">{sch.amount}</span>
                         </div>
                       </div>
                     ))}
@@ -1797,7 +1797,7 @@ export const CollegeDetails = () => {
               {activeTab === 'hostel' && (
                 <div className="flex flex-col gap-6">
                   <h3 className="text-lg font-display font-bold text-app-text mb-2 flex items-center gap-2 uppercase tracking-wide">
-                    <Building className="w-5 h-5 text-[#FF7A00]" />
+                    <Building className="w-5 h-5 text-[#F97316]" />
                     Hostels & Residential Accommodations
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1808,13 +1808,13 @@ export const CollegeDetails = () => {
                       >
                         <div>
                           <h4 className="font-extrabold text-app-text text-base leading-snug">{hos.type}</h4>
-                          <span className="text-xs text-[#FF7A00] mt-1 inline-block bg-[#FF7A00]/10 border border-[#FF7A00]/25 px-2.5 py-0.5 rounded-md font-bold">
+                          <span className="text-xs text-[#F97316] mt-1 inline-block bg-[#F97316]/10 border border-[#F97316]/25 px-2.5 py-0.5 rounded-md font-bold">
                             Configuration: {hos.sharing}
                           </span>
                         </div>
                         <div className="border-t border-app-border pt-3.5 flex items-center justify-between text-xs">
                           <span className="text-app-muted font-bold">Annual Charges</span>
-                          <span className="font-black text-[#FF7A00] text-sm">{hos.fees}</span>
+                          <span className="font-black text-[#F97316] text-sm">{hos.fees}</span>
                         </div>
                       </div>
                     ))}
@@ -1827,7 +1827,7 @@ export const CollegeDetails = () => {
             {/* Address block with buttons & Maps - Matches Image 3 layout */}
             <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-app-card/95 shadow-xl text-left">
               <h3 className="text-lg font-display font-black text-app-text mb-5 flex items-center gap-2 uppercase tracking-wider">
-                <Map className="w-5 h-5 text-[#FF7A00]" />
+                <Map className="w-5 h-5 text-[#F97316]" />
                 {college.name} Address
               </h3>
 
@@ -1840,7 +1840,7 @@ export const CollegeDetails = () => {
                   
                   <a 
                     href={`tel:${college.phone || '+91 7773045555'}`}
-                    className="text-xs sm:text-sm text-[#FF7A00] font-black hover:underline"
+                    className="text-xs sm:text-sm text-[#F97316] font-black hover:underline"
                   >
                     📞 {college.phone || '+91 7773045555'}
                   </a>
@@ -1849,13 +1849,13 @@ export const CollegeDetails = () => {
                   <div className="flex flex-col gap-2.5 mt-2">
                     <button 
                       onClick={() => addToast('Contact address sent to your email.', 'success')}
-                      className="py-3 px-6 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-bold text-xs border-none cursor-pointer shadow-md tracking-wider uppercase transition-all"
+                      className="py-3 px-6 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-bold text-xs border-none cursor-pointer shadow-md tracking-wider uppercase transition-all"
                     >
                       Get Email Contact
                     </button>
                     <button 
                       onClick={() => addToast('SMS directions pushed to your phone.', 'success')}
-                      className="py-3 px-6 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-bold text-xs border-none cursor-pointer shadow-md tracking-wider uppercase transition-all"
+                      className="py-3 px-6 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-bold text-xs border-none cursor-pointer shadow-md tracking-wider uppercase transition-all"
                     >
                       Get SMS Contact
                     </button>
@@ -1891,7 +1891,7 @@ export const CollegeDetails = () => {
             <div className="glass p-6 md:p-8 rounded-2xl border border-app-border bg-app-card/95 shadow-xl text-left select-none">
               <div className="flex items-center gap-2 mb-6">
                 <h3 className="text-base sm:text-lg font-display font-black text-app-text uppercase tracking-wider">Live Application</h3>
-                <span className="px-2 py-0.5 rounded bg-[#FF7A00] text-white font-black text-[9px] uppercase tracking-wider">Form 2025</span>
+                <span className="px-2 py-0.5 rounded bg-[#F97316] text-white font-black text-[9px] uppercase tracking-wider">Form 2025</span>
               </div>
 
               <div className="flex flex-col divide-y divide-app-border/40">
@@ -1902,17 +1902,17 @@ export const CollegeDetails = () => {
                         {app.name.substring(0, 2).toUpperCase()}
                       </div>
                       <div className="flex flex-col gap-0.5">
-                        <span className="text-[10px] text-[#FF7A00] font-black uppercase tracking-wider">Applications Open for All Courses 2024</span>
+                        <span className="text-[10px] text-[#F97316] font-black uppercase tracking-wider">Applications Open for All Courses 2024</span>
                         <span className="text-app-text font-extrabold text-sm max-w-md sm:truncate" title={app.name}>{app.name}</span>
                         <span className="text-[10px] text-app-muted mt-0.5 flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-[#FF7A00]" />
+                          <MapPin className="w-3 h-3 text-[#F97316]" />
                           {app.location}
                         </span>
                       </div>
                     </div>
                     <button 
                       onClick={() => navigate(`/common-application?collegeId=${app.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}&name=${encodeURIComponent(app.name)}&location=${encodeURIComponent(app.location)}`)}
-                      className="py-2.5 px-5 rounded-lg bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black text-[10px] tracking-wider uppercase border-none cursor-pointer transition-all self-start sm:self-auto shrink-0 shadow-md"
+                      className="py-2.5 px-5 rounded-lg bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-black text-[10px] tracking-wider uppercase border-none cursor-pointer transition-all self-start sm:self-auto shrink-0 shadow-md"
                     >
                       Apply Now
                     </button>
@@ -1930,13 +1930,13 @@ export const CollegeDetails = () => {
             <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-3 shadow-xl">
               <button 
                 onClick={() => navigate(`/common-application?collegeId=${college.id}`)}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md uppercase text-xs"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-black tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md uppercase text-xs"
               >
                 Apply Now
               </button>
               <button 
                 onClick={handleDownloadBrochure}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md uppercase text-xs"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-black tracking-wider hover:opacity-95 transition-all cursor-pointer border-none shadow-md uppercase text-xs"
               >
                 Download Brochure
               </button>
@@ -1944,56 +1944,56 @@ export const CollegeDetails = () => {
 
             {/* ₹500* Write a Review Banner Widget - Matches Image 2 layout */}
             <div className="p-5 rounded-2xl bg-gradient-to-br from-app-card to-app-bg border border-app-border flex flex-col justify-between items-start gap-4 shadow-xl select-none relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#FF7A00]/10 rounded-full blur-xl pointer-events-none group-hover:bg-[#FF7A00]/20 transition-colors" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#F97316]/10 rounded-full blur-xl pointer-events-none group-hover:bg-[#F97316]/20 transition-colors" />
               <div>
-                <span className="text-2xl font-black text-[#FF7A00]">₹500*</span>
+                <span className="text-2xl font-black text-[#F97316]">₹500*</span>
                 <h4 className="font-extrabold text-app-text text-xs mt-1.5 uppercase tracking-wide">Write a Review of For This College</h4>
                 <p className="text-[10px] text-app-muted leading-snug mt-1">Earn cashback rewards and guidelines points on approved submissions.</p>
               </div>
               <button 
                 onClick={scrollToReview}
-                className="py-2.5 px-6 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white font-black text-[10px] border-none cursor-pointer tracking-wider uppercase transition-all shadow-md active:scale-95"
+                className="py-2.5 px-6 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white font-black text-[10px] border-none cursor-pointer tracking-wider uppercase transition-all shadow-md active:scale-95"
               >
                 Write a Review
               </button>
             </div>
 
             {/* Notifications panel widget - Matches Image 2 layout */}
-            <div className="p-5 rounded-2xl glass border border-[#FF7A00]/20 bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
+            <div className="p-5 rounded-2xl glass border border-[#F97316]/20 bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
               <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
-                <Bell className="w-4 h-4 text-[#FF7A00]" />
+                <Bell className="w-4 h-4 text-[#F97316]" />
                 Notifications
               </h3>
               
               <div className="flex flex-col gap-3.5">
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Aruna-Nand EdTech Campus Rockstar</span>
+                  <span className="font-extrabold text-app-text hover:text-[#F97316] cursor-pointer">Aruna-Nand EdTech Campus Rockstar</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/03/2025</span>
-                    <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>
+                    <span className="text-[#F97316] hover:underline cursor-pointer">Read more</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Graphic Era University Placement Statics</span>
+                  <span className="font-extrabold text-app-text hover:text-[#F97316] cursor-pointer">Graphic Era University Placement Statics</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/02/2025</span>
-                    <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>
+                    <span className="text-[#F97316] hover:underline cursor-pointer">Read more</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1 text-xs">
-                  <span className="font-extrabold text-app-text hover:text-[#FF7A00] cursor-pointer">Pimpri Chinchwad University Admissions Open</span>
+                  <span className="font-extrabold text-app-text hover:text-[#F97316] cursor-pointer">Pimpri Chinchwad University Admissions Open</span>
                   <div className="flex items-center justify-between text-[9px] text-app-muted font-bold mt-0.5">
                     <span>🕒 01/01/2025</span>
-                    <span className="text-[#FF7A00] hover:underline cursor-pointer">Read more</span>
+                    <span className="text-[#F97316] hover:underline cursor-pointer">Read more</span>
                   </div>
                 </div>
               </div>
               
               <button 
                 onClick={() => addToast('No further notifications found.', 'info')}
-                className="text-[10px] text-[#FF7A00] font-black uppercase tracking-wider border-none bg-transparent hover:underline cursor-pointer flex items-center justify-between mt-1 text-left w-full"
+                className="text-[10px] text-[#F97316] font-black uppercase tracking-wider border-none bg-transparent hover:underline cursor-pointer flex items-center justify-between mt-1 text-left w-full"
               >
                 <span>View All</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -2003,7 +2003,7 @@ export const CollegeDetails = () => {
             {/* Top University widget - Matches Image 3 layout */}
             <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
               <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
-                <Award className="w-4 h-4 text-[#FF7A00]" />
+                <Award className="w-4 h-4 text-[#F97316]" />
                 Top University
               </h3>
               
@@ -2020,10 +2020,10 @@ export const CollegeDetails = () => {
                       </div>
                     </div>
                     <div className="flex flex-col items-end shrink-0 gap-1 text-[10px]">
-                      <span className="text-[#FF7A00] font-black">{uni.rating}</span>
+                      <span className="text-[#F97316] font-black">{uni.rating}</span>
                       <button 
                         onClick={() => addToast(`Navigating to ${uni.name} details.`, 'info')}
-                        className="text-[9px] text-[#FF7A00] hover:underline bg-transparent border-none cursor-pointer font-black"
+                        className="text-[9px] text-[#F97316] hover:underline bg-transparent border-none cursor-pointer font-black"
                       >
                         View
                       </button>
@@ -2034,7 +2034,7 @@ export const CollegeDetails = () => {
 
               <button 
                 onClick={() => addToast('Showing all top universities.', 'info')}
-                className="text-[10px] text-[#FF7A00] font-black uppercase tracking-wider border-none bg-transparent hover:underline cursor-pointer flex items-center justify-between mt-1 text-left w-full"
+                className="text-[10px] text-[#F97316] font-black uppercase tracking-wider border-none bg-transparent hover:underline cursor-pointer flex items-center justify-between mt-1 text-left w-full"
               >
                 <span>View All</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -2044,7 +2044,7 @@ export const CollegeDetails = () => {
             {/* Top Courses in Location widget - Matches Image 3 layout */}
             <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-3.5 shadow-xl select-none">
               <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
-                <MapPin className="w-4 h-4 text-[#FF7A00]" />
+                <MapPin className="w-4 h-4 text-[#F97316]" />
                 Top Courses in {college.city || 'Pune'}
               </h3>
               
@@ -2052,7 +2052,7 @@ export const CollegeDetails = () => {
                 {topCourses.map((crsName, idx) => (
                   <div 
                     key={idx} 
-                    className="py-2.5 flex justify-between items-center text-xs font-semibold text-app-text hover:text-[#FF7A00] cursor-pointer transition-colors"
+                    className="py-2.5 flex justify-between items-center text-xs font-semibold text-app-text hover:text-[#F97316] cursor-pointer transition-colors"
                     onClick={() => addToast(`Searching ${crsName} programs.`, 'info')}
                   >
                     <span>{crsName}</span>
@@ -2065,7 +2065,7 @@ export const CollegeDetails = () => {
             {/* Students Also Visited Colleges widget - Matches Image 4 layout */}
             <div className="p-5 rounded-2xl glass border border-app-border bg-app-card/95 flex flex-col gap-4 shadow-xl select-none">
               <h3 className="font-display font-black text-app-text text-sm flex items-center gap-2 uppercase tracking-wider pb-2 border-b border-app-border/40">
-                <Layers className="w-4 h-4 text-[#FF7A00]" />
+                <Layers className="w-4 h-4 text-[#F97316]" />
                 Students Also Visited
               </h3>
               
@@ -2095,7 +2095,7 @@ export const CollegeDetails = () => {
       <div className="fixed bottom-0 left-0 right-0 z-30 p-4 bg-app-bg/85 backdrop-blur-md border-t border-app-border flex lg:hidden items-center justify-between gap-4 select-none">
         <div className="text-left font-medium">
           <p className="text-[9px] text-app-muted font-bold uppercase tracking-wider">Tuition Fees</p>
-          <p className="text-base font-black text-[#FF7A00]">{college.fees.split(' ')[0]}</p>
+          <p className="text-base font-black text-[#F97316]">{college.fees.split(' ')[0]}</p>
         </div>
         <button
           onClick={() => {
@@ -2103,7 +2103,7 @@ export const CollegeDetails = () => {
             window.scrollTo({ top: 400, behavior: 'smooth' });
             addToast('Please complete the counseling request form.', 'info');
           }}
-          className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#E06C00] text-white text-xs font-bold border-none transition-all cursor-pointer shadow-lg shadow-[#FF7A00]/20"
+          className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white text-xs font-bold border-none transition-all cursor-pointer shadow-lg shadow-[#F97316]/20"
         >
           Request Callback
         </button>

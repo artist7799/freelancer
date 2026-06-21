@@ -158,13 +158,13 @@ export const Blog = () => {
               
               <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between items-start text-left bg-white/70 dark:bg-transparent">
                 <div className="flex flex-col gap-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF7A00]/10 text-[#FF7A00]">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#F97316]/10 text-[#F97316]">
                     Featured Article
                   </span>
                   
                   <h2 
                     onClick={() => setActivePost(featuredPost)}
-                    className="font-display font-black text-xl sm:text-2xl text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] dark:hover:text-[#FF7A00] cursor-pointer transition-colors"
+                    className="font-display font-black text-xl sm:text-2xl text-slate-900 dark:text-white uppercase leading-tight hover:text-[#F97316] dark:hover:text-[#F97316] cursor-pointer transition-colors"
                   >
                     {featuredPost.title}
                   </h2>
@@ -178,7 +178,7 @@ export const Blog = () => {
                   <span className="text-white font-bold">By {featuredPost.author}</span>
                   <button 
                     onClick={() => setActivePost(featuredPost)}
-                    className="text-[#FF7A00] font-black hover:underline cursor-pointer border-none bg-transparent"
+                    className="text-[#F97316] font-black hover:underline cursor-pointer border-none bg-transparent"
                   >
                     Read Article →
                   </button>
@@ -201,7 +201,7 @@ export const Blog = () => {
                   
                   <button
                     onClick={() => setActivePost(null)}
-                    className="flex items-center gap-2 text-xs font-black text-[#FF7A00] hover:text-[#FF7A00]/80 uppercase tracking-wider bg-transparent border-none cursor-pointer transition-all self-start"
+                    className="flex items-center gap-2 text-xs font-black text-[#F97316] hover:text-[#F97316]/80 uppercase tracking-wider bg-transparent border-none cursor-pointer transition-all self-start"
                   >
                     <ArrowLeft className="w-4 h-4 stroke-[3]" />
                     Back to Articles Feed
@@ -213,7 +213,7 @@ export const Blog = () => {
                         <span 
                           key={idx} 
                           onClick={() => handleCategorySelect(cat)}
-                          className="text-[9px] font-black text-[#FF7A00] hover:text-white uppercase tracking-wider bg-[#FF7A00]/10 border border-[#FF7A00]/20 px-2.5 py-0.5 rounded-full cursor-pointer transition-colors"
+                          className="text-[9px] font-black text-[#F97316] hover:text-white uppercase tracking-wider bg-[#F97316]/10 border border-[#F97316]/20 px-2.5 py-0.5 rounded-full cursor-pointer transition-colors"
                         >
                           {cat}
                         </span>
@@ -267,7 +267,7 @@ export const Blog = () => {
                     
                     {/* Author Bio Card */}
                     <div className="flex gap-4 p-5 rounded-2xl bg-app-card border border-app-border text-xs text-app-muted items-center mt-6">
-                      <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00] shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center text-[#F97316] shrink-0">
                         <User className="w-6 h-6" />
                       </div>
                       <div>
@@ -295,12 +295,12 @@ export const Blog = () => {
                           placeholder="Your email address"
                           value={newsletterEmail}
                           onChange={(e) => setNewsletterEmail(e.target.value)}
-                          className="px-3.5 py-2.5 w-full sm:w-48 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-semibold"
+                          className="px-3.5 py-2.5 w-full sm:w-48 rounded-xl bg-app-card border border-app-border text-xs text-white placeholder-[#94A3B8] outline-none focus:border-[#F97316] font-semibold"
                         />
                         <button
                           type="submit"
                           disabled={isSubmittingNewsletter}
-                          className="p-3 bg-[#FF7A00] hover:bg-[#D14B00] rounded-xl text-white cursor-pointer border-none shadow-lg shadow-[#FF7A00]/25 flex items-center justify-center shrink-0 disabled:opacity-50"
+                          className="p-3 bg-[#F97316] hover:bg-[#EA580C] rounded-xl text-white cursor-pointer border-none shadow-lg shadow-[#F97316]/25 flex items-center justify-center shrink-0 disabled:opacity-50"
                         >
                           {isSubmittingNewsletter ? (
                             <span className="w-3.5 h-3.5 rounded-full border-2 border-current border-t-transparent animate-spin" />
@@ -332,7 +332,7 @@ export const Blog = () => {
                         setSelectedCategory(null);
                         setSearchQuery('');
                       }}
-                      className="text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#D14B00] px-5 py-3 rounded-xl border-none cursor-pointer transition-colors shadow-lg shadow-[#FF7A00]/25"
+                      className="text-xs font-bold text-white bg-[#F97316] hover:bg-[#EA580C] px-5 py-3 rounded-xl border-none cursor-pointer transition-colors shadow-lg shadow-[#F97316]/25"
                     >
                       Clear Search Filters
                     </button>
@@ -367,7 +367,7 @@ export const Blog = () => {
                                       e.stopPropagation();
                                       handleCategorySelect(cat);
                                     }}
-                                    className="text-[9px] font-black text-[#FF7A00] hover:text-white uppercase tracking-wider bg-[#FF7A00]/10 border border-[#FF7A00]/20 px-2 py-0.5 rounded-full cursor-pointer transition-colors"
+                                    className="text-[9px] font-black text-[#F97316] hover:text-white uppercase tracking-wider bg-[#F97316]/10 border border-[#F97316]/20 px-2 py-0.5 rounded-full cursor-pointer transition-colors"
                                   >
                                     {cat}
                                   </span>
@@ -376,7 +376,7 @@ export const Blog = () => {
 
                               <h3 
                                 onClick={() => setActivePost(post)}
-                                className="font-display font-black text-base md:text-lg text-slate-900 dark:text-white uppercase leading-tight hover:text-[#FF7A00] dark:hover:text-[#FF7A00] transition-colors cursor-pointer"
+                                className="font-display font-black text-base md:text-lg text-slate-900 dark:text-white uppercase leading-tight hover:text-[#F97316] dark:hover:text-[#F97316] transition-colors cursor-pointer"
                               >
                                 {post.title}
                               </h3>
@@ -410,7 +410,7 @@ export const Blog = () => {
                           onClick={() => setCurrentPage(pageNum)}
                           className={`w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold border transition-colors cursor-pointer ${
                             isActive
-                              ? 'bg-[#FF7A00] border-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/20'
+                              ? 'bg-[#F97316] border-[#F97316] text-white shadow-lg shadow-[#F97316]/20'
                               : 'border-app-border bg-app-card text-app-muted hover:text-white hover:border-app-border'
                           }`}
                         >
@@ -437,7 +437,7 @@ export const Blog = () => {
                   const matchedPost = finalPosts.find(p => p.title.toLowerCase().startsWith(title.toLowerCase().slice(0, 20)));
                   return (
                     <div key={idx} className="flex gap-2.5 leading-snug items-start">
-                      <span className="text-[#FF7A00] font-black select-none mt-0.5">•</span>
+                      <span className="text-[#F97316] font-black select-none mt-0.5">•</span>
                       <button
                         onClick={() => {
                           if (matchedPost) {
@@ -468,11 +468,11 @@ export const Blog = () => {
                     onClick={() => handleCategorySelect(category)}
                     className={`w-full py-1 text-left transition-colors cursor-pointer border-none bg-transparent flex items-center justify-start ${
                       selectedCategory === category
-                        ? 'text-[#FF7A00] font-black'
+                        ? 'text-[#F97316] font-black'
                         : 'text-app-muted hover:text-white'
                     }`}
                   >
-                    <span className="mr-2 text-[#FF7A00] font-black">&gt;</span>
+                    <span className="mr-2 text-[#F97316] font-black">&gt;</span>
                     <span>{category}</span>
                   </button>
                 ))}

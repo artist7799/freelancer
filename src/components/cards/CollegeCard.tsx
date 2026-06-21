@@ -605,12 +605,12 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
   const averagePkg = college.placements.split(' ')[0] || '10.0 LPA';
 
   return (
-    <div className="bg-white dark:bg-app-card border border-slate-150 dark:border-app-border rounded-2xl overflow-hidden flex flex-col group h-full hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 relative text-left">
+    <div className="bg-white dark:bg-app-card border border-slate-200 dark:border-app-border rounded-2xl overflow-hidden flex flex-col group h-full hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)] hover:border-primary/35 hover:-translate-y-1.5 transition-all duration-300 relative text-left">
       
-      {/* Yellow Admission open banner */}
-      <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 text-slate-900 text-[10px] font-black py-1.5 px-3 flex flex-wrap items-center justify-between gap-1 leading-none shadow-inner select-none">
-        <span className="uppercase tracking-wider">MBA Admission Open</span>
-        <span className="bg-app-bg/10 px-1.5 py-0.5 rounded font-bold text-[9px]">Batch 2026</span>
+      {/* Premium Admission open banner */}
+      <div className="bg-gradient-to-r from-primary via-secondary to-primary text-white text-[10px] font-bold py-1.5 px-3 flex flex-wrap items-center justify-between gap-1 leading-none shadow-sm select-none">
+        <span className="uppercase tracking-wider">Admission Open 2026</span>
+        <span className="bg-white/10 px-1.5 py-0.5 rounded font-bold text-[9px]">Batch 2026</span>
         <div className="flex items-center gap-1.5 font-bold">
           <span>{highestPkg} <span className="font-normal opacity-90">Highest</span></span>
           <span className="opacity-40">|</span>
@@ -619,45 +619,45 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
           <span>{averagePkg} <span className="font-normal opacity-90">Avg</span></span>
         </div>
       </div>
-
+ 
       {/* Cover Image & Rating Badge */}
       <div className="relative h-48 overflow-hidden">
         {/* Save Toggle Overlay */}
         <button
           onClick={handleSaveToggle}
-          className={`absolute top-3 left-3 z-30 p-2 rounded-full backdrop-blur-md border transition-all duration-300 ${
+          className={`absolute top-3 left-3 z-30 p-2.5 rounded-xl backdrop-blur-md border transition-all duration-300 ${
             isSaved(college.id)
-              ? 'bg-rose-500/90 border-rose-400 text-white shadow-lg shadow-rose-500/30'
-              : 'bg-slate-900/60 border-app-border text-white/90 hover:bg-slate-900/80 hover:text-white'
+              ? 'bg-rose-500 border-rose-450 text-white shadow-lg shadow-rose-500/30'
+              : 'bg-slate-950/60 border-white/10 text-white/90 hover:bg-slate-900/80 hover:text-white'
           } cursor-pointer`}
           title={isSaved(college.id) ? "Unsave College" : "Save College"}
         >
           <Heart className={`w-3.5 h-3.5 ${isSaved(college.id) ? 'fill-current text-white' : ''}`} />
         </button>
-
+ 
         {/* Compare Toggle Overlay */}
         <button
           onClick={handleCompareToggle}
-          className={`absolute top-3 left-12 z-30 p-2 rounded-full backdrop-blur-md border transition-all duration-300 ${
+          className={`absolute top-3 left-13 z-30 p-2.5 rounded-xl backdrop-blur-md border transition-all duration-300 ${
             isComparing(college.id)
-              ? 'bg-primary border-primary-hover text-white shadow-lg shadow-primary/30'
-              : 'bg-slate-900/60 border-app-border text-white/90 hover:bg-slate-900/80 hover:text-white'
+              ? 'bg-primary border-primary/50 text-white shadow-lg shadow-primary/30'
+              : 'bg-slate-950/60 border-white/10 text-white/90 hover:bg-slate-900/80 hover:text-white'
           } cursor-pointer`}
           title={isComparing(college.id) ? "Remove from Compare" : "Add to Compare"}
         >
           <GitCompare className="w-3.5 h-3.5" />
         </button>
-
+ 
         <Link to={`/colleges/${college.id}`} className="block h-full w-full">
           <img
             src={college.image}
             alt={college.name}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         </Link>
         {/* Rating Badge */}
-        <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-app-border text-xs font-semibold text-white">
-          <Star className="w-3.5 h-3.5 text-warning fill-warning" />
+        <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-955/80 backdrop-blur-md border border-white/10 text-xs font-semibold text-white">
+          <Star className="w-3.5 h-3.5 text-[#F97316] fill-[#F97316]" />
           <span>{college.rating} CM Rating</span>
         </div>
         
@@ -666,42 +666,42 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
           {renderLogo(college.logo || college.id, college.name)}
         </div>
       </div>
- 
+  
       {/* Info & Metrics */}
       <div className="p-5 pt-9 flex-1 flex flex-col gap-4">
         <div>
           <Link to={`/colleges/${college.id}`} className="block hover:no-underline text-left">
-            <div className="flex items-center gap-1 text-[10px] font-black text-[#FF5E14] uppercase tracking-wider mb-1">
-              <span className="bg-[#FF5E14]/10 px-2 py-0.5 rounded">
+            <div className="flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider mb-1.5">
+              <span className="bg-primary/10 px-2 py-0.5 rounded font-bold">
                 {college.ranking.split(' in ')[0] || '#1 in India'}
               </span>
             </div>
             
-            <h3 className="font-display font-extrabold text-base text-slate-850 dark:text-white leading-tight group-hover:text-[#FF5E14] transition-colors duration-300 line-clamp-1" title={college.name}>
+            <h3 className="font-display font-extrabold text-base text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors duration-300 line-clamp-1" title={college.name}>
               {college.name}
             </h3>
           </Link>
           
-          <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 mt-1 text-left">
-            <MapPin className="w-3.5 h-3.5 text-slate-400" />
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mt-1 text-left">
+            <MapPin className="w-3.5 h-3.5 text-slate-450" />
             <span>{college.location}</span>
           </div>
         </div>
-
+ 
         {/* High vs Avg Placement Stat box */}
-        <div className="grid grid-cols-2 gap-2 p-2.5 bg-slate-50 dark:bg-app-card rounded-xl border border-slate-100 dark:border-app-border text-xs">
+        <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-app-border text-xs">
           <div className="flex flex-col text-left">
             <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Highest Package</span>
-            <span className="text-[#FF5E14] font-black text-xs sm:text-sm mt-0.5">{highestPkg}</span>
+            <span className="text-accent font-black text-sm mt-0.5">{highestPkg}</span>
           </div>
           <div className="flex flex-col text-left border-l border-slate-200 dark:border-app-border pl-3">
             <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Average Package</span>
-            <span className="text-slate-800 dark:text-slate-200 font-extrabold text-xs sm:text-sm mt-0.5">{averagePkg}</span>
+            <span className="text-slate-800 dark:text-slate-200 font-extrabold text-sm mt-0.5">{averagePkg}</span>
           </div>
         </div>
-
+ 
         {/* Detailed Course fee list rows */}
-        <ul className="flex flex-col gap-1.5 border-t border-slate-100 dark:border-app-border pt-3 mb-2 text-[11px] text-slate-500 dark:text-slate-400">
+        <ul className="flex flex-col gap-1.5 border-t border-slate-100 dark:border-app-border pt-3 mb-2 text-[11px] text-slate-500 dark:text-slate-450">
           {college.courses.slice(0, 2).map((course, i) => (
             <li key={i} className="flex justify-between items-center text-left">
               <span className="font-semibold truncate max-w-[140px]" title={course.name}>
@@ -713,12 +713,12 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
             </li>
           ))}
         </ul>
-
+ 
         {/* Button Actions */}
-        <div className="mt-auto pt-2 grid grid-cols-2 gap-2">
+        <div className="mt-auto pt-2 grid grid-cols-2 gap-2.5">
           <button
             onClick={handleApplyClick}
-            className="py-2.5 rounded-lg bg-[#FF5E14] hover:bg-[#D14B00] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm shadow-[#FF5E14]/15 active:scale-95 transition-all border-none cursor-pointer"
+            className="py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-primary/20 active:scale-95 transition-all border-none cursor-pointer"
           >
             <Send className="w-3.5 h-3.5" />
             <span>Apply Now</span>
@@ -726,13 +726,13 @@ export const CollegeCard = ({ college }: CollegeCardProps) => {
           
           <button
             onClick={handleDownloadDetails}
-            className="py-2.5 rounded-lg border border-slate-250 dark:border-app-border hover:border-slate-350 hover:bg-slate-50 dark:hover:bg-app-card text-center text-xs font-bold text-slate-700 dark:text-slate-200 transition-all active:scale-95 bg-transparent flex items-center justify-center gap-1.5 cursor-pointer"
+            className="py-2.5 rounded-xl border border-slate-200 dark:border-app-border hover:border-slate-350 hover:bg-slate-50 dark:hover:bg-app-card text-center text-xs font-bold text-slate-700 dark:text-slate-205 transition-all active:scale-95 bg-transparent flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>College Details</span>
           </button>
         </div>
-
+ 
       </div>
     </div>
   );

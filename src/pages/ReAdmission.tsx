@@ -80,12 +80,12 @@ export const ReAdmission: React.FC = () => {
           
           {/* Left info description */}
           <div className="flex-1 flex flex-col gap-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF7A00]/20 border border-[#FF7A00]/30 text-[10px] font-bold text-white self-start">
-              <Sparkles className="w-3.5 h-3.5 text-[#FF7A00]" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F97316]/20 border border-[#F97316]/30 text-[10px] font-bold text-white self-start">
+              <Sparkles className="w-3.5 h-3.5 text-[#F97316]" />
               Resume Your Learning Journey
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-tight text-white uppercase tracking-tight max-w-xl">
-              Welcome to <span className="text-[#FF7A00]">Aruna-Nand EdTech...</span>
+              Welcome to <span className="text-[#F97316]">Aruna-Nand EdTech...</span>
             </h1>
             <h2 className="text-base sm:text-lg font-bold text-slate-300">
               Re-admission Process
@@ -100,7 +100,7 @@ export const ReAdmission: React.FC = () => {
 
           {/* Right form block */}
           <div className="w-full lg:w-[440px] bg-white rounded-2xl p-6 md:p-8 shadow-xl text-slate-800 shrink-0">
-            <h3 className="text-lg font-black text-center text-[#FF7A00] mb-5 uppercase tracking-wide">
+            <h3 className="text-lg font-black text-center text-[#F97316] mb-5 uppercase tracking-wide">
               Register
             </h3>
 
@@ -111,7 +111,7 @@ export const ReAdmission: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="email"
@@ -119,7 +119,7 @@ export const ReAdmission: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="tel"
@@ -127,40 +127,40 @@ export const ReAdmission: React.FC = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Mobile No"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="text"
                 value={stateVal}
                 onChange={(e) => setStateVal(e.target.value)}
                 placeholder="Enter Your state"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter Your City"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="text"
                 value={existingCollege}
                 onChange={(e) => setExistingCollege(e.target.value)}
                 placeholder="Existing college"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="text"
                 value={newCollege}
                 onChange={(e) => setNewCollege(e.target.value)}
                 placeholder="New College"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <select
                 value={course}
                 onChange={(e) => setCourse(e.target.value)}
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 outline-none focus:border-[#F97316] transition-colors cursor-pointer"
               >
                 <option value="">Select Course</option>
                 <option value="mba">MBA</option>
@@ -173,7 +173,7 @@ export const ReAdmission: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full py-3.5 mt-2 rounded-lg bg-[#FF7A00] text-white font-black text-xs tracking-wider uppercase border-none cursor-pointer hover:bg-[#E06C00] transition-all shadow-md active:scale-95"
+                className="w-full py-3.5 mt-2 rounded-lg bg-[#F97316] text-white font-black text-xs tracking-wider uppercase border-none cursor-pointer hover:bg-[#EA580C] transition-all shadow-md active:scale-95"
               >
                 Register
               </button>
@@ -193,7 +193,7 @@ export const ReAdmission: React.FC = () => {
             {reviews.map((rev, idx) => (
               <div 
                 key={idx}
-                className="p-6 rounded-2xl bg-app-card border border-app-border flex flex-col gap-4 shadow-lg hover:border-[#FF7A00]/50 transition-all font-medium text-xs text-app-muted"
+                className="p-6 rounded-2xl bg-app-card border border-app-border flex flex-col gap-4 shadow-lg hover:border-[#F97316]/50 transition-all font-medium text-xs text-app-muted"
               >
                 {/* Gold Stars */}
                 <div className="flex items-center gap-0.5">
@@ -208,7 +208,7 @@ export const ReAdmission: React.FC = () => {
 
                 <button 
                   onClick={() => addToast('Full review details opened.', 'info')}
-                  className="text-[10px] text-[#FF7A00] font-black uppercase hover:underline cursor-pointer border-none bg-transparent self-start py-1"
+                  className="text-[10px] text-[#F97316] font-black uppercase hover:underline cursor-pointer border-none bg-transparent self-start py-1"
                 >
                   Read more
                 </button>

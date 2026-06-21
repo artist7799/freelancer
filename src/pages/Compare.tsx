@@ -222,7 +222,7 @@ export const Compare = () => {
         <div className="gradient-mesh opacity-80" />
         <div className="max-w-md px-6 text-center relative z-10 flex flex-col items-center gap-5">
           <div className="w-16 h-16 rounded-2xl bg-app-card border border-app-border flex items-center justify-center text-app-muted shadow-2xl">
-            <Compass className="w-8 h-8 text-[#FF7A00]" />
+            <Compass className="w-8 h-8 text-[#F97316]" />
           </div>
           <h2 className="text-2xl font-bold font-display text-white">Comparison Dashboard Empty</h2>
           <p className="text-xs text-app-muted leading-relaxed">
@@ -230,7 +230,7 @@ export const Compare = () => {
           </p>
           <Link
             to="/colleges"
-            className="mt-2 py-3 px-6 rounded-xl bg-gradient-to-r from-[#FF7A00] to-[#FF9F43] text-white font-bold text-xs shadow-lg shadow-[#FF7A00]/20"
+            className="mt-2 py-3 px-6 rounded-xl bg-gradient-to-r from-[#F97316] to-[#FF9F43] text-white font-bold text-xs shadow-lg shadow-[#F97316]/20"
           >
             Browse Colleges Catalog
           </Link>
@@ -251,7 +251,7 @@ export const Compare = () => {
         {/* Title & Clear Action */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div className="flex flex-col gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FF7A00]/10 text-[#FF7A00] self-start">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F97316]/10 text-[#F97316] self-start">
               <Sparkles className="w-3.5 h-3.5" />
               Side-by-Side Analysis
             </span>
@@ -313,7 +313,7 @@ export const Compare = () => {
                       className="flex flex-col items-center gap-2.5 text-app-muted hover:text-white transition-colors py-10"
                     >
                       <div className="w-11 h-11 rounded-full border border-dashed border-app-border flex items-center justify-center bg-app-card">
-                        <Plus className="w-5 h-5 text-[#FF7A00]" />
+                        <Plus className="w-5 h-5 text-[#F97316]" />
                       </div>
                       <span className="font-bold text-[10px] uppercase tracking-wider">Add College</span>
                     </Link>
@@ -346,7 +346,7 @@ export const Compare = () => {
               {Array.from({ length: 3 }).map((_, idx) => {
                 const col = selectedColleges[idx];
                 return (
-                  <div key={idx} className="col-span-3 p-5 border-r last:border-r-0 border-app-border text-center font-extrabold text-[#FF7A00] text-sm">
+                  <div key={idx} className="col-span-3 p-5 border-r last:border-r-0 border-app-border text-center font-extrabold text-[#F97316] text-sm">
                     {col ? col.fees.split(' ')[0] : '-'}
                   </div>
                 );
@@ -465,7 +465,7 @@ export const Compare = () => {
                     {col ? (
                       <Link
                         to={`/colleges/${col.id}`}
-                        className="px-5 py-2.5 rounded-xl bg-[#FF7A00] text-white font-bold text-[10px] hover:bg-[#D14B00] transition-colors shadow-lg shadow-[#FF7A00]/10"
+                        className="px-5 py-2.5 rounded-xl bg-[#F97316] text-white font-bold text-[10px] hover:bg-[#EA580C] transition-colors shadow-lg shadow-[#F97316]/10"
                       >
                         View Details Profile
                       </Link>
@@ -487,7 +487,7 @@ export const Compare = () => {
             {/* Chart 1: Tuition Fees Bar Comparison */}
             <div className="p-6 rounded-3xl glass border border-app-border shadow-xl">
               <div className="flex items-center gap-2 mb-6">
-                <DollarSign className="w-5 h-5 text-[#FF7A00]" />
+                <DollarSign className="w-5 h-5 text-[#F97316]" />
                 <h3 className="text-base font-display font-bold text-white">Annual Tuition Fee Comparison</h3>
               </div>
               
@@ -497,7 +497,7 @@ export const Compare = () => {
                   const pct = (fee / maxTuitionFee) * 160; // Max height ~160px
                   return (
                     <div key={idx} className="flex flex-col items-center gap-3 w-1/4">
-                      <div className="text-[10px] font-bold text-[#FF7A00]">
+                      <div className="text-[10px] font-bold text-[#F97316]">
                         {col.fees.split(' ')[0]}
                       </div>
                       <div 

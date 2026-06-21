@@ -61,9 +61,9 @@ export const Login = () => {
     <div className="relative min-h-screen bg-app-bg text-app-text flex flex-col md:flex-row overflow-hidden">
       
       {/* ─── LEFT PANEL: Visual Brand Intro ─── */}
-      <div className="hidden md:flex md:w-5/12 bg-gradient-to-br from-[#1a1040] to-[#0B1020] p-12 flex-col justify-between relative overflow-hidden border-r border-app-border">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-[#4F46E5]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#FF7A00]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="hidden md:flex md:w-5/12 bg-gradient-to-br from-[#4A0E17] to-[#1A050A] p-12 flex-col justify-between relative overflow-hidden border-r border-app-border">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-[#9F1239]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none" />
         
         {/* Brand */}
         <div className="relative z-10 text-left select-none">
@@ -78,15 +78,15 @@ export const Login = () => {
         {/* Floating Rocket Illustration */}
         <div className="relative z-10 flex justify-center py-6">
           <svg viewBox="0 0 180 200" className="w-48 h-48 drop-shadow-2xl animate-float" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="90" cy="85" rx="22" ry="55" fill="#FF7A00"/>
+            <ellipse cx="90" cy="85" rx="22" ry="55" fill="#F97316"/>
             <ellipse cx="90" cy="85" rx="16" ry="48" fill="#FFA040"/>
             <ellipse cx="90" cy="35" rx="14" ry="16" fill="#FF5500"/>
             <circle cx="90" cy="78" r="9" fill="white" opacity="0.9"/>
-            <circle cx="90" cy="78" r="6" fill="#1B254B"/>
+            <circle cx="90" cy="78" r="6" fill="#881337"/>
             <path d="M68 118 L60 145 L80 130 Z" fill="#FF5500"/>
             <path d="M112 118 L120 145 L100 130 Z" fill="#FF5500"/>
             <ellipse cx="90" cy="150" rx="10" ry="20" fill="#FFD700" opacity="0.9"/>
-            <ellipse cx="90" cy="158" rx="7" ry="13" fill="#FF7A00" opacity="0.8"/>
+            <ellipse cx="90" cy="158" rx="7" ry="13" fill="#F97316" opacity="0.8"/>
             <circle cx="32" cy="50" r="2" fill="#FFD700"/>
             <circle cx="148" cy="40" r="2" fill="#FFD700"/>
             <circle cx="25" cy="110" r="1.5" fill="#FFD700"/>
@@ -97,7 +97,7 @@ export const Login = () => {
         {/* Feature list */}
         <div className="relative z-10 text-left space-y-4">
           <div className="flex items-start gap-3">
-            <Award className="w-5 h-5 text-[#FF7A00] shrink-0 mt-0.5" />
+            <Award className="w-5 h-5 text-[#F97316] shrink-0 mt-0.5" />
             <div>
               <h4 className="font-extrabold text-sm text-white">SaaS-Grade Target Tracking</h4>
               <p className="text-[11px] text-app-muted leading-relaxed mt-0.5">Shortlist up to 25K colleges and trace verified applications dynamically.</p>
@@ -109,12 +109,12 @@ export const Login = () => {
       {/* ─── RIGHT PANEL: Frosted Glass Form ─── */}
       <div className="flex-1 flex items-center justify-center p-8 sm:p-12 relative z-10">
         <div className="absolute inset-0 bg-app-bg pointer-events-none" />
-        <div className="absolute top-20 right-1/4 w-80 h-80 bg-[#FF7A00]/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-20 right-1/4 w-80 h-80 bg-[#F97316]/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="w-full max-w-md p-8 rounded-3xl glass border border-app-border flex flex-col gap-6 shadow-2xl relative z-10 text-left">
           
           <div className="flex flex-col gap-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF7A00]/10 text-[#FF7A00] self-start mb-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#F97316]/10 text-[#F97316] self-start mb-2">
               <Sparkles className="w-3 h-3" /> Candidate Portal
             </span>
             <h2 className="font-display font-black text-2xl text-white tracking-tight">
@@ -145,7 +145,7 @@ export const Login = () => {
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
                 <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">Password</label>
-                <a href="#" className="text-[10px] font-bold text-[#FF7A00] hover:underline">
+                <a href="#" className="text-[10px] font-bold text-[#F97316] hover:underline">
                   Forgot Password?
                 </a>
               </div>
@@ -168,7 +168,7 @@ export const Login = () => {
                   type="checkbox"
                   checked={remember}
                   onChange={() => setRemember(!remember)}
-                  className="rounded border-app-border bg-transparent text-[#FF7A00] focus:ring-0 w-4 h-4 cursor-pointer"
+                  className="rounded border-app-border bg-transparent text-[#F97316] focus:ring-0 w-4 h-4 cursor-pointer"
                 />
                 <span>Remember Email</span>
               </label>
@@ -177,7 +177,7 @@ export const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#FF7A00]/25 transition-all flex items-center justify-center gap-1.5 disabled:opacity-50 border-none cursor-pointer mt-2"
+              className="py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#F97316]/25 transition-all flex items-center justify-center gap-1.5 disabled:opacity-50 border-none cursor-pointer mt-2"
             >
               {loading ? (
                 <span className="w-5 h-5 rounded-full border-2 border-white border-t-transparent animate-spin" />
@@ -206,7 +206,7 @@ export const Login = () => {
 
             <p className="text-[11px] text-app-muted font-bold">
               New to Aruna-Nand EdTech Services?{' '}
-              <Link to="/register" className="text-[#FF7A00] hover:underline">
+              <Link to="/register" className="text-[#F97316] hover:underline">
                 Create Account
               </Link>
             </p>
@@ -220,7 +220,7 @@ export const Login = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black/50 backdrop-blur-md" />
           <div className="relative w-full max-w-sm rounded-3xl border border-app-border bg-app-card p-6 md:p-8 shadow-2xl z-10 text-center flex flex-col gap-5">
-            <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center mx-auto text-[#FF7A00] border border-[#FF7A00]/20">
+            <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center mx-auto text-[#F97316] border border-[#F97316]/20">
               <CheckCircle2 className="w-6 h-6" />
             </div>
 
@@ -239,13 +239,13 @@ export const Login = () => {
                 value={otpCode}
                 maxLength={6}
                 onChange={(e) => setOtpCode(e.target.value)}
-                className="px-4 py-3.5 rounded-xl bg-app-card border border-app-border text-center text-sm font-black text-white outline-none focus:border-[#FF7A00] tracking-widest"
+                className="px-4 py-3.5 rounded-xl bg-app-card border border-app-border text-center text-sm font-black text-white outline-none focus:border-[#F97316] tracking-widest"
               />
 
               <button
                 type="submit"
                 disabled={otpLoading}
-                className="py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase border-none cursor-pointer transition-colors shadow-lg shadow-[#FF7A00]/25 disabled:opacity-60 flex items-center justify-center gap-2"
+                className="py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase border-none cursor-pointer transition-colors shadow-lg shadow-[#F97316]/25 disabled:opacity-60 flex items-center justify-center gap-2"
               >
                 {otpLoading ? (
                   <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />

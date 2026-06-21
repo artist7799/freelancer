@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Filter, SlidersHorizontal, RefreshCw, ChevronDown, Award, DollarSign, Briefcase, Search, Sparkles } from 'lucide-react';
+import { Filter, SlidersHorizontal, RefreshCw, ChevronDown, ChevronUp, Award, DollarSign, Briefcase, Search, Sparkles } from 'lucide-react';
 import { CollegeCard } from '../components/cards/CollegeCard';
 import { useColleges } from '../hooks/useColleges';
 import { ScrollReveal } from '../components/animations/ScrollReveal';
@@ -1422,6 +1422,18 @@ export const Colleges = () => {
   const [loading, setLoading] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isDescExpanded, setIsDescExpanded] = useState(false);
+  const [openSections, setOpenSections] = useState({
+    ranking: true,
+    placement: true,
+    state: false,
+    city: false,
+    course: false,
+    specialization: false,
+  });
+
+  const toggleSection = (section: keyof typeof openSections) => {
+    setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
+  };
 
   const itemsPerPage = 9;
 
@@ -1731,7 +1743,7 @@ export const Colleges = () => {
       {/* Background Gradients */}
       <div className="gradient-mesh opacity-100 absolute inset-0 pointer-events-none" />
       <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#4F46E5]/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-[#FF7A00]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         
@@ -1739,7 +1751,7 @@ export const Colleges = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 p-8 rounded-3xl glass relative overflow-hidden border border-app-border text-left">
           <div className="absolute inset-0 bg-gradient-to-r from-[#4F46E5]/10 to-transparent pointer-events-none" />
           <div className="relative z-10 text-left flex-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FF7A00]/10 text-[#FF7A00] mb-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F97316]/10 text-[#F97316] mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               Verified Programs & Campuses
             </span>
@@ -1758,7 +1770,7 @@ export const Colleges = () => {
               <div className="mt-4">
                 <button
                   onClick={() => setIsDescExpanded(!isDescExpanded)}
-                  className="px-5 py-2 rounded-xl bg-[#FF7A00] hover:bg-[#FF7A00]/90 text-white font-bold text-xs transition-all shadow-[0_4px_12px_rgba(255,122,0,0.2)] active:scale-95 cursor-pointer border-none"
+                  className="px-5 py-2 rounded-xl bg-[#F97316] hover:bg-[#F97316]/90 text-white font-bold text-xs transition-all shadow-[0_4px_12px_rgba(255,122,0,0.2)] active:scale-95 cursor-pointer border-none"
                 >
                   {isDescExpanded ? 'Read Less' : 'Read More'}
                 </button>
@@ -1778,18 +1790,18 @@ export const Colleges = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT: Sidebar Filters */}
-          <aside className={`lg:col-span-3 flex flex-col gap-6 p-6 glass rounded-2xl border border-app-border ${mobileFiltersOpen ? 'block' : 'hidden lg:flex'}`}>
+          <aside className={`lg:col-span-3 lg:sticky lg:top-28 flex flex-col gap-5 p-5 glass rounded-2xl border border-app-border max-h-[85vh] overflow-y-auto ${mobileFiltersOpen ? 'block' : 'hidden lg:flex'}`}>
             
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-app-border pb-4">
-              <span className="text-sm font-black text-white flex items-center gap-2 uppercase tracking-wider">
-                <Filter className="w-4 h-4 text-[#FF7A00]" />
+            <div className="flex items-center justify-between border-b border-app-border pb-3">
+              <span className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2 uppercase tracking-wider">
+                <Filter className="w-4 h-4 text-primary" />
                 Filters
               </span>
               
               <button
                 onClick={handleResetFilters}
-                className="text-[10px] font-bold text-app-muted hover:text-[#FF7A00] flex items-center gap-1 transition-colors cursor-pointer border-none bg-transparent"
+                className="text-[10px] font-bold text-primary hover:text-primary-hover flex items-center gap-1 transition-colors cursor-pointer border-none bg-transparent"
               >
                 <RefreshCw className="w-3 h-3" />
                 Reset
@@ -1798,27 +1810,27 @@ export const Colleges = () => {
 
             {/* Sort Selection */}
             <div className="flex flex-col gap-2 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">
+              <label className="text-[10px] font-bold text-slate-405 dark:text-slate-500 uppercase tracking-wider">
                 Sort Options
               </label>
               <div className="relative">
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full appearance-none bg-app-card border border-app-border text-xs font-semibold text-white py-2.5 pl-3 pr-8 rounded-xl outline-none focus:border-[#FF7A00] cursor-pointer"
+                  className="w-full appearance-none bg-app-card border border-app-border text-xs font-semibold text-slate-700 dark:text-white py-2.5 pl-3 pr-8 rounded-xl outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary cursor-pointer transition-all"
                 >
                   <option value="rating">Sort: Best Rating</option>
                   <option value="placement_high">Sort: Placements (High)</option>
                   <option value="fees_low">Sort: Fees (Low to High)</option>
                   <option value="fees_high">Sort: Fees (High to Low)</option>
                 </select>
-                <ChevronDown className="w-4 h-4 absolute right-3 top-3 text-app-muted pointer-events-none" />
+                <ChevronDown className="w-4 h-4 absolute right-3 top-3 text-slate-400 pointer-events-none" />
               </div>
             </div>
 
             {/* Search Input */}
             <div className="flex flex-col gap-2 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">
+              <label className="text-[10px] font-bold text-slate-405 dark:text-slate-500 uppercase tracking-wider">
                 Search College
               </label>
               <form onSubmit={handleSearchSubmit} className="relative flex items-center">
@@ -1827,11 +1839,11 @@ export const Colleges = () => {
                   placeholder="Search name, city..."
                   value={nameQuery}
                   onChange={(e) => setNameQuery(e.target.value)}
-                  className="w-full text-xs pl-3 pr-10 py-2.5 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] transition-all font-medium"
+                  className="w-full text-xs pl-3 pr-10 py-2.5 rounded-xl bg-app-card border border-app-border text-slate-800 dark:text-white placeholder-[#94A3B8] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 p-1.5 rounded-lg text-app-muted hover:text-white transition-colors cursor-pointer border-none bg-transparent"
+                  className="absolute right-2 p-1.5 rounded-lg text-slate-400 hover:text-primary transition-colors cursor-pointer border-none bg-transparent"
                 >
                   <Search className="w-4 h-4" />
                 </button>
@@ -1839,13 +1851,13 @@ export const Colleges = () => {
             </div>
 
             {/* MAX FEES SLIDER */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
+            <div className="flex flex-col gap-2.5 border-t border-app-border pt-4 text-left">
               <div className="flex items-center justify-between">
-                <label className="text-[10px] font-black text-app-muted uppercase tracking-wider flex items-center gap-1">
-                  <DollarSign className="w-3.5 h-3.5 text-[#FF7A00]" />
+                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                  <DollarSign className="w-3.5 h-3.5 text-primary" />
                   Max Annual Fees
                 </label>
-                <span className="text-xs font-bold text-[#FF7A00]">
+                <span className="text-xs font-bold text-primary">
                   {formatLakhs(maxFees)}
                 </span>
               </div>
@@ -1856,184 +1868,238 @@ export const Colleges = () => {
                 step={10000}
                 value={maxFees}
                 onChange={(e) => setMaxFees(Number(e.target.value))}
-                className="w-full accent-[#FF7A00] bg-white/10 rounded-lg appearance-none h-1.5 cursor-pointer"
+                className="w-full accent-primary bg-slate-100 dark:bg-white/10 rounded-lg appearance-none h-1.5 cursor-pointer"
               />
-              <div className="flex justify-between text-[9px] text-app-muted font-bold">
+              <div className="flex justify-between text-[9px] text-slate-400 dark:text-slate-500 font-bold">
                 <span>Min: ₹2K</span>
                 <span>Max: 15 Lakhs</span>
               </div>
             </div>
 
-            {/* MIN RANK RADIOS */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider flex items-center gap-1">
-                <Award className="w-3.5 h-3.5 text-[#FF7A00]" />
-                National Ranking
-              </label>
-              <div className="flex flex-col gap-2">
-                {[
-                  { value: 'all', label: 'Any NIRF Rank' },
-                  { value: '10', label: 'Top 10 Institutions' },
-                  { value: '25', label: 'Top 25 Institutions' },
-                  { value: '50', label: 'Top 50 Institutions' },
-                  { value: '100', label: 'Top 100 Institutions' },
-                ].map((item) => (
-                  <label key={item.value} className="flex items-center gap-2.5 text-xs text-app-muted cursor-pointer hover:text-white transition-colors">
-                    <input
-                      type="radio"
-                      name="minRank"
-                      checked={minRank === item.value}
-                      onChange={() => setMinRank(item.value)}
-                      className="accent-[#FF7A00] w-4 h-4 cursor-pointer"
-                    />
-                    <span>{item.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* MIN AVERAGE PLACEMENT RADIOS */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider flex items-center gap-1">
-                <Briefcase className="w-3.5 h-3.5 text-[#FF7A00]" />
-                Min Placement package
-              </label>
-              <div className="flex flex-col gap-2">
-                {[
-                  { value: 'all', label: 'Any Average Package' },
-                  { value: '30', label: '30+ LPA Average' },
-                  { value: '15', label: '15+ LPA Average' },
-                  { value: '10', label: '10+ LPA Average' },
-                  { value: '5', label: '5+ LPA Average' },
-                ].map((item) => (
-                  <label key={item.value} className="flex items-center gap-2.5 text-xs text-app-muted cursor-pointer hover:text-white transition-colors">
-                    <input
-                      type="radio"
-                      name="minPlacement"
-                      checked={minPlacement === item.value}
-                      onChange={() => setMinPlacement(item.value)}
-                      className="accent-[#FF7A00] w-4 h-4 cursor-pointer"
-                    />
-                    <span>{item.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* STATE FILTER */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">
-                State
-              </label>
-              <input
-                type="text"
-                placeholder="Filter states..."
-                value={stateSearch}
-                onChange={(e) => setStateSearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-medium"
-              />
-              <div className="flex flex-col gap-2 text-xs text-app-muted max-h-36 overflow-y-auto pr-1 scrollbar-thin">
-                {allStates
-                  .filter((state) => state.toLowerCase().includes(stateSearch.toLowerCase()))
-                  .map((state) => (
-                    <label key={state} className="flex items-center gap-2.5 cursor-pointer hover:text-white transition-colors">
+            {/* MIN RANK RADIOS - ACCORDION */}
+            <div className="flex flex-col border-t border-app-border pt-4 text-left">
+              <button 
+                onClick={() => toggleSection('ranking')}
+                className="flex items-center justify-between w-full text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider cursor-pointer py-1"
+              >
+                <span className="flex items-center gap-1">
+                  <Award className="w-3.5 h-3.5 text-primary" />
+                  National Ranking
+                </span>
+                {openSections.ranking ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+              
+              {openSections.ranking && (
+                <div className="flex flex-col gap-2 mt-3 pl-1">
+                  {[
+                    { value: 'all', label: 'Any NIRF Rank' },
+                    { value: '10', label: 'Top 10 Institutions' },
+                    { value: '25', label: 'Top 25 Institutions' },
+                    { value: '50', label: 'Top 50 Institutions' },
+                    { value: '100', label: 'Top 100 Institutions' },
+                  ].map((item) => (
+                    <label key={item.value} className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-slate-400 cursor-pointer hover:text-primary transition-colors">
                       <input
-                        type="checkbox"
-                        checked={selectedStates.includes(state)}
-                        onChange={() => handleToggleState(state)}
-                        className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                        type="radio"
+                        name="minRank"
+                        checked={minRank === item.value}
+                        onChange={() => setMinRank(item.value)}
+                        className="accent-primary w-4 h-4 cursor-pointer"
                       />
-                      <span>{state}</span>
+                      <span className="font-medium">{item.label}</span>
                     </label>
                   ))}
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* CITY FILTER */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">
-                City
-              </label>
-              <input
-                type="text"
-                placeholder="Filter cities..."
-                value={citySearch}
-                onChange={(e) => setCitySearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-medium"
-              />
-              <div className="flex flex-col gap-2 text-xs text-app-muted max-h-36 overflow-y-auto pr-1 scrollbar-thin">
-                {allCities
-                  .filter((city) => city.toLowerCase().includes(citySearch.toLowerCase()))
-                  .map((city) => (
-                    <label key={city} className="flex items-center gap-2.5 cursor-pointer hover:text-white transition-colors">
+            {/* MIN AVERAGE PLACEMENT RADIOS - ACCORDION */}
+            <div className="flex flex-col border-t border-app-border pt-4 text-left">
+              <button 
+                onClick={() => toggleSection('placement')}
+                className="flex items-center justify-between w-full text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider cursor-pointer py-1"
+              >
+                <span className="flex items-center gap-1">
+                  <Briefcase className="w-3.5 h-3.5 text-primary" />
+                  Min Placement Package
+                </span>
+                {openSections.placement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+
+              {openSections.placement && (
+                <div className="flex flex-col gap-2 mt-3 pl-1">
+                  {[
+                    { value: 'all', label: 'Any Average Package' },
+                    { value: '30', label: '30+ LPA Average' },
+                    { value: '15', label: '15+ LPA Average' },
+                    { value: '10', label: '10+ LPA Average' },
+                    { value: '5', label: '5+ LPA Average' },
+                  ].map((item) => (
+                    <label key={item.value} className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-slate-400 cursor-pointer hover:text-primary transition-colors">
                       <input
-                        type="checkbox"
-                        checked={selectedCities.includes(city)}
-                        onChange={() => handleToggleCity(city)}
-                        className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                        type="radio"
+                        name="minPlacement"
+                        checked={minPlacement === item.value}
+                        onChange={() => setMinPlacement(item.value)}
+                        className="accent-primary w-4 h-4 cursor-pointer"
                       />
-                      <span>{city}</span>
+                      <span className="font-medium">{item.label}</span>
                     </label>
                   ))}
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* COURSES FILTER */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">
-                Course Category
-              </label>
-              <input
-                type="text"
-                placeholder="Filter courses..."
-                value={courseSearch}
-                onChange={(e) => setCourseSearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-medium"
-              />
-              <div className="flex flex-col gap-2 text-xs text-app-muted max-h-36 overflow-y-auto pr-1 scrollbar-thin">
-                {allCourses
-                  .filter((course) => course.toLowerCase().includes(courseSearch.toLowerCase()))
-                  .map((course) => (
-                    <label key={course} className="flex items-center gap-2.5 cursor-pointer hover:text-white transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={selectedCourses.includes(course)}
-                        onChange={() => handleToggleCourse(course)}
-                        className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
-                      />
-                      <span>{course}</span>
-                    </label>
-                  ))}
-              </div>
+            {/* STATE FILTER - ACCORDION */}
+            <div className="flex flex-col border-t border-app-border pt-4 text-left">
+              <button 
+                onClick={() => toggleSection('state')}
+                className="flex items-center justify-between w-full text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider cursor-pointer py-1"
+              >
+                <span>State</span>
+                {openSections.state ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+
+              {openSections.state && (
+                <div className="flex flex-col gap-2.5 mt-3">
+                  <input
+                    type="text"
+                    placeholder="Filter states..."
+                    value={stateSearch}
+                    onChange={(e) => setStateSearch(e.target.value)}
+                    className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-800 dark:text-white placeholder-[#94A3B8] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium transition-all"
+                  />
+                  <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 max-h-36 overflow-y-auto pr-1 scrollbar-thin font-medium">
+                    {allStates
+                      .filter((state) => state.toLowerCase().includes(stateSearch.toLowerCase()))
+                      .map((state) => (
+                        <label key={state} className="flex items-center gap-2.5 cursor-pointer hover:text-primary transition-colors">
+                          <input
+                            type="checkbox"
+                            checked={selectedStates.includes(state)}
+                            onChange={() => handleToggleState(state)}
+                            className="rounded accent-primary w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                          />
+                          <span>{state}</span>
+                        </label>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* SPECIALIZATION FILTER */}
-            <div className="flex flex-col gap-3 border-t border-app-border pt-4 text-left">
-              <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">
-                Specialization
-              </label>
-              <input
-                type="text"
-                placeholder="Filter specialization..."
-                value={specSearch}
-                onChange={(e) => setSpecSearch(e.target.value)}
-                className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00] font-medium"
-              />
-              <div className="flex flex-col gap-2 text-xs text-app-muted max-h-36 overflow-y-auto pr-1 scrollbar-thin font-medium">
-                {allSpecs
-                  .filter((spec) => spec.toLowerCase().includes(specSearch.toLowerCase()))
-                  .map((spec) => (
-                    <label key={spec} className="flex items-center gap-2.5 cursor-pointer hover:text-white transition-colors">
-                      <input
-                        type="checkbox"
-                        checked={selectedSpecs.includes(spec)}
-                        onChange={() => handleToggleSpec(spec)}
-                        className="rounded accent-[#FF7A00] w-4 h-4 cursor-pointer bg-app-card border-app-border"
-                      />
-                      <span>{spec}</span>
-                    </label>
-                  ))}
-              </div>
+            {/* CITY FILTER - ACCORDION */}
+            <div className="flex flex-col border-t border-app-border pt-4 text-left">
+              <button 
+                onClick={() => toggleSection('city')}
+                className="flex items-center justify-between w-full text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider cursor-pointer py-1"
+              >
+                <span>City</span>
+                {openSections.city ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+
+              {openSections.city && (
+                <div className="flex flex-col gap-2.5 mt-3">
+                  <input
+                    type="text"
+                    placeholder="Filter cities..."
+                    value={citySearch}
+                    onChange={(e) => setCitySearch(e.target.value)}
+                    className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-800 dark:text-white placeholder-[#94A3B8] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium transition-all"
+                  />
+                  <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 max-h-36 overflow-y-auto pr-1 scrollbar-thin font-medium">
+                    {allCities
+                      .filter((city) => city.toLowerCase().includes(citySearch.toLowerCase()))
+                      .map((city) => (
+                        <label key={city} className="flex items-center gap-2.5 cursor-pointer hover:text-primary transition-colors">
+                          <input
+                            type="checkbox"
+                            checked={selectedCities.includes(city)}
+                            onChange={() => handleToggleCity(city)}
+                            className="rounded accent-primary w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                          />
+                          <span>{city}</span>
+                        </label>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* COURSES FILTER - ACCORDION */}
+            <div className="flex flex-col border-t border-app-border pt-4 text-left">
+              <button 
+                onClick={() => toggleSection('course')}
+                className="flex items-center justify-between w-full text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider cursor-pointer py-1"
+              >
+                <span>Course Category</span>
+                {openSections.course ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+
+              {openSections.course && (
+                <div className="flex flex-col gap-2.5 mt-3">
+                  <input
+                    type="text"
+                    placeholder="Filter courses..."
+                    value={courseSearch}
+                    onChange={(e) => setCourseSearch(e.target.value)}
+                    className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-800 dark:text-white placeholder-[#94A3B8] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium transition-all"
+                  />
+                  <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 max-h-36 overflow-y-auto pr-1 scrollbar-thin font-medium">
+                    {allCourses
+                      .filter((course) => course.toLowerCase().includes(courseSearch.toLowerCase()))
+                      .map((course) => (
+                        <label key={course} className="flex items-center gap-2.5 cursor-pointer hover:text-primary transition-colors">
+                          <input
+                            type="checkbox"
+                            checked={selectedCourses.includes(course)}
+                            onChange={() => handleToggleCourse(course)}
+                            className="rounded accent-primary w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                          />
+                          <span>{course}</span>
+                        </label>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* SPECIALIZATION FILTER - ACCORDION */}
+            <div className="flex flex-col border-t border-app-border pt-4 text-left">
+              <button 
+                onClick={() => toggleSection('specialization')}
+                className="flex items-center justify-between w-full text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider cursor-pointer py-1"
+              >
+                <span>Specialization</span>
+                {openSections.specialization ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </button>
+
+              {openSections.specialization && (
+                <div className="flex flex-col gap-2.5 mt-3">
+                  <input
+                    type="text"
+                    placeholder="Filter specialization..."
+                    value={specSearch}
+                    onChange={(e) => setSpecSearch(e.target.value)}
+                    className="text-xs px-3 py-2 rounded-xl bg-app-card border border-app-border text-slate-800 dark:text-white placeholder-[#94A3B8] outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium transition-all"
+                  />
+                  <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400 max-h-36 overflow-y-auto pr-1 scrollbar-thin font-medium">
+                    {allSpecs
+                      .filter((spec) => spec.toLowerCase().includes(specSearch.toLowerCase()))
+                      .map((spec) => (
+                        <label key={spec} className="flex items-center gap-2.5 cursor-pointer hover:text-primary transition-colors">
+                          <input
+                            type="checkbox"
+                            checked={selectedSpecs.includes(spec)}
+                            onChange={() => handleToggleSpec(spec)}
+                            className="rounded accent-primary w-4 h-4 cursor-pointer bg-app-card border-app-border"
+                          />
+                          <span>{spec}</span>
+                        </label>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
 
           </aside>
@@ -2064,7 +2130,7 @@ export const Colleges = () => {
                 </p>
                 <button
                   onClick={handleResetFilters}
-                  className="text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#D14B00] px-5 py-3 rounded-xl cursor-pointer shadow-lg shadow-[#FF7A00]/20 border-none transition-all"
+                  className="text-xs font-bold text-white bg-[#F97316] hover:bg-[#EA580C] px-5 py-3 rounded-xl cursor-pointer shadow-lg shadow-[#F97316]/20 border-none transition-all"
                 >
                   Clear All Filters
                 </button>
@@ -2097,7 +2163,7 @@ export const Colleges = () => {
                       onClick={() => setCurrentPage(idx + 1)}
                       className={`w-9 h-9 text-xs font-bold rounded-lg border transition-all cursor-pointer ${
                         currentPage === idx + 1
-                          ? 'bg-[#FF7A00] border-[#FF7A00] text-white shadow-lg shadow-[#FF7A00]/20'
+                          ? 'bg-[#F97316] border-[#F97316] text-white shadow-lg shadow-[#F97316]/20'
                           : 'border-app-border bg-app-card text-app-muted hover:text-white hover:border-app-border'
                       }`}
                     >

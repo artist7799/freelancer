@@ -89,7 +89,7 @@ export const Register = () => {
       {/* ─── LEFT PANEL: Progressive Milestones ─── */}
       <div className="hidden md:flex md:w-5/12 bg-gradient-to-br from-[#1a1040] to-[#0B1020] p-12 flex-col justify-between relative overflow-hidden border-r border-app-border">
         <div className="absolute top-0 left-0 w-64 h-64 bg-[#4F46E5]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#FF7A00]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none" />
         
         {/* Brand */}
         <div className="relative z-10 text-left select-none">
@@ -111,7 +111,7 @@ export const Register = () => {
             <div key={s.step} className="flex gap-4 items-start font-medium">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shrink-0 ${
                 (isVerifyingOtp && s.step === 2) || (!isVerifyingOtp && s.step === 1)
-                  ? 'bg-[#FF7A00] text-white ring-4 ring-[#FF7A00]/25'
+                  ? 'bg-[#F97316] text-white ring-4 ring-[#F97316]/25'
                   : isVerifyingOtp && s.step === 1
                   ? 'bg-[#10B981] text-white'
                   : 'bg-app-card text-app-muted border border-app-border'
@@ -138,7 +138,7 @@ export const Register = () => {
         <div className="w-full max-w-md p-8 rounded-3xl glass border border-app-border flex flex-col gap-6 shadow-2xl relative z-10 text-left">
           
           <div className="flex flex-col gap-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF7A00]/10 text-[#FF7A00] self-start mb-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#F97316]/10 text-[#F97316] self-start mb-2">
               <Sparkles className="w-3 h-3" /> New Candidate
             </span>
             <h2 className="font-display font-black text-2xl text-white tracking-tight">
@@ -233,7 +233,7 @@ export const Register = () => {
 
             <button
               type="submit"
-              className="py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#FF7A00]/25 transition-all flex items-center justify-center gap-1.5 border-none cursor-pointer mt-2"
+              className="py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#F97316]/25 transition-all flex items-center justify-center gap-1.5 border-none cursor-pointer mt-2"
             >
               <Sparkles className="w-4.5 h-4.5" />
               <span>Verify & Register</span>
@@ -242,7 +242,7 @@ export const Register = () => {
 
           <div className="border-t border-app-border pt-5 text-center text-[11px] text-app-muted font-bold">
             Already have an account?{' '}
-            <Link to="/login" className="text-[#FF7A00] hover:underline">
+            <Link to="/login" className="text-[#F97316] hover:underline">
               Sign In
             </Link>
           </div>
@@ -255,7 +255,7 @@ export const Register = () => {
         <div className="fixed inset-0 z-55 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-app-bg/85 backdrop-blur-md" />
           <div className="relative w-full max-w-sm rounded-3xl border border-app-border bg-app-card p-6 md:p-8 overflow-hidden shadow-2xl z-10 text-center flex flex-col gap-5">
-            <div className="w-12 h-12 rounded-full bg-[#FF7A00]/10 flex items-center justify-center mx-auto text-[#FF7A00] border border-[#FF7A00]/20">
+            <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center mx-auto text-[#F97316] border border-[#F97316]/20">
               <CheckCircle2 className="w-6 h-6" />
             </div>
 
@@ -275,14 +275,14 @@ export const Register = () => {
                   value={otpCode}
                   maxLength={6}
                   onChange={(e) => setOtpCode(e.target.value)}
-                  className="px-4 py-3.5 rounded-xl bg-app-card border border-app-border text-center text-sm font-black text-white outline-none focus:border-[#FF7A00] tracking-widest font-sans"
+                  className="px-4 py-3.5 rounded-xl bg-app-card border border-app-border text-center text-sm font-black text-white outline-none focus:border-[#F97316] tracking-widest font-sans"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={otpLoading}
-                className="py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase border-none cursor-pointer transition-colors shadow-lg shadow-[#FF7A00]/25 disabled:opacity-60 flex items-center justify-center gap-2"
+                className="py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase border-none cursor-pointer transition-colors shadow-lg shadow-[#F97316]/25 disabled:opacity-60 flex items-center justify-center gap-2"
               >
                 {otpLoading ? (
                   <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />

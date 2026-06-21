@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Search, Menu, X, LogOut, User, ChevronDown, CheckCircle, GitCompare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Menu, X, LogOut, User, ChevronDown, CheckCircle, GitCompare, ChevronLeft, ChevronRight, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGlobalStore } from '../../store/useGlobalStore';
 import { useAuthStore } from '../../store/useAuthStore';
@@ -179,7 +179,7 @@ export const GlassNavbar = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { setSearchModalOpen, addToast } = useGlobalStore();
+  const { setSearchModalOpen, addToast, theme, toggleTheme } = useGlobalStore();
   const { user, isAuthenticated, logout } = useAuthStore();
   const { compareIds } = useCompareStore();
 
@@ -321,7 +321,7 @@ export const GlassNavbar = () => {
   return (
     <>
       {/* 1. TOP NAV RIBBON (Hidden on mobile for viewport space, styled with a horizontal scroll carousel and black background) */}
-      <div className="hidden lg:flex fixed top-0 left-0 right-0 h-9 bg-black text-slate-300 z-55 items-center justify-between px-6 lg:px-12 border-b border-slate-900 select-none">
+      <div className="hidden lg:flex fixed top-0 left-0 right-0 h-9 bg-slate-950 text-slate-300 z-55 items-center justify-between px-6 lg:px-12 border-b border-primary/10 select-none">
         
         {/* Left: Ribbon Links (with custom scroll buttons) */}
         <div className="relative flex-1 flex items-center max-w-[calc(100%-250px)] pr-8 pl-1">
@@ -342,11 +342,11 @@ export const GlassNavbar = () => {
               <Link
                 key={idx}
                 to={link.path}
-                className="hover:text-[#FF7A00] dark:hover:text-[#FF7A00] flex items-center gap-1.5 transition-colors uppercase text-slate-300 dark:text-slate-350 shrink-0 font-extrabold"
+                className="hover:text-primary dark:hover:text-primary flex items-center gap-1.5 transition-colors uppercase text-slate-350 shrink-0 font-extrabold"
               >
                 {link.name}
                 {link.badge && (
-                  <span className="bg-[#FF7A00] text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded animate-pulse shadow-sm">
+                  <span className="bg-primary text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded animate-pulse shadow-sm">
                     {link.badge}
                   </span>
                 )}
@@ -380,25 +380,24 @@ export const GlassNavbar = () => {
         </div>
       </div>
 
-      {/* 2. MAIN HEADER NAVBAR (Flat & Full-Width, sits flatly below ribbon, exactly like screenshot) */}
       <header 
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 pointer-events-auto bg-white dark:bg-app-bg border-b-[5px] border-[#1B254B] dark:border-primary shadow-sm flex items-center ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 pointer-events-auto bg-white/80 dark:bg-app-bg/85 backdrop-blur-md border-b border-slate-200 dark:border-app-border shadow-sm flex items-center ${
           isScrolled 
             ? 'top-0 h-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)]' 
-            : 'top-0 lg:top-9 h-16'
+            : 'top-0 lg:top-[36px] h-16'
         }`}
       >
         <div className="w-full h-full flex items-center justify-between lg:justify-center gap-6 lg:gap-8 xl:gap-14 px-6 lg:px-12">
           
           {/* Left: Brand Logo styled like Aruna-Nand EdTech */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-10 h-10 rounded-full bg-[#1B254B] dark:bg-white flex items-center justify-center border border-slate-700/10 shadow-sm select-none shrink-0">
-              <span className="font-display font-black text-xs text-white dark:text-[#1B254B] tracking-tight">
+            <div className="w-10 h-10 rounded-full bg-primary dark:bg-white flex items-center justify-center border border-slate-700/10 shadow-sm select-none shrink-0">
+              <span className="font-display font-black text-xs text-white dark:text-primary tracking-tight">
                 AN
               </span>
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-lg font-black tracking-tight font-display text-[#1B254B] dark:text-white leading-none uppercase">
+              <span className="text-lg font-black tracking-tight font-display text-primary dark:text-white leading-none uppercase">
                 ARUNA-NAND EDTECH
               </span>
               <span className="text-[8px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1 leading-none">
@@ -415,7 +414,7 @@ export const GlassNavbar = () => {
             <div className="relative shrink-0">
               <button
                 onClick={() => setInterestOpen(!interestOpen)}
-                className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#FF7A00] hover:bg-[#E06C00] shadow-md shadow-orange-500/10 hover:shadow-orange-500/20 transition-all duration-200 cursor-pointer animate-none"
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-accent hover:bg-accent-hover shadow-md shadow-orange-500/10 hover:shadow-orange-500/20 transition-all duration-200 cursor-pointer animate-none"
               >
                 Choose Your Interest
                 <span className={`text-[9px] ml-1 transition-transform duration-200 inline-block ${interestOpen ? 'rotate-180' : ''}`}>▼</span>
@@ -434,7 +433,7 @@ export const GlassNavbar = () => {
                   <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-[#0F172A] border border-slate-200 dark:border-app-border">
 
                     {/* Orange header */}
-                    <div className="flex items-center justify-between px-5 py-4 bg-[#FF7A00]">
+                    <div className="flex items-center justify-between px-5 py-4 bg-accent">
                       <h3 className="text-sm font-black text-white tracking-wide uppercase">
                         Select Goal Courses &amp; City
                       </h3>
@@ -450,7 +449,7 @@ export const GlassNavbar = () => {
                     <div className="p-5 flex flex-col gap-4">
                       <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                         Find Out Best{' '}
-                        <span className="text-[#FF7A00] font-black underline underline-offset-2">
+                        <span className="text-accent font-black underline underline-offset-2">
                           Colleges/ Universities
                         </span>
                       </p>
@@ -480,7 +479,7 @@ export const GlassNavbar = () => {
                             key={label}
                             to={`/colleges?course=${cat}`}
                             onClick={() => setInterestOpen(false)}
-                            className="flex items-center justify-center px-3 py-2.5 rounded-lg border-2 border-slate-200 dark:border-app-border text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-wide hover:border-[#FF7A00] hover:text-[#FF7A00] hover:bg-orange-50 dark:hover:bg-orange-500/10 transition-all cursor-pointer text-center"
+                            className="flex items-center justify-center px-3 py-2.5 rounded-lg border-2 border-slate-200 dark:border-app-border text-[11px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-wide hover:border-accent hover:text-accent hover:bg-orange-50 dark:hover:bg-orange-950/20 transition-all cursor-pointer text-center"
                           >
                             {label}
                           </Link>
@@ -511,8 +510,8 @@ export const GlassNavbar = () => {
                       }}
                       className={`py-1.5 text-xs font-black tracking-wide transition-all flex items-center gap-0.5 cursor-pointer uppercase ${
                         isOpen
-                          ? 'text-[#FF7A00]'
-                          : 'text-slate-800 dark:text-slate-200 hover:text-[#FF7A00]'
+                          ? 'text-accent'
+                          : 'text-slate-800 dark:text-slate-200 hover:text-accent'
                       }`}
                     >
                       {disc.name}
@@ -536,7 +535,7 @@ export const GlassNavbar = () => {
                             <div className="col-span-2 flex flex-col gap-1 border-r border-slate-100 dark:border-app-border pr-4">
                               {QUICK_LINKS.map(item => (
                                 <Link key={item.label} to={item.path} onClick={() => setActiveDropdown(null)}
-                                  className="py-2 px-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300 hover:text-[#FF7A00] hover:bg-orange-50 dark:hover:bg-orange-500/10 rounded-lg transition-all">
+                                  className="py-2 px-2 text-[11px] font-semibold text-slate-600 dark:text-slate-300 hover:text-accent hover:bg-orange-50 dark:hover:bg-orange-950/20 rounded-lg transition-all">
                                   {item.label}
                                 </Link>
                               ))}
@@ -546,7 +545,7 @@ export const GlassNavbar = () => {
                             <div className="col-span-7 flex flex-col gap-3">
                               <div className="border-b border-slate-100 dark:border-app-border pb-2">
                                 <Link to={megaData.collegesRoute} onClick={() => setActiveDropdown(null)}
-                                  className="text-[11px] font-black text-[#FF7A00] uppercase tracking-wider hover:underline">
+                                  className="text-[11px] font-black text-accent uppercase tracking-wider hover:underline">
                                   {megaData.megaTitle} ›
                                 </Link>
                               </div>
@@ -554,7 +553,7 @@ export const GlassNavbar = () => {
                               <div className="grid grid-cols-3 gap-x-4 gap-y-1">
                                 {megaData.cities.map(city => (
                                   <Link key={city} to={megaData.collegesRoute} onClick={() => setActiveDropdown(null)}
-                                    className="py-0.5 text-[10px] font-medium text-slate-600 dark:text-slate-400 hover:text-[#FF7A00] transition-colors truncate">
+                                    className="py-0.5 text-[10px] font-medium text-slate-600 dark:text-slate-400 hover:text-accent transition-colors truncate">
                                     {city}
                                   </Link>
                                 ))}
@@ -567,7 +566,7 @@ export const GlassNavbar = () => {
                                   {megaData.featured.map(col => (
                                     <Link key={col.name} to={megaData.collegesRoute} onClick={() => setActiveDropdown(null)}
                                       className="flex items-center gap-2 hover:bg-orange-50 dark:hover:bg-orange-500/10 p-1.5 rounded-lg transition-all">
-                                      <div className="w-7 h-7 rounded-full bg-[#1B254B] flex items-center justify-center text-white text-[7px] font-black shrink-0">{col.logo}</div>
+                                      <div className="w-7 h-7 rounded-full bg-[#881337] flex items-center justify-center text-white text-[7px] font-black shrink-0">{col.logo}</div>
                                       <div>
                                         <p className="text-[10px] font-bold text-slate-800 dark:text-white max-w-[140px] truncate">{col.name}</p>
                                         <p className="text-[9px] text-slate-400">{col.location}</p>
@@ -584,7 +583,7 @@ export const GlassNavbar = () => {
                               <div className="flex flex-col gap-0.5">
                                 {megaData.states.map(state => (
                                   <Link key={state} to={megaData.collegesRoute} onClick={() => setActiveDropdown(null)}
-                                    className="py-1 text-[10px] font-medium text-slate-600 dark:text-slate-400 hover:text-[#FF7A00] transition-colors">
+                                    className="py-1 text-[10px] font-medium text-slate-600 dark:text-slate-400 hover:text-accent transition-colors">
                                     {state}
                                   </Link>
                                 ))}
@@ -624,10 +623,19 @@ export const GlassNavbar = () => {
               })}
             </div>
 
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-1 rounded-full text-slate-800 dark:text-slate-200 hover:text-accent transition-colors cursor-pointer shrink-0"
+              title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {theme === 'dark' ? <Sun className="w-5.5 h-5.5 stroke-[2.5]" /> : <Moon className="w-5.5 h-5.5 stroke-[2.5]" />}
+            </button>
+
             {/* Search Everywhere Magnifying Glass Trigger */}
             <button
               onClick={() => setSearchModalOpen(true)}
-              className="p-1 rounded-full text-slate-800 dark:text-slate-200 hover:text-[#FF7A00] transition-colors cursor-pointer shrink-0"
+              className="p-1 rounded-full text-slate-800 dark:text-slate-200 hover:text-accent transition-colors cursor-pointer shrink-0"
               title="Search Everywhere"
             >
               <Search className="w-5.5 h-5.5 stroke-[2.5]" />
@@ -678,7 +686,26 @@ export const GlassNavbar = () => {
               ))}
             </div>
 
-
+            {/* Theme Toggle (Mobile) */}
+            <div className="mt-4 pt-4 border-t border-app-border">
+              <button
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-bold text-app-text bg-app-card border border-app-border hover:bg-white/10"
+              >
+                <span>Theme Mode</span>
+                <span className="flex items-center gap-1.5 text-xs text-accent">
+                  {theme === 'dark' ? (
+                    <>
+                      <Sun className="w-4 h-4" /> Light Mode
+                    </>
+                  ) : (
+                    <>
+                      <Moon className="w-4 h-4" /> Dark Mode
+                    </>
+                  )}
+                </span>
+              </button>
+            </div>
           </div>
         )}
       </header>
@@ -699,24 +726,24 @@ export const GlassNavbar = () => {
 
             {/* Left panel — hashtags + rocket */}
             <div className="relative md:w-5/12 bg-gradient-to-br from-orange-50 to-amber-100 dark:from-[#1a1040] dark:to-[#0F172A] p-7 flex flex-col justify-between overflow-hidden">
-              <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-[#FF7A00]/20 blur-2xl" />
+              <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-accent/20 blur-2xl" />
               <div className="flex flex-col gap-2 relative z-10 mt-2">
                 {['#Hasslefree','#Affordability','#Flexibility','#Easy Emi Options','#Global Opportunities'].map((tag, i) => (
-                  <span key={i} className="text-sm font-bold text-slate-600 dark:text-slate-300 select-none" style={{ paddingLeft: `${(i % 3) * 14}px` }}>{tag}</span>
+                  <span key={i} className="text-sm font-bold text-slate-600 dark:text-300 select-none" style={{ paddingLeft: `${(i % 3) * 14}px` }}>{tag}</span>
                 ))}
               </div>
               {/* Rocket SVG */}
               <div className="relative z-10 flex justify-center mt-4">
                 <svg viewBox="0 0 160 180" className="w-32 h-32 drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="80" cy="75" rx="20" ry="48" fill="#FF7A00"/>
+                  <ellipse cx="80" cy="75" rx="20" ry="48" fill="#F97316"/>
                   <ellipse cx="80" cy="75" rx="14" ry="42" fill="#FFA040"/>
                   <ellipse cx="80" cy="32" rx="12" ry="14" fill="#FF5500"/>
                   <circle cx="80" cy="68" r="8" fill="white" opacity="0.9"/>
-                  <circle cx="80" cy="68" r="5" fill="#1B254B"/>
+                  <circle cx="80" cy="68" r="5" fill="#881337"/>
                   <path d="M60 105 L52 128 L72 115 Z" fill="#FF5500"/>
                   <path d="M100 105 L108 128 L88 115 Z" fill="#FF5500"/>
                   <ellipse cx="80" cy="135" rx="9" ry="17" fill="#FFD700" opacity="0.9"/>
-                  <ellipse cx="80" cy="142" rx="6" ry="11" fill="#FF7A00" opacity="0.8"/>
+                  <ellipse cx="80" cy="142" rx="6" ry="11" fill="#F97316" opacity="0.8"/>
                   <circle cx="28" cy="44" r="2" fill="#FFD700"/>
                   <circle cx="132" cy="36" r="2" fill="#FFD700"/>
                   <circle cx="22" cy="95" r="1.5" fill="#FFD700"/>
@@ -739,7 +766,7 @@ export const GlassNavbar = () => {
               {!leadDone ? (
                 <>
                   <div>
-                    <h2 className="text-base font-black text-[#FF7A00] tracking-tight leading-snug">
+                    <h2 className="text-base font-black text-accent tracking-tight leading-snug">
                       {modalMegaData?.modalTitle || `Check Top ${leadModal.label} Colleges in`}
                     </h2>
                     <p className="text-[10px] text-slate-400 mt-0.5">{modalMegaData?.modalSubtitle || 'Fill in your details to get personalised college recommendations'}</p>
@@ -759,17 +786,17 @@ export const GlassNavbar = () => {
                   >
                     <div className="grid grid-cols-2 gap-3">
                       <input required type="text" placeholder="Enter Your First Name" value={leadFirst} onChange={e => setLeadFirst(e.target.value)}
-                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-[#FF7A00] transition-colors" />
+                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-accent transition-colors" />
                       <input type="text" placeholder="Enter Your Last Name" value={leadLast} onChange={e => setLeadLast(e.target.value)}
-                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-[#FF7A00] transition-colors" />
+                        className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-accent transition-colors" />
                     </div>
                     <input required type="tel" placeholder="Enter Your Mobile Number" value={leadMobile} onChange={e => setLeadMobile(e.target.value)}
-                      className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-[#FF7A00] transition-colors" />
+                      className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-accent transition-colors" />
                     <input required type="email" placeholder="Enter Your E-mail" value={leadEmail} onChange={e => setLeadEmail(e.target.value)}
-                      className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-[#FF7A00] transition-colors" />
+                      className="px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white placeholder-slate-400 outline-none focus:border-accent transition-colors" />
                     <div className="relative">
                       <select required value={leadState} onChange={e => { setLeadState(e.target.value); setLeadCity(''); }}
-                        className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors cursor-pointer">
+                        className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white outline-none focus:border-accent transition-colors cursor-pointer">
                         <option value="">Select State</option>
                         {INDIAN_STATES_NAV.map(s => <option key={s} value={s}>{s}</option>)}
                       </select>
@@ -777,14 +804,14 @@ export const GlassNavbar = () => {
                     </div>
                     <div className="relative">
                       <select required value={leadCity} onChange={e => setLeadCity(e.target.value)}
-                        className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] transition-colors cursor-pointer">
+                        className="w-full appearance-none px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-app-border bg-slate-50 dark:bg-app-card text-sm text-slate-900 dark:text-white outline-none focus:border-accent transition-colors cursor-pointer">
                         <option value="">Select City</option>
                         {(NAV_CITIES[leadState] || []).map(c => <option key={c} value={c}>{c}</option>)}
                       </select>
                       <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                     </div>
                     <button type="submit" disabled={leadSubmitting}
-                      className="w-full py-3 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-sm uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-60">
+                      className="w-full py-3 rounded-xl bg-accent hover:bg-accent-hover text-white font-black text-sm uppercase flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all cursor-pointer border-none disabled:opacity-60">
                       {leadSubmitting
                         ? <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
                         : 'Register Now'}
@@ -801,7 +828,7 @@ export const GlassNavbar = () => {
                   <Link
                     to={modalMegaData?.collegesRoute || '/colleges'}
                     onClick={() => { setLeadModal(null); resetLead(); }}
-                    className="mt-2 px-6 py-3 rounded-xl bg-[#FF7A00] hover:bg-[#E06C00] text-white font-black text-xs uppercase shadow-md transition-all"
+                    className="mt-2 px-6 py-3 rounded-xl bg-accent hover:bg-accent-hover text-white font-black text-xs uppercase shadow-md transition-all"
                   >
                     Explore {leadModal.label} Colleges
                   </Link>

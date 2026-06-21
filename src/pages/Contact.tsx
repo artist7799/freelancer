@@ -113,7 +113,7 @@ export const Contact = () => {
       {/* Background aesthetics */}
       <div className="gradient-mesh opacity-70 absolute inset-0 pointer-events-none" />
       <div className="absolute top-20 right-10 w-96 h-96 bg-[#4F46E5]/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#FF7A00]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         
@@ -124,7 +124,7 @@ export const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#FF7A00]/10 text-[#FF7A00] self-start uppercase tracking-wider">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-[#F97316]/10 text-[#F97316] self-start uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             Admissions Desk
           </span>
@@ -146,9 +146,9 @@ export const Contact = () => {
           {/* Card 1: Visit Us */}
           <motion.div 
             variants={itemVariants}
-            className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#FF5E14]/30 dark:hover:border-[#FF5E14]/30 transition-all duration-300 group"
+            className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#F97316]/30 dark:hover:border-[#F97316]/30 transition-all duration-300 group"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#FF7A00]/10 flex items-center justify-center text-[#FF7A00] shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-11 h-11 rounded-xl bg-[#F97316]/10 flex items-center justify-center text-[#F97316] shrink-0 group-hover:scale-110 transition-transform duration-300">
               <MapPin className="w-5.5 h-5.5" />
             </div>
             <div className="flex flex-col min-w-0">
@@ -163,7 +163,7 @@ export const Contact = () => {
           <motion.a 
             href="mailto:aryangwl19@gmail.com"
             variants={itemVariants}
-            className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#FF5E14]/30 dark:hover:border-[#FF5E14]/30 transition-all duration-300 group cursor-pointer"
+            className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#F97316]/30 dark:hover:border-[#F97316]/30 transition-all duration-300 group cursor-pointer"
           >
             <div className="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 shrink-0 group-hover:scale-110 transition-transform duration-300">
               <Mail className="w-5.5 h-5.5" />
@@ -180,7 +180,7 @@ export const Contact = () => {
           <motion.a 
             href="tel:+919399086225"
             variants={itemVariants}
-            className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#FF5E14]/30 dark:hover:border-[#FF5E14]/30 transition-all duration-300 group cursor-pointer"
+            className="p-6 rounded-2xl bg-white dark:bg-app-card border border-slate-200 dark:border-app-border flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#F97316]/30 dark:hover:border-[#F97316]/30 transition-all duration-300 group cursor-pointer"
           >
             <div className="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0 group-hover:scale-110 transition-transform duration-300">
               <Phone className="w-5.5 h-5.5" />
@@ -213,7 +213,7 @@ export const Contact = () => {
               <div className="flex flex-col gap-5 text-xs font-semibold text-slate-500 dark:text-app-muted">
                 {/* Office address */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-app-bg border border-slate-150 dark:border-app-border text-[#FF7A00] shrink-0 mt-0.5">
+                  <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-app-bg border border-slate-150 dark:border-app-border text-[#F97316] shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -234,7 +234,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-black text-slate-900 dark:text-white text-xs uppercase tracking-wide">Email Admissions</h4>
-                    <a href="mailto:aryangwl19@gmail.com" className="mt-1 block font-bold text-slate-700 dark:text-white hover:text-[#FF7A00] transition-colors leading-normal">
+                    <a href="mailto:aryangwl19@gmail.com" className="mt-1 block font-bold text-slate-700 dark:text-white hover:text-[#F97316] transition-colors leading-normal">
                       aryangwl19@gmail.com
                     </a>
                   </div>
@@ -247,7 +247,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-black text-slate-900 dark:text-white text-xs uppercase tracking-wide">Contact Number</h4>
-                    <a href="tel:+919399086225" className="mt-1 block font-bold text-slate-700 dark:text-white hover:text-[#FF7A00] transition-colors leading-normal">
+                    <a href="tel:+919399086225" className="mt-1 block font-bold text-slate-700 dark:text-white hover:text-[#F97316] transition-colors leading-normal">
                       +91 9399086225
                     </a>
                   </div>
@@ -290,7 +290,7 @@ export const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="font-display font-black text-lg text-slate-900 dark:text-white uppercase tracking-wide mb-2 flex items-center gap-2">
-              <MessageSquare className="w-5.5 h-5.5 text-[#FF7A00]" />
+              <MessageSquare className="w-5.5 h-5.5 text-[#F97316]" />
               Send Admissions Enquiry
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mb-6 font-semibold leading-relaxed">
@@ -307,7 +307,7 @@ export const Contact = () => {
                   placeholder="Rahul Gwalior"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#FF7A00] ${
+                  className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#F97316] ${
                     errors.name ? 'border-red-500' : 'border-slate-200 dark:border-app-border'
                   }`}
                 />
@@ -328,7 +328,7 @@ export const Contact = () => {
                     placeholder="rahul@domain.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#FF7A00] ${
+                    className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#F97316] ${
                       errors.email ? 'border-red-500' : 'border-slate-200 dark:border-app-border'
                     }`}
                   />
@@ -347,7 +347,7 @@ export const Contact = () => {
                     placeholder="+91 9876543210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#FF7A00] ${
+                    className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#F97316] ${
                       errors.phone ? 'border-red-500' : 'border-slate-200 dark:border-app-border'
                     }`}
                   />
@@ -368,7 +368,7 @@ export const Contact = () => {
                   placeholder="Admission Enquiry for MBA 2026"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#FF7A00] ${
+                  className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none transition-colors duration-200 focus:border-[#F97316] ${
                     errors.subject ? 'border-red-500' : 'border-slate-200 dark:border-app-border'
                   }`}
                 />
@@ -388,7 +388,7 @@ export const Contact = () => {
                   placeholder="Tell us about the courses, budget ranges or colleges you are shortlisting..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none focus:border-[#FF7A00] resize-none transition-colors duration-200 ${
+                  className={`px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-app-bg border text-slate-900 dark:text-white outline-none focus:border-[#F97316] resize-none transition-colors duration-200 ${
                     errors.message ? 'border-red-500' : 'border-slate-200 dark:border-app-border'
                   }`}
                 />

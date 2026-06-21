@@ -132,12 +132,12 @@ export const EducationLoan: React.FC = () => {
           
           {/* Left Text */}
           <div className="flex-1 flex flex-col gap-5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF7A00]/20 border border-[#FF7A00]/30 text-[10px] font-bold text-white self-start">
-              <Sparkles className="w-3.5 h-3.5 text-[#FF7A00]" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F97316]/20 border border-[#F97316]/30 text-[10px] font-bold text-white self-start">
+              <Sparkles className="w-3.5 h-3.5 text-[#F97316]" />
               Empowering Education Financially
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-tight text-white uppercase tracking-tight max-w-xl">
-              Empower Your Future with the Right <span className="text-[#FF7A00]">Education Loan</span>
+              Empower Your Future with the Right <span className="text-[#F97316]">Education Loan</span>
             </h1>
             <h2 className="text-base sm:text-lg font-bold text-slate-300">
               Achieve Your Academic Dreams Without Financial Worries
@@ -149,7 +149,7 @@ export const EducationLoan: React.FC = () => {
 
           {/* Right form card */}
           <div className="w-full lg:w-[440px] bg-white rounded-2xl p-6 md:p-8 shadow-xl text-slate-800 shrink-0">
-            <h3 className="text-lg font-black text-center text-[#FF7A00] mb-5 uppercase tracking-wide">
+            <h3 className="text-lg font-black text-center text-[#F97316] mb-5 uppercase tracking-wide">
               Check Loan Eligibility
             </h3>
             
@@ -160,7 +160,7 @@ export const EducationLoan: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="email"
@@ -168,7 +168,7 @@ export const EducationLoan: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="tel"
@@ -176,26 +176,26 @@ export const EducationLoan: React.FC = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Mobile No"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="text"
                 value={stateVal}
                 onChange={(e) => setStateVal(e.target.value)}
                 placeholder="Enter Your state"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter Your City"
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#FF7A00] transition-colors"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-450 outline-none focus:border-[#F97316] transition-colors"
               />
               <select
                 value={loanAmount}
                 onChange={(e) => setLoanAmount(e.target.value)}
-                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 outline-none focus:border-[#FF7A00] transition-colors cursor-pointer"
+                className="w-full px-3.5 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 outline-none focus:border-[#F97316] transition-colors cursor-pointer"
               >
                 <option value="">Select Loan Amount</option>
                 <option value="up-to-5">Up to ₹5 Lakhs</option>
@@ -217,7 +217,7 @@ export const EducationLoan: React.FC = () => {
 
         {/* TRUSTED PARTNERS BLOCK */}
         <div className="py-12 border-t border-app-border/40 mt-12 text-center flex flex-col gap-6">
-          <h3 className="text-base sm:text-lg font-display font-black text-white uppercase tracking-wider text-[#FF7A00]">
+          <h3 className="text-base sm:text-lg font-display font-black text-white uppercase tracking-wider text-[#F97316]">
             Trusted Education Loan Partnered with Leading Banks & Institutions
           </h3>
           
@@ -250,19 +250,19 @@ export const EducationLoan: React.FC = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left font-medium text-xs">
             <div className="p-6 rounded-2xl bg-app-card border border-app-border flex flex-col gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#FF7A00]/10 flex items-center justify-center font-black text-white">1</div>
+              <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center font-black text-white">1</div>
               <p className="text-slate-300 leading-relaxed font-bold text-sm">
                 Students pursuing higher education in India or abroad.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-app-card border border-app-border flex flex-col gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#FF7A00]/10 flex items-center justify-center font-black text-white">2</div>
+              <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center font-black text-white">2</div>
               <p className="text-slate-300 leading-relaxed font-bold text-sm">
                 Parents or guardians acting as co-borrowers.
               </p>
             </div>
             <div className="p-6 rounded-2xl bg-app-card border border-app-border flex flex-col gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#FF7A00]/10 flex items-center justify-center font-black text-white">3</div>
+              <div className="w-8 h-8 rounded-lg bg-[#F97316]/10 flex items-center justify-center font-black text-white">3</div>
               <p className="text-slate-300 leading-relaxed font-bold text-sm">
                 Professionals looking for education loan refinancing.
               </p>
@@ -286,10 +286,10 @@ export const EducationLoan: React.FC = () => {
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full px-5 py-4 flex justify-between items-center text-left text-xs sm:text-sm font-extrabold text-white cursor-pointer bg-[#FF7A00]/5 hover:bg-[#FF7A00]/10 transition-colors border-none"
+                    className="w-full px-5 py-4 flex justify-between items-center text-left text-xs sm:text-sm font-extrabold text-white cursor-pointer bg-[#F97316]/5 hover:bg-[#F97316]/10 transition-colors border-none"
                   >
                     <span>{faq.q}</span>
-                    {isOpen ? <ChevronUp className="w-4 h-4 text-[#FF7A00]" /> : <ChevronDown className="w-4 h-4 text-[#FF7A00]" />}
+                    {isOpen ? <ChevronUp className="w-4 h-4 text-[#F97316]" /> : <ChevronDown className="w-4 h-4 text-[#F97316]" />}
                   </button>
                   {isOpen && (
                     <div className="px-5 py-4 text-xs sm:text-sm text-app-muted leading-relaxed font-medium bg-[#080B16] border-t border-app-border/30">

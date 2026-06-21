@@ -157,12 +157,12 @@ export const CollegePredictor = () => {
         
         {/* LEFT SIDEBAR: Illustrations and tags */}
         <div className="relative flex flex-col justify-between p-8 md:w-5/12 bg-gradient-to-br from-[#1a1040] to-[#0B1020] border-r border-app-border overflow-hidden">
-          <div className="absolute top-0 left-0 w-32 h-32 bg-[#FF7A00]/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute top-0 left-0 w-32 h-32 bg-[#F97316]/10 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#4F46E5]/10 rounded-full blur-2xl pointer-events-none" />
 
           {/* Stepper display */}
           <div className="relative z-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FF7A00]/10 text-[#FF7A00] mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#F97316]/10 text-[#F97316] mb-6">
               <Sparkles className="w-3.5 h-3.5" />
               AI Admission Engine
             </span>
@@ -175,7 +175,7 @@ export const CollegePredictor = () => {
               ].map((s) => (
                 <div key={s.step} className="flex gap-3 items-start">
                   <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
-                    step >= s.step ? 'bg-[#FF7A00] text-white' : 'bg-app-card text-app-muted border border-app-border'
+                    step >= s.step ? 'bg-[#F97316] text-white' : 'bg-app-card text-app-muted border border-app-border'
                   }`}>
                     {s.step}
                   </div>
@@ -229,7 +229,7 @@ export const CollegePredictor = () => {
                       <select
                         value={courseCategory}
                         onChange={(e) => setCourseCategory(e.target.value)}
-                        className="w-full appearance-none px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#FF7A00] cursor-pointer"
+                        className="w-full appearance-none px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#F97316] cursor-pointer"
                       >
                         <option value="Engineering" className="bg-app-card">Engineering (B.Tech)</option>
                         <option value="Management" className="bg-app-card">Management (MBA)</option>
@@ -248,7 +248,7 @@ export const CollegePredictor = () => {
                       placeholder="e.g. 2500"
                       value={rank}
                       onChange={(e) => setRank(e.target.value === '' ? '' : Number(e.target.value))}
-                      className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00]"
+                      className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#F97316]"
                     />
                   </div>
                 </div>
@@ -261,7 +261,7 @@ export const CollegePredictor = () => {
                       <select
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
-                        className="w-full appearance-none px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#FF7A00] cursor-pointer"
+                        className="w-full appearance-none px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#F97316] cursor-pointer"
                       >
                         <option value="General" className="bg-app-card">General / Unreserved</option>
                         <option value="OBC" className="bg-app-card">OBC (Non-Creamy)</option>
@@ -279,7 +279,7 @@ export const CollegePredictor = () => {
                       <select
                         value={homeState}
                         onChange={(e) => setHomeState(e.target.value)}
-                        className="w-full appearance-none px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#FF7A00] cursor-pointer"
+                        className="w-full appearance-none px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-white outline-none focus:border-[#F97316] cursor-pointer"
                       >
                         {INDIAN_STATES.map((st) => (
                           <option key={st} value={st} className="bg-app-card">{st}</option>
@@ -294,7 +294,7 @@ export const CollegePredictor = () => {
                 <div className="flex flex-col gap-3 border-t border-app-border pt-4">
                   <div className="flex justify-between items-center">
                     <label className="text-[10px] font-black text-app-muted uppercase tracking-wider">Max Annual Tuition Budget</label>
-                    <span className="text-xs font-black text-[#FF7A00]">
+                    <span className="text-xs font-black text-[#F97316]">
                       {budget >= 100000 ? `${(budget / 100000).toFixed(1)} Lakhs / yr` : `₹${budget}`}
                     </span>
                   </div>
@@ -305,7 +305,7 @@ export const CollegePredictor = () => {
                     step={25000}
                     value={budget}
                     onChange={(e) => setBudget(Number(e.target.value))}
-                    className="w-full accent-[#FF7A00] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                    className="w-full accent-[#F97316] h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer"
                   />
                   <div className="flex justify-between text-[9px] text-app-muted font-bold">
                     <span>Min: ₹50K</span>
@@ -317,7 +317,7 @@ export const CollegePredictor = () => {
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase flex items-center justify-center gap-1.5 transition-all border-none cursor-pointer shadow-lg shadow-[#FF7A00]/25 mt-4"
+                className="w-full py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-1.5 transition-all border-none cursor-pointer shadow-lg shadow-[#F97316]/25 mt-4"
               >
                 <span>Continue to Callback Info</span>
                 <ArrowRight className="w-4 h-4" />
@@ -345,7 +345,7 @@ export const CollegePredictor = () => {
                       placeholder="e.g. Rahul"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00]"
+                      className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#F97316]"
                     />
                   </div>
 
@@ -357,7 +357,7 @@ export const CollegePredictor = () => {
                       placeholder="e.g. Dev"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00]"
+                      className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#F97316]"
                     />
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export const CollegePredictor = () => {
                     placeholder="Enter mobile number"
                     value={mobile}
                     onChange={(e) => setMobile(e.target.value)}
-                    className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00]"
+                    className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#F97316]"
                   />
                 </div>
 
@@ -382,7 +382,7 @@ export const CollegePredictor = () => {
                     placeholder="email@domain.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#FF7A00]"
+                    className="w-full px-3.5 py-3 rounded-xl bg-app-card border border-app-border text-xs text-slate-900 placeholder-[#94A3B8] outline-none focus:border-[#F97316]"
                   />
                 </div>
               </div>
@@ -399,7 +399,7 @@ export const CollegePredictor = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase flex items-center justify-center gap-1.5 transition-all border-none cursor-pointer shadow-lg shadow-[#FF7A00]/25 disabled:opacity-50"
+                  className="flex-1 py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase flex items-center justify-center gap-1.5 transition-all border-none cursor-pointer shadow-lg shadow-[#F97316]/25 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
@@ -438,7 +438,7 @@ export const CollegePredictor = () => {
                       className="flex items-center justify-between p-4 rounded-2xl bg-app-card border border-app-border hover:border-app-border transition-colors"
                     >
                       <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-8 h-8 rounded-full bg-app-card flex items-center justify-center border border-app-border font-black text-[#FF7A00] text-xs shrink-0">
+                        <div className="w-8 h-8 rounded-full bg-app-card flex items-center justify-center border border-app-border font-black text-[#F97316] text-xs shrink-0">
                           #{i + 1}
                         </div>
                         <div className="min-w-0 text-left">
@@ -484,7 +484,7 @@ export const CollegePredictor = () => {
                     addToast('Counselor callback scheduled! We will contact you shortly.', 'success');
                     handleClose();
                   }}
-                  className="flex-1 py-3.5 rounded-xl bg-[#FF7A00] hover:bg-[#D14B00] text-white font-bold text-xs uppercase cursor-pointer border-none transition-colors shadow-lg shadow-[#FF7A00]/25"
+                  className="flex-1 py-3.5 rounded-xl bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-xs uppercase cursor-pointer border-none transition-colors shadow-lg shadow-[#F97316]/25"
                 >
                   Connect with Counselor
                 </button>
